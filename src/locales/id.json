@@ -10,27 +10,155 @@
   "hero": {
     "title": "Membangun",
     "subtitle": "Masa Depan",
-    "description": "AI-powered automation and intelligent digital systems for modern businesses seeking exponential growth.",
-    "cta_primary": "Initialize Project",
-    "cta_secondary": "Explore Solutions",
-    "badge": "Next-Gen Autonomous Systems"
+    "description": "Otomasi bertenaga AI dan sistem digital cerdas untuk bisnis modern yang mengejar pertumbuhan eksponensial.",
+    "cta_primary": "Mulai Proyek",
+    "cta_secondary": "Jelajahi Solusi",
+    "badge": "Sistem Otonom Generasi Baru"
+  },
+  "stats": {
+    "uptime": "Waktu Aktif",
+    "latency": "Latensi",
+    "efficiency": "Efisiensi"
+  },
+  "features": {
+    "section_title": "Dibangun untuk Era Kecerdasan",
+    "section_desc": "Infrastruktur inti kami memanfaatkan arsitektur saraf canggih untuk memproses alur kerja bisnis yang kompleks secara real-time.",
+    "f1_title": "Inti Otonom",
+    "f1_desc": "Agen AI yang mengoptimalkan diri sendiri untuk menangani siklus pengambilan keputusan.",
+    "f2_title": "Kecerdasan Data",
+    "f2_desc": "Mesin analitik prediktif yang mengubah data mentah menjadi sinyal berharga.",
+    "f3_title": "Jaringan Global",
+    "f3_desc": "Infrastruktur terdistribusi yang memastikan latensi ultra-rendah di seluruh dunia."
+  },
+  "dashboard": {
+    "title": "Kendalikan Masa Depan Pekerjaan",
+    "l1": "Pemantauan alokasi sumber daya real-time",
+    "l2": "Sinkronisasi alur kerja otomatis",
+    "l3": "Deteksi hambatan prediktif",
+    "l4": "Enkripsi aman kelas perusahaan"
+  },
+  "about": {
+    "badge": "Narasi Kami",
+    "title": "Membangun Inovasi Unggul Melalui",
+    "subtitle": "Kecerdasan Buatan",
+    "description": "Vermont Automated Digital lahir dari satu obsesi: untuk menembus batas apa yang bisa dicapai oleh sistem otonom. Kami adalah laboratorium AI tahap awal yang didedikasikan untuk membangun infrastruktur masa depan.",
+    "philosophy": {
+      "title": "Pola Pikir Pendiri",
+      "p1_title": "Permulaan yang Ambisius",
+      "p1_desc": "Kami tidak hanya membangun fitur; kami merancang ekosistem. Pendekatan kami berakar pada prinsip utama dan rasa ingin tahu teknologi yang ekstrem.",
+      "p2_title": "AI Berintegritas",
+      "p2_desc": "Etika bukanlah pemikiran belakangan. Kami membangun sistem yang aman, transparan, dan andal yang memberdayakan, bukan mengeksploitasi."
+    },
+    "mission": {
+      "title": "Misi Kami",
+      "desc": "Mendemokratisasi otomasi tingkat lanjut melalui infrastruktur AI berperforma tinggi yang memungkinkan bisnis fokus pada inovasi kreatif sementara kami menangani kompleksitas operasional."
+    },
+    "vision": {
+      "title": "Visi Kami",
+      "desc": "Masa depan di mana sistem digital bukan sekadar alat, melainkan mitra cerdas dalam kemajuan manusia—otonom, adaptif, dan tak kasat mata."
+    }
+  },
+  "services": {
+    "badge": "Kemampuan",
+    "title": "Arsitektur Otonom",
+    "subtitle": "Skala Global",
+    "description": "Kami merancang dan mengintegrasikan agen AI canggih yang mampu melakukan orkestrasi alur kerja tingkat lanjut dengan intervensi manusia minimal.",
+    "s1_title": "Otomasi Proses AI",
+    "s1_desc": "Mengganti tugas manual yang repetitif dengan agen otonom yang belajar dan beradaptasi.",
+    "s2_title": "Infrastruktur Cloud",
+    "s2_desc": "Sistem terdistribusi berperforma tinggi yang dibangun untuk kecepatan dan skalabilitas ekstrem.",
+    "s3_title": "Keamanan Neural",
+    "s3_desc": "Perlindungan data tingkat lanjut menggunakan enkripsi yang didorong oleh AI dan deteksi ancaman.",
+    "s4_title": "Analitik Prediktif",
+    "s4_desc": "Mengubah data historis menjadi wawasan masa depan yang dapat ditindaklanjuti untuk bisnis Anda.",
+    "cta": "Inisialisasi Permintaan",
+    "footer_title": "Siap untuk Berotomasi?",
+    "footer_desc": "Bergabunglah dengan lingkaran bisnis elit yang memanfaatkan kecerdasan otonom untuk mendominasi pasar mereka.",
+    "footer_button": "Mulai Konsultasi"
+  },
+  "solutions": {
+    "badge": "Ekosistem Otonom",
+    "title": "Solusi AI untuk Era",
+    "subtitle": "Eksponensial",
+    "core_title": "Inti Logika Neural",
+    "core_desc": "Arsitektur neural eksklusif kami memungkinkan pengambilan keputusan real-time di seluruh jaringan terdistribusi. Ini bukan sekadar otomasi; ini adalah kognisi digital.",
+    "accuracy": "Akurasi",
+    "response": "Respon",
+    "list": {
+      "s1_title": "Ekosistem Otonom",
+      "s1_desc": "Lingkungan digital yang mengatur diri sendiri dan beradaptasi dengan dinamika pasar.",
+      "s2_title": "Arsitektur Jaringan Neural",
+      "s2_desc": "Sistem kognitif yang dibangun khusus untuk pengambilan keputusan berisiko tinggi.",
+      "s3_title": "Skalasi Sumber Daya Prediktif",
+      "s3_desc": "Antisipasi kebutuhan infrastruktur sebelum berdampak pada performa.",
+      "s4_title": "Kecerdasan Inti Terdistribusi",
+      "s4_desc": "Agen AI yang tersinkronisasi beroperasi di berbagai yurisdiksi global."
+    },
+    "extra": {
+      "e1_title": "Kecerdasan Terdistribusi",
+      "e1_desc": "Koordinasikan ribuan agen AI di seluruh tumpukan digital Anda dengan mulus.",
+      "e2_title": "Mesin Prediktif",
+      "e2_desc": "Antisipasi pergeseran pasar dan hambatan internal sebelum terjadi.",
+      "e3_title": "Keamanan Kuantum",
+      "e3_desc": "Lindungi aset data Anda dengan lapisan enkripsi yang dirancang untuk dekade berikutnya."
+    }
+  },
+  "innovation": {
+    "badge": "Cakrawala",
+    "title": "Visi &",
+    "subtitle": "Inovasi",
+    "description": "Kami tidak hanya mengikuti peta jalan AI; kami sedang menggambarnya. Jelajahi lintasan kami menuju otonomi digital mutlak.",
+    "roadmap": {
+      "p1_phase": "Fase 01",
+      "p1_title": "Orkestrasi Otonom",
+      "p1_desc": "Penerapan agen bisnis yang mengoptimalkan diri sendiri yang mampu mengelola logika lintas platform tanpa intervensi manusia.",
+      "p2_phase": "Fase 02",
+      "p2_title": "Infrastruktur Neural Mesh",
+      "p2_desc": "Distribusi global node pemrosesan neural latensi rendah untuk kecerdasan edge real-time.",
+      "p3_phase": "Fase 03",
+      "p3_title": "Sistem Kognitif Kuantum",
+      "p3_desc": "Integrasi enkripsi siap kuantum dan pemodelan kognitif skala besar untuk strategi perusahaan.",
+      "status_active": "Aktif",
+      "status_pending": "Tertunda",
+      "status_vision": "Visi"
+    },
+    "cards": {
+      "c1_title": "Otomasi Terukur",
+      "c1_desc": "Sistem kami dibangun untuk tumbuh bersama ambisi Anda. Dari penanganan tugas sederhana hingga orkestrasi neural yang kompleks.",
+      "c2_title": "Kecerdasan Tanpa Batas",
+      "c2_desc": "Kami membangun tenaga kerja digital tanpa batas. Node AI kami beroperasi di berbagai yurisdiksi, memastikan kepatuhan global."
+    }
   },
   "footer": {
-    "tagline": "Advancing human potential through intelligent automation and autonomous systems. Vermont Automated Digital is an early-stage AI laboratory focused on high-impact digital transformation.",
-    "exploration": "Exploration",
-    "contact_heading": "Contact",
-    "rights": "© 2026 Vermont Automated Digital. All rights reserved."
+    "tagline": "Memajukan potensi manusia melalui otomasi cerdas dan sistem otonom. Vermont Automated Digital adalah laboratorium AI tahap awal yang berfokus pada transformasi digital berdampak tinggi.",
+    "exploration": "Eksplorasi",
+    "contact_heading": "Kontak",
+    "innovation_hub": "Pusat Inovasi",
+    "rights": "© 2026 Vermont Automated Digital. Hak cipta dilindungi undang-undang."
   },
   "contact": {
     "title": "Membangun",
     "subtitle": "Garis Depan",
-    "description": "Whether you're looking to automate complex workflows or architect a new digital ecosystem, our laboratory is ready to assist.",
+    "description": "Baik Anda ingin mengotomatiskan alur kerja yang kompleks atau merancang ekosistem digital baru, laboratorium kami siap membantu.",
+    "info": {
+      "email_label": "Terminal Email",
+      "phone_label": "Jalur Langsung",
+      "hq_label": "Kantor Pusat"
+    },
     "form": {
-      "name": "Name",
+      "name": "Nama",
       "email": "Email",
-      "subject": "Subject",
-      "message": "Message",
-      "button": "Transmit Message"
+      "subject": "Subjek",
+      "message": "Pesan",
+      "button": "Kirim Pesan",
+      "placeholder_name": "Contoh: Alan Turing",
+      "placeholder_message": "Jelaskan visi Anda...",
+      "options": {
+        "ai": "Konsultasi Otomasi AI",
+        "arch": "Arsitektur Sistem",
+        "partnership": "Pertanyaan Kemitraan",
+        "other": "Lainnya"
+      }
     }
   }
 }

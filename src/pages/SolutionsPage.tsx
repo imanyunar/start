@@ -1,26 +1,29 @@
 import { motion } from 'framer-motion';
 import { Network, BrainCircuit, LineChart, ShieldCheck, ChevronRight } from 'lucide-react';
-
-const solutions = [
-  { 
-    title: 'Autonomous Ecosystems', 
-    description: 'Self-governing digital environments that adapt to market dynamics.' 
-  },
-  { 
-    title: 'Neural Network Architectures', 
-    description: 'Custom-built cognitive systems for high-stakes decision making.' 
-  },
-  { 
-    title: 'Predictive Resource Scaling', 
-    description: 'Anticipate infrastructure needs before they impact performance.' 
-  },
-  { 
-    title: 'Distributed Core Intelligence', 
-    description: 'Synchronized AI agents operating across global jurisdictions.' 
-  },
-];
+import { useTranslation } from 'react-i18next';
 
 const SolutionsPage = () => {
+  const { t } = useTranslation();
+
+  const solutions = [
+    { 
+      title: t('solutions.list.s1_title'), 
+      description: t('solutions.list.s1_desc')
+    },
+    { 
+      title: t('solutions.list.s2_title'), 
+      description: t('solutions.list.s2_desc')
+    },
+    { 
+      title: t('solutions.list.s3_title'), 
+      description: t('solutions.list.s3_desc')
+    },
+    { 
+      title: t('solutions.list.s4_title'), 
+      description: t('solutions.list.s4_desc')
+    },
+  ];
+
   return (
     <div className="pt-24 min-h-screen relative overflow-hidden">
       {/* Cinematic Background */}
@@ -33,10 +36,10 @@ const SolutionsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-24"
           >
-            <div className="text-brandBlue font-black uppercase tracking-[0.3em] text-[10px] mb-6">Autonomous Ecosystem</div>
+            <div className="text-brandBlue font-black uppercase tracking-[0.3em] text-[10px] mb-6">{t('solutions.badge')}</div>
             <h1 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter max-w-4xl leading-tight">
-              AI Solutions for the <br />
-              <span className="text-gradient">Exponential Era</span>
+              {t('solutions.title')} <br />
+              <span className="text-gradient">{t('solutions.subtitle')}</span>
             </h1>
           </motion.div>
 
@@ -45,18 +48,18 @@ const SolutionsPage = () => {
               <div className="p-3 bg-brandBlue/10 rounded-lg text-brandBlue w-fit mb-8">
                 <BrainCircuit size={32} />
               </div>
-              <h2 className="text-3xl font-black text-white mb-6">Neural Logic Core</h2>
+              <h2 className="text-3xl font-black text-white mb-6">{t('solutions.core_title')}</h2>
               <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                Our proprietary neural architecture enables real-time decision making across distributed networks. It's not just automation; it's digital cognition.
+                {t('solutions.core_desc')}
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="p-4 glass rounded-xl">
                   <div className="text-brandBlue font-black text-xl mb-1">98%</div>
-                  <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Accuracy</div>
+                  <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{t('solutions.accuracy')}</div>
                 </div>
                 <div className="p-4 glass rounded-xl">
                   <div className="text-brandBlue font-black text-xl mb-1">0.5ms</div>
-                  <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Response</div>
+                  <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{t('solutions.response')}</div>
                 </div>
               </div>
             </div>
@@ -69,7 +72,7 @@ const SolutionsPage = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-navy-900/50 border border-white/5 p-6 md:p-8 rounded-2xl flex items-center justify-between group cursor-pointer hover:bg-white/5 transition-all"
+                  className="bg-navy-950/50 border border-white/5 p-6 md:p-8 rounded-2xl flex items-center justify-between group cursor-pointer hover:bg-white/5 transition-all"
                 >
                   <div>
                     <h3 className="text-sm md:text-base font-black text-white mb-1 uppercase tracking-widest group-hover:text-brandBlue transition-colors">{s.title}</h3>
@@ -85,18 +88,18 @@ const SolutionsPage = () => {
             {[
               { 
                 icon: <Network />, 
-                title: "Distributed Intelligence", 
-                desc: "Coordinate thousands of AI agents across your entire digital stack seamlessly." 
+                title: t('solutions.extra.e1_title'), 
+                desc: t('solutions.extra.e1_desc') 
               },
               { 
                 icon: <LineChart />, 
-                title: "Predictive Engines", 
-                desc: "Anticipate market shifts and internal bottlenecks before they manifest." 
+                title: t('solutions.extra.e2_title'), 
+                desc: t('solutions.extra.e2_desc') 
               },
               { 
                 icon: <ShieldCheck />, 
-                title: "Quantum Security", 
-                desc: "Protect your data assets with encryption layers designed for the next decade." 
+                title: t('solutions.extra.e3_title'), 
+                desc: t('solutions.extra.e3_desc') 
               }
             ].map((item, i) => (
               <motion.div 

@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
             <p className="text-xs text-gray-500 leading-relaxed">
               Semarang, Indonesia<br />
-              Innovation Hub
+              {t('footer.innovation_hub')}
             </p>
           </div>
         </div>

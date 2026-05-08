@@ -45,15 +45,15 @@ const Home = () => {
             <div className="mt-16 grid grid-cols-3 gap-8 border-t border-white/5 pt-10">
               <div>
                 <div className="text-2xl font-black text-white mb-1">99.9%</div>
-                <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Uptime</div>
+                <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{t('stats.uptime')}</div>
               </div>
               <div>
                 <div className="text-2xl font-black text-white mb-1">250ms</div>
-                <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Latency</div>
+                <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{t('stats.latency')}</div>
               </div>
               <div>
                 <div className="text-2xl font-black text-white mb-1">10X</div>
-                <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Efficiency</div>
+                <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{t('stats.efficiency')}</div>
               </div>
             </div>
           </motion.div>
@@ -81,17 +81,17 @@ const Home = () => {
       <section className="section-padding relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter">Built for the Intelligence Age</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter">{t('features.section_title')}</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Our core infrastructure leverages advanced neural architectures to process complex business workflows in real-time.
+              {t('features.section_desc')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: <Cpu />, title: "Autonomous Core", desc: "Self-optimizing AI agents that handle decision-making cycles." },
-              { icon: <Database />, title: "Data Intelligence", desc: "Predictive analytics engine that transforms raw noise into signal." },
-              { icon: <Globe />, title: "Global Mesh", desc: "Distributed infrastructure ensuring ultra-low latency worldwide." }
+              { icon: <Cpu />, title: t('features.f1_title'), desc: t('features.f1_desc') },
+              { icon: <Database />, title: t('features.f2_title'), desc: t('features.f2_desc') },
+              { icon: <Globe />, title: t('features.f3_title'), desc: t('features.f3_desc') }
             ].map((item, i) => (
               <motion.div 
                 key={i}
@@ -115,14 +115,14 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
               <h2 className="text-4xl font-black text-white mb-8 tracking-tighter leading-tight">
-                Control the <br />Future of Work
+                {t('dashboard.title')}
               </h2>
               <ul className="space-y-6">
                 {[
-                  "Real-time resource allocation monitoring",
-                  "Automated workflow synchronization",
-                  "Predictive bottleneck detection",
-                  "Secure enterprise-grade encryption"
+                  t('dashboard.l1'),
+                  t('dashboard.l2'),
+                  t('dashboard.l3'),
+                  t('dashboard.l4')
                 ].map((text, i) => (
                   <li key={i} className="flex items-center gap-4 text-gray-300 font-medium">
                     <div className="w-5 h-5 rounded-full bg-brandBlue/20 flex items-center justify-center text-brandBlue">

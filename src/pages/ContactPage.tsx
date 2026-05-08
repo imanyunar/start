@@ -31,7 +31,7 @@ const ContactPage = () => {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <div className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-1">Email Terminal</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-1">{t('contact.info.email_label')}</div>
                   <div className="text-white font-bold">imanyunar@gmail.com</div>
                 </div>
               </div>
@@ -40,7 +40,7 @@ const ContactPage = () => {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <div className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-1">Direct Line</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-1">{t('contact.info.phone_label')}</div>
                   <div className="text-white font-bold">085172247452</div>
                 </div>
               </div>
@@ -49,7 +49,7 @@ const ContactPage = () => {
                   <Globe size={20} />
                 </div>
                 <div>
-                  <div className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-1">Headquarters</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest text-gray-500 mb-1">{t('contact.info.hq_label')}</div>
                   <div className="text-white font-bold">Semarang, Indonesia</div>
                 </div>
               </div>
@@ -78,7 +78,7 @@ const ContactPage = () => {
                     <input 
                       type="text" 
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-600 focus:border-brandBlue/50 focus:outline-none transition-all"
-                      placeholder="Alan Turing"
+                      placeholder={t('contact.form.placeholder_name')}
                     />
                   </div>
                   <div className="space-y-2">
@@ -93,10 +93,10 @@ const ContactPage = () => {
                 <div className="space-y-2">
                   <label className="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-2">{t('contact.form.subject')}</label>
                   <select className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:border-brandBlue/50 focus:outline-none transition-all appearance-none">
-                    <option className="bg-navy-950">AI Automation Consulting</option>
-                    <option className="bg-navy-950">System Architecture</option>
-                    <option className="bg-navy-950">Partnership Inquiry</option>
-                    <option className="bg-navy-950">Other</option>
+                    <option className="bg-navy-950">{t('contact.form.options.ai')}</option>
+                    <option className="bg-navy-950">{t('contact.form.options.arch')}</option>
+                    <option className="bg-navy-950">{t('contact.form.options.partnership')}</option>
+                    <option className="bg-navy-950">{t('contact.form.options.other')}</option>
                   </select>
                 </div>
                 <div className="space-y-2">
@@ -104,7 +104,7 @@ const ContactPage = () => {
                   <textarea 
                     rows={4}
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white placeholder:text-gray-600 focus:border-brandBlue/50 focus:outline-none transition-all resize-none"
-                    placeholder="Describe your vision..."
+                    placeholder={t('contact.form.placeholder_message')}
                   ></textarea>
                 </div>
                 <button type="submit" className="btn-primary w-full py-5 group shadow-[0_0_30px_rgba(37,99,235,0.2)]">

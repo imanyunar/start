@@ -1,31 +1,34 @@
 import { motion } from 'framer-motion';
 import { Rocket, Globe } from 'lucide-react';
-
-const roadmap = [
-  {
-    phase: "Phase 01",
-    title: "Autonomous Orchestration",
-    date: "Q3 2026",
-    desc: "Deployment of self-optimizing business agents capable of managing cross-platform logic without human intervention.",
-    status: "Active"
-  },
-  {
-    phase: "Phase 02",
-    title: "Neural Mesh Infrastructure",
-    date: "Q1 2027",
-    desc: "Global distribution of low-latency neural processing nodes for real-time edge intelligence.",
-    status: "Pending"
-  },
-  {
-    phase: "Phase 03",
-    title: "Quantum Cognitive Systems",
-    date: "Q4 2027",
-    desc: "Integration of quantum-ready encryption and large-scale cognitive modeling for enterprise strategy.",
-    status: "Vision"
-  }
-];
+import { useTranslation } from 'react-i18next';
 
 const InnovationPage = () => {
+  const { t } = useTranslation();
+
+  const roadmap = [
+    {
+      phase: t('innovation.roadmap.p1_phase'),
+      title: t('innovation.roadmap.p1_title'),
+      date: "Q3 2026",
+      desc: t('innovation.roadmap.p1_desc'),
+      status: t('innovation.roadmap.status_active')
+    },
+    {
+      phase: t('innovation.roadmap.p2_phase'),
+      title: t('innovation.roadmap.p2_title'),
+      date: "Q1 2027",
+      desc: t('innovation.roadmap.p2_desc'),
+      status: t('innovation.roadmap.status_pending')
+    },
+    {
+      phase: t('innovation.roadmap.p3_phase'),
+      title: t('innovation.roadmap.p3_title'),
+      date: "Q4 2027",
+      desc: t('innovation.roadmap.p3_desc'),
+      status: t('innovation.roadmap.status_vision')
+    }
+  ];
+
   return (
     <div className="pt-24 min-h-screen pb-20">
       {/* Hero */}
@@ -36,12 +39,12 @@ const InnovationPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-32"
           >
-            <div className="text-brandBlue font-black uppercase tracking-[0.3em] text-[10px] mb-6">The Horizon</div>
+            <div className="text-brandBlue font-black uppercase tracking-[0.3em] text-[10px] mb-6">{t('innovation.badge')}</div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-8 tracking-tighter px-4">
-              Vision & <span className="text-gradient pb-2">Innovation</span>
+              {t('innovation.title')} <span className="text-gradient pb-2">{t('innovation.subtitle')}</span>
             </h1>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-              We are not just following the roadmap of AI; we are drawing it. Explore our trajectory toward absolute digital autonomy.
+              {t('innovation.description')}
             </p>
           </motion.div>
 
@@ -73,8 +76,8 @@ const InnovationPage = () => {
                         <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{item.title}</h3>
                         <p className="text-gray-400 text-sm leading-relaxed mb-8">{item.desc}</p>
                         <div className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest w-fit border ${
-                          item.status === 'Active' ? 'bg-green-500/5 text-green-500 border-green-500/20' : 
-                          item.status === 'Pending' ? 'bg-yellow-500/5 text-yellow-500 border-yellow-500/20' : 
+                          i === 0 ? 'bg-green-500/5 text-green-500 border-green-500/20' : 
+                          i === 1 ? 'bg-yellow-500/5 text-yellow-500 border-yellow-500/20' : 
                           'bg-gray-500/5 text-gray-500 border-gray-500/20'
                         }`}>
                           {item.status}
@@ -97,16 +100,16 @@ const InnovationPage = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="p-10 glass rounded-3xl border-brandBlue/10">
             <Rocket className="text-brandBlue mb-6" size={32} />
-            <h3 className="text-2xl font-black text-white mb-4 tracking-tight">Scalable Automation</h3>
+            <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{t('innovation.cards.c1_title')}</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Our systems are built to grow with your ambition. From simple task handling to complex neural orchestration, Vermont scales vertically and horizontally.
+              {t('innovation.cards.c1_desc')}
             </p>
           </div>
           <div className="p-10 glass rounded-3xl border-brandBlue/10">
             <Globe className="text-brandBlue mb-6" size={32} />
-            <h3 className="text-2xl font-black text-white mb-4 tracking-tight">Intelligence Without Borders</h3>
+            <h3 className="text-2xl font-black text-white mb-4 tracking-tight">{t('innovation.cards.c2_title')}</h3>
             <p className="text-gray-400 text-sm leading-relaxed">
-              We are building a borderless digital workforce. Our AI nodes operate across jurisdictions, ensuring compliance and performance globally.
+              {t('innovation.cards.c2_desc')}
             </p>
           </div>
         </div>

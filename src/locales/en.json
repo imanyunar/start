@@ -15,22 +15,150 @@
     "cta_secondary": "Explore Solutions",
     "badge": "Next-Gen Autonomous Systems"
   },
+  "stats": {
+    "uptime": "Uptime",
+    "latency": "Latency",
+    "efficiency": "Efficiency"
+  },
+  "features": {
+    "section_title": "Built for the Intelligence Age",
+    "section_desc": "Our core infrastructure leverages advanced neural architectures to process complex business workflows in real-time.",
+    "f1_title": "Autonomous Core",
+    "f1_desc": "Self-optimizing AI agents that handle decision-making cycles.",
+    "f2_title": "Data Intelligence",
+    "f2_desc": "Predictive analytics engine that transforms raw noise into signal.",
+    "f3_title": "Global Mesh",
+    "f3_desc": "Distributed infrastructure ensuring ultra-low latency worldwide."
+  },
+  "dashboard": {
+    "title": "Control the Future of Work",
+    "l1": "Real-time resource allocation monitoring",
+    "l2": "Automated workflow synchronization",
+    "l3": "Predictive bottleneck detection",
+    "l4": "Secure enterprise-grade encryption"
+  },
+  "about": {
+    "badge": "Our Narrative",
+    "title": "Crafting Excellent Innovations Through",
+    "subtitle": "Artificial Intelligence",
+    "description": "Vermont Automated Digital was born out of a singular obsession: to push the boundaries of what autonomous systems can achieve. We are an early-stage AI laboratory dedicated to building the infrastructure of the future.",
+    "philosophy": {
+      "title": "The Founder Mindset",
+      "p1_title": "Ambitious Beginnings",
+      "p1_desc": "We don't build features; we architect ecosystems. Our approach is rooted in first-principles thinking and extreme technological curiosity.",
+      "p2_title": "Integrity-First AI",
+      "p2_desc": "Ethics isn't an afterthought. We build secure, transparent, and reliable systems that empower rather than exploit."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "desc": "To democratize advanced automation through accessible, high-performance AI infrastructure that allows businesses to focus on creative innovation while we handle the complexity of operations."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "desc": "A future where digital systems are not just tools, but intelligent partners in human progress—autonomous, adaptive, and invisible."
+    }
+  },
+  "services": {
+    "badge": "Capabilities",
+    "title": "Autonomous Architecture",
+    "subtitle": "Global Scale",
+    "description": "We engineer and integrate sophisticated AI agents capable of advanced workflow orchestration with minimal human intervention.",
+    "s1_title": "AI Process Automation",
+    "s1_desc": "Replace repetitive manual tasks with autonomous agents that learn and adapt.",
+    "s2_title": "Cloud Infrastructure",
+    "s2_desc": "High-performance distributed systems built for extreme speed and scalability.",
+    "s3_title": "Neural Security",
+    "s3_desc": "Advanced data protection using AI-driven encryption and threat detection.",
+    "s4_title": "Predictive Analytics",
+    "s4_desc": "Transforming historical data into actionable future insights for your business.",
+    "cta": "Initialize Request",
+    "footer_title": "Ready to Automate?",
+    "footer_desc": "Join the elite circle of businesses leveraging autonomous intelligence to dominate their markets.",
+    "footer_button": "Start Consultation"
+  },
+  "solutions": {
+    "badge": "Autonomous Ecosystem",
+    "title": "AI Solutions for the",
+    "subtitle": "Exponential Era",
+    "core_title": "Neural Logic Core",
+    "core_desc": "Our proprietary neural architecture enables real-time decision making across distributed networks. It's not just automation; it's digital cognition.",
+    "accuracy": "Accuracy",
+    "response": "Response",
+    "list": {
+      "s1_title": "Autonomous Ecosystems",
+      "s1_desc": "Self-governing digital environments that adapt to market dynamics.",
+      "s2_title": "Neural Network Architectures",
+      "s2_desc": "Custom-built cognitive systems for high-stakes decision making.",
+      "s3_title": "Predictive Resource Scaling",
+      "s3_desc": "Anticipate infrastructure needs before they impact performance.",
+      "s4_title": "Distributed Core Intelligence",
+      "s4_desc": "Synchronized AI agents operating across global jurisdictions."
+    },
+    "extra": {
+      "e1_title": "Distributed Intelligence",
+      "e1_desc": "Coordinate thousands of AI agents across your entire digital stack seamlessly.",
+      "e2_title": "Predictive Engines",
+      "e2_desc": "Anticipate market shifts and internal bottlenecks before they manifest.",
+      "e3_title": "Quantum Security",
+      "e3_desc": "Protect your data assets with encryption layers designed for the next decade."
+    }
+  },
+  "innovation": {
+    "badge": "The Horizon",
+    "title": "Vision &",
+    "subtitle": "Innovation",
+    "description": "We are not just following the roadmap of AI; we are drawing it. Explore our trajectory toward absolute digital autonomy.",
+    "roadmap": {
+      "p1_phase": "Phase 01",
+      "p1_title": "Autonomous Orchestration",
+      "p1_desc": "Deployment of self-optimizing business agents capable of managing cross-platform logic without human intervention.",
+      "p2_phase": "Phase 02",
+      "p2_title": "Neural Mesh Infrastructure",
+      "p2_desc": "Global distribution of low-latency neural processing nodes for real-time edge intelligence.",
+      "p3_phase": "Phase 03",
+      "p3_title": "Quantum Cognitive Systems",
+      "p3_desc": "Integration of quantum-ready encryption and large-scale cognitive modeling for enterprise strategy.",
+      "status_active": "Active",
+      "status_pending": "Pending",
+      "status_vision": "Vision"
+    },
+    "cards": {
+      "c1_title": "Scalable Automation",
+      "c1_desc": "Our systems are built to grow with your ambition. From simple task handling to complex neural orchestration, Vermont scales vertically and horizontally.",
+      "c2_title": "Intelligence Without Borders",
+      "c2_desc": "We are building a borderless digital workforce. Our AI nodes operate across jurisdictions, ensuring compliance and performance globally."
+    }
+  },
   "footer": {
     "tagline": "Advancing human potential through intelligent automation and autonomous systems. Vermont Automated Digital is an early-stage AI laboratory focused on high-impact digital transformation.",
     "exploration": "Exploration",
     "contact_heading": "Contact",
+    "innovation_hub": "Innovation Hub",
     "rights": "© 2026 Vermont Automated Digital. All rights reserved."
   },
   "contact": {
     "title": "Let's Build the",
     "subtitle": "Next Frontier",
     "description": "Whether you're looking to automate complex workflows or architect a new digital ecosystem, our laboratory is ready to assist.",
+    "info": {
+      "email_label": "Email Terminal",
+      "phone_label": "Direct Line",
+      "hq_label": "Headquarters"
+    },
     "form": {
       "name": "Name",
       "email": "Email",
       "subject": "Subject",
       "message": "Message",
-      "button": "Transmit Message"
+      "button": "Transmit Message",
+      "placeholder_name": "Alan Turing",
+      "placeholder_message": "Describe your vision...",
+      "options": {
+        "ai": "AI Automation Consulting",
+        "arch": "System Architecture",
+        "partnership": "Partnership Inquiry",
+        "other": "Other"
+      }
     }
   }
 }
