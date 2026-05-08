@@ -15,6 +15,10 @@ const Footer = () => {
             <p className="mt-6 text-gray-400 text-sm max-w-sm leading-relaxed">
               {t('footer.tagline')}
             </p>
+            <div className="flex gap-8 text-xs font-bold text-gray-600 mt-8">
+              <a href="#" className="hover:text-brandBlue transition-colors">{t('nav.privacy') || 'Privacy'}</a>
+              <a href="#" className="hover:text-brandBlue transition-colors">{t('nav.terms') || 'Terms'}</a>
+            </div>
             <div className="flex items-center gap-5 mt-8">
               <a href="#" className="text-gray-500 hover:text-white transition-colors"><X size={20} /></a>
               <a href="#" className="text-gray-500 hover:text-white transition-colors"><ExternalLink size={20} /></a>

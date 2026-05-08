@@ -1,28 +1,4 @@
 import { motion } from 'framer-motion';
-import { Cpu, Globe, BarChart3, Code2, Workflow, ArrowUpRight } from 'lucide-react';
-
-const services = [
-  {
-    title: "AI Automation",
-    desc: "Autonomous agents that orchestrate complex business logic with zero human intervention.",
-    icon: <Cpu size={24} />,
-    color: "from-blue-500/20 to-cyan-500/20"
-  },
-  {
-    title: "Business Intelligence",
-    desc: "Deep neural analytics that uncover hidden patterns and predictive growth vectors.",
-    icon: <BarChart3 size={24} />,
-    color: "from-purple-500/20 to-blue-500/20"
-  },
-  {
-    title: "Digital Transformation",
-    desc: "Legacy system modernization through intelligent cloud-native architectures.",
-    icon: <Globe size={24} />,
-    color: "from-cyan-500/20 to-blue-500/20"
-  },
-  {
-    title: "Custom AI Systems",
-    desc: "Bespoke LLM fine-tuning and specialized neural networks for unique operational needs.",
 import { Cpu, Cloud, Shield, BarChart, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';

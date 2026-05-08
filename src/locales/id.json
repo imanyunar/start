@@ -5,7 +5,9 @@
     "capabilities": "Kemampuan",
     "ai_systems": "Sistem AI",
     "roadmap": "Peta Jalan",
-    "contact": "Kontak"
+    "contact": "Kontak",
+    "privacy": "Privasi",
+    "terms": "Ketentuan"
   },
   "hero": {
     "title": "Membangun",
@@ -41,7 +43,7 @@
     "badge": "Narasi Kami",
     "title": "Membangun Inovasi Unggul Melalui",
     "subtitle": "Kecerdasan Buatan",
-    "description": "Vermont Automated Digital lahir dari satu obsesi: untuk menembus batas apa yang bisa dicapai oleh sistem otonom. Kami adalah laboratorium AI tahap awal yang didedikasikan untuk membangun infrastruktur masa depan.",
+    "description": "Vermont Automated Digital lahir dari satu obsesi: untuk menembus batas apa yang bisa diperbuat oleh sistem otonom. Kami adalah laboratorium AI tahap awal yang didedikasikan untuk membangun infrastruktur masa depan.",
     "philosophy": {
       "title": "Pola Pikir Pendiri",
       "p1_title": "Permulaan yang Ambisius",
