@@ -18,9 +18,12 @@ const Navbar = () => {
   const location = useLocation();
   const { t, i18n } = useTranslation();
 
+  const isID = i18n.language.startsWith('id');
+
   const toggleLanguage = () => {
-    const nextLang = i18n.language === 'en' ? 'id' : 'en';
+    const nextLang = isID ? 'en' : 'id';
     i18n.changeLanguage(nextLang);
+    localStorage.setItem('i18nextLng', nextLang);
   };
 
   return (
@@ -50,7 +53,7 @@ const Navbar = () => {
               className="flex items-center gap-2 text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 hover:text-brandBlue transition-all"
             >
               <Languages size={14} />
-              {i18n.language === 'en' ? 'ID' : 'EN'}
+              {isID ? 'EN' : 'ID'}
             </button>
 
             <Link to="/contact" className="btn-primary">
