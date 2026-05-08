@@ -17,7 +17,7 @@ const ContactPage = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="text-brandBlue font-black uppercase tracking-[0.3em] text-[10px] mb-6">Initialize Connection</div>
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter">
+            <h1 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-tight">
               {t('contact.title')} <br />
               <span className="text-gradient">{t('contact.subtitle')}</span>
             </h1>

@@ -24,11 +24,11 @@ const Home = () => {
               <Sparkles size={12} />
               {t('hero.badge')}
             </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[1.1] md:leading-[0.9] tracking-tighter">
               {t('hero.title')} <br />
               <span className="text-gradient">{t('hero.subtitle')}</span>
             </h1>
-            <p className="text-gray-400 text-lg md:text-xl mb-10 leading-relaxed max-w-lg">
+            <p className="text-gray-400 text-base md:text-lg mb-10 leading-relaxed max-w-lg">
               {t('hero.description')}
             </p>
             

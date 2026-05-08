@@ -8,29 +8,29 @@
     "contact": "Kontak"
   },
   "hero": {
-    "title": "Memberdayakan",
+    "title": "Membangun",
     "subtitle": "Masa Depan",
-    "description": "Otomasi bertenaga AI dan sistem digital cerdas untuk bisnis modern yang mencari pertumbuhan eksponensial.",
-    "cta_primary": "Mulai Proyek",
-    "cta_secondary": "Jelajahi Solusi",
-    "badge": "Sistem Otonom Generasi Baru"
+    "description": "AI-powered automation and intelligent digital systems for modern businesses seeking exponential growth.",
+    "cta_primary": "Initialize Project",
+    "cta_secondary": "Explore Solutions",
+    "badge": "Next-Gen Autonomous Systems"
   },
   "footer": {
-    "tagline": "Memajukan potensi manusia melalui otomasi cerdas dan sistem otonom. Vermont Automated Digital adalah laboratorium AI tahap awal yang berfokus pada transformasi digital berdampak tinggi.",
-    "exploration": "Eksplorasi",
-    "contact_heading": "Kontak",
-    "rights": "© 2026 Vermont Automated Digital. Hak cipta dilindungi undang-undang."
+    "tagline": "Advancing human potential through intelligent automation and autonomous systems. Vermont Automated Digital is an early-stage AI laboratory focused on high-impact digital transformation.",
+    "exploration": "Exploration",
+    "contact_heading": "Contact",
+    "rights": "© 2026 Vermont Automated Digital. All rights reserved."
   },
   "contact": {
-    "title": "Mari Bangun",
-    "subtitle": "Garis Depan Baru",
-    "description": "Baik Anda ingin mengotomatiskan alur kerja yang kompleks atau merancang ekosistem digital baru, laboratorium kami siap membantu.",
+    "title": "Membangun",
+    "subtitle": "Garis Depan",
+    "description": "Whether you're looking to automate complex workflows or architect a new digital ecosystem, our laboratory is ready to assist.",
     "form": {
-      "name": "Nama",
+      "name": "Name",
       "email": "Email",
-      "subject": "Subjek",
-      "message": "Pesan",
-      "button": "Kirim Pesan"
+      "subject": "Subject",
+      "message": "Message",
+      "button": "Transmit Message"
     }
   }
 }
