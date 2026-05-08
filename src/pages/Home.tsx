@@ -134,17 +134,96 @@ const Home = () => {
               </ul>
             </div>
             <div className="relative">
-              <div className="glass-dark rounded-2xl border border-white/10 p-4 shadow-[0_0_50px_rgba(37,99,235,0.1)]">
+              {/* Glow */}
+              <div className="absolute -inset-4 bg-brandBlue/5 blur-[60px] rounded-full pointer-events-none" />
+
+              <div className="glass-dark rounded-2xl border border-white/10 p-4 shadow-[0_0_50px_rgba(37,99,235,0.1)] relative">
+                {/* Title bar */}
                 <div className="flex items-center gap-2 mb-4 border-b border-white/5 pb-4">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-                  <div className="ml-4 px-3 py-1 bg-white/5 rounded text-[10px] font-bold text-gray-400">VERMONT OS v2.0</div>
+                  <div className="w-3 h-3 rounded-full bg-red-500/70"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/70"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/70"></div>
+                  <div className="ml-4 px-3 py-1 bg-white/5 rounded text-[10px] font-bold text-gray-400 tracking-widest">VERMONT OS v2.0</div>
+                  <div className="ml-auto flex items-center gap-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
+                    <span className="text-[9px] text-green-400 font-bold">LIVE</span>
+                  </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="h-40 bg-white/5 rounded-xl animate-pulse"></div>
-                  <div className="h-40 bg-brandBlue/10 rounded-xl border border-brandBlue/20"></div>
-                  <div className="h-32 col-span-2 bg-white/5 rounded-xl"></div>
+
+                {/* Top row: Metric cards + Mini Chart */}
+                <div className="grid grid-cols-3 gap-3 mb-3">
+                  {[
+                    { label: 'CPU LOAD', value: '23%', color: 'text-brandBlue' },
+                    { label: 'TASKS DONE', value: '1,842', color: 'text-green-400' },
+                    { label: 'UPTIME', value: '99.9%', color: 'text-purple-400' },
+                  ].map((m, i) => (
+                    <div key={i} className="bg-white/5 rounded-xl p-3 border border-white/5">
+                      <div className="text-[8px] font-black text-gray-500 tracking-widest mb-1">{m.label}</div>
+                      <div className={`text-base font-black ${m.color}`}>{m.value}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Middle row: Bar chart + Activity feed */}
+                <div className="grid grid-cols-2 gap-3 mb-3">
+                  {/* Bar Chart */}
+                  <div className="bg-white/5 rounded-xl p-3 border border-white/5">
+                    <div className="text-[8px] font-black text-gray-500 tracking-widest mb-3">WORKFLOW THROUGHPUT</div>
+                    <div className="flex items-end gap-1.5 h-16">
+                      {[40, 65, 45, 80, 55, 90, 70, 95, 60, 85].map((h, i) => (
+                        <div
+                          key={i}
+                          className="flex-1 rounded-sm"
+                          style={{
+                            height: `${h}%`,
+                            background: `rgba(37,99,235,${0.3 + (h / 100) * 0.7})`,
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Activity Feed */}
+                  <div className="bg-white/5 rounded-xl p-3 border border-white/5 overflow-hidden">
+                    <div className="text-[8px] font-black text-gray-500 tracking-widest mb-3">AGENT ACTIVITY</div>
+                    <div className="space-y-2">
+                      {[
+                        { label: 'Data sync complete', color: 'bg-green-400' },
+                        { label: 'Model retrained', color: 'bg-brandBlue' },
+                        { label: 'Alert resolved', color: 'bg-yellow-400' },
+                      ].map((a, i) => (
+                        <div key={i} className="flex items-center gap-2">
+                          <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${a.color}`}></div>
+                          <span className="text-[9px] text-gray-400 truncate">{a.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom: Progress bars */}
+                <div className="bg-white/5 rounded-xl p-3 border border-white/5">
+                  <div className="text-[8px] font-black text-gray-500 tracking-widest mb-3">AUTOMATION PIPELINE</div>
+                  <div className="space-y-2">
+                    {[
+                      { label: 'Data Ingestion', pct: 92 },
+                      { label: 'Neural Processing', pct: 78 },
+                      { label: 'Output Delivery', pct: 65 },
+                    ].map((p, i) => (
+                      <div key={i}>
+                        <div className="flex justify-between mb-1">
+                          <span className="text-[9px] text-gray-400">{p.label}</span>
+                          <span className="text-[9px] text-brandBlue font-bold">{p.pct}%</span>
+                        </div>
+                        <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-to-r from-brandBlue to-blue-400 rounded-full"
+                            style={{ width: `${p.pct}%` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
