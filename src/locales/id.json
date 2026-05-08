@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "laboratory": "Laboratorium",
+    "capabilities": "Kemampuan",
+    "ai_systems": "Sistem AI",
+    "roadmap": "Peta Jalan",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "title": "Memberdayakan",
+    "subtitle": "Masa Depan",
+    "description": "Otomasi bertenaga AI dan sistem digital cerdas untuk bisnis modern yang mencari pertumbuhan eksponensial.",
+    "cta_primary": "Mulai Proyek",
+    "cta_secondary": "Jelajahi Solusi",
+    "badge": "Sistem Otonom Generasi Baru"
+  },
+  "footer": {
+    "tagline": "Memajukan potensi manusia melalui otomasi cerdas dan sistem otonom. Vermont Automated Digital adalah laboratorium AI tahap awal yang berfokus pada transformasi digital berdampak tinggi.",
+    "exploration": "Eksplorasi",
+    "contact_heading": "Kontak",
+    "rights": "© 2026 Vermont Automated Digital. Hak cipta dilindungi undang-undang."
+  },
+  "contact": {
+    "title": "Mari Bangun",
+    "subtitle": "Garis Depan Baru",
+    "description": "Baik Anda ingin mengotomatiskan alur kerja yang kompleks atau merancang ekosistem digital baru, laboratorium kami siap membantu.",
+    "form": {
+      "name": "Nama",
+      "email": "Email",
+      "subject": "Subjek",
+      "message": "Pesan",
+      "button": "Kirim Pesan"
+    }
+  }
+}

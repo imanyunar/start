@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Cpu, Globe, Database, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="relative">
       {/* Background Glows */}
@@ -19,23 +22,23 @@ const Home = () => {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandBlue/10 border border-brandBlue/20 text-brandBlue text-[10px] font-black uppercase tracking-widest mb-8">
               <Sparkles size={12} />
-              Next-Gen Autonomous Systems
+              {t('hero.badge')}
             </div>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
-              Empowering <br />
-              <span className="text-gradient">Tomorrow</span>
+              {t('hero.title')} <br />
+              <span className="text-gradient">{t('hero.subtitle')}</span>
             </h1>
             <p className="text-gray-400 text-lg md:text-xl mb-10 leading-relaxed max-w-lg">
-              AI-powered automation and intelligent digital systems for modern businesses seeking exponential growth.
+              {t('hero.description')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-5">
               <Link to="/contact" className="btn-primary group">
-                Initialize Project
+                {t('hero.cta_primary')}
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link to="/solutions" className="px-8 py-3 rounded-xl font-bold text-sm border border-white/10 hover:bg-white/5 transition-all flex items-center justify-center gap-2">
-                Explore Solutions
+                {t('hero.cta_secondary')}
               </Link>
             </div>
 

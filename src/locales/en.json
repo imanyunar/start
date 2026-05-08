@@ -1,0 +1,36 @@
+{
+  "nav": {
+    "home": "Home",
+    "laboratory": "Laboratory",
+    "capabilities": "Capabilities",
+    "ai_systems": "AI Systems",
+    "roadmap": "Roadmap",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Empowering",
+    "subtitle": "Tomorrow",
+    "description": "AI-powered automation and intelligent digital systems for modern businesses seeking exponential growth.",
+    "cta_primary": "Initialize Project",
+    "cta_secondary": "Explore Solutions",
+    "badge": "Next-Gen Autonomous Systems"
+  },
+  "footer": {
+    "tagline": "Advancing human potential through intelligent automation and autonomous systems. Vermont Automated Digital is an early-stage AI laboratory focused on high-impact digital transformation.",
+    "exploration": "Exploration",
+    "contact_heading": "Contact",
+    "rights": "© 2026 Vermont Automated Digital. All rights reserved."
+  },
+  "contact": {
+    "title": "Let's Build the",
+    "subtitle": "Next Frontier",
+    "description": "Whether you're looking to automate complex workflows or architect a new digital ecosystem, our laboratory is ready to assist.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "button": "Transmit Message"
+    }
+  }
+}

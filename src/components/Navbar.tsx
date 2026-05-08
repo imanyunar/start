@@ -1,20 +1,27 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Languages } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Services', path: '/services' },
-  { name: 'AI Solutions', path: '/solutions' },
-  { name: 'Innovation', path: '/innovation' },
+  { key: 'nav.home', path: '/' },
+  { key: 'nav.laboratory', path: '/about' },
+  { key: 'nav.capabilities', path: '/services' },
+  { key: 'nav.ai_systems', path: '/solutions' },
+  { key: 'nav.roadmap', path: '/innovation' },
 ];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t, i18n } = useTranslation();
+
+  const toggleLanguage = () => {
+    const nextLang = i18n.language === 'en' ? 'id' : 'en';
+    i18n.changeLanguage(nextLang);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-navy-950/80 backdrop-blur-xl border-b border-white/5">
@@ -28,27 +35,44 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
               <Link
-                key={link.name}
+                key={link.key}
                 to={link.path}
                 className={`text-[10px] font-black tracking-[0.2em] uppercase transition-all duration-300 ${
                   location.pathname === link.path ? 'text-brandBlue' : 'text-gray-400 hover:text-white'
                 }`}
               >
-                {link.name}
+                {t(link.key)}
               </Link>
             ))}
+
+            <button 
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 hover:text-brandBlue transition-all"
+            >
+              <Languages size={14} />
+              {i18n.language === 'en' ? 'ID' : 'EN'}
+            </button>
+
             <Link to="/contact" className="btn-primary">
-              Initialize Project
+              {t('nav.contact')}
             </Link>
           </div>
 
           {/* Mobile Toggle */}
-          <button 
-            className="md:hidden text-white p-2"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-4 md:hidden">
+            <button 
+              onClick={toggleLanguage}
+              className="text-gray-400 p-2 hover:text-brandBlue transition-colors"
+            >
+              <Languages size={20} />
+            </button>
+            <button 
+              className="text-white p-2"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -64,14 +88,14 @@ const Navbar = () => {
             <div className="px-6 pt-4 pb-10 space-y-4">
               {navLinks.map((link) => (
                 <Link
-                  key={link.name}
+                  key={link.key}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
                   className={`block py-3 text-xs font-black uppercase tracking-widest ${
                     location.pathname === link.path ? 'text-brandBlue' : 'text-gray-400'
                   }`}
                 >
-                  {link.name}
+                  {t(link.key)}
                 </Link>
               ))}
               <Link
@@ -79,7 +103,7 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className="btn-primary w-full mt-4"
               >
-                Initialize Project
+                {t('nav.contact')}
               </Link>
             </div>
           </motion.div>
