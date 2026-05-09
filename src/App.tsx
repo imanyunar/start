@@ -16,7 +16,7 @@ function AppContent() {
   const isAppRoute = location.pathname.startsWith('/smartflow');
 
   return (
-    <div className="min-h-screen flex flex-col transition-colors duration-300">
+    <div className="min-h-screen flex flex-col transition-colors duration-300 overflow-x-hidden w-full relative">
       {!isAppRoute && <Navbar />}
       <main className="flex-grow">
         <Routes>
