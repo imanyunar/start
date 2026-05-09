@@ -40,95 +40,95 @@
     "l4": "Secure enterprise-grade encryption"
   },
   "about": {
-    "badge": "Our Narrative",
-    "title": "Crafting Excellent Innovations Through",
-    "subtitle": "Artificial Intelligence",
-    "description": "Vermont Automated Digital was born out of a singular obsession: to push the boundaries of what autonomous systems can achieve. We are an early-stage AI laboratory dedicated to building the infrastructure of the future.",
+    "badge": "Our Story",
+    "title": "Empowering Your Business Growth with",
+    "subtitle": "Smart Technology",
+    "description": "Vermont Automated Digital was born from a simple belief: advanced technology shouldn't be difficult. We build digital assistants that help business owners focus on what they love, while we handle the complexity of operations.",
     "philosophy": {
-      "title": "The Founder Mindset",
-      "p1_title": "Ambitious Beginnings",
-      "p1_desc": "We don't build features; we architect ecosystems. Our approach is rooted in first-principles thinking and extreme technological curiosity.",
-      "p2_title": "Integrity-First AI",
-      "p2_desc": "Ethics isn't an afterthought. We build secure, transparent, and reliable systems that empower rather than exploit."
+      "title": "Our Philosophy",
+      "p1_title": "Dream Big",
+      "p1_desc": "We don't just build software; we create assistants that help you thrive. Everything we make is rooted in curiosity and a desire to make your life easier.",
+      "p2_title": "Honest Tech",
+      "p2_desc": "Your data security is our top priority. We build transparent, safe, and reliable systems that anyone can trust."
     },
     "mission": {
       "title": "Our Mission",
-      "desc": "To democratize advanced automation through accessible, high-performance AI infrastructure that allows businesses to focus on creative innovation while we handle the complexity of operations."
+      "desc": "To provide affordable and easy-to-use smart assistant technology for everyone, so businesses can grow without the technical headaches."
     },
     "vision": {
       "title": "Our Vision",
-      "desc": "A future where digital systems are not just tools, but intelligent partners in human progress—autonomous, adaptive, and invisible."
+      "desc": "A future where technology isn't a burden, but a smart partner that helps us all progress—easy, automatic, and always reliable."
     }
   },
   "services": {
-    "badge": "Capabilities",
-    "title": "Autonomous Architecture",
-    "subtitle": "Global Scale",
-    "description": "We engineer and integrate sophisticated AI agents capable of advanced workflow orchestration with minimal human intervention.",
-    "s1_title": "AI Process Automation",
-    "s1_desc": "Replace repetitive manual tasks with autonomous agents that learn and adapt.",
-    "s2_title": "Cloud Infrastructure",
-    "s2_desc": "High-performance distributed systems built for extreme speed and scalability.",
-    "s3_title": "Neural Security",
-    "s3_desc": "Advanced data protection using AI-driven encryption and threat detection.",
-    "s4_title": "Predictive Analytics",
-    "s4_desc": "Transforming historical data into actionable future insights for your business.",
-    "cta": "Initialize Request",
-    "footer_title": "Ready to Automate?",
-    "footer_desc": "Join the elite circle of businesses leveraging autonomous intelligence to dominate their markets.",
-    "footer_button": "Start Consultation"
+    "badge": "Our Services",
+    "title": "Smart Solutions for",
+    "subtitle": "Your Business Needs",
+    "description": "We design digital assistant systems that help manage your daily tasks automatically without needing much human intervention.",
+    "s1_title": "Work Automation",
+    "s1_desc": "Replace boring manual tasks with smart assistants that can learn and adapt to your needs.",
+    "s2_title": "Secure Storage",
+    "s2_desc": "Super-fast data storage systems that grow as your business develops.",
+    "s3_title": "High-Level Security",
+    "s3_desc": "Protecting your data using the latest technology to ensure it's always safe from interference.",
+    "s4_title": "Business Forecasting",
+    "s4_desc": "See the future of your business based on past data to help you make the right decisions.",
+    "cta": "Start Now",
+    "footer_title": "Ready to Make Business Easier?",
+    "footer_desc": "Join other smart entrepreneurs who are already using smart assistants to advance their businesses.",
+    "footer_button": "Free Consultation"
   },
   "solutions": {
-    "badge": "Autonomous Ecosystem",
-    "title": "AI Solutions for the",
-    "subtitle": "Exponential Era",
-    "core_title": "Neural Logic Core",
-    "core_desc": "Our proprietary neural architecture enables real-time decision making across distributed networks. It's not just automation; it's digital cognition.",
+    "badge": "Automated Solutions",
+    "title": "Smart Choices for the",
+    "subtitle": "Future Era",
+    "core_title": "Smart System Core",
+    "core_desc": "Our technology allows systems to think and make quick decisions to help you. It's not just a regular tool; it's a smart assistant for your business.",
     "accuracy": "Accuracy",
     "response": "Response",
     "list": {
-      "s1_title": "Autonomous Ecosystems",
-      "s1_desc": "Self-governing digital environments that adapt to market dynamics.",
-      "s2_title": "Neural Network Architectures",
-      "s2_desc": "Custom-built cognitive systems for high-stakes decision making.",
-      "s3_title": "Predictive Resource Scaling",
-      "s3_desc": "Anticipate infrastructure needs before they impact performance.",
-      "s4_title": "Distributed Core Intelligence",
-      "s4_desc": "Synchronized AI agents operating across global jurisdictions."
+      "s1_title": "Automated Ecosystems",
+      "s1_desc": "Digital environments that can organize themselves following market developments.",
+      "s2_title": "Decision Support Systems",
+      "s2_desc": "Smart assistants that help you make important decisions with more confidence.",
+      "s3_title": "Future Planning",
+      "s3_desc": "Preparing all your business needs before problems actually arise.",
+      "s4_title": "Unified Intelligence",
+      "s4_desc": "All our smart assistants work together compactly wherever you are."
     },
     "extra": {
-      "e1_title": "Distributed Intelligence",
-      "e1_desc": "Coordinate thousands of AI agents across your entire digital stack seamlessly.",
+      "e1_title": "Smart Coordination",
+      "e1_desc": "Organizing thousands of your digital tasks simultaneously in a very neat and easy way.",
       "e2_title": "Predictive Engines",
-      "e2_desc": "Anticipate market shifts and internal bottlenecks before they manifest.",
-      "e3_title": "Quantum Security",
-      "e3_desc": "Protect your data assets with encryption layers designed for the next decade."
+      "e2_desc": "Knowing market changes before others realize it.",
+      "e3_title": "Future Security",
+      "e3_desc": "Protect your valuable data with security technology designed for the future."
     }
   },
   "innovation": {
-    "badge": "The Horizon",
-    "title": "Vision &",
+    "badge": "The Future",
+    "title": "Our Vision &",
     "subtitle": "Innovation",
-    "description": "We are not just following the roadmap of AI; we are drawing it. Explore our trajectory toward absolute digital autonomy.",
+    "description": "We don't just follow trends; we create new ways for technology to make your life easier. Let's see our plans for the future.",
     "roadmap": {
       "p1_phase": "Phase 01",
-      "p1_title": "Autonomous Orchestration",
-      "p1_desc": "Deployment of self-optimizing business agents capable of managing cross-platform logic without human intervention.",
+      "p1_title": "Independent Assistants",
+      "p1_desc": "Launching business assistants that can organize daily tasks on their own without needing to be told repeatedly.",
       "p2_phase": "Phase 02",
-      "p2_title": "Neural Mesh Infrastructure",
-      "p2_desc": "Global distribution of low-latency neural processing nodes for real-time edge intelligence.",
+      "p2_title": "Global Fast Network",
+      "p2_desc": "Building a super-fast connection network so our smart assistants can be accessed from anywhere without lag.",
       "p3_phase": "Phase 03",
-      "p3_title": "Quantum Cognitive Systems",
-      "p3_desc": "Integration of quantum-ready encryption and large-scale cognitive modeling for enterprise strategy.",
-      "status_active": "Active",
-      "status_pending": "Pending",
-      "status_vision": "Vision"
+      "p3_title": "Advanced Thinking Systems",
+      "p3_desc": "Combining the latest technology so our assistants can help with more complex business strategies.",
+      "status_active": "In Progress",
+      "status_pending": "Coming Soon",
+      "status_vision": "Future Plan"
     },
     "cards": {
-      "c1_title": "Scalable Automation",
-      "c1_desc": "Our systems are built to grow with your ambition. From simple task handling to complex neural orchestration, Vermont scales vertically and horizontally.",
+      "c1_title": "Grow With You",
+      "c1_desc": "Our systems are designed to grow as your dreams develop. From simple to complex tasks, we are always ready.",
       "c2_title": "Intelligence Without Borders",
-      "c2_desc": "We are building a borderless digital workforce. Our AI nodes operate across jurisdictions, ensuring compliance and performance globally."
+      "c2_desc": "We build assistants that can work anywhere, ensuring your business stays running smoothly globally."
     }
   },
   "footer": {

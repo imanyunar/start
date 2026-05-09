@@ -40,95 +40,95 @@
     "l4": "Enkripsi aman kelas perusahaan"
   },
   "about": {
-    "badge": "Narasi Kami",
-    "title": "Membangun Inovasi Unggul Melalui",
-    "subtitle": "Kecerdasan Buatan",
-    "description": "Vermont Automated Digital lahir dari satu obsesi: untuk menembus batas apa yang bisa diperbuat oleh sistem otonom. Kami adalah laboratorium AI tahap awal yang didedikasikan untuk membangun infrastruktur masa depan.",
+    "badge": "Cerita Kami",
+    "title": "Membantu Bisnis Anda Tumbuh Lebih Mudah dengan",
+    "subtitle": "Teknologi Cerdas",
+    "description": "Vermont Automated Digital hadir karena kami percaya teknologi canggih tidak harus sulit. Kami membangun asisten digital yang membantu pemilik bisnis fokus pada hal yang mereka cintai, sementara kami menangani kerumitan operasionalnya.",
     "philosophy": {
-      "title": "Pola Pikir Pendiri",
-      "p1_title": "Permulaan yang Ambisius",
-      "p1_desc": "Kami tidak hanya membangun fitur; kami merancang ekosistem. Pendekatan kami berakar pada prinsip utama dan rasa ingin tahu teknologi yang ekstrem.",
-      "p2_title": "AI Berintegritas",
-      "p2_desc": "Etika bukanlah pemikiran belakangan. Kami membangun sistem yang aman, transparan, dan andal yang memberdayakan, bukan mengeksploitasi."
+      "title": "Prinsip Kami",
+      "p1_title": "Mimpi Besar",
+      "p1_desc": "Kami tidak hanya membuat software; kami menciptakan asisten yang membantu Anda berkembang. Segalanya kami buat dengan rasa ingin tahu dan keinginan untuk mempermudah hidup Anda.",
+      "p2_title": "Teknologi Jujur",
+      "p2_desc": "Keamanan data Anda adalah prioritas utama. Kami membangun sistem yang transparan, aman, dan dapat diandalkan oleh siapa saja."
     },
     "mission": {
       "title": "Misi Kami",
-      "desc": "Mendemokratisasi otomasi tingkat lanjut melalui infrastruktur AI berperforma tinggi yang memungkinkan bisnis fokus pada inovasi kreatif sementara kami menangani kompleksitas operasional."
+      "desc": "Memberikan teknologi asisten pintar yang terjangkau dan mudah digunakan bagi semua orang, sehingga bisnis bisa tumbuh tanpa harus pusing dengan hal teknis."
     },
     "vision": {
       "title": "Visi Kami",
-      "desc": "Masa depan di mana sistem digital bukan sekadar alat, melainkan mitra cerdas dalam kemajuan manusia—otonom, adaptif, dan tak kasat mata."
+      "desc": "Masa depan di mana teknologi bukan beban, melainkan teman pintar yang membantu kemajuan kita semua—mudah, otomatis, dan selalu bisa diandalkan."
     }
   },
   "services": {
-    "badge": "Kemampuan",
-    "title": "Arsitektur Otonom",
-    "subtitle": "Skala Global",
-    "description": "Kami merancang dan mengintegrasikan agen AI canggih yang mampu melakukan orkestrasi alur kerja tingkat lanjut dengan intervensi manusia minimal.",
-    "s1_title": "Otomasi Proses AI",
-    "s1_desc": "Mengganti tugas manual yang repetitif dengan agen otonom yang belajar dan beradaptasi.",
-    "s2_title": "Infrastruktur Cloud",
-    "s2_desc": "Sistem terdistribusi berperforma tinggi yang dibangun untuk kecepatan dan skalabilitas ekstrem.",
-    "s3_title": "Keamanan Neural",
-    "s3_desc": "Perlindungan data tingkat lanjut menggunakan enkripsi yang didorong oleh AI dan deteksi ancaman.",
-    "s4_title": "Analitik Prediktif",
-    "s4_desc": "Mengubah data historis menjadi wawasan masa depan yang dapat ditindaklanjuti untuk bisnis Anda.",
-    "cta": "Inisialisasi Permintaan",
-    "footer_title": "Siap untuk Berotomasi?",
-    "footer_desc": "Bergabunglah dengan lingkaran bisnis elit yang memanfaatkan kecerdasan otonom untuk mendominasi pasar mereka.",
-    "footer_button": "Mulai Konsultasi"
+    "badge": "Layanan Kami",
+    "title": "Solusi Pintar untuk",
+    "subtitle": "Kebutuhan Bisnis Anda",
+    "description": "Kami merancang sistem asisten digital yang mampu membantu mengelola pekerjaan harian Anda secara otomatis tanpa perlu banyak campur tangan manusia.",
+    "s1_title": "Otomasi Pekerjaan",
+    "s1_desc": "Gantikan tugas manual yang membosankan dengan asisten pintar yang bisa belajar dan menyesuaikan diri.",
+    "s2_title": "Penyimpanan Aman",
+    "s2_desc": "Sistem penyimpanan data yang sangat cepat dan bisa tumbuh mengikuti perkembangan bisnis Anda.",
+    "s3_title": "Keamanan Tingkat Tinggi",
+    "s3_desc": "Perlindungan data Anda menggunakan teknologi terbaru agar selalu aman dari gangguan.",
+    "s4_title": "Ramalan Bisnis",
+    "s4_desc": "Melihat masa depan bisnis Anda berdasarkan data masa lalu untuk membantu mengambil keputusan yang tepat.",
+    "cta": "Mulai Sekarang",
+    "footer_title": "Siap Membuat Bisnis Lebih Mudah?",
+    "footer_desc": "Bergabunglah dengan pengusaha cerdas lainnya yang sudah menggunakan bantuan asisten pintar untuk memajukan bisnis mereka.",
+    "footer_button": "Konsultasi Gratis"
   },
   "solutions": {
-    "badge": "Ekosistem Otonom",
-    "title": "Solusi AI untuk Era",
-    "subtitle": "Eksponensial",
-    "core_title": "Inti Logika Neural",
-    "core_desc": "Arsitektur neural eksklusif kami memungkinkan pengambilan keputusan real-time di seluruh jaringan terdistribusi. Ini bukan sekadar otomasi; ini adalah kognisi digital.",
+    "badge": "Solusi Otomatis",
+    "title": "Pilihan Cerdas untuk Era",
+    "subtitle": "Masa Depan",
+    "core_title": "Inti Sistem Pintar",
+    "core_desc": "Teknologi kami memungkinkan sistem berpikir dan mengambil keputusan cepat untuk membantu Anda. Ini bukan sekadar alat biasa; ini adalah asisten pintar untuk bisnis Anda.",
     "accuracy": "Akurasi",
     "response": "Respon",
     "list": {
-      "s1_title": "Ekosistem Otonom",
-      "s1_desc": "Lingkungan digital yang mengatur diri sendiri dan beradaptasi dengan dinamika pasar.",
-      "s2_title": "Arsitektur Jaringan Neural",
-      "s2_desc": "Sistem kognitif yang dibangun khusus untuk pengambilan keputusan berisiko tinggi.",
-      "s3_title": "Skalasi Sumber Daya Prediktif",
-      "s3_desc": "Antisipasi kebutuhan infrastruktur sebelum berdampak pada performa.",
-      "s4_title": "Kecerdasan Inti Terdistribusi",
-      "s4_desc": "Agen AI yang tersinkronisasi beroperasi di berbagai yurisdiksi global."
+      "s1_title": "Ekosistem Otomatis",
+      "s1_desc": "Lingkungan digital yang bisa mengatur dirinya sendiri mengikuti perkembangan pasar.",
+      "s2_title": "Sistem Pengambil Keputusan",
+      "s2_desc": "Asisten cerdas yang membantu Anda mengambil keputusan penting dengan lebih percaya diri.",
+      "s3_title": "Perencanaan Masa Depan",
+      "s3_desc": "Menyiapkan segala kebutuhan bisnis Anda sebelum masalah benar-benar muncul.",
+      "s4_title": "Kecerdasan Terpadu",
+      "s4_desc": "Semua asisten pintar kami bekerja sama secara kompak di mana pun Anda berada."
     },
     "extra": {
-      "e1_title": "Kecerdasan Terdistribusi",
-      "e1_desc": "Koordinasikan ribuan agen AI di seluruh tumpukan digital Anda dengan mulus.",
-      "e2_title": "Mesin Prediktif",
-      "e2_desc": "Antisipasi pergeseran pasar dan hambatan internal sebelum terjadi.",
-      "e3_title": "Keamanan Kuantum",
-      "e3_desc": "Lindungi aset data Anda dengan lapisan enkripsi yang dirancang untuk dekade berikutnya."
+      "e1_title": "Koordinasi Pintar",
+      "e1_desc": "Mengatur ribuan tugas digital Anda secara bersamaan dengan sangat rapi dan mudah.",
+      "e2_title": "Mesin Peramal",
+      "e2_desc": "Mengetahui perubahan pasar sebelum orang lain menyadarinya.",
+      "e3_title": "Keamanan Masa Depan",
+      "e3_desc": "Lindungi data berharga Anda dengan teknologi keamanan yang dirancang untuk masa depan."
     }
   },
   "innovation": {
-    "badge": "Cakrawala",
+    "badge": "Masa Depan",
     "title": "Visi &",
-    "subtitle": "Inovasi",
-    "description": "Kami tidak hanya mengikuti peta jalan AI; kami sedang menggambarnya. Jelajahi lintasan kami menuju otonomi digital mutlak.",
+    "subtitle": "Inovasi Kami",
+    "description": "Kami tidak hanya mengikuti tren; kami menciptakan cara baru agar teknologi bisa mempermudah hidup Anda. Mari lihat rencana kami ke depan.",
     "roadmap": {
-      "p1_phase": "Fase 01",
-      "p1_title": "Orkestrasi Otonom",
-      "p1_desc": "Penerapan agen bisnis yang mengoptimalkan diri sendiri yang mampu mengelola logika lintas platform tanpa intervensi manusia.",
-      "p2_phase": "Fase 02",
-      "p2_title": "Infrastruktur Neural Mesh",
-      "p2_desc": "Distribusi global node pemrosesan neural latensi rendah untuk kecerdasan edge real-time.",
-      "p3_phase": "Fase 03",
-      "p3_title": "Sistem Kognitif Kuantum",
-      "p3_desc": "Integrasi enkripsi siap kuantum dan pemodelan kognitif skala besar untuk strategi perusahaan.",
-      "status_active": "Aktif",
-      "status_pending": "Tertunda",
-      "status_vision": "Visi"
+      "p1_phase": "Tahap 01",
+      "p1_title": "Asisten Mandiri",
+      "p1_desc": "Meluncurkan asisten bisnis yang bisa mengatur tugas harian sendiri tanpa perlu disuruh berkali-kali.",
+      "p2_phase": "Tahap 02",
+      "p2_title": "Jaringan Cepat Global",
+      "p2_desc": "Membangun jaringan koneksi super cepat agar asisten pintar kami bisa diakses dari mana saja tanpa lemot.",
+      "p3_phase": "Tahap 03",
+      "p3_title": "Sistem Berpikir Canggih",
+      "p3_desc": "Menggabungkan teknologi terbaru agar asisten kami bisa membantu strategi bisnis yang lebih rumit.",
+      "status_active": "Sedang Jalan",
+      "status_pending": "Segera Hadir",
+      "status_vision": "Rencana Depan"
     },
     "cards": {
-      "c1_title": "Otomasi Terukur",
-      "c1_desc": "Sistem kami dibangun untuk tumbuh bersama ambisi Anda. Dari penanganan tugas sederhana hingga orkestrasi neural yang kompleks.",
+      "c1_title": "Tumbuh Bersama Anda",
+      "c1_desc": "Sistem kami dirancang untuk tumbuh seiring berkembangnya mimpi Anda. Dari tugas simpel hingga yang rumit, kami selalu siap.",
       "c2_title": "Kecerdasan Tanpa Batas",
-      "c2_desc": "Kami membangun tenaga kerja digital tanpa batas. Node AI kami beroperasi di berbagai yurisdiksi, memastikan kepatuhan global."
+      "c2_desc": "Kami membangun asisten yang bisa bekerja di mana saja, memastikan bisnis Anda tetap berjalan lancar secara global."
     }
   },
   "footer": {
