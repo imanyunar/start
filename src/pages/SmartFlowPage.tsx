@@ -248,7 +248,7 @@ function DashboardPage({ transactions, onGoTransactions }: any) {
 export default function App() {
   const [tab, setTab] = useState('dashboard');
   const [transactions, setTransactions] = useState(INITIAL_TX);
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
   const [inputText, setInputText] = useState('');
   const [toast, setToast] = useState('');
 
@@ -359,27 +359,26 @@ export default function App() {
       {/* Main Content Area */}
       <main className="lg:ml-72 pb-32">
         {/* Header */}
-        <header className="sticky top-0 z-40 bg-[var(--app-surface)]/80 backdrop-blur-xl border-b border-[var(--app-border)] px-4 lg:px-12 py-4 lg:py-5 flex justify-between items-center">
+        <header className="fixed top-0 right-0 left-0 lg:left-72 z-[1000] bg-[var(--app-surface)]/80 backdrop-blur-xl border-b border-[var(--app-border)] px-4 lg:px-12 py-4 flex justify-between items-center transition-all duration-300">
           <div className="flex items-center gap-3">
-            <Link to="/" className="lg:hidden p-2 bg-[var(--app-bg)] rounded-xl text-[var(--app-text)] hover:bg-[var(--app-border)] transition-all">
+            <Link to="/" className="lg:hidden p-2 hover:bg-[var(--app-bg)] rounded-xl text-blue-primary transition-all">
               <ArrowLeft size={20} />
             </Link>
             <div>
-              <h1 className="text-lg lg:text-2xl font-black text-[var(--app-text)]">
-                {tab === 'dashboard' ? 'Ringkasan Bisnis' : tab === 'transactions' ? 'Catat & Riwayat' : 'Pengaturan'}
+              <h1 className="text-sm lg:text-xl font-black text-[var(--app-text)] uppercase tracking-tight">
+                {tab === 'dashboard' ? 'Ringkasan' : tab === 'transactions' ? 'Transaksi' : tab === 'inventory' ? 'Gudang' : 'Setelan'}
               </h1>
-              <p className="text-[10px] font-black text-[var(--app-muted)] uppercase tracking-widest mt-0.5">Sabtu, 9 Mei 2026</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
-             <button onClick={() => setIsDark(!isDark)} className="lg:hidden p-2.5 bg-[var(--app-bg)] rounded-xl text-[var(--app-muted)]">
+          <div className="flex items-center gap-2 lg:gap-4">
+             <button onClick={() => setIsDark(!isDark)} className="p-2 text-[var(--app-muted)] hover:text-blue-primary transition-colors">
                {isDark ? <Sun size={20} /> : <Moon size={20} />}
              </button>
-             <div className="w-px h-6 bg-[var(--app-border)] hidden md:block"></div>
-             <div className="flex items-center gap-3 p-1.5 bg-[var(--app-bg)] rounded-2xl cursor-pointer">
-               <div className="w-8 h-8 rounded-xl bg-blue-primary text-white flex items-center justify-center text-[10px] font-black">AV</div>
-               <span className="text-xs font-black pr-2 hidden sm:block">Andi Vermont</span>
+             <div className="w-px h-4 bg-[var(--app-border)]"></div>
+             <div className="flex items-center gap-2 p-1 lg:p-1.5 bg-[var(--app-bg)] rounded-xl lg:rounded-2xl cursor-pointer">
+               <div className="w-7 h-7 lg:w-8 lg:h-8 rounded-lg lg:rounded-xl bg-blue-primary text-white flex items-center justify-center text-[10px] font-black">AV</div>
+               <span className="text-[10px] font-black pr-1 hidden sm:block">Andi Vermont</span>
              </div>
           </div>
         </header>
@@ -526,19 +525,19 @@ export default function App() {
       </main>
 
       {/* Bottom Nav (Mobile Only) */}
-      <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-[var(--app-surface)] border-t border-[var(--app-border)] flex justify-between items-center px-4 py-3 z-[100] shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-[var(--app-surface)]/90 backdrop-blur-xl border-t border-[var(--app-border)] flex justify-around items-center px-2 py-2 z-[1000] shadow-[0_-10px_40px_rgba(0,0,0,0.1)] pb-safe">
         {navItems.map(item => (
           <button 
             key={item.id}
             onClick={() => setTab(item.id)}
-            className={`flex flex-col items-center gap-1 flex-1 transition-all ${
+            className={`flex flex-col items-center justify-center gap-1 min-w-[64px] h-12 transition-all duration-300 ${
               item.special 
-                ? 'bg-blue-primary text-white rounded-2xl p-2 -translate-y-5 shadow-xl shadow-blue-primary/30' 
-                : tab === item.id ? 'text-blue-primary' : 'text-[var(--app-faint)]'
+                ? 'bg-blue-primary text-white rounded-2xl scale-110 -translate-y-4 shadow-xl shadow-blue-primary/40' 
+                : tab === item.id ? 'text-blue-primary' : 'text-[var(--app-muted)]'
             }`}
           >
-            <item.icon size={item.special ? 28 : 22} />
-            {!item.special && <span className="text-[8px] font-black uppercase tracking-tighter">{item.label}</span>}
+            <item.icon size={item.special ? 24 : 20} />
+            {!item.special && <span className="text-[9px] font-bold uppercase tracking-tighter">{item.label}</span>}
           </button>
         ))}
       </nav>
