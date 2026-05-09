@@ -1,8 +1,8 @@
 import { useState, useMemo, useEffect } from 'react';
 import {
   Wallet, Plus, Send, TrendingUp, TrendingDown, ArrowUpRight,
-  ArrowDownRight, ChevronRight, Brain, Check, Package, Sliders, 
-  Home, Moon, Sun, Search, Bell, ArrowLeft, Trash2
+  ArrowDownRight, ChevronRight, Check, Package, Sliders, 
+  Home, Moon, Sun, Search, Bell, ArrowLeft, Trash2, Cpu, Sparkles
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
@@ -167,7 +167,7 @@ function DashboardPage({ transactions, onGoTransactions }: any) {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <StatCard label="Total Masuk" value={fmt(revenue)} icon={TrendingUp} color="green" trend="12.5%" trendUp />
         <StatCard label="Total Keluar" value={fmt(expenses)} icon={TrendingDown} color="red" trend="2.4%" trendUp={false} />
-        <StatCard label="Efisiensi" value="94%" icon={Brain} color="blue" trend="Optimal" trendUp />
+        <StatCard label="Efisiensi" value="94%" icon={Cpu} color="blue" trend="Optimal" trendUp />
         <StatCard label="Transaksi" value={transactions.length} icon={Wallet} color="amber" trend="Stabil" trendUp />
       </div>
 
@@ -486,7 +486,7 @@ export default function App() {
               <aside className="space-y-6">
                 <div className="bg-blue-primary rounded-3xl p-6 text-white shadow-2xl shadow-blue-primary/20">
                   <div className="flex items-center gap-3 mb-6">
-                    <Brain size={24} />
+                    <Sparkles size={24} />
                     <h3 className="text-lg font-black tracking-tight">AI Assistant</h3>
                   </div>
                   <div className="relative mb-6">

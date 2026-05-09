@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe, BrainCircuit, Sun, Moon } from 'lucide-react';
+import { Menu, X, Globe, Sun, Moon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Logo from './Logo';
 
