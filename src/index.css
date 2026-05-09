@@ -70,4 +70,30 @@
     display: inline-block;
     vertical-align: top;
   }
+
+  /* SmartFlow Light Theme Utilities */
+  .light-app-bg {
+    background-color: #F8FAFC;
+    color: #0F172A;
+  }
+
+  .light-card {
+    @apply bg-white border border-slate-200/60 shadow-sm rounded-3xl p-6 transition-all duration-300;
+  }
+
+  .light-card:hover {
+    @apply shadow-md border-slate-300/60;
+  }
+
+  .text-slate-primary {
+    color: #0F172A;
+  }
+
+  .text-slate-secondary {
+    color: #475569;
+  }
+
+  .bg-slate-soft {
+    background-color: #F1F5F9;
+  }
 }

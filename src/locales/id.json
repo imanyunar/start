@@ -162,5 +162,40 @@
         "other": "Lainnya"
       }
     }
+  },
+  "smartflow": {
+    "title": "Vermont SmartFlow",
+    "subtitle": "Asisten Bisnis Cerdas untuk UMKM Indonesia",
+    "input_placeholder": "Ketik transaksi... (contoh: jual mie ayam 75rb)",
+    "send": "Catat",
+    "recent": "Transaksi Terbaru",
+    "insights_title": "Wawasan AI SmartFlow",
+    "weekly_summary": "Ringkasan Mingguan",
+    "stats": {
+      "revenue": "Pendapatan",
+      "expenses": "Pengeluaran",
+      "profit": "Keuntungan",
+      "debt": "Hutang & Piutang"
+    },
+    "insights": {
+      "rev": "Pendapatan naik 12% minggu ini.",
+      "exp": "Pengeluaran terbesar: stok bahan baku.",
+      "prod": "Produk paling sering terjual: mie ayam.",
+      "debt": "Anda memiliki 3 tagihan yang jatuh tempo segera."
+    },
+    "labels": {
+      "income": "Pemasukan",
+      "expense": "Pengeluaran",
+      "debt": "Hutang"
+    },
+    "analytics": {
+      "trends": "Analisis Tren AI",
+      "peak_hours": "Jam Sibuk",
+      "best_selling": "Produk Terlaris",
+      "health_score": "Skor Kesehatan Bisnis",
+      "health_desc": "Bisnis Anda dalam kondisi sangat sehat.",
+      "prediction": "Prediksi AI Minggu Depan",
+      "declining": "Produk Menurun"
+    }
   }
 }

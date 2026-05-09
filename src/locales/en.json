@@ -162,5 +162,40 @@
         "other": "Other"
       }
     }
+  },
+  "smartflow": {
+    "title": "Vermont SmartFlow",
+    "subtitle": "Intelligent Business Assistant for Indonesian MSMEs",
+    "input_placeholder": "Type transaction... (e.g., sell chicken noodle 75k)",
+    "send": "Record",
+    "recent": "Recent Transactions",
+    "insights_title": "SmartFlow AI Insights",
+    "weekly_summary": "Weekly Summary",
+    "stats": {
+      "revenue": "Revenue",
+      "expenses": "Expenses",
+      "profit": "Profit",
+      "debt": "Debt & Receivables"
+    },
+    "insights": {
+      "rev": "Revenue is up 12% this week.",
+      "exp": "Largest expense: raw materials.",
+      "prod": "Best selling product: chicken noodles.",
+      "debt": "You have 3 bills due soon."
+    },
+    "labels": {
+      "income": "Income",
+      "expense": "Expense",
+      "debt": "Debt"
+    },
+    "analytics": {
+      "trends": "AI Trend Analysis",
+      "peak_hours": "Peak Hours",
+      "best_selling": "Best Selling",
+      "health_score": "Business Health Score",
+      "health_desc": "Your business is in very healthy condition.",
+      "prediction": "Next Week AI Prediction",
+      "declining": "Declining Products"
+    }
   }
 }
