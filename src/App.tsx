@@ -7,6 +7,8 @@ import ServicesPage from './pages/ServicesPage';
 import SolutionsPage from './pages/SolutionsPage';
 import InnovationPage from './pages/InnovationPage';
 import ContactPage from './pages/ContactPage';
+import LabPage from './pages/LabPage';
+import SmartFlowPage from './pages/SmartFlowPage';
 import ScrollToTop from './components/ScrollToTop';
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
             <Route path="/solutions" element={<SolutionsPage />} />
             <Route path="/innovation" element={<InnovationPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/laboratory" element={<LabPage />} />
+            <Route path="/smartflow" element={<SmartFlowPage />} />
           </Routes>
         </main>
         <Footer />

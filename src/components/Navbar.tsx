@@ -7,7 +7,7 @@ import Logo from './Logo';
 
 const navLinks = [
   { key: 'nav.home', path: '/' },
-  { key: 'nav.laboratory', path: '/about' },
+  { key: 'nav.laboratory', path: '/laboratory' },
   { key: 'nav.capabilities', path: '/services' },
   { key: 'nav.ai_systems', path: '/solutions' },
   { key: 'nav.roadmap', path: '/innovation' },
