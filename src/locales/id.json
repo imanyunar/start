@@ -2,200 +2,200 @@
   "nav": {
     "home": "Beranda",
     "laboratory": "Laboratorium",
-    "capabilities": "Kemampuan",
+    "capabilities": "Layanan Kami",
     "ai_systems": "Sistem AI",
     "roadmap": "Peta Jalan",
-    "contact": "Kontak",
+    "contact": "Hubungi Kami",
     "privacy": "Privasi",
-    "terms": "Ketentuan"
+    "terms": "Syarat & Ketentuan"
   },
   "hero": {
-    "title": "Membangun",
-    "subtitle": "Masa Depan",
-    "description": "Otomasi bertenaga AI dan sistem digital cerdas untuk bisnis modern yang mengejar pertumbuhan eksponensial.",
-    "cta_primary": "Mulai Proyek",
-    "cta_secondary": "Jelajahi Solusi",
-    "badge": "Sistem Otonom Generasi Baru"
+    "title": "Mewujudkan",
+    "subtitle": "Bisnis Masa Depan",
+    "description": "Tingkatkan efisiensi bisnis Anda dengan teknologi kecerdasan buatan (AI) yang cerdas, otomatis, dan mudah digunakan.",
+    "cta_primary": "Mulai Perjalanan Anda",
+    "cta_secondary": "Lihat Solusi Kami",
+    "badge": "Inovasi AI Generasi Terbaru"
   },
   "stats": {
-    "uptime": "Waktu Aktif",
-    "latency": "Latensi",
-    "efficiency": "Efisiensi"
+    "uptime": "Ketersediaan Sistem",
+    "latency": "Kecepatan Respon",
+    "efficiency": "Peningkatan Efisiensi"
   },
   "features": {
-    "section_title": "Dibangun untuk Era Kecerdasan",
-    "section_desc": "Infrastruktur inti kami memanfaatkan arsitektur saraf canggih untuk memproses alur kerja bisnis yang kompleks secara real-time.",
-    "f1_title": "Inti Otonom",
-    "f1_desc": "Agen AI yang mengoptimalkan diri sendiri untuk menangani siklus pengambilan keputusan.",
-    "f2_title": "Kecerdasan Data",
-    "f2_desc": "Mesin analitik prediktif yang mengubah data mentah menjadi sinyal berharga.",
-    "f3_title": "Jaringan Global",
-    "f3_desc": "Infrastruktur terdistribusi yang memastikan latensi ultra-rendah di seluruh dunia."
+    "section_title": "Hadir untuk Era Digital",
+    "section_desc": "Sistem kami dirancang khusus untuk mempermudah pekerjaan rumit Anda menjadi lebih cepat, akurat, dan otomatis.",
+    "f1_title": "Sistem Pintar & Mandiri",
+    "f1_desc": "Asisten AI yang terus belajar untuk membantu Anda mengambil keputusan bisnis dengan lebih tepat.",
+    "f2_title": "Analisis Data Cerdas",
+    "f2_desc": "Mengolah data mentah menjadi informasi berharga yang mudah dipahami untuk memajukan bisnis Anda.",
+    "f3_title": "Akses Cepat Tanpa Batas",
+    "f3_desc": "Infrastruktur andal yang memastikan aplikasi Anda selalu berjalan cepat kapan pun dan di mana pun."
   },
   "dashboard": {
     "title": "Kendalikan Masa Depan Pekerjaan",
-    "l1": "Pemantauan alokasi sumber daya real-time",
-    "l2": "Sinkronisasi alur kerja otomatis",
-    "l3": "Deteksi hambatan prediktif",
-    "l4": "Enkripsi aman kelas perusahaan"
+    "l1": "Pantau aktivitas bisnis Anda secara langsung",
+    "l2": "Sinkronisasi pekerjaan secara otomatis",
+    "l3": "Peringatan dini untuk mencegah masalah",
+    "l4": "Keamanan data tingkat tinggi"
   },
   "about": {
-    "badge": "Cerita Kami",
-    "title": "Membantu Bisnis Anda Tumbuh Lebih Mudah dengan",
+    "badge": "Tentang Kami",
+    "title": "Membuat Bisnis Anda Bertumbuh Lewat",
     "subtitle": "Teknologi Cerdas",
-    "description": "Vermont Automated Digital hadir karena kami percaya teknologi canggih tidak harus sulit. Kami membangun asisten digital yang membantu pemilik bisnis fokus pada hal yang mereka cintai, sementara kami menangani kerumitan operasionalnya.",
+    "description": "Vermont Automated Digital percaya bahwa teknologi secanggih apa pun harus mudah digunakan. Kami merancang asisten digital agar Anda bisa fokus membesarkan bisnis, sementara kami mengurus sistem operasionalnya.",
     "philosophy": {
       "title": "Prinsip Kami",
-      "p1_title": "Mimpi Besar",
-      "p1_desc": "Kami tidak hanya membuat software; kami menciptakan asisten yang membantu Anda berkembang. Segalanya kami buat dengan rasa ingin tahu dan keinginan untuk mempermudah hidup Anda.",
-      "p2_title": "Teknologi Jujur",
-      "p2_desc": "Keamanan data Anda adalah prioritas utama. Kami membangun sistem yang transparan, aman, dan dapat diandalkan oleh siapa saja."
+      "p1_title": "Bermimpi Lebih Besar",
+      "p1_desc": "Kami bukan sekadar pembuat aplikasi. Kami merancang 'rekan kerja' digital yang siap mempermudah keseharian Anda dan mendorong bisnis Anda maju.",
+      "p2_title": "Keamanan & Transparansi",
+      "p2_desc": "Data Anda adalah aset berharga. Kami memastikan setiap sistem yang kami buat selalu aman, jujur, dan bisa Anda andalkan kapan saja."
     },
     "mission": {
       "title": "Misi Kami",
-      "desc": "Memberikan teknologi asisten pintar yang terjangkau dan mudah digunakan bagi semua orang, sehingga bisnis bisa tumbuh tanpa harus pusing dengan hal teknis."
+      "desc": "Menghadirkan teknologi kecerdasan buatan yang praktis dan terjangkau, agar siapa saja bisa memajukan bisnis tanpa harus pusing memikirkan hal teknis."
     },
     "vision": {
       "title": "Visi Kami",
-      "desc": "Masa depan di mana teknologi bukan beban, melainkan teman pintar yang membantu kemajuan kita semua—mudah, otomatis, dan selalu bisa diandalkan."
+      "desc": "Menciptakan masa depan di mana teknologi benar-benar hadir sebagai asisten pribadi yang ramah, serba otomatis, dan selalu mengerti kebutuhan Anda."
     }
   },
   "services": {
-    "badge": "Layanan Kami",
-    "title": "Solusi Pintar untuk",
+    "badge": "Kemampuan Kami",
+    "title": "Solusi Praktis untuk",
     "subtitle": "Kebutuhan Bisnis Anda",
-    "description": "Kami merancang sistem asisten digital yang mampu membantu mengelola pekerjaan harian Anda secara otomatis tanpa perlu banyak campur tangan manusia.",
-    "s1_title": "Otomasi Pekerjaan",
-    "s1_desc": "Gantikan tugas manual yang membosankan dengan asisten pintar yang bisa belajar dan menyesuaikan diri.",
-    "s2_title": "Penyimpanan Aman",
-    "s2_desc": "Sistem penyimpanan data yang sangat cepat dan bisa tumbuh mengikuti perkembangan bisnis Anda.",
-    "s3_title": "Keamanan Tingkat Tinggi",
-    "s3_desc": "Perlindungan data Anda menggunakan teknologi terbaru agar selalu aman dari gangguan.",
-    "s4_title": "Ramalan Bisnis",
-    "s4_desc": "Melihat masa depan bisnis Anda berdasarkan data masa lalu untuk membantu mengambil keputusan yang tepat.",
-    "cta": "Mulai Sekarang",
-    "footer_title": "Siap Membuat Bisnis Lebih Mudah?",
-    "footer_desc": "Bergabunglah dengan pengusaha cerdas lainnya yang sudah menggunakan bantuan asisten pintar untuk memajukan bisnis mereka.",
-    "footer_button": "Konsultasi Gratis"
+    "description": "Kami merancang berbagai fitur canggih yang bekerja di belakang layar untuk memastikan bisnis Anda berjalan lancar tanpa hambatan.",
+    "s1_title": "Otomatisasi Tugas Rutin",
+    "s1_desc": "Tinggalkan pekerjaan manual yang berulang. Biarkan sistem kami yang menyelesaikannya dengan cepat dan tanpa kesalahan.",
+    "s2_title": "Penyimpanan Skala Besar",
+    "s2_desc": "Simpan sebanyak apa pun data pelanggan dan transaksi Anda tanpa khawatir kehabisan kapasitas atau server melambat.",
+    "s3_title": "Keamanan Terjamin",
+    "s3_desc": "Kami menggunakan perlindungan berlapis untuk memastikan sistem Anda selalu aman dari ancaman siber.",
+    "s4_title": "Prediksi & Analisis Pasar",
+    "s4_desc": "Manfaatkan data Anda untuk melihat peluang baru dan mengetahui tren pasar sebelum pesaing Anda menyadarinya.",
+    "cta": "Mari Berdiskusi",
+    "footer_title": "Siap Mengubah Cara Anda Berbisnis?",
+    "footer_desc": "Bergabunglah bersama para pengusaha modern lainnya yang telah menghemat waktu dan biaya dengan bantuan teknologi Vermont.",
+    "footer_button": "Jadwalkan Konsultasi Gratis"
   },
   "solutions": {
-    "badge": "Solusi Otomatis",
-    "title": "Pilihan Cerdas untuk Era",
+    "badge": "Ekosistem AI",
+    "title": "Teknologi Cerdas untuk Bisnis",
     "subtitle": "Masa Depan",
-    "core_title": "Inti Sistem Pintar",
-    "core_desc": "Teknologi kami memungkinkan sistem berpikir dan mengambil keputusan cepat untuk membantu Anda. Ini bukan sekadar alat biasa; ini adalah asisten pintar untuk bisnis Anda.",
-    "accuracy": "Akurasi",
-    "response": "Respon",
+    "core_title": "Pusat Kendali Otomatis",
+    "core_desc": "Teknologi inti kami dirancang untuk membaca situasi, berpikir logis, dan bertindak cepat layaknya asisten manajerial di bisnis Anda.",
+    "accuracy": "Tingkat Akurasi",
+    "response": "Waktu Respon",
     "list": {
-      "s1_title": "Ekosistem Otomatis",
-      "s1_desc": "Lingkungan digital yang bisa mengatur dirinya sendiri mengikuti perkembangan pasar.",
-      "s2_title": "Sistem Pengambil Keputusan",
-      "s2_desc": "Asisten cerdas yang membantu Anda mengambil keputusan penting dengan lebih percaya diri.",
-      "s3_title": "Perencanaan Masa Depan",
-      "s3_desc": "Menyiapkan segala kebutuhan bisnis Anda sebelum masalah benar-benar muncul.",
-      "s4_title": "Kecerdasan Terpadu",
-      "s4_desc": "Semua asisten pintar kami bekerja sama secara kompak di mana pun Anda berada."
+      "s1_title": "Ekosistem yang Mandiri",
+      "s1_desc": "Sistem pintar yang mampu mengatur dan menyesuaikan dirinya sendiri dengan kondisi pasar yang terus berubah.",
+      "s2_title": "Pengambil Keputusan Handal",
+      "s2_desc": "Sistem kami menganalisis berbagai faktor untuk memberikan rekomendasi bisnis yang akurat dan minim risiko.",
+      "s3_title": "Langkah Antisipasi",
+      "s3_desc": "Mendeteksi kemungkinan adanya masalah sejak dini sehingga Anda bisa mengatasinya sebelum membesar.",
+      "s4_title": "Integrasi Menyeluruh",
+      "s4_desc": "Seluruh fitur dan layanan kami terhubung dengan mulus, memastikan Anda dapat mengelolanya dari satu tempat."
     },
     "extra": {
-      "e1_title": "Koordinasi Pintar",
-      "e1_desc": "Mengatur ribuan tugas digital Anda secara bersamaan dengan sangat rapi dan mudah.",
-      "e2_title": "Mesin Peramal",
-      "e2_desc": "Mengetahui perubahan pasar sebelum orang lain menyadarinya.",
-      "e3_title": "Keamanan Masa Depan",
-      "e3_desc": "Lindungi data berharga Anda dengan teknologi keamanan yang dirancang untuk masa depan."
+      "e1_title": "Manajemen Tugas Terpusat",
+      "e1_desc": "Menjalankan puluhan proses bisnis sekaligus tanpa henti dan tanpa mengurangi kualitas kerja.",
+      "e2_title": "Pembaca Tren Pasar",
+      "e2_desc": "Temukan apa yang paling dibutuhkan pelanggan Anda hari ini dan esok melalui sistem pembaca data kami.",
+      "e3_title": "Arsitektur Kebal Masa Depan",
+      "e3_desc": "Teknologi kami dibuat agar selalu relevan dan mudah diperbarui seiring berjalannya waktu."
     }
   },
   "innovation": {
-    "badge": "Masa Depan",
+    "badge": "Peta Jalan",
     "title": "Visi &",
     "subtitle": "Inovasi Kami",
-    "description": "Kami tidak hanya mengikuti tren; kami menciptakan cara baru agar teknologi bisa mempermudah hidup Anda. Mari lihat rencana kami ke depan.",
+    "description": "Kami terus bergerak maju. Berikut adalah rencana besar kami dalam menghadirkan teknologi yang lebih revolusioner untuk Anda.",
     "roadmap": {
-      "p1_phase": "Tahap 01",
-      "p1_title": "Asisten Mandiri",
-      "p1_desc": "Meluncurkan asisten bisnis yang bisa mengatur tugas harian sendiri tanpa perlu disuruh berkali-kali.",
-      "p2_phase": "Tahap 02",
-      "p2_title": "Jaringan Cepat Global",
-      "p2_desc": "Membangun jaringan koneksi super cepat agar asisten pintar kami bisa diakses dari mana saja tanpa lemot.",
-      "p3_phase": "Tahap 03",
-      "p3_title": "Sistem Berpikir Canggih",
-      "p3_desc": "Menggabungkan teknologi terbaru agar asisten kami bisa membantu strategi bisnis yang lebih rumit.",
-      "status_active": "Sedang Jalan",
+      "p1_phase": "Fase 01",
+      "p1_title": "Asisten Pribadi Otomatis",
+      "p1_desc": "Meluncurkan generasi pertama asisten digital yang mampu mengurus laporan dan pembukuan secara mandiri.",
+      "p2_phase": "Fase 02",
+      "p2_title": "Jaringan Terhubung Secara Global",
+      "p2_desc": "Membangun pusat data canggih agar akses aplikasi Anda menjadi secepat kilat dari berbagai belahan dunia.",
+      "p3_phase": "Fase 03",
+      "p3_title": "Pemikir Strategis AI",
+      "p3_desc": "Sistem yang mampu memberikan strategi pemasaran, penjualan, hingga manajemen keuangan untuk level perusahaan besar.",
+      "status_active": "Sedang Berjalan",
       "status_pending": "Segera Hadir",
-      "status_vision": "Rencana Depan"
+      "status_vision": "Rencana Jangka Panjang"
     },
     "cards": {
-      "c1_title": "Tumbuh Bersama Anda",
-      "c1_desc": "Sistem kami dirancang untuk tumbuh seiring berkembangnya mimpi Anda. Dari tugas simpel hingga yang rumit, kami selalu siap.",
-      "c2_title": "Kecerdasan Tanpa Batas",
-      "c2_desc": "Kami membangun asisten yang bisa bekerja di mana saja, memastikan bisnis Anda tetap berjalan lancar secara global."
+      "c1_title": "Berkembang Bersama Bisnis Anda",
+      "c1_desc": "Sistem kami didesain fleksibel. Baik Anda baru memulai usaha atau sudah berkelas korporat, kami akan selalu menyesuaikan kebutuhan Anda.",
+      "c2_title": "Tanpa Batasan Wilayah",
+      "c2_desc": "Di mana pun tim atau pelanggan Anda berada, platform kami memastikan semuanya terhubung tanpa kendala bahasa atau jarak."
     }
   },
   "footer": {
-    "tagline": "Memajukan potensi manusia melalui otomasi cerdas dan sistem otonom. Vermont Automated Digital adalah laboratorium AI tahap awal yang berfokus pada transformasi digital berdampak tinggi.",
-    "exploration": "Eksplorasi",
-    "contact_heading": "Kontak",
-    "innovation_hub": "Pusat Inovasi",
+    "tagline": "Kami hadir untuk mendobrak batas dan menghadirkan solusi otomasi tercanggih. Vermont Automated Digital adalah laboratorium AI yang berfokus pada kemajuan bisnis yang nyata.",
+    "exploration": "Jelajahi",
+    "contact_heading": "Hubungi Kami",
+    "innovation_hub": "Pusat Inovasi Kami",
     "rights": "© 2026 Vermont Automated Digital. Hak cipta dilindungi undang-undang."
   },
   "contact": {
-    "title": "Membangun",
-    "subtitle": "Garis Depan",
-    "description": "Baik Anda ingin mengotomatiskan alur kerja yang kompleks atau merancang ekosistem digital baru, laboratorium kami siap membantu.",
+    "title": "Mari Bicarakan",
+    "subtitle": "Ide Hebat Anda",
+    "description": "Punya masalah operasional yang ingin diselesaikan? Atau ingin membangun sistem baru dari nol? Tim ahli kami siap mendengarkan dan mewujudkannya.",
     "info": {
-      "email_label": "Terminal Email",
-      "phone_label": "Jalur Langsung",
+      "email_label": "Alamat Email",
+      "phone_label": "Nomor Telepon",
       "hq_label": "Kantor Pusat"
     },
     "form": {
-      "name": "Nama",
-      "email": "Email",
-      "subject": "Subjek",
-      "message": "Pesan",
-      "button": "Kirim Pesan",
-      "placeholder_name": "Contoh: Alan Turing",
-      "placeholder_message": "Jelaskan visi Anda...",
+      "name": "Nama Lengkap",
+      "email": "Alamat Email",
+      "subject": "Topik Diskusi",
+      "message": "Pesan Anda",
+      "button": "Kirim Pesan Sekarang",
+      "placeholder_name": "Contoh: Budi Santoso",
+      "placeholder_message": "Ceritakan secara singkat apa yang Anda butuhkan...",
       "options": {
-        "ai": "Konsultasi Otomasi AI",
-        "arch": "Arsitektur Sistem",
-        "partnership": "Pertanyaan Kemitraan",
-        "other": "Lainnya"
+        "ai": "Konsultasi Sistem AI",
+        "arch": "Pembuatan Aplikasi/Sistem Baru",
+        "partnership": "Peluang Kerja Sama",
+        "other": "Hal Lainnya"
       }
     }
   },
   "smartflow": {
     "title": "Vermont SmartFlow",
-    "subtitle": "Asisten Bisnis Cerdas untuk UMKM Indonesia",
-    "input_placeholder": "Ketik transaksi... (contoh: jual mie ayam 75rb)",
+    "subtitle": "Asisten Pencatat Keuangan & Bisnis Tercerdas Anda",
+    "input_placeholder": "Contoh: Jual mie ayam 2 porsi 30 ribu...",
     "send": "Catat",
-    "recent": "Transaksi Terbaru",
-    "insights_title": "Wawasan AI SmartFlow",
-    "weekly_summary": "Ringkasan Mingguan",
+    "recent": "Transaksi Terakhir",
+    "insights_title": "Ringkasan Bisnis",
+    "weekly_summary": "Laporan Minggu Ini",
     "stats": {
-      "revenue": "Pendapatan",
-      "expenses": "Pengeluaran",
-      "profit": "Keuntungan",
-      "debt": "Hutang & Piutang"
+      "revenue": "Total Pemasukan",
+      "expenses": "Total Pengeluaran",
+      "profit": "Keuntungan Bersih",
+      "debt": "Catatan Hutang"
     },
     "insights": {
-      "rev": "Pendapatan naik 12% minggu ini.",
-      "exp": "Pengeluaran terbesar: stok bahan baku.",
-      "prod": "Produk paling sering terjual: mie ayam.",
-      "debt": "Anda memiliki 3 tagihan yang jatuh tempo segera."
+      "rev": "Luar biasa! Pemasukan Anda naik 12% dibandingkan minggu lalu.",
+      "exp": "Pengeluaran terbesar bulan ini ada di pembelian bahan baku.",
+      "prod": "Mie Ayam Spesial menjadi produk yang paling banyak dibeli pelanggan.",
+      "debt": "Jangan lupa, ada 3 tagihan yang akan jatuh tempo dalam waktu dekat."
     },
     "labels": {
-      "income": "Pemasukan",
-      "expense": "Pengeluaran",
+      "income": "Masuk",
+      "expense": "Keluar",
       "debt": "Hutang"
     },
     "analytics": {
       "trends": "Analisis Tren AI",
-      "peak_hours": "Jam Sibuk",
+      "peak_hours": "Jam Paling Ramai",
       "best_selling": "Produk Terlaris",
       "health_score": "Skor Kesehatan Bisnis",
-      "health_desc": "Bisnis Anda dalam kondisi sangat sehat.",
-      "prediction": "Prediksi AI Minggu Depan",
-      "declining": "Produk Menurun"
+      "health_desc": "Kondisi keuangan bisnis Anda saat ini sangat sehat dan stabil.",
+      "prediction": "Prediksi Penjualan AI",
+      "declining": "Produk Kurang Laku"
     }
   }
 }

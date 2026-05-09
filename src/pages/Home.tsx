@@ -62,7 +62,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2 }}
-            className="relative hidden lg:block"
+            className="relative mt-12 lg:mt-0"
           >
             <div className="relative rounded-[2.5rem] overflow-hidden border-[12px] border-[var(--app-surface)] shadow-2xl shadow-blue-primary/10 group bg-[var(--app-surface)]">
               <img 
