@@ -1,40 +1,24 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { 
   Plus, 
   Send, 
   DollarSign, 
-  Users, 
   BrainCircuit, 
-  Clock, 
   ChevronRight,
-  MessageSquare,
   Activity,
   Search,
   Bell,
-  Home,
-  Briefcase,
   LayoutDashboard,
   Wallet,
   ShoppingBag,
   Settings,
-  PieChart,
-  ArrowRight,
   Menu,
-  X,
   TrendingUp,
-  BarChart,
-  Filter,
-  Download,
-  Trash2,
-  Edit2,
   Calendar,
   Sparkles,
-  ChevronLeft,
-  ArrowUpRight,
-  ChevronDown
+  ChevronLeft
 } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 
 interface Transaction {
   id: string;
@@ -46,7 +30,6 @@ interface Transaction {
 }
 
 const SmartFlowPage = () => {
-  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [inputText, setInputText] = useState('');
@@ -61,7 +44,6 @@ const SmartFlowPage = () => {
 
   const revenue = transactions.filter(t => t.type === 'income').reduce((acc, curr) => acc + curr.amount, 0);
   const expenses = transactions.filter(t => t.type === 'expense').reduce((acc, curr) => acc + curr.amount, 0);
-  const debt = transactions.filter(t => t.type === 'debt').reduce((acc, curr) => acc + curr.amount, 0);
   const profit = revenue - expenses;
 
   const parseInput = (text: string) => {
@@ -112,10 +94,6 @@ const SmartFlowPage = () => {
       setInputText('');
       setIsProcessing(false);
     }, 800);
-  };
-
-  const deleteTransaction = (id: string) => {
-    setTransactions(transactions.filter(t => t.id !== id));
   };
 
   const menuItems = [
@@ -370,7 +348,7 @@ const SmartFlowPage = () => {
                     ].map((p, i) => (
                       <div key={i} className="flex items-center justify-between p-4 bg-slate-50/50 rounded-2xl border border-slate-100/50 group hover:bg-white hover:shadow-md transition-all">
                         <div className="flex items-center gap-4">
-                          <div className={`w-10 h-10 rounded-xl bg-${p.color}-100 flex items-center justify-center font-black text-xs text-${p.color}-600`}>{p.name[0]}</div>
+                          <div className={`w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center font-black text-xs text-blue-600`}>{p.name[0]}</div>
                           <div>
                             <p className="text-sm font-black text-slate-900">{p.name}</p>
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Harga: {p.price}</p>
