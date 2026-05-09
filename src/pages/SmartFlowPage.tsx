@@ -9,6 +9,7 @@ import {
   AreaChart, Area, XAxis, ResponsiveContainer,
   Tooltip, PieChart, Pie, Cell
 } from 'recharts';
+import Logo from '../components/Logo';
 
 /* ─── Helpers ────────────────────────────────────────────────── */
 const fmt = (n: number) => n >= 1000000
@@ -339,11 +340,8 @@ export default function App() {
       
       {/* Desktop Sidebar (Responsive) */}
       <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-72 bg-[var(--app-surface)] border-r border-[var(--app-border)] flex-col p-8 z-50">
-        <div className="flex items-center gap-3 mb-12">
-          <div className="p-2.5 bg-blue-primary rounded-xl text-white shadow-xl shadow-blue-primary/20">
-            <Brain size={24} />
-          </div>
-          <span className="text-xl font-black tracking-tighter">SmartFlow</span>
+        <div className="mb-12">
+          <Logo />
         </div>
 
         <nav className="flex-1 space-y-2">

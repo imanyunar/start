@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe, BrainCircuit, Sun, Moon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import Logo from './Logo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,14 +45,8 @@ const Navbar = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="p-2 bg-blue-primary rounded-xl text-white shadow-lg shadow-blue-primary/20 group-hover:scale-110 transition-all">
-              <BrainCircuit size={24} />
-            </div>
-            <div>
-              <span className="text-xl font-black tracking-tighter text-app-text">VERMONT</span>
-              <p className="text-[8px] font-black text-blue-primary uppercase tracking-[0.2em] leading-none">Automated</p>
-            </div>
+          <Link to="/" className="flex items-center">
+            <Logo className="scale-90 md:scale-100 origin-left" />
           </Link>
 
           {/* Desktop Links */}
