@@ -13,7 +13,8 @@ i18n
       en: { translation: enTranslations },
       id: { translation: idTranslations }
     },
-    fallbackLng: 'en',
+    fallbackLng: 'id',
+    lng: 'id', // Set Indonesian as the primary default language
     interpolation: {
       escapeValue: false
     }

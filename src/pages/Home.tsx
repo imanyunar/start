@@ -83,8 +83,8 @@ const Home = () => {
                 <Sparkles size={24} />
               </div>
               <div>
-                <p className="text-xs font-black text-app-muted uppercase tracking-widest">Sistem Aktif</p>
-                <p className="text-sm font-black text-app-text">Otomasi Terjamin</p>
+                <p className="text-xs font-black text-app-muted uppercase tracking-widest">{t('hero.floating_status')}</p>
+                <p className="text-sm font-black text-app-text">{t('hero.floating_desc')}</p>
               </div>
             </motion.div>
           </motion.div>
@@ -132,17 +132,17 @@ const Home = () => {
              
              <div className="relative text-center max-w-3xl mx-auto">
                <h2 className="text-3xl md:text-6xl font-black text-white mb-8 tracking-tighter">
-                 Siap Mengotomatiskan Bisnis Anda?
+                 {t('cta.title')}
                </h2>
                <p className="text-blue-50 text-lg md:text-xl mb-12 font-bold opacity-80">
-                 Bergabunglah dengan ribuan pengusaha yang telah menghemat waktu dan meningkatkan profit dengan Vermont.
+                 {t('cta.desc')}
                </p>
                <div className="flex flex-col sm:flex-row gap-6 justify-center">
                  <Link to="/smartflow" className="px-10 py-5 bg-white text-blue-primary rounded-2xl font-black text-lg hover:scale-105 transition-all shadow-2xl">
-                   Mulai Sekarang
+                   {t('cta.btn_primary')}
                  </Link>
                  <Link to="/contact" className="px-10 py-5 bg-blue-dark text-white rounded-2xl font-black text-lg hover:bg-blue-900 transition-all">
-                   Hubungi Kami
+                   {t('cta.btn_secondary')}
                  </Link>
                </div>
              </div>

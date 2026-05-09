@@ -15,7 +15,15 @@
     "description": "AI-powered automation and intelligent digital systems for modern businesses seeking exponential growth.",
     "cta_primary": "Initialize Project",
     "cta_secondary": "Explore Solutions",
-    "badge": "Next-Gen Autonomous Systems"
+    "badge": "Next-Gen Autonomous Systems",
+    "floating_status": "System Active",
+    "floating_desc": "Automation Secured"
+  },
+  "cta": {
+    "title": "Ready to Automate Your Business?",
+    "desc": "Join thousands of entrepreneurs who have saved time and increased profits with Vermont.",
+    "btn_primary": "Start Now",
+    "btn_secondary": "Contact Us"
   },
   "stats": {
     "uptime": "Uptime",
@@ -139,6 +147,7 @@
     "rights": "© 2026 Vermont Automated Digital. All rights reserved."
   },
   "contact": {
+    "badge": "Initialize Connection",
     "title": "Let's Build the",
     "subtitle": "Next Frontier",
     "description": "Whether you're looking to automate complex workflows or architect a new digital ecosystem, our laboratory is ready to assist.",

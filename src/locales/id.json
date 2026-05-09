@@ -15,7 +15,15 @@
     "description": "Tingkatkan efisiensi bisnis Anda dengan teknologi kecerdasan buatan (AI) yang cerdas, otomatis, dan mudah digunakan.",
     "cta_primary": "Mulai Perjalanan Anda",
     "cta_secondary": "Lihat Solusi Kami",
-    "badge": "Inovasi AI Generasi Terbaru"
+    "badge": "Inovasi AI Generasi Terbaru",
+    "floating_status": "Sistem Aktif",
+    "floating_desc": "Otomatisasi Terjamin"
+  },
+  "cta": {
+    "title": "Siap Mengotomatiskan Bisnis Anda?",
+    "desc": "Bergabunglah dengan ribuan pengusaha yang telah menghemat waktu dan meningkatkan profit dengan Vermont.",
+    "btn_primary": "Mulai Sekarang",
+    "btn_secondary": "Hubungi Kami"
   },
   "stats": {
     "uptime": "Ketersediaan Sistem",
@@ -139,6 +147,7 @@
     "rights": "© 2026 Vermont Automated Digital. Hak cipta dilindungi undang-undang."
   },
   "contact": {
+    "badge": "Mulai Koneksi",
     "title": "Mari Bicarakan",
     "subtitle": "Ide Hebat Anda",
     "description": "Punya masalah operasional yang ingin diselesaikan? Atau ingin membangun sistem baru dari nol? Tim ahli kami siap mendengarkan dan mewujudkannya.",

@@ -16,7 +16,7 @@ const ContactPage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="badge-light mb-6 w-fit">Initialize Connection</div>
+            <div className="badge-light mb-6 w-fit">{t('contact.badge')}</div>
             <h1 className="text-4xl md:text-6xl font-black text-[var(--app-text)] mb-8 tracking-tighter leading-tight">
               {t('contact.title')} <br />
               <span className="text-gradient">{t('contact.subtitle')}</span>
