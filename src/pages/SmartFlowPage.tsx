@@ -259,6 +259,31 @@ export default function App() {
     category: ''
   });
 
+  const [products, setProducts] = useState([
+    { id: '1', name: 'Mie Ayam Special', stock: 45, price: 15000, category: 'Makanan' },
+    { id: '2', name: 'Es Teh Manis', stock: 120, price: 5000, category: 'Minuman' },
+    { id: '3', name: 'Bakso Urat', stock: 30, price: 20000, category: 'Makanan' },
+  ]);
+
+  const [showAddProduct, setShowAddProduct] = useState(false);
+  const [newProduct, setNewProduct] = useState({ name: '', stock: '', price: '', category: '' });
+
+  const handleAddProduct = (e: any) => {
+    e.preventDefault();
+    if (!newProduct.name || !newProduct.stock || !newProduct.price) return;
+    setProducts(prev => [...prev, {
+      id: Math.random().toString(36).substr(2, 9),
+      name: newProduct.name,
+      stock: parseInt(newProduct.stock),
+      price: parseInt(newProduct.price),
+      category: newProduct.category || 'Lainnya'
+    }]);
+    setNewProduct({ name: '', stock: '', price: '', category: '' });
+    setShowAddProduct(false);
+    setToast('Produk ditambahkan!');
+    setTimeout(() => setToast(''), 2000);
+  };
+
   const handleManualSubmit = (e: any) => {
     e.preventDefault();
     if (!manualForm.amount || !manualForm.description) return;
@@ -496,29 +521,125 @@ export default function App() {
           )}
 
           {tab === 'inventory' && (
-            <div className="flex flex-col items-center justify-center py-32 text-center">
-              <div className="w-20 h-20 bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl flex items-center justify-center mb-6">
-                <Package size={36} className="text-[var(--app-faint)]" />
+            <div className="space-y-6">
+              <div className="flex justify-between items-center">
+                <div>
+                  <h2 className="text-xl font-black text-[var(--app-text)]">Stok Produk</h2>
+                  <p className="text-xs font-bold text-[var(--app-muted)]">Kelola ketersediaan bahan dan menu</p>
+                </div>
+                <button 
+                  onClick={() => setShowAddProduct(true)}
+                  className="px-4 py-2 bg-blue-primary text-white rounded-xl text-xs font-black flex items-center gap-2"
+                >
+                  <Plus size={16} /> Tambah
+                </button>
               </div>
-              <h2 className="text-2xl font-black mb-2">Manajemen Stok</h2>
-              <p className="text-[var(--app-muted)] font-bold">Fitur ini akan segera tersedia.</p>
+
+              {showAddProduct && (
+                <div className="bg-[var(--app-surface)] border-2 border-blue-primary/20 rounded-3xl p-6 shadow-xl">
+                  <h3 className="text-sm font-black mb-4">Tambah Produk Baru</h3>
+                  <form onSubmit={handleAddProduct} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input 
+                      placeholder="Nama Produk" 
+                      value={newProduct.name}
+                      onChange={e => setNewProduct({...newProduct, name: e.target.value})}
+                      className="bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-4 py-2.5 text-sm font-bold outline-none" 
+                    />
+                    <input 
+                      placeholder="Kategori" 
+                      value={newProduct.category}
+                      onChange={e => setNewProduct({...newProduct, category: e.target.value})}
+                      className="bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-4 py-2.5 text-sm font-bold outline-none" 
+                    />
+                    <input 
+                      type="number" 
+                      placeholder="Stok" 
+                      value={newProduct.stock}
+                      onChange={e => setNewProduct({...newProduct, stock: e.target.value})}
+                      className="bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-4 py-2.5 text-sm font-bold outline-none" 
+                    />
+                    <input 
+                      type="number" 
+                      placeholder="Harga Jual" 
+                      value={newProduct.price}
+                      onChange={e => setNewProduct({...newProduct, price: e.target.value})}
+                      className="bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-4 py-2.5 text-sm font-bold outline-none" 
+                    />
+                    <div className="md:col-span-2 flex gap-3">
+                      <button type="submit" className="btn-primary flex-1 py-2.5 text-xs">Simpan Produk</button>
+                      <button type="button" onClick={() => setShowAddProduct(false)} className="px-6 py-2.5 bg-[var(--app-bg)] text-[var(--app-muted)] rounded-xl text-xs font-bold">Batal</button>
+                    </div>
+                  </form>
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {products.map(product => (
+                  <div key={product.id} className="bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl p-5 hover:border-blue-primary/20 transition-all group">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="p-2 bg-blue-light rounded-xl text-blue-primary">
+                        <Package size={20} />
+                      </div>
+                      <div className={`px-2 py-1 rounded-lg text-[10px] font-black uppercase ${product.stock < 10 ? 'bg-red-500/10 text-red-primary' : 'bg-green-500/10 text-green-primary'}`}>
+                        {product.stock < 10 ? 'Stok Tipis' : 'Tersedia'}
+                      </div>
+                    </div>
+                    <h3 className="font-black text-[var(--app-text)] mb-1">{product.name}</h3>
+                    <p className="text-[10px] font-bold text-[var(--app-muted)] uppercase mb-4">{product.category}</p>
+                    <div className="flex justify-between items-end border-t border-[var(--app-border)] pt-4">
+                      <div>
+                        <p className="text-[10px] font-black text-[var(--app-muted)] uppercase">Stok</p>
+                        <p className="text-sm font-black text-[var(--app-text)]">{product.stock} Unit</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-[10px] font-black text-[var(--app-muted)] uppercase">Harga</p>
+                        <p className="text-sm font-black text-blue-primary">{fmt(product.price)}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
 
           {tab === 'settings' && (
-            <div className="max-w-2xl bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl p-8">
-               <h2 className="text-xl font-black mb-8">Pengaturan Profil</h2>
-               <div className="space-y-6">
-                 <div>
-                   <label className="text-[10px] font-black uppercase text-[var(--app-muted)] mb-2 block px-1">Nama Bisnis</label>
-                   <input type="text" defaultValue="Vermont Coffee" className="input-premium" />
+            <div className="max-w-2xl space-y-6">
+              <div className="bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl p-8">
+                 <h2 className="text-xl font-black mb-8">Pengaturan Bisnis</h2>
+                 <div className="space-y-6">
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                     <div>
+                       <label className="text-[10px] font-black uppercase text-[var(--app-muted)] mb-2 block px-1">Nama Bisnis</label>
+                       <input type="text" defaultValue="Vermont Coffee" className="input-premium" />
+                     </div>
+                     <div>
+                       <label className="text-[10px] font-black uppercase text-[var(--app-muted)] mb-2 block px-1">Mata Uang</label>
+                       <select className="input-premium">
+                         <option>IDR (Rupiah)</option>
+                         <option>USD (Dollar)</option>
+                       </select>
+                     </div>
+                   </div>
+                   <div>
+                     <label className="text-[10px] font-black uppercase text-[var(--app-muted)] mb-2 block px-1">Email Notifikasi</label>
+                     <input type="email" defaultValue="owner@vermont.com" className="input-premium" />
+                   </div>
+                   <div className="p-4 bg-blue-light rounded-2xl border border-blue-primary/10">
+                     <p className="text-xs font-bold text-blue-primary leading-relaxed">
+                       Sistem SmartFlow Anda saat ini terhubung dengan AI Laboratory Vermont untuk analisis tren otomatis.
+                     </p>
+                   </div>
+                   <button className="btn-primary w-full py-4 text-base mt-4">Simpan Perubahan</button>
                  </div>
-                 <div>
-                   <label className="text-[10px] font-black uppercase text-[var(--app-muted)] mb-2 block px-1">Email Notifikasi</label>
-                   <input type="email" defaultValue="owner@vermont.com" className="input-premium" />
-                 </div>
-                 <button className="btn-primary w-full py-4 text-base mt-4">Simpan Perubahan</button>
-               </div>
+              </div>
+
+              <div className="bg-red-500/5 border-2 border-red-500/10 rounded-3xl p-8">
+                <h3 className="text-sm font-black text-red-primary mb-2 uppercase">Zona Berbahaya</h3>
+                <p className="text-xs font-bold text-[var(--app-muted)] mb-6">Menghapus semua data transaksi dan stok secara permanen.</p>
+                <button className="px-6 py-3 bg-red-500 text-white rounded-2xl text-xs font-black hover:bg-red-600 transition-all">
+                  Reset Data Bisnis
+                </button>
+              </div>
             </div>
           )}
         </div>
@@ -532,12 +653,13 @@ export default function App() {
             onClick={() => setTab(item.id)}
             className={`flex flex-col items-center justify-center gap-1 min-w-[64px] h-12 transition-all duration-300 ${
               item.special 
-                ? 'bg-blue-primary text-white rounded-2xl scale-110 -translate-y-4 shadow-xl shadow-blue-primary/40' 
+                ? 'bg-blue-primary text-white rounded-2xl shadow-lg shadow-blue-primary/40' 
                 : tab === item.id ? 'text-blue-primary' : 'text-[var(--app-muted)]'
             }`}
           >
-            <item.icon size={item.special ? 24 : 20} />
+            <item.icon size={20} />
             {!item.special && <span className="text-[9px] font-bold uppercase tracking-tighter">{item.label}</span>}
+            {item.special && <span className="text-[8px] font-bold uppercase tracking-tighter">{item.label}</span>}
           </button>
         ))}
       </nav>
