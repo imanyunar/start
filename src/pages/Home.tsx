@@ -77,7 +77,7 @@ const Home = () => {
             <motion.div 
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -left-12 p-6 bg-[var(--app-surface)] rounded-3xl shadow-2xl border border-[var(--app-border)] flex items-center gap-4"
+              className="absolute -bottom-6 left-4 right-4 md:right-auto md:-left-12 p-4 md:p-6 bg-[var(--app-surface)] rounded-3xl shadow-2xl border border-[var(--app-border)] flex items-center justify-center md:justify-start gap-4"
             >
               <div className="p-3 bg-blue-light rounded-2xl text-blue-primary">
                 <Sparkles size={24} />
@@ -124,9 +124,9 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 mb-20">
+      <section className="py-10 md:py-20 mb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-[3rem] bg-blue-primary p-12 md:p-24 overflow-hidden">
+          <div className="relative rounded-[2rem] md:rounded-[3rem] bg-blue-primary p-8 md:p-24 overflow-hidden">
              <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
              <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 blur-[80px] rounded-full -translate-x-1/2 translate-y-1/2"></div>
              

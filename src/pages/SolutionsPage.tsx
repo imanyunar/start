@@ -34,7 +34,7 @@ const SolutionsPage = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-24"
+            className="mb-16 md:mb-24"
           >
             <div className="badge-light mb-6 w-fit">{t('solutions.badge')}</div>
             <h1 className="text-4xl md:text-6xl font-black text-[var(--app-text)] mb-8 tracking-tighter max-w-4xl leading-tight">
@@ -43,7 +43,7 @@ const SolutionsPage = () => {
             </h1>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-20 lg:mb-32">
             <div className="card-premium flex flex-col justify-center hover:border-blue-primary/20">
               <div className="p-3 bg-blue-light rounded-xl text-blue-primary w-fit mb-8">
                 <BrainCircuit size={32} />

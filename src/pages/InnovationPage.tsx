@@ -37,7 +37,7 @@ const InnovationPage = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-32"
+            className="text-center mb-20 md:mb-32"
           >
             <div className="badge-light mb-6 mx-auto w-fit">{t('innovation.badge')}</div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[var(--app-text)] mb-8 tracking-tighter px-4">
@@ -53,7 +53,7 @@ const InnovationPage = () => {
             {/* Vertical Line (Desktop) */}
             <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-[var(--app-border)] -translate-x-1/2 hidden md:block"></div>
             
-            <div className="space-y-20 md:space-y-32">
+            <div className="space-y-16 md:space-y-32">
               {roadmap.map((item, i) => (
                 <div key={i} className="relative">
                   {/* Timeline Dot (Desktop) */}

@@ -30,7 +30,7 @@ const AboutPage = () => {
       {/* Philosophy Section */}
       <section className="section-padding bg-[var(--app-surface)] border-y border-[var(--app-border)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
             <div className="relative aspect-square rounded-3xl overflow-hidden border border-[var(--app-border)] group">
               <img 
                 src="/about.png" 

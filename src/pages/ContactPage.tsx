@@ -8,7 +8,7 @@ const ContactPage = () => {
   return (
     <div className="pt-24 min-h-screen bg-[var(--app-bg)]">
       <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           
           {/* Left Side: Info */}
           <motion.div

@@ -62,9 +62,9 @@ const ServicesPage = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section className="section-padding px-4">
-        <div className="max-w-5xl mx-auto card-premium rounded-[2.5rem] p-12 md:p-20 text-center relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-primary/10 blur-[100px] rounded-full"></div>
+      <section className="section-padding relative z-10">
+        <div className="max-w-5xl mx-auto card-premium rounded-[2rem] md:rounded-[2.5rem] p-8 md:p-20 text-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-primary/10 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
           <h2 className="text-3xl md:text-5xl font-black text-[var(--app-text)] mb-8 tracking-tighter">{t('services.footer_title')}</h2>
           <p className="text-[var(--app-muted)] font-bold text-lg mb-12 max-w-xl mx-auto">
             {t('services.footer_desc')}
