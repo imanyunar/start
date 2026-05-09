@@ -8,7 +8,7 @@
   --color-red-primary: #E8403A;
   --color-amber-primary: #F59E0B;
   
-  --font-nunito: "Nunito", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
   --spacing-container: 1200px;
 }
 
@@ -34,13 +34,11 @@
 }
 
 @layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
-
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-[var(--app-bg)] text-[var(--app-text)] font-nunito antialiased selection:bg-blue-primary selection:text-white overflow-x-hidden transition-colors duration-300;
+    @apply bg-[var(--app-bg)] text-[var(--app-text)] font-poppins antialiased selection:bg-blue-primary selection:text-white overflow-x-hidden transition-colors duration-300;
   }
   
   h1, h2, h3, h4, h5, h6 {
