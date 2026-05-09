@@ -15,7 +15,7 @@ export default {
         brandBlue: '#2563EB',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
       },
       backdropBlur: {
         xs: '2px',

@@ -25,9 +25,9 @@ const SolutionsPage = () => {
   ];
 
   return (
-    <div className="pt-24 min-h-screen relative overflow-hidden">
+    <div className="pt-24 min-h-screen bg-[var(--app-bg)] relative overflow-hidden">
       {/* Cinematic Background */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brandBlue/5 blur-[150px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-primary/5 blur-[150px] rounded-full pointer-events-none"></div>
       
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -36,30 +36,30 @@ const SolutionsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-24"
           >
-            <div className="text-brandBlue font-black uppercase tracking-[0.3em] text-[10px] mb-6">{t('solutions.badge')}</div>
-            <h1 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter max-w-4xl leading-tight">
+            <div className="badge-light mb-6 w-fit">{t('solutions.badge')}</div>
+            <h1 className="text-4xl md:text-6xl font-black text-[var(--app-text)] mb-8 tracking-tighter max-w-4xl leading-tight">
               {t('solutions.title')} <br />
               <span className="text-gradient">{t('solutions.subtitle')}</span>
             </h1>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-32">
-            <div className="card-premium flex flex-col justify-center border-brandBlue/20">
-              <div className="p-3 bg-brandBlue/10 rounded-lg text-brandBlue w-fit mb-8">
+            <div className="card-premium flex flex-col justify-center hover:border-blue-primary/20">
+              <div className="p-3 bg-blue-light rounded-xl text-blue-primary w-fit mb-8">
                 <BrainCircuit size={32} />
               </div>
-              <h2 className="text-3xl font-black text-white mb-6">{t('solutions.core_title')}</h2>
-              <p className="text-gray-400 text-lg leading-relaxed mb-8">
+              <h2 className="text-3xl font-black text-[var(--app-text)] mb-6">{t('solutions.core_title')}</h2>
+              <p className="text-[var(--app-muted)] font-bold text-lg leading-relaxed mb-8">
                 {t('solutions.core_desc')}
               </p>
               <div className="grid grid-cols-2 gap-6">
-                <div className="p-4 glass rounded-xl">
-                  <div className="text-brandBlue font-black text-xl mb-1">98%</div>
-                  <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{t('solutions.accuracy')}</div>
+                <div className="p-4 bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl">
+                  <div className="text-blue-primary font-black text-xl mb-1">98%</div>
+                  <div className="text-[10px] font-black text-[var(--app-muted)] uppercase tracking-widest">{t('solutions.accuracy')}</div>
                 </div>
-                <div className="p-4 glass rounded-xl">
-                  <div className="text-brandBlue font-black text-xl mb-1">0.5ms</div>
-                  <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{t('solutions.response')}</div>
+                <div className="p-4 bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl">
+                  <div className="text-blue-primary font-black text-xl mb-1">0.5ms</div>
+                  <div className="text-[10px] font-black text-[var(--app-muted)] uppercase tracking-widest">{t('solutions.response')}</div>
                 </div>
               </div>
             </div>
@@ -72,13 +72,13 @@ const SolutionsPage = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-navy-950/50 border border-white/5 p-6 md:p-8 rounded-2xl flex items-center justify-between group cursor-pointer hover:bg-white/5 transition-all"
+                  className="bg-[var(--app-surface)] border border-[var(--app-border)] p-6 md:p-8 rounded-2xl flex items-center justify-between group cursor-pointer hover:border-blue-primary/30 transition-all shadow-sm hover:shadow-md"
                 >
                   <div>
-                    <h3 className="text-sm md:text-base font-black text-white mb-1 uppercase tracking-widest group-hover:text-brandBlue transition-colors">{s.title}</h3>
-                    <p className="text-xs text-gray-500 font-bold leading-tight">{s.description}</p>
+                    <h3 className="text-sm md:text-base font-black text-[var(--app-text)] mb-1 uppercase tracking-widest group-hover:text-blue-primary transition-colors">{s.title}</h3>
+                    <p className="text-xs text-[var(--app-muted)] font-bold leading-tight">{s.description}</p>
                   </div>
-                  <ChevronRight className="w-5 h-5 text-brandBlue/50 group-hover:text-brandBlue group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="w-5 h-5 text-blue-primary/50 group-hover:text-blue-primary group-hover:translate-x-1 transition-all" />
                 </motion.div>
               ))}
             </div>
@@ -108,11 +108,11 @@ const SolutionsPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="p-8 rounded-3xl border border-white/5 hover:bg-white/5 transition-all"
+                className="p-8 bg-[var(--app-surface)] rounded-3xl border border-[var(--app-border)] hover:border-blue-primary/20 transition-all shadow-sm hover:shadow-lg"
               >
-                <div className="text-brandBlue mb-6">{item.icon}</div>
-                <h3 className="text-xl font-bold text-white mb-4">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                <div className="text-blue-primary mb-6">{item.icon}</div>
+                <h3 className="text-xl font-black text-[var(--app-text)] mb-4">{item.title}</h3>
+                <p className="text-[var(--app-muted)] font-bold text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>

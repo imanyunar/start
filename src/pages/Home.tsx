@@ -7,72 +7,86 @@ const Home = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="relative">
-      {/* Background Glows */}
-      <div className="glow-blue top-[-10%] left-[-10%] w-[500px] h-[500px]"></div>
-      <div className="glow-blue bottom-[20%] right-[-10%] w-[600px] h-[600px] opacity-10"></div>
+    <div className="relative bg-app-bg">
+      {/* Decorative Elements */}
+      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] bg-blue-primary/3 blur-[120px] rounded-full pointer-events-none"></div>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandBlue/10 border border-brandBlue/20 text-brandBlue text-[10px] font-black uppercase tracking-widest mb-8">
+            <div className="badge-light mb-8 w-fit flex items-center gap-2">
               <Sparkles size={12} />
               {t('hero.badge')}
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[1.1] md:leading-[0.9] tracking-tighter">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-app-text mb-8 leading-[1.1] md:leading-[1.0] tracking-tighter">
               {t('hero.title')} <br />
               <span className="text-gradient">{t('hero.subtitle')}</span>
             </h1>
-            <p className="text-gray-400 text-base md:text-lg mb-10 leading-relaxed max-w-lg">
+            <p className="text-app-muted text-lg md:text-xl mb-10 leading-relaxed max-w-lg font-bold">
               {t('hero.description')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-5">
-              <Link to="/contact" className="btn-primary group">
+              <Link to="/smartflow" className="btn-primary group">
                 {t('hero.cta_primary')}
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link to="/solutions" className="px-8 py-3 rounded-xl font-bold text-sm border border-white/10 hover:bg-white/5 transition-all flex items-center justify-center gap-2">
+              <Link to="/solutions" className="btn-secondary">
                 {t('hero.cta_secondary')}
               </Link>
             </div>
 
-            <div className="mt-16 grid grid-cols-3 gap-8 border-t border-white/5 pt-10">
+            <div className="mt-16 grid grid-cols-3 gap-8 border-t border-app-border pt-10">
               <div>
-                <div className="text-2xl font-black text-white mb-1">99.9%</div>
-                <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{t('stats.uptime')}</div>
+                <div className="text-2xl font-black text-app-text mb-1">99.9%</div>
+                <div className="text-[10px] font-black text-app-muted uppercase tracking-widest">{t('stats.uptime')}</div>
               </div>
               <div>
-                <div className="text-2xl font-black text-white mb-1">250ms</div>
-                <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{t('stats.latency')}</div>
+                <div className="text-2xl font-black text-app-text mb-1">250ms</div>
+                <div className="text-[10px] font-black text-app-muted uppercase tracking-widest">{t('stats.latency')}</div>
               </div>
               <div>
-                <div className="text-2xl font-black text-white mb-1">10X</div>
-                <div className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">{t('stats.efficiency')}</div>
+                <div className="text-2xl font-black text-app-text mb-1">10X</div>
+                <div className="text-[10px] font-black text-app-muted uppercase tracking-widest">{t('stats.efficiency')}</div>
               </div>
             </div>
           </motion.div>
           
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotateY: 20 }}
-            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2 }}
-            className="relative perspective-1000 hidden lg:block"
+            className="relative hidden lg:block"
           >
-            <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-brandBlue/10 group">
+            <div className="relative rounded-[2.5rem] overflow-hidden border-[12px] border-[var(--app-surface)] shadow-2xl shadow-blue-primary/10 group bg-[var(--app-surface)]">
               <img 
                 src="/hero.png" 
-                alt="Futuristic Skyscraper" 
-                className="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-all duration-1000 scale-100"
+                alt="Futuristic Tech" 
+                className="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-all duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-transparent to-transparent opacity-60"></div>
-              
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-primary/10 to-transparent"></div>
             </div>
+            
+            {/* Floating Card */}
+            <motion.div 
+              animate={{ y: [0, -20, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -bottom-6 -left-12 p-6 bg-[var(--app-surface)] rounded-3xl shadow-2xl border border-[var(--app-border)] flex items-center gap-4"
+            >
+              <div className="p-3 bg-blue-light rounded-2xl text-blue-primary">
+                <Sparkles size={24} />
+              </div>
+              <div>
+                <p className="text-xs font-black text-app-muted uppercase tracking-widest">Sistem Aktif</p>
+                <p className="text-sm font-black text-app-text">Otomasi Terjamin</p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -81,152 +95,57 @@ const Home = () => {
       <section className="section-padding relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tighter">{t('features.section_title')}</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-black text-app-text mb-6 tracking-tighter">{t('features.section_title')}</h2>
+            <p className="text-app-muted max-w-2xl mx-auto text-lg font-bold">
               {t('features.section_desc')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: <Cpu />, title: t('features.f1_title'), desc: t('features.f1_desc') },
-              { icon: <Database />, title: t('features.f2_title'), desc: t('features.f2_desc') },
-              { icon: <Globe />, title: t('features.f3_title'), desc: t('features.f3_desc') }
+              { icon: <Cpu />, title: t('features.f1_title'), desc: t('features.f1_desc'), color: 'blue' },
+              { icon: <Database />, title: t('features.f2_title'), desc: t('features.f2_desc'), color: 'emerald' },
+              { icon: <Globe />, title: t('features.f3_title'), desc: t('features.f3_desc'), color: 'amber' }
             ].map((item, i) => (
               <motion.div 
                 key={i}
                 whileHover={{ y: -10 }}
                 className="card-premium group"
               >
-                <div className="p-4 bg-brandBlue/10 rounded-2xl text-brandBlue w-fit mb-8 group-hover:scale-110 transition-transform">
+                <div className="p-4 bg-app-bg rounded-2xl text-blue-primary w-fit mb-8 group-hover:bg-blue-primary group-hover:text-white transition-all duration-300">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4 tracking-tight">{item.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                <h3 className="text-2xl font-black text-app-text mb-4 tracking-tight">{item.title}</h3>
+                <p className="text-app-muted text-base leading-relaxed font-bold">{item.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Dashboard Preview Section */}
-      <section className="py-20 bg-navy-900/30 overflow-hidden border-y border-white/5">
+      {/* CTA Section */}
+      <section className="py-20 mb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div>
-              <h2 className="text-4xl font-black text-white mb-8 tracking-tighter leading-tight">
-                {t('dashboard.title')}
-              </h2>
-              <ul className="space-y-6">
-                {[
-                  t('dashboard.l1'),
-                  t('dashboard.l2'),
-                  t('dashboard.l3'),
-                  t('dashboard.l4')
-                ].map((text, i) => (
-                  <li key={i} className="flex items-center gap-4 text-gray-300 font-medium">
-                    <div className="w-5 h-5 rounded-full bg-brandBlue/20 flex items-center justify-center text-brandBlue">
-                      <Sparkles size={12} />
-                    </div>
-                    {text}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="relative">
-              {/* Glow */}
-              <div className="absolute -inset-4 bg-brandBlue/5 blur-[60px] rounded-full pointer-events-none" />
-
-              <div className="glass-dark rounded-2xl border border-white/10 p-4 shadow-[0_0_50px_rgba(37,99,235,0.1)] relative">
-                {/* Title bar */}
-                <div className="flex items-center gap-2 mb-4 border-b border-white/5 pb-4">
-                  <div className="w-3 h-3 rounded-full bg-red-500/70"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/70"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/70"></div>
-                  <div className="ml-4 px-3 py-1 bg-white/5 rounded text-[10px] font-bold text-gray-400 tracking-widest">VERMONT OS v2.0</div>
-                  <div className="ml-auto flex items-center gap-1.5">
-                    <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
-                    <span className="text-[9px] text-green-400 font-bold">LIVE</span>
-                  </div>
-                </div>
-
-                {/* Top row: Metric cards + Mini Chart */}
-                <div className="grid grid-cols-3 gap-3 mb-3">
-                  {[
-                    { label: 'CPU LOAD', value: '23%', color: 'text-brandBlue' },
-                    { label: 'TASKS DONE', value: '1,842', color: 'text-green-400' },
-                    { label: 'UPTIME', value: '99.9%', color: 'text-purple-400' },
-                  ].map((m, i) => (
-                    <div key={i} className="bg-white/5 rounded-xl p-3 border border-white/5">
-                      <div className="text-[8px] font-black text-gray-500 tracking-widest mb-1">{m.label}</div>
-                      <div className={`text-base font-black ${m.color}`}>{m.value}</div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Middle row: Bar chart + Activity feed */}
-                <div className="grid grid-cols-2 gap-3 mb-3">
-                  {/* Bar Chart */}
-                  <div className="bg-white/5 rounded-xl p-3 border border-white/5">
-                    <div className="text-[8px] font-black text-gray-500 tracking-widest mb-3">WORKFLOW THROUGHPUT</div>
-                    <div className="flex items-end gap-1.5 h-16">
-                      {[40, 65, 45, 80, 55, 90, 70, 95, 60, 85].map((h, i) => (
-                        <div
-                          key={i}
-                          className="flex-1 rounded-sm"
-                          style={{
-                            height: `${h}%`,
-                            background: `rgba(37,99,235,${0.3 + (h / 100) * 0.7})`,
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Activity Feed */}
-                  <div className="bg-white/5 rounded-xl p-3 border border-white/5 overflow-hidden">
-                    <div className="text-[8px] font-black text-gray-500 tracking-widest mb-3">AGENT ACTIVITY</div>
-                    <div className="space-y-2">
-                      {[
-                        { label: 'Data sync complete', color: 'bg-green-400' },
-                        { label: 'Model retrained', color: 'bg-brandBlue' },
-                        { label: 'Alert resolved', color: 'bg-yellow-400' },
-                      ].map((a, i) => (
-                        <div key={i} className="flex items-center gap-2">
-                          <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${a.color}`}></div>
-                          <span className="text-[9px] text-gray-400 truncate">{a.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom: Progress bars */}
-                <div className="bg-white/5 rounded-xl p-3 border border-white/5">
-                  <div className="text-[8px] font-black text-gray-500 tracking-widest mb-3">AUTOMATION PIPELINE</div>
-                  <div className="space-y-2">
-                    {[
-                      { label: 'Data Ingestion', pct: 92 },
-                      { label: 'Neural Processing', pct: 78 },
-                      { label: 'Output Delivery', pct: 65 },
-                    ].map((p, i) => (
-                      <div key={i}>
-                        <div className="flex justify-between mb-1">
-                          <span className="text-[9px] text-gray-400">{p.label}</span>
-                          <span className="text-[9px] text-brandBlue font-bold">{p.pct}%</span>
-                        </div>
-                        <div className="h-1 bg-white/10 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-gradient-to-r from-brandBlue to-blue-400 rounded-full"
-                            style={{ width: `${p.pct}%` }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="relative rounded-[3rem] bg-blue-primary p-12 md:p-24 overflow-hidden">
+             <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+             <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 blur-[80px] rounded-full -translate-x-1/2 translate-y-1/2"></div>
+             
+             <div className="relative text-center max-w-3xl mx-auto">
+               <h2 className="text-3xl md:text-6xl font-black text-white mb-8 tracking-tighter">
+                 Siap Mengotomatiskan Bisnis Anda?
+               </h2>
+               <p className="text-blue-50 text-lg md:text-xl mb-12 font-bold opacity-80">
+                 Bergabunglah dengan ribuan pengusaha yang telah menghemat waktu dan meningkatkan profit dengan Vermont.
+               </p>
+               <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                 <Link to="/smartflow" className="px-10 py-5 bg-white text-blue-primary rounded-2xl font-black text-lg hover:scale-105 transition-all shadow-2xl">
+                   Mulai Sekarang
+                 </Link>
+                 <Link to="/contact" className="px-10 py-5 bg-blue-dark text-white rounded-2xl font-black text-lg hover:bg-blue-900 transition-all">
+                   Hubungi Kami
+                 </Link>
+               </div>
+             </div>
           </div>
         </div>
       </section>

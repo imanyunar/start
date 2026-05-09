@@ -1,643 +1,549 @@
-import { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Plus, 
-  Send, 
-  DollarSign, 
-  BrainCircuit, 
-  ChevronRight,
-  Activity,
-  Search,
-  Bell,
-  LayoutDashboard,
-  Wallet,
-  ShoppingBag,
-  Settings,
-  Menu,
-  TrendingUp,
-  Calendar,
-  Sparkles,
-  ChevronLeft
+import { useState, useMemo, useEffect } from 'react';
+import {
+  LayoutDashboard, Wallet, ShoppingBag, Settings,
+  Plus, Send, TrendingUp, TrendingDown, ArrowUpRight,
+  ArrowDownRight, ChevronRight, Brain, Check, X,
+  BarChart2, Package, Sliders, Home, Moon, Sun, Search, Bell, Menu as MenuIcon,
+  ArrowLeft, Trash2
 } from 'lucide-react';
-import { 
-  AreaChart, 
-  Area, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell
+import { Link } from 'react-router-dom';
+import {
+  AreaChart, Area, XAxis, YAxis, ResponsiveContainer,
+  Tooltip, PieChart, Pie, Cell, CartesianGrid
 } from 'recharts';
 
-interface Transaction {
-  id: string;
-  type: 'income' | 'expense' | 'debt';
-  amount: number;
-  description: string;
-  category: string;
-  timestamp: Date;
+/* ─── Helpers ────────────────────────────────────────────────── */
+const fmt = (n: number) => n >= 1000000
+  ? `Rp ${(n/1000000).toFixed(1)}jt`
+  : n >= 1000 ? `Rp ${(n/1000).toFixed(0)}rb` : `Rp ${n}`;
+
+const fmtFull = (n: number) => `Rp ${n.toLocaleString('id-ID')}`;
+
+const COLORS_PIE = ['#1D6FE8', '#12A860', '#F59E0B', '#E8403A', '#8B5CF6'];
+
+const INITIAL_TX = [
+  { id: '1', type: 'income',  amount: 75000,  description: 'Mie Ayam Special',    category: 'Makanan',   timestamp: new Date() },
+  { id: '2', type: 'expense', amount: 200000, description: 'Gas LPG 3kg x 10',    category: 'Operasional', timestamp: new Date(Date.now() - 3600000) },
+  { id: '3', type: 'debt',    amount: 100000, description: 'Hutang Budi',          category: 'Piutang',   timestamp: new Date(Date.now() - 7200000) },
+  { id: '4', type: 'income',  amount: 45000,  description: 'Es Teh Manis x 10',   category: 'Minuman',   timestamp: new Date(Date.now() - 10800000) },
+  { id: '5', type: 'expense', amount: 150000, description: 'Bahan Baku Tepung',   category: 'Bahan Baku', timestamp: new Date(Date.now() - 86400000) },
+];
+
+const WEEK = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
+
+/* ─── parseInput ─────────────────────────────────────────────── */
+function parseInput(text: string) {
+  const lo = text.toLowerCase();
+  let type: 'income' | 'expense' | 'debt' = lo.includes('beli') || lo.includes('bayar') || lo.includes('keluar') ? 'expense'
+    : lo.includes('utang') || lo.includes('bon') || lo.includes('pinjam') ? 'debt'
+    : 'income';
+  let amount = 0;
+  const m = lo.match(/(\d+)\s*(rb|k|jt|juta)?/);
+  if (m) {
+    let v = parseInt(m[1]);
+    if (m[2] === 'rb' || m[2] === 'k') v *= 1000;
+    if (m[2] === 'jt' || m[2] === 'juta') v *= 1000000;
+    amount = v;
+  }
+  const desc = text.replace(/\d+\s*(rb|k|jt|juta)?/gi, '')
+    .replace(/(jual|laku|beli|bayar|utang|bon|pinjam|terima|keluar)/gi, '')
+    .trim() || 'Transaksi';
+  return { type, amount, description: desc };
 }
 
-const COLORS = ['#2563EB', '#0EA5E9', '#CBD5E1', '#F43F5E', '#10B981'];
+/* ─── Components ─────────────────────────────────────────────── */
 
-const SmartFlowPage = () => {
-  const [activeTab, setActiveTab] = useState('dashboard');
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [inputText, setInputText] = useState('');
-  const [transactions, setTransactions] = useState<Transaction[]>([
-    { id: '1', type: 'income', amount: 75000, description: 'Mie Ayam Special', category: 'Makanan', timestamp: new Date() },
-    { id: '2', type: 'expense', amount: 200000, description: 'Gas LPG 3kg x 10', category: 'Operasional', timestamp: new Date(Date.now() - 3600000) },
-    { id: '3', type: 'debt', amount: 100000, description: 'Hutang Budi', category: 'Piutang', timestamp: new Date(Date.now() - 7200000) },
-    { id: '4', type: 'income', amount: 45000, description: 'Es Teh Manis x 10', category: 'Minuman', timestamp: new Date(Date.now() - 10800000) },
-    { id: '5', type: 'expense', amount: 150000, description: 'Bahan Baku Tepung', category: 'Bahan Baku', timestamp: new Date(Date.now() - 86400000) },
-  ]);
-  const [isProcessing, setIsProcessing] = useState(false);
+function Toast({ msg }: { msg: string }) {
+  if (!msg) return null;
+  return (
+    <div className="fixed bottom-24 left-1/2 -translate-x-1/2 bg-app-text text-app-bg px-6 py-3 rounded-full text-xs font-black shadow-2xl z-[1000] flex items-center gap-2">
+      <Check size={14} className="text-green-primary" /> {msg}
+    </div>
+  );
+}
 
-  // Derived Data for Analytics
-  const revenue = useMemo(() => transactions.filter(t => t.type === 'income').reduce((acc, curr) => acc + curr.amount, 0), [transactions]);
-  const expenses = useMemo(() => transactions.filter(t => t.type === 'expense').reduce((acc, curr) => acc + curr.amount, 0), [transactions]);
+function StatCard({ label, value, icon: Icon, color, trend, trendUp }: any) {
+  const colorMap: any = {
+    blue: { bg: 'bg-blue-light', text: 'text-blue-primary' },
+    green: { bg: 'bg-green-500/10', text: 'text-green-primary' },
+    red: { bg: 'bg-red-500/10', text: 'text-red-primary' },
+    amber: { bg: 'bg-amber-500/10', text: 'text-amber-primary' },
+  };
+  const c = colorMap[color];
+  return (
+    <div className="bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl p-5 flex flex-col gap-3">
+      <div className="flex justify-between items-center">
+        <div className={`p-2 rounded-xl ${c.bg}`}>
+          <Icon size={18} className={c.text} />
+        </div>
+        {trend && (
+          <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-black ${
+            trendUp ? 'bg-green-500/10 text-green-primary' : 'bg-red-500/10 text-red-primary'
+          }`}>
+            {trendUp ? <ArrowUpRight size={10} /> : <ArrowDownRight size={10} />}
+            {trend}
+          </div>
+        )}
+      </div>
+      <div>
+        <p className="text-[10px] font-black uppercase tracking-widest text-[var(--app-muted)] mb-1">{label}</p>
+        <p className="text-xl font-black text-[var(--app-text)]">{value}</p>
+      </div>
+    </div>
+  );
+}
+
+function TxRow({ tx, onDelete }: { tx: any, onDelete?: (id: string) => void }) {
+  const typeMap: any = {
+    income: { color: 'text-green-primary', bg: 'bg-green-500/10', label: 'Masuk', prefix: '+' },
+    expense: { color: 'text-red-primary', bg: 'bg-red-500/10', label: 'Keluar', prefix: '-' },
+    debt: { color: 'text-amber-primary', bg: 'bg-amber-500/10', label: 'Hutang', prefix: '~' },
+  };
+  const t = typeMap[tx.type];
+  const initials = tx.description.split(' ').slice(0, 2).map((w: string) => w[0]).join('').toUpperCase();
+  return (
+    <div className="flex items-center gap-4 py-4 border-b border-[var(--app-border)] last:border-none group">
+      <div className={`w-11 h-11 rounded-2xl flex items-center justify-center font-black text-xs ${t.bg} ${t.color}`}>
+        {initials}
+      </div>
+      <div className="flex-1 min-w-0">
+        <p className="text-sm font-black text-[var(--app-text)] truncate">{tx.description}</p>
+        <p className="text-[10px] font-bold text-[var(--app-muted)] uppercase tracking-tighter mt-0.5">
+          {tx.timestamp.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })} • {t.label}
+        </p>
+      </div>
+      <p className={`text-sm font-black ${t.color}`}>{t.prefix}{fmt(tx.amount)}</p>
+      {onDelete && (
+        <button onClick={() => onDelete(tx.id)} className="p-2 text-red-500 opacity-0 group-hover:opacity-100 transition-opacity ml-2 rounded-xl hover:bg-red-500/10">
+          <Trash2 size={16} />
+        </button>
+      )}
+    </div>
+  );
+}
+
+/* ─── Dashboard ─────────────────────────────────────────────── */
+function DashboardPage({ transactions, onGoTransactions }: any) {
+  const revenue = useMemo(() => transactions.filter((t: any) => t.type === 'income').reduce((a: any, c: any) => a + c.amount, 0), [transactions]);
+  const expenses = useMemo(() => transactions.filter((t: any) => t.type === 'expense').reduce((a: any, c: any) => a + c.amount, 0), [transactions]);
   const profit = revenue - expenses;
+  
+  const chartData = useMemo(() => WEEK.map((day, idx) => ({
+    name: day,
+    pemasukan: transactions.filter((t: any) => t.type === 'income' && new Date(t.timestamp).getDay() === (idx + 1) % 7)
+      .reduce((a: any, c: any) => a + c.amount, 0) || Math.floor(Math.random() * 80000 + 20000),
+    pengeluaran: transactions.filter((t: any) => t.type === 'expense' && new Date(t.timestamp).getDay() === (idx + 1) % 7)
+      .reduce((a: any, c: any) => a + c.amount, 0) || Math.floor(Math.random() * 40000 + 10000),
+  })), [transactions]);
 
-  // Process data for Line/Area Chart (Grouped by time)
-  const chartData = useMemo(() => {
-    // Mocking 7 days of data for the chart based on transactions
-    const days = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
-    return days.map((day, idx) => {
-      const dayTxs = transactions.filter(t => {
-        const d = new Date(t.timestamp);
-        return d.getDay() === (idx + 1) % 7;
-      });
-      return {
-        name: day,
-        pemasukan: dayTxs.filter(t => t.type === 'income').reduce((a, c) => a + c.amount, 0) || Math.floor(Math.random() * 100000),
-        pengeluaran: dayTxs.filter(t => t.type === 'expense').reduce((a, c) => a + c.amount, 0) || Math.floor(Math.random() * 50000),
-      };
-    });
-  }, [transactions]);
-
-  // Process data for Pie/Donut Chart (Grouped by category)
   const pieData = useMemo(() => {
-    const categories = Array.from(new Set(transactions.map(t => t.category)));
-    return categories.map(cat => ({
+    const cats = [...new Set(transactions.map((t: any) => t.category))] as string[];
+    return cats.map(cat => ({
       name: cat,
-      value: transactions.filter(t => t.category === cat).reduce((a, c) => a + c.amount, 0)
-    })).sort((a, b) => b.value - a.value).slice(0, 5);
+      value: transactions.filter((t: any) => t.category === cat).reduce((a: any, c: any) => a + c.amount, 0)
+    })).sort((a, b) => b.value - a.value).slice(0, 4);
   }, [transactions]);
 
-  const parseInput = (text: string) => {
-    const lowerText = text.toLowerCase();
-    let type: 'income' | 'expense' | 'debt' = 'income';
-    let amount = 0;
-    let description = '';
+  return (
+    <div className="space-y-6">
+      {/* Hero Card */}
+      <div className="bg-gradient-to-br from-blue-primary to-blue-dark rounded-[2rem] p-8 text-white relative overflow-hidden shadow-2xl shadow-blue-primary/20">
+        <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+        <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-white/5 rounded-full blur-xl"></div>
+        <p className="text-xs font-black uppercase tracking-[0.2em] opacity-70 mb-2">Keuntungan Bersih</p>
+        <h2 className="text-4xl font-black mb-8 tracking-tighter">{fmtFull(profit)}</h2>
+        <div className="flex gap-10">
+          <div>
+            <p className="text-[10px] font-black uppercase opacity-60 mb-1">⬆ Pemasukan</p>
+            <p className="text-lg font-black">{fmt(revenue)}</p>
+          </div>
+          <div className="w-px h-10 bg-white/20 self-center"></div>
+          <div>
+            <p className="text-[10px] font-black uppercase opacity-60 mb-1">⬇ Pengeluaran</p>
+            <p className="text-lg font-black">{fmt(expenses)}</p>
+          </div>
+        </div>
+      </div>
 
-    if (lowerText.includes('jual') || lowerText.includes('laku') || lowerText.includes('terima')) {
-      type = 'income';
-    } else if (lowerText.includes('beli') || lowerText.includes('bayar') || lowerText.includes('keluar')) {
-      type = 'expense';
-    } else if (lowerText.includes('utang') || lowerText.includes('bon') || lowerText.includes('pinjam')) {
-      type = 'debt';
-    }
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <StatCard label="Total Masuk" value={fmt(revenue)} icon={TrendingUp} color="green" trend="12.5%" trendUp />
+        <StatCard label="Total Keluar" value={fmt(expenses)} icon={TrendingDown} color="red" trend="2.4%" trendUp={false} />
+        <StatCard label="Efisiensi" value="94%" icon={Brain} color="blue" trend="Optimal" trendUp />
+        <StatCard label="Transaksi" value={transactions.length} icon={Wallet} color="amber" trend="Stabil" trendUp />
+      </div>
 
-    const amountMatch = lowerText.match(/(\d+)(?:\s*)(rb|k|jt|juta)?/);
-    if (amountMatch) {
-      let val = parseInt(amountMatch[1]);
-      const unit = amountMatch[2];
-      if (unit === 'rb' || unit === 'k') val *= 1000;
-      if (unit === 'jt' || unit === 'juta') val *= 1000000;
-      amount = val;
-    }
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl p-6">
+          <div className="flex justify-between items-center mb-6">
+            <h3 className="text-base font-black text-[var(--app-text)]">Tren Kas 7 Hari</h3>
+          </div>
+          <div className="h-[200px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={chartData}>
+                <defs>
+                  <linearGradient id="colorMasuk" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#1D6FE8" stopOpacity={0.2}/>
+                    <stop offset="95%" stopColor="#1D6FE8" stopOpacity={0}/>
+                  </linearGradient>
+                </defs>
+                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 800, fill: '#94A3B8' }} dy={10} />
+                <Tooltip 
+                  contentStyle={{ 
+                    borderRadius: '16px', 
+                    border: 'none', 
+                    backgroundColor: 'var(--app-surface)',
+                    boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1)',
+                    fontSize: '12px',
+                    fontWeight: '900'
+                  }} 
+                />
+                <Area type="monotone" dataKey="pemasukan" stroke="#1D6FE8" strokeWidth={3} fillOpacity={1} fill="url(#colorMasuk)" />
+                <Area type="monotone" dataKey="pengeluaran" stroke="#E2E8F0" strokeWidth={2} fillOpacity={0} />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
 
-    description = text.replace(/(\d+)(?:\s*)(rb|k|jt|juta)?/i, '')
-                     .replace(/(jual|laku|beli|bayar|utang|bon|pinjam|terima|keluar)/i, '')
-                     .trim();
+        <div className="bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl p-6">
+          <h3 className="text-base font-black text-[var(--app-text)] mb-6">Kategori Biaya</h3>
+          <div className="flex items-center gap-8">
+            <div className="w-24 h-24">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie data={pieData} cx="50%" cy="50%" innerRadius={25} outerRadius={40} dataKey="value" paddingAngle={4} stroke="none">
+                    {pieData.map((_, i) => <Cell key={i} fill={COLORS_PIE[i % COLORS_PIE.length]} />)}
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div className="flex-1 space-y-2">
+              {pieData.map((item, i) => (
+                <div key={i} className="flex justify-between items-center text-xs">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS_PIE[i] }}></div>
+                    <span className="font-bold text-[var(--app-muted)]">{item.name}</span>
+                  </div>
+                  <span className="font-black text-[var(--app-text)]">{fmt(item.value)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
 
-    return { type, amount, description: description || 'Transaksi Baru' };
+      <div className="bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl p-6">
+        <div className="flex justify-between items-center mb-6">
+          <h3 className="text-base font-black text-[var(--app-text)]">Transaksi Terakhir</h3>
+          <button onClick={onGoTransactions} className="text-xs font-black text-blue-primary flex items-center gap-1">
+            Lihat Semua <ChevronRight size={14} />
+          </button>
+        </div>
+        <div className="divide-y divide-[var(--app-border)]">
+          {transactions.slice(0, 5).map((tx: any) => <TxRow key={tx.id} tx={tx} />)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── App ────────────────────────────────────────────────────── */
+export default function App() {
+  const [tab, setTab] = useState('dashboard');
+  const [transactions, setTransactions] = useState(INITIAL_TX);
+  const [isDark, setIsDark] = useState(false);
+  const [inputText, setInputText] = useState('');
+  const [toast, setToast] = useState('');
+
+  const [manualForm, setManualForm] = useState({
+    type: 'income',
+    amount: '',
+    description: '',
+    category: ''
+  });
+
+  const handleManualSubmit = (e: any) => {
+    e.preventDefault();
+    if (!manualForm.amount || !manualForm.description) return;
+    setTransactions(prev => [{
+      id: Math.random().toString(36).substr(2, 9),
+      type: manualForm.type as any,
+      amount: parseInt(manualForm.amount),
+      description: manualForm.description,
+      category: manualForm.category || (manualForm.type === 'income' ? 'Penjualan' : 'Belanja'),
+      timestamp: new Date(),
+    }, ...prev]);
+    setManualForm({ type: 'income', amount: '', description: '', category: '' });
+    setToast('Berhasil dicatat manual!');
+    setTimeout(() => setToast(''), 2000);
   };
 
-  const handleRecord = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
+  const handleDelete = (id: string) => {
+    setTransactions(prev => prev.filter(t => t.id !== id));
+    setToast('Transaksi dihapus');
+    setTimeout(() => setToast(''), 2000);
+  };
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (isDark) root.classList.add('dark');
+    else root.classList.remove('dark');
+  }, [isDark]);
+
+  const handleRecord = () => {
     if (!inputText.trim()) return;
-
-    setIsProcessing(true);
     const parsed = parseInput(inputText);
-
-    setTimeout(() => {
-      const newTx: Transaction = {
-        id: Math.random().toString(36).substr(2, 9),
-        ...parsed,
-        category: parsed.type === 'income' ? 'Penjualan' : parsed.type === 'expense' ? 'Belanja' : 'Lainnya',
-        timestamp: new Date()
-      };
-      setTransactions([newTx, ...transactions]);
-      setInputText('');
-      setIsProcessing(false);
-    }, 800);
+    setTransactions(prev => [{
+      id: Math.random().toString(36).substr(2, 9),
+      ...parsed,
+      category: parsed.type === 'income' ? 'Penjualan' : parsed.type === 'expense' ? 'Belanja' : 'Hutang',
+      timestamp: new Date(),
+    }, ...prev]);
+    setInputText('');
+    setToast('Berhasil dicatat!');
+    setTimeout(() => setToast(''), 2000);
   };
 
-  const menuItems = [
-    { id: 'dashboard', label: 'Ringkasan', icon: <LayoutDashboard size={22} /> },
-    { id: 'transactions', label: 'Catat Transaksi', icon: <Wallet size={22} /> },
-    { id: 'inventory', label: 'Stok Barang', icon: <ShoppingBag size={22} /> },
-    { id: 'settings', label: 'Pengaturan', icon: <Settings size={22} /> },
+  const navItems = [
+    { id: 'dashboard', icon: Home, label: 'Beranda' },
+    { id: 'transactions', icon: Plus, label: 'Catat', special: true },
+    { id: 'inventory', icon: Package, label: 'Stok' },
+    { id: 'settings', icon: Sliders, label: 'Atur' },
   ];
 
   return (
-    <div className="min-h-screen light-app-bg flex overflow-hidden font-sans antialiased text-slate-primary">
-      {/* Sidebar */}
-      <aside 
-        className={`${
-          isSidebarOpen ? 'w-80' : 'w-24'
-        } bg-white border-r border-slate-100 transition-all duration-500 hidden lg:flex flex-col z-20 shadow-sm`}
-      >
-        <div className="p-8 flex items-center gap-4">
-          <div className="p-3 bg-brandBlue rounded-2xl text-white shadow-xl shadow-blue-100">
-            <BrainCircuit size={28} />
+    <div className="min-h-screen bg-[var(--app-bg)] transition-colors duration-300">
+      <Toast msg={toast} />
+      
+      {/* Desktop Sidebar (Responsive) */}
+      <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-72 bg-[var(--app-surface)] border-r border-[var(--app-border)] flex-col p-8 z-50">
+        <div className="flex items-center gap-3 mb-12">
+          <div className="p-2.5 bg-blue-primary rounded-xl text-white shadow-xl shadow-blue-primary/20">
+            <Brain size={24} />
           </div>
-          {isSidebarOpen && (
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-              <span className="text-2xl font-black tracking-tight text-slate-900">SmartFlow</span>
-              <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest leading-none">AI Assistant</p>
-            </motion.div>
-          )}
+          <span className="text-xl font-black tracking-tighter">SmartFlow</span>
         </div>
 
-        <nav className="flex-grow px-4 mt-12 space-y-3">
-          {menuItems.map((item) => (
+        <nav className="flex-1 space-y-2">
+          {navItems.map(item => (
             <button
               key={item.id}
-              onClick={() => setActiveTab(item.id)}
-              className={`w-full flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 relative group ${
-                activeTab === item.id 
-                  ? 'bg-brandBlue text-white shadow-2xl shadow-blue-200' 
-                  : 'text-slate-400 hover:bg-slate-50 hover:text-slate-900'
+              onClick={() => setTab(item.id)}
+              className={`w-full flex items-center gap-4 p-4 rounded-2xl text-sm font-black transition-all ${
+                tab === item.id 
+                  ? 'bg-blue-primary text-white shadow-xl shadow-blue-primary/10' 
+                  : 'text-[var(--app-muted)] hover:bg-[var(--app-bg)]'
               }`}
             >
-              <div className="shrink-0">{item.icon}</div>
-              {isSidebarOpen && <span className="font-bold text-base">{item.label}</span>}
+              <item.icon size={20} />
+              {item.label}
             </button>
           ))}
         </nav>
 
-        <div className="p-8 border-t border-slate-50">
-          <button 
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className="w-full flex items-center gap-4 p-3 text-slate-400 hover:text-slate-900 transition-colors"
+        <div className="mt-auto space-y-2 pt-8 border-t border-[var(--app-border)]">
+          <Link 
+            to="/"
+            className="flex items-center gap-4 p-4 rounded-2xl text-sm font-black text-blue-primary hover:bg-blue-light transition-all"
           >
-            {isSidebarOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
-            {isSidebarOpen && <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300">Sembunyikan</span>}
+            <ArrowLeft size={20} />
+            Kembali ke Web
+          </Link>
+          <button 
+            onClick={() => setIsDark(!isDark)}
+            className="w-full flex items-center gap-4 p-4 rounded-2xl text-sm font-black text-[var(--app-muted)] hover:bg-[var(--app-bg)] transition-all"
+          >
+            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            {isDark ? 'Mode Terang' : 'Mode Gelap'}
           </button>
         </div>
       </aside>
 
       {/* Main Content Area */}
-      <div className="flex-grow flex flex-col h-screen overflow-y-auto">
-        <header className="sticky top-0 glass-light border-b border-slate-100 p-8 flex justify-between items-center z-10">
-          <div className="flex items-center gap-6">
-            <button className="lg:hidden p-3 bg-white rounded-xl shadow-sm border border-slate-100 text-slate-600">
-              <Menu size={24} />
-            </button>
+      <main className="lg:ml-72 pb-32">
+        {/* Header */}
+        <header className="sticky top-0 z-40 bg-[var(--app-surface)]/80 backdrop-blur-xl border-b border-[var(--app-border)] px-4 lg:px-12 py-4 lg:py-5 flex justify-between items-center">
+          <div className="flex items-center gap-3">
+            <Link to="/" className="lg:hidden p-2 bg-[var(--app-bg)] rounded-xl text-[var(--app-text)] hover:bg-[var(--app-border)] transition-all">
+              <ArrowLeft size={20} />
+            </Link>
             <div>
-              <h2 className="text-3xl font-black text-slate-900 tracking-tight">
-                {menuItems.find(i => i.id === activeTab)?.label}
-              </h2>
-              <p className="text-xs font-bold text-slate-400 flex items-center gap-2">
-                <Calendar size={12} /> {new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long' })}
-              </p>
+              <h1 className="text-lg lg:text-2xl font-black text-[var(--app-text)]">
+                {tab === 'dashboard' ? 'Ringkasan Bisnis' : tab === 'transactions' ? 'Catat & Riwayat' : 'Pengaturan'}
+              </h1>
+              <p className="text-[10px] font-black text-[var(--app-muted)] uppercase tracking-widest mt-0.5">Sabtu, 9 Mei 2026</p>
             </div>
           </div>
-          
-          <div className="flex items-center gap-6">
-            <div className="relative hidden xl:block">
-              <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" />
-              <input 
-                type="text" 
-                placeholder="Cari transaksi..." 
-                className="bg-slate-50 border-2 border-transparent focus:border-brandBlue/10 focus:bg-white rounded-2xl pl-12 pr-6 py-3 text-sm w-80 outline-none transition-all"
-              />
-            </div>
-            <button className="p-3 bg-white rounded-2xl border border-slate-100 text-slate-400 hover:text-brandBlue transition-all relative">
-              <Bell size={20} />
-              <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-white"></span>
-            </button>
-            <div className="flex items-center gap-3 p-1.5 bg-white rounded-2xl border border-slate-100 cursor-pointer hover:shadow-md transition-all">
-              <div className="w-10 h-10 rounded-xl bg-blue-100 border border-blue-50 overflow-hidden shrink-0 text-white flex items-center justify-center font-black text-xs">AV</div>
-              <div className="hidden md:block pr-2">
-                <p className="text-xs font-black text-slate-900 leading-none mb-0.5">Andi Vermont</p>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Owner</p>
-              </div>
-            </div>
+
+          <div className="flex items-center gap-4">
+             <button onClick={() => setIsDark(!isDark)} className="lg:hidden p-2.5 bg-[var(--app-bg)] rounded-xl text-[var(--app-muted)]">
+               {isDark ? <Sun size={20} /> : <Moon size={20} />}
+             </button>
+             <div className="w-px h-6 bg-[var(--app-border)] hidden md:block"></div>
+             <div className="flex items-center gap-3 p-1.5 bg-[var(--app-bg)] rounded-2xl cursor-pointer">
+               <div className="w-8 h-8 rounded-xl bg-blue-primary text-white flex items-center justify-center text-[10px] font-black">AV</div>
+               <span className="text-xs font-black pr-2 hidden sm:block">Andi Vermont</span>
+             </div>
           </div>
         </header>
 
-        <div className="p-8 lg:p-12 max-w-[1400px]">
-          {activeTab === 'dashboard' && (
-            <div className="space-y-10">
-              {/* Stats Overview */}
-              <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
-                {[
-                  { label: 'Pendapatan', value: revenue, icon: <TrendingUp />, color: 'blue', trend: '+12.5%' },
-                  { label: 'Pengeluaran', value: expenses, icon: <Activity />, color: 'rose', trend: '-2.4%' },
-                  { label: 'Keuntungan Bersih', value: profit, icon: <DollarSign />, color: 'emerald', trend: '+15.2%' },
-                  { label: 'Total Transaksi', value: transactions.length, icon: <Wallet />, color: 'orange', trend: 'Stabil' },
-                ].map((stat, i) => (
-                  <motion.div 
-                    key={i} 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="light-card p-8 group"
-                  >
-                    <div className="flex justify-between items-start mb-6">
-                      <div className={`p-4 rounded-2xl bg-slate-50 text-${stat.color}-600 group-hover:bg-${stat.color}-500 group-hover:text-white transition-all duration-300`}>
-                        {stat.icon}
+        <div className="max-w-6xl mx-auto p-6 lg:p-12">
+          {tab === 'dashboard' && <DashboardPage transactions={transactions} onGoTransactions={() => setTab('transactions')} />}
+          
+          {tab === 'transactions' && (
+            <div className="grid grid-cols-1 xl:grid-cols-3 gap-10">
+              <div className="xl:col-span-2 space-y-6">
+                
+                {/* Manual Input Form */}
+                <div className="bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl p-6">
+                  <h2 className="text-base font-black mb-6 text-[var(--app-text)]">Catat Transaksi Manual</h2>
+                  <form onSubmit={handleManualSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="text-[10px] font-black uppercase tracking-widest text-[var(--app-muted)] ml-1 mb-1 block">Jenis</label>
+                        <select 
+                          value={manualForm.type}
+                          onChange={(e) => setManualForm({...manualForm, type: e.target.value})}
+                          className="w-full bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-4 py-3 text-sm font-bold text-[var(--app-text)] focus:border-blue-primary/50 outline-none"
+                        >
+                          <option value="income">Pemasukan (+)</option>
+                          <option value="expense">Pengeluaran (-)</option>
+                          <option value="debt">Hutang/Piutang (~)</option>
+                        </select>
                       </div>
-                      <span className={`text-[10px] font-black px-2 py-1 rounded-lg ${
-                        stat.trend.startsWith('+') ? 'bg-emerald-50 text-emerald-600' : 'bg-slate-50 text-slate-400'
-                      }`}>
-                        {stat.trend}
-                      </span>
-                    </div>
-                    <div className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{stat.label}</div>
-                    <div className="text-3xl font-black text-slate-900 mb-1">
-                      {typeof stat.value === 'number' && i < 3 ? `Rp ${stat.value.toLocaleString('id-ID')}` : stat.value}
-                    </div>
-                  </motion.div>
-                ))}
-              </section>
-
-              {/* Advanced Analytics Section */}
-              <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-                {/* Sales Trend (Real Recharts AreaChart) */}
-                <div className="xl:col-span-2 light-card p-10 flex flex-col min-h-[500px]">
-                  <div className="flex justify-between items-center mb-12">
-                    <div>
-                      <h3 className="text-2xl font-black text-slate-900 tracking-tight">Tren Penjualan</h3>
-                      <p className="text-sm font-bold text-slate-400">Analisis pergerakan kas real-time.</p>
-                    </div>
-                    <div className="flex gap-4 items-center">
-                      <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest px-4 py-2 bg-slate-50 rounded-xl border border-slate-100">
-                        <div className="flex items-center gap-2 text-blue-600"><div className="w-2 h-2 rounded-full bg-blue-600"></div> Pemasukan</div>
-                        <div className="flex items-center gap-2 text-slate-400"><div className="w-2 h-2 rounded-full bg-slate-400"></div> Pengeluaran</div>
+                      <div>
+                        <label className="text-[10px] font-black uppercase tracking-widest text-[var(--app-muted)] ml-1 mb-1 block">Nominal (Rp)</label>
+                        <input 
+                          type="number" 
+                          value={manualForm.amount}
+                          onChange={(e) => setManualForm({...manualForm, amount: e.target.value})}
+                          placeholder="0"
+                          className="w-full bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-4 py-3 text-sm font-bold text-[var(--app-text)] focus:border-blue-primary/50 outline-none"
+                        />
+                      </div>
+                      <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                           <label className="text-[10px] font-black uppercase tracking-widest text-[var(--app-muted)] ml-1 mb-1 block">Keterangan</label>
+                           <input 
+                             type="text" 
+                             value={manualForm.description}
+                             onChange={(e) => setManualForm({...manualForm, description: e.target.value})}
+                             placeholder="Contoh: Jual Mie Ayam 2 Porsi"
+                             className="w-full bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-4 py-3 text-sm font-bold text-[var(--app-text)] focus:border-blue-primary/50 outline-none"
+                           />
+                        </div>
+                        <div>
+                           <label className="text-[10px] font-black uppercase tracking-widest text-[var(--app-muted)] ml-1 mb-1 block">Kategori (Opsional)</label>
+                           <input 
+                             type="text" 
+                             value={manualForm.category}
+                             onChange={(e) => setManualForm({...manualForm, category: e.target.value})}
+                             placeholder="Contoh: Operasional"
+                             className="w-full bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-4 py-3 text-sm font-bold text-[var(--app-text)] focus:border-blue-primary/50 outline-none"
+                           />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex-grow w-full h-[300px]">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-                        <defs>
-                          <linearGradient id="colorPemasukan" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#2563EB" stopOpacity={0.3}/>
-                            <stop offset="95%" stopColor="#2563EB" stopOpacity={0}/>
-                          </linearGradient>
-                          <linearGradient id="colorPengeluaran" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#94A3B8" stopOpacity={0.1}/>
-                            <stop offset="95%" stopColor="#94A3B8" stopOpacity={0}/>
-                          </linearGradient>
-                        </defs>
-                        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F1F5F9" />
-                        <XAxis 
-                          dataKey="name" 
-                          axisLine={false} 
-                          tickLine={false} 
-                          tick={{ fill: '#94A3B8', fontSize: 10, fontWeight: 900 }} 
-                          dy={15}
-                        />
-                        <YAxis hide />
-                        <Tooltip 
-                          contentStyle={{ 
-                            backgroundColor: '#fff', 
-                            borderRadius: '16px', 
-                            border: 'none', 
-                            boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1)',
-                            fontSize: '12px',
-                            fontWeight: 'bold'
-                          }}
-                          itemStyle={{ padding: '2px 0' }}
-                        />
-                        <Area 
-                          type="monotone" 
-                          dataKey="pemasukan" 
-                          stroke="#2563EB" 
-                          strokeWidth={4}
-                          fillOpacity={1} 
-                          fill="url(#colorPemasukan)" 
-                        />
-                        <Area 
-                          type="monotone" 
-                          dataKey="pengeluaran" 
-                          stroke="#94A3B8" 
-                          strokeWidth={2}
-                          fillOpacity={1} 
-                          fill="url(#colorPengeluaran)" 
-                        />
-                      </AreaChart>
-                    </ResponsiveContainer>
-                  </div>
+                    <button type="submit" className="btn-primary w-full py-3 mt-2 text-sm shadow-xl hover:shadow-2xl">
+                      Simpan Transaksi
+                    </button>
+                  </form>
                 </div>
 
-                {/* Expense Breakdown (Real Recharts PieChart) */}
-                <div className="light-card p-10 flex flex-col h-full">
-                  <h3 className="text-xl font-black text-slate-900 tracking-tight mb-8">Kategori Pengeluaran</h3>
-                  <div className="flex-grow flex flex-col items-center justify-center">
-                    <div className="w-full h-[250px] relative">
-                      <ResponsiveContainer width="100%" height="100%">
-                        <PieChart>
-                          <Pie
-                            data={pieData}
-                            cx="50%"
-                            cy="50%"
-                            innerRadius={60}
-                            outerRadius={80}
-                            paddingAngle={8}
-                            dataKey="value"
-                            stroke="none"
-                          >
-                            {pieData.map((entry, index) => (
-                              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                            ))}
-                          </Pie>
-                          <Tooltip 
-                            contentStyle={{ 
-                              backgroundColor: '#fff', 
-                              borderRadius: '12px', 
-                              border: 'none', 
-                              boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
-                              fontSize: '11px',
-                              fontWeight: '900'
-                            }}
-                          />
-                        </PieChart>
-                      </ResponsiveContainer>
-                      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                        <span className="text-2xl font-black text-slate-900">Rp {(expenses/1000000).toFixed(1)}jt</span>
-                        <span className="text-[10px] font-black text-slate-400 uppercase">Total Biaya</span>
-                      </div>
+                <div className="bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl overflow-hidden">
+                  <div className="p-6 border-b border-[var(--app-border)] flex justify-between items-center">
+                    <h2 className="text-base font-black text-[var(--app-text)]">Riwayat Transaksi</h2>
+                    <div className="flex gap-2">
+                      <button className="p-2 bg-[var(--app-bg)] rounded-lg text-[var(--app-muted)] hover:bg-[var(--app-border)] transition-all"><Search size={16} /></button>
+                      <button className="p-2 bg-[var(--app-bg)] rounded-lg text-[var(--app-muted)] hover:bg-[var(--app-border)] transition-all"><Bell size={16} /></button>
                     </div>
-                    
-                    <div className="w-full space-y-3 mt-8">
-                      {pieData.map((item, i) => (
-                        <div key={i} className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 transition-colors">
-                          <div className="flex items-center gap-3">
-                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[i % COLORS.length] }}></div>
-                            <span className="text-sm font-bold text-slate-600">{item.name}</span>
-                          </div>
-                          <span className="text-xs font-black text-slate-900">
-                            {((item.value / expenses) * 100).toFixed(0)}%
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                  </div>
+                  <div className="p-6 divide-y divide-[var(--app-border)] max-h-[500px] overflow-y-auto pr-2 custom-scrollbar">
+                    {transactions.map(tx => <TxRow key={tx.id} tx={tx} onDelete={handleDelete} />)}
                   </div>
                 </div>
               </div>
 
-              {/* Secondary Dashboard Section */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {/* Best Selling Products */}
-                <div className="light-card p-8">
-                  <div className="flex items-center gap-3 mb-8">
-                    <div className="p-2 bg-emerald-50 text-emerald-600 rounded-xl"><ShoppingBag size={20} /></div>
-                    <h4 className="text-lg font-black text-slate-900 tracking-tight">Produk Terlaris</h4>
+              <aside className="space-y-6">
+                <div className="bg-blue-primary rounded-3xl p-6 text-white shadow-2xl shadow-blue-primary/20">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Brain size={24} />
+                    <h3 className="text-lg font-black tracking-tight">AI Assistant</h3>
                   </div>
-                  <div className="space-y-6">
-                    {[
-                      { name: 'Mie Ayam Special', price: '25rb', growth: '+12%', color: 'blue' },
-                      { name: 'Es Teh Manis', price: '5rb', growth: '+8%', color: 'cyan' },
-                      { name: 'Bakso Urat', price: '20rb', growth: '+5%', color: 'emerald' },
-                    ].map((p, i) => (
-                      <div key={i} className="flex items-center justify-between p-4 bg-slate-50/50 rounded-2xl border border-slate-100/50 group hover:bg-white hover:shadow-md transition-all">
-                        <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center font-black text-xs text-blue-600">{p.name[0]}</div>
-                          <div>
-                            <p className="text-sm font-black text-slate-900">{p.name}</p>
-                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Harga: {p.price}</p>
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <p className="text-xs font-black text-emerald-600">{p.growth}</p>
-                          <ChevronRight size={14} className="text-slate-300 ml-auto" />
-                        </div>
-                      </div>
+                  <div className="relative mb-6">
+                    <textarea 
+                      value={inputText}
+                      onChange={e => setInputText(e.target.value)}
+                      onKeyDown={e => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleRecord())}
+                      placeholder="Jual mie ayam 2 porsi 30rb..."
+                      className="w-full bg-white/10 border-2 border-white/10 rounded-2xl p-5 text-sm font-bold text-white placeholder:text-white/40 focus:bg-white/20 outline-none resize-none transition-all"
+                      rows={4}
+                    />
+                    <button 
+                      onClick={handleRecord}
+                      className="absolute right-3 bottom-3 p-3 bg-white text-blue-primary rounded-xl shadow-xl hover:scale-105 transition-all"
+                    >
+                      <Send size={18} />
+                    </button>
+                  </div>
+                  <p className="text-[10px] font-black uppercase tracking-widest opacity-60 mb-4">Tips Cepat</p>
+                  <div className="space-y-2">
+                    {['Jual bakso 25rb', 'Beli gas 20rb'].map((tip, i) => (
+                      <button key={i} onClick={() => setInputText(tip)} className="w-full p-3 bg-white/5 border border-white/5 rounded-xl text-left text-xs font-bold hover:bg-white/10 transition-all">
+                        "{tip}"
+                      </button>
                     ))}
-                  </div>
-                </div>
-
-                {/* AI Activity Pulse */}
-                <div className="light-card p-8 border-none bg-slate-900 text-white relative overflow-hidden flex flex-col justify-between">
-                   <div className="absolute top-0 right-0 w-32 h-32 bg-brandBlue/20 blur-[80px] rounded-full"></div>
-                   <div>
-                     <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-8">AI Assistant Pulse</h4>
-                     <div className="flex items-center gap-4 mb-6">
-                       <div className="relative">
-                         <div className="w-12 h-12 rounded-2xl bg-brandBlue flex items-center justify-center shadow-2xl shadow-blue-500/50">
-                           <BrainCircuit size={24} />
-                         </div>
-                         <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-4 border-slate-900"></div>
-                       </div>
-                       <div>
-                         <p className="text-lg font-black leading-none mb-1">Status Optimal</p>
-                         <p className="text-xs text-slate-400">SmartFlow AI Aktif</p>
-                       </div>
-                     </div>
-                     <p className="text-sm text-slate-400 leading-relaxed italic mb-8">
-                       "Berdasarkan tren mingguan, penjualan Anda akan meningkat 15% besok karena pola hari libur."
-                     </p>
-                   </div>
-                   <button className="w-full py-4 bg-white/5 hover:bg-white/10 rounded-2xl text-xs font-black uppercase tracking-widest border border-white/5 transition-all">
-                     Buka Asisten Lanjutan
-                   </button>
-                </div>
-
-                {/* Business Health Meter */}
-                <div className="light-card p-8 bg-white border-2 border-slate-50">
-                   <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-10 flex items-center gap-2">
-                     <Sparkles size={16} className="text-amber-500" /> Kesehatan Bisnis
-                   </h4>
-                   <div className="flex flex-col items-center text-center">
-                     <div className="text-6xl font-black text-slate-900 mb-2">94</div>
-                     <div className="text-xs font-black text-emerald-600 uppercase tracking-widest mb-10">Optimal / Sangat Sehat</div>
-                     <div className="w-full space-y-4">
-                       <div className="space-y-2">
-                         <div className="flex justify-between text-[10px] font-black text-slate-400 uppercase tracking-tighter">
-                           <span>Arus Kas</span>
-                           <span className="text-slate-900">Baik</span>
-                         </div>
-                         <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                           <div className="h-full w-[95%] bg-blue-600 rounded-full"></div>
-                         </div>
-                       </div>
-                       <div className="space-y-2">
-                         <div className="flex justify-between text-[10px] font-black text-slate-400 uppercase tracking-tighter">
-                           <span>Efisiensi Biaya</span>
-                           <span className="text-slate-900">Stabil</span>
-                         </div>
-                         <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                           <div className="h-full w-[80%] bg-blue-600 rounded-full"></div>
-                         </div>
-                       </div>
-                     </div>
-                   </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {activeTab === 'transactions' && (
-            <div className="flex flex-col xl:flex-row gap-12">
-              {/* Transaction List View */}
-              <div className="flex-grow space-y-8">
-                <div className="light-card p-0 overflow-hidden shadow-xl shadow-slate-100 border-none">
-                  <div className="p-10 border-b border-slate-50 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                    <div>
-                      <h2 className="text-2xl font-black text-slate-900 tracking-tight">Data Transaksi</h2>
-                      <p className="text-sm font-bold text-slate-400">Kelola operasional harian Anda di sini.</p>
-                    </div>
-                    <div className="flex gap-3">
-                      <button className="btn-premium flex items-center gap-3 px-8" onClick={() => setInputText('jual ')}>
-                        <Plus size={20} /> Tambah Baru
-                      </button>
-                    </div>
-                  </div>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-left">
-                      <thead className="bg-slate-50/50">
-                        <tr>
-                          <th className="px-10 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400">Tanggal</th>
-                          <th className="px-10 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400">Keterangan</th>
-                          <th className="px-10 py-6 text-[10px] font-black uppercase tracking-widest text-slate-400 text-right">Nominal</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-50">
-                        {transactions.map((tx) => (
-                          <tr key={tx.id} className="hover:bg-slate-50/30 transition-all group">
-                            <td className="px-10 py-6">
-                              <div className="text-sm font-black text-slate-700">{tx.timestamp.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })}</div>
-                              <div className="text-[10px] text-slate-400 font-bold uppercase">{tx.timestamp.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}</div>
-                            </td>
-                            <td className="px-10 py-6 font-bold text-slate-900 text-base">{tx.description}</td>
-                            <td className={`px-10 py-6 text-right font-black text-base ${
-                              tx.type === 'income' ? 'text-emerald-600' : tx.type === 'expense' ? 'text-rose-600' : 'text-amber-600'
-                            }`}>
-                              Rp {tx.amount.toLocaleString('id-ID')}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-
-              {/* AI Workspace (Right) */}
-              <aside className="w-full xl:w-[450px] flex flex-col gap-8 sticky top-32 self-start">
-                <div className="light-card p-0 shadow-2xl shadow-blue-100/50 border-none overflow-hidden relative bg-white">
-                  <div className="p-10 bg-brandBlue text-white">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="p-3 bg-white/20 rounded-2xl"><BrainCircuit size={24} /></div>
-                      <h3 className="text-xl font-black tracking-tight">AI Assistant</h3>
-                    </div>
-                    <p className="text-sm text-blue-50 font-medium italic">
-                      "Gunakan bahasa sehari-hari, data akan langsung diproses."
-                    </p>
-                  </div>
-                  
-                  <div className="p-10 bg-white">
-                    <form onSubmit={handleRecord} className="relative">
-                      <textarea 
-                        value={inputText}
-                        onChange={(e) => setInputText(e.target.value)}
-                        onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleRecord()}
-                        placeholder="Contoh: jual nasi goreng 25rb"
-                        className="w-full p-8 bg-slate-50 border-2 border-transparent focus:border-brandBlue/10 focus:bg-white rounded-3xl text-lg font-bold text-slate-900 placeholder:text-slate-300 resize-none h-48 outline-none transition-all shadow-inner"
-                      />
-                      <button 
-                        type="submit"
-                        disabled={!inputText.trim() || isProcessing}
-                        className="absolute bottom-8 right-8 p-4 bg-brandBlue text-white rounded-2xl shadow-2xl shadow-blue-300 transition-all hover:scale-105 active:scale-95"
-                      >
-                        <Send size={24} />
-                      </button>
-                    </form>
-                    
-                    <div className="mt-8 space-y-4">
-                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-300 text-center">Cepat & Otomatis</p>
-                      {['jual kopi 15rb', 'beli gas 20rb'].map((cmd, i) => (
-                        <button key={i} onClick={() => setInputText(cmd)} className="w-full p-4 rounded-2xl border border-slate-100 text-sm font-bold text-slate-500 hover:text-brandBlue hover:border-brandBlue/20 transition-all">
-                          "{cmd}"
-                        </button>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </aside>
             </div>
           )}
 
-          {activeTab === 'inventory' && (
+          {tab === 'inventory' && (
             <div className="flex flex-col items-center justify-center py-32 text-center">
-              <div className="p-10 bg-white rounded-full mb-8 shadow-2xl shadow-slate-100 border border-slate-50">
-                <ShoppingBag size={80} className="text-slate-200" />
+              <div className="w-20 h-20 bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl flex items-center justify-center mb-6">
+                <Package size={36} className="text-[var(--app-faint)]" />
               </div>
-              <h2 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">Manajemen Stok</h2>
-              <p className="text-slate-400 max-w-md text-lg font-medium">Fitur inventaris otomatis sedang dikalibrasi oleh AI.</p>
+              <h2 className="text-2xl font-black mb-2">Manajemen Stok</h2>
+              <p className="text-[var(--app-muted)] font-bold">Fitur ini akan segera tersedia.</p>
             </div>
           )}
 
-          {activeTab === 'settings' && (
-            <div className="max-w-3xl">
-              <div className="light-card p-12">
-                <h2 className="text-2xl font-black text-slate-900 tracking-tight mb-10">Profil Bisnis</h2>
-                <div className="space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block px-1">Nama Toko</label>
-                      <input type="text" defaultValue="Vermont Coffee" className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-base font-bold outline-none" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block px-1">Tipe Bisnis</label>
-                      <input type="text" defaultValue="UMKM Cafe" className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 text-base font-bold outline-none" />
-                    </div>
-                  </div>
-                  <button className="btn-premium w-full py-5 text-lg shadow-2xl">Simpan Perubahan</button>
-                </div>
-              </div>
+          {tab === 'settings' && (
+            <div className="max-w-2xl bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl p-8">
+               <h2 className="text-xl font-black mb-8">Pengaturan Profil</h2>
+               <div className="space-y-6">
+                 <div>
+                   <label className="text-[10px] font-black uppercase text-[var(--app-muted)] mb-2 block px-1">Nama Bisnis</label>
+                   <input type="text" defaultValue="Vermont Coffee" className="input-premium" />
+                 </div>
+                 <div>
+                   <label className="text-[10px] font-black uppercase text-[var(--app-muted)] mb-2 block px-1">Email Notifikasi</label>
+                   <input type="email" defaultValue="owner@vermont.com" className="input-premium" />
+                 </div>
+                 <button className="btn-primary w-full py-4 text-base mt-4">Simpan Perubahan</button>
+               </div>
             </div>
           )}
         </div>
-      </div>
+      </main>
 
-      {/* Mobile Nav Overlay */}
-      <nav className="fixed bottom-0 left-0 right-0 glass-light border-t border-slate-100 px-6 py-5 flex justify-between items-center lg:hidden z-[100] shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
-        {[
-          { id: 'dashboard', icon: <LayoutDashboard size={24} /> },
-          { id: 'transactions', icon: <Wallet size={24} /> },
-          { id: 'add', icon: <Plus size={32} />, special: true },
-          { id: 'inventory', icon: <ShoppingBag size={24} /> },
-          { id: 'settings', icon: <Settings size={24} /> },
-        ].map((item, i) => (
+      {/* Bottom Nav (Mobile Only) */}
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 bg-[var(--app-surface)] border-t border-[var(--app-border)] flex justify-between items-center px-4 py-3 z-[100] shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+        {navItems.map(item => (
           <button 
-            key={i}
-            onClick={() => {
-              if (item.id === 'add') { setActiveTab('transactions'); setInputText('jual '); }
-              else setActiveTab(item.id);
-            }} 
-            className={`transition-all ${
+            key={item.id}
+            onClick={() => setTab(item.id)}
+            className={`flex flex-col items-center gap-1 flex-1 transition-all ${
               item.special 
-                ? 'bg-brandBlue text-white rounded-2xl p-1.5 shadow-xl shadow-blue-200' 
-                : activeTab === item.id ? 'text-brandBlue scale-110' : 'text-slate-400'
+                ? 'bg-blue-primary text-white rounded-2xl p-2 -translate-y-5 shadow-xl shadow-blue-primary/30' 
+                : tab === item.id ? 'text-blue-primary' : 'text-[var(--app-faint)]'
             }`}
           >
-            {item.icon}
+            <item.icon size={item.special ? 28 : 22} />
+            {!item.special && <span className="text-[8px] font-black uppercase tracking-tighter">{item.label}</span>}
           </button>
         ))}
       </nav>
     </div>
   );
-};
-
-export default SmartFlowPage;
+}

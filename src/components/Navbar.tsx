@@ -1,78 +1,105 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Languages } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Globe, BrainCircuit, Sun, Moon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import Logo from './Logo';
-
-const navLinks = [
-  { key: 'nav.home', path: '/' },
-  { key: 'nav.laboratory', path: '/laboratory' },
-  { key: 'nav.capabilities', path: '/services' },
-  { key: 'nav.ai_systems', path: '/solutions' },
-  { key: 'nav.roadmap', path: '/innovation' },
-];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
   const { t, i18n } = useTranslation();
+  const location = useLocation();
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
 
-  const isID = i18n.language.startsWith('id');
+  const toggleTheme = () => {
+    setIsDark(!isDark);
+    if (!isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.laboratory'), path: '/laboratory' },
+    { name: t('nav.capabilities'), path: '/services' },
+    { name: t('nav.contact'), path: '/contact' },
+  ];
 
   const toggleLanguage = () => {
-    const nextLang = isID ? 'en' : 'id';
+    const nextLang = i18n.language === 'en' ? 'id' : 'en';
     i18n.changeLanguage(nextLang);
-    localStorage.setItem('i18nextLng', nextLang);
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-navy-950/80 backdrop-blur-xl border-b border-white/5">
+    <nav className={`fixed w-full z-[1000] transition-all duration-500 ${
+      scrolled ? 'py-4 bg-[var(--app-surface)]/80 backdrop-blur-xl border-b border-[var(--app-border)] shadow-sm' : 'py-6 bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
-          <Link to="/" className="flex-shrink-0" onClick={() => setIsOpen(false)}>
-            <Logo />
+        <div className="flex justify-between items-center">
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="p-2 bg-blue-primary rounded-xl text-white shadow-lg shadow-blue-primary/20 group-hover:scale-110 transition-all">
+              <BrainCircuit size={24} />
+            </div>
+            <div>
+              <span className="text-xl font-black tracking-tighter text-app-text">VERMONT</span>
+              <p className="text-[8px] font-black text-blue-primary uppercase tracking-[0.2em] leading-none">Automated</p>
+            </div>
           </Link>
-          
+
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center gap-2">
             {navLinks.map((link) => (
               <Link
-                key={link.key}
+                key={link.path}
                 to={link.path}
-                className={`text-[10px] font-black tracking-[0.2em] uppercase transition-all duration-300 ${
-                  location.pathname === link.path ? 'text-brandBlue' : 'text-gray-400 hover:text-white'
+                className={`px-4 py-2 rounded-xl text-sm font-black transition-all ${
+                  location.pathname === link.path 
+                    ? 'bg-blue-light text-blue-primary' 
+                    : 'text-[var(--app-muted)] hover:text-[var(--app-text)] hover:bg-[var(--app-bg)]'
                 }`}
               >
-                {t(link.key)}
+                {link.name}
               </Link>
             ))}
-
+            
+            <div className="w-px h-4 bg-app-border mx-2"></div>
+            
+            <button 
+              onClick={toggleTheme}
+              className="p-2 rounded-xl text-[var(--app-muted)] hover:text-blue-primary hover:bg-blue-light transition-all flex items-center justify-center"
+            >
+              {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
             <button 
               onClick={toggleLanguage}
-              className="flex items-center gap-2 text-[10px] font-black tracking-[0.2em] uppercase text-gray-400 hover:text-brandBlue transition-all"
+              className="p-2 rounded-xl text-[var(--app-muted)] hover:text-blue-primary hover:bg-blue-light transition-all flex items-center gap-2 text-xs font-black uppercase tracking-widest"
             >
-              <Languages size={14} />
-              {isID ? 'EN' : 'ID'}
+              <Globe size={16} />
+              {i18n.language === 'en' ? 'ID' : 'EN'}
             </button>
 
-            <Link to="/contact" className="btn-primary">
+            <Link to="/contact" className="ml-4 px-6 py-2.5 bg-blue-primary text-white rounded-xl text-sm font-black hover:bg-blue-dark transition-all shadow-lg shadow-blue-primary/10">
               {t('nav.contact')}
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
-          <div className="flex items-center gap-4 md:hidden">
-            <button 
-              onClick={toggleLanguage}
-              className="text-gray-400 p-2 hover:text-brandBlue transition-colors"
-            >
-              <Languages size={20} />
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center gap-4">
+            <button onClick={toggleTheme} className="p-2 text-[var(--app-muted)]">
+              {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button 
-              className="text-white p-2"
-              onClick={() => setIsOpen(!isOpen)}
-            >
+            <button onClick={toggleLanguage} className="p-2 text-[var(--app-muted)] font-black text-xs">
+              {i18n.language.toUpperCase()}
+            </button>
+            <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-[var(--app-text)]">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -86,26 +113,24 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-navy-950 border-b border-white/5"
+            className="absolute top-full left-0 w-full bg-[var(--app-surface)] border-b border-[var(--app-border)] p-6 shadow-2xl md:hidden"
           >
-            <div className="px-6 pt-4 pb-10 space-y-4">
+            <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
-                  key={link.key}
+                  key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block py-3 text-xs font-black uppercase tracking-widest ${
-                    location.pathname === link.path ? 'text-brandBlue' : 'text-gray-400'
+                  className={`p-4 rounded-2xl text-base font-black transition-all ${
+                    location.pathname === link.path 
+                      ? 'bg-blue-light text-blue-primary' 
+                      : 'text-[var(--app-muted)] hover:bg-[var(--app-bg)]'
                   }`}
                 >
-                  {t(link.key)}
+                  {link.name}
                 </Link>
               ))}
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="btn-primary w-full mt-4"
-              >
+              <Link to="/contact" className="w-full p-4 bg-blue-primary text-white rounded-2xl text-center font-black">
                 {t('nav.contact')}
               </Link>
             </div>
