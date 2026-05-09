@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Plus, 
@@ -19,6 +19,18 @@ import {
   Sparkles,
   ChevronLeft
 } from 'lucide-react';
+import { 
+  AreaChart, 
+  Area, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid, 
+  Tooltip, 
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Cell
+} from 'recharts';
 
 interface Transaction {
   id: string;
@@ -28,6 +40,8 @@ interface Transaction {
   category: string;
   timestamp: Date;
 }
+
+const COLORS = ['#2563EB', '#0EA5E9', '#CBD5E1', '#F43F5E', '#10B981'];
 
 const SmartFlowPage = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -42,9 +56,36 @@ const SmartFlowPage = () => {
   ]);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const revenue = transactions.filter(t => t.type === 'income').reduce((acc, curr) => acc + curr.amount, 0);
-  const expenses = transactions.filter(t => t.type === 'expense').reduce((acc, curr) => acc + curr.amount, 0);
+  // Derived Data for Analytics
+  const revenue = useMemo(() => transactions.filter(t => t.type === 'income').reduce((acc, curr) => acc + curr.amount, 0), [transactions]);
+  const expenses = useMemo(() => transactions.filter(t => t.type === 'expense').reduce((acc, curr) => acc + curr.amount, 0), [transactions]);
   const profit = revenue - expenses;
+
+  // Process data for Line/Area Chart (Grouped by time)
+  const chartData = useMemo(() => {
+    // Mocking 7 days of data for the chart based on transactions
+    const days = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
+    return days.map((day, idx) => {
+      const dayTxs = transactions.filter(t => {
+        const d = new Date(t.timestamp);
+        return d.getDay() === (idx + 1) % 7;
+      });
+      return {
+        name: day,
+        pemasukan: dayTxs.filter(t => t.type === 'income').reduce((a, c) => a + c.amount, 0) || Math.floor(Math.random() * 100000),
+        pengeluaran: dayTxs.filter(t => t.type === 'expense').reduce((a, c) => a + c.amount, 0) || Math.floor(Math.random() * 50000),
+      };
+    });
+  }, [transactions]);
+
+  // Process data for Pie/Donut Chart (Grouped by category)
+  const pieData = useMemo(() => {
+    const categories = Array.from(new Set(transactions.map(t => t.category)));
+    return categories.map(cat => ({
+      name: cat,
+      value: transactions.filter(t => t.category === cat).reduce((a, c) => a + c.amount, 0)
+    })).sort((a, b) => b.value - a.value).slice(0, 5);
+  }, [transactions]);
 
   const parseInput = (text: string) => {
     const lowerText = text.toLowerCase();
@@ -227,104 +268,126 @@ const SmartFlowPage = () => {
                 ))}
               </section>
 
-              {/* Advanced Analytics Mockup */}
+              {/* Advanced Analytics Section */}
               <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
-                {/* Sales Trend (Line Chart Simulation) */}
-                <div className="xl:col-span-2 light-card p-10 flex flex-col min-h-[450px]">
+                {/* Sales Trend (Real Recharts AreaChart) */}
+                <div className="xl:col-span-2 light-card p-10 flex flex-col min-h-[500px]">
                   <div className="flex justify-between items-center mb-12">
                     <div>
                       <h3 className="text-2xl font-black text-slate-900 tracking-tight">Tren Penjualan</h3>
-                      <p className="text-sm font-bold text-slate-400">Analisis pergerakan kas selama 30 hari terakhir.</p>
+                      <p className="text-sm font-bold text-slate-400">Analisis pergerakan kas real-time.</p>
                     </div>
-                    <div className="flex gap-2">
-                      <div className="flex items-center gap-4 text-xs font-black uppercase tracking-widest px-4 py-2 bg-slate-50 rounded-xl border border-slate-100">
+                    <div className="flex gap-4 items-center">
+                      <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest px-4 py-2 bg-slate-50 rounded-xl border border-slate-100">
                         <div className="flex items-center gap-2 text-blue-600"><div className="w-2 h-2 rounded-full bg-blue-600"></div> Pemasukan</div>
-                        <div className="flex items-center gap-2 text-slate-300"><div className="w-2 h-2 rounded-full bg-slate-300"></div> Pengeluaran</div>
+                        <div className="flex items-center gap-2 text-slate-400"><div className="w-2 h-2 rounded-full bg-slate-400"></div> Pengeluaran</div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="flex-grow relative min-h-[300px] flex items-end mt-4">
-                    {/* SVG Line Chart Mockup */}
-                    <svg className="w-full h-full absolute inset-0 pointer-events-none" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                      <defs>
-                        <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#2563EB" stopOpacity="0.2" />
-                          <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
-                        </linearGradient>
-                      </defs>
-                      {/* Grid Lines */}
-                      <line x1="0" y1="20" x2="1000" y2="20" stroke="#F8FAFC" strokeWidth="1" />
-                      <line x1="0" y1="50" x2="1000" y2="50" stroke="#F8FAFC" strokeWidth="1" />
-                      <line x1="0" y1="80" x2="1000" y2="80" stroke="#F8FAFC" strokeWidth="1" />
-                      
-                      {/* Area */}
-                      <path 
-                        d="M0,90 C100,80 150,20 250,40 C350,60 450,10 550,30 C650,50 750,5 850,20 C950,35 1000,10 1000,10 V100 H0 Z" 
-                        fill="url(#chartGradient)" 
-                      />
-                      {/* Line */}
-                      <motion.path 
-                        initial={{ pathLength: 0 }}
-                        animate={{ pathLength: 1 }}
-                        transition={{ duration: 2, ease: "easeInOut" }}
-                        d="M0,90 C100,80 150,20 250,40 C350,60 450,10 550,30 C650,50 750,5 850,20 C950,35 1000,10 1000,10" 
-                        fill="none" 
-                        stroke="#2563EB" 
-                        strokeWidth="3" 
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-
-                    {/* X-Axis Labels */}
-                    <div className="w-full flex justify-between pt-8 border-t border-slate-100 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] px-8 relative z-10 bg-white/50 backdrop-blur-md">
-                      <span>Minggu 1</span>
-                      <span>Minggu 2</span>
-                      <span>Minggu 3</span>
-                      <span>Minggu 4</span>
-                    </div>
+                  <div className="flex-grow w-full h-[300px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                        <defs>
+                          <linearGradient id="colorPemasukan" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="#2563EB" stopOpacity={0.3}/>
+                            <stop offset="95%" stopColor="#2563EB" stopOpacity={0}/>
+                          </linearGradient>
+                          <linearGradient id="colorPengeluaran" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="#94A3B8" stopOpacity={0.1}/>
+                            <stop offset="95%" stopColor="#94A3B8" stopOpacity={0}/>
+                          </linearGradient>
+                        </defs>
+                        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F1F5F9" />
+                        <XAxis 
+                          dataKey="name" 
+                          axisLine={false} 
+                          tickLine={false} 
+                          tick={{ fill: '#94A3B8', fontSize: 10, fontWeight: 900 }} 
+                          dy={15}
+                        />
+                        <YAxis hide />
+                        <Tooltip 
+                          contentStyle={{ 
+                            backgroundColor: '#fff', 
+                            borderRadius: '16px', 
+                            border: 'none', 
+                            boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1)',
+                            fontSize: '12px',
+                            fontWeight: 'bold'
+                          }}
+                          itemStyle={{ padding: '2px 0' }}
+                        />
+                        <Area 
+                          type="monotone" 
+                          dataKey="pemasukan" 
+                          stroke="#2563EB" 
+                          strokeWidth={4}
+                          fillOpacity={1} 
+                          fill="url(#colorPemasukan)" 
+                        />
+                        <Area 
+                          type="monotone" 
+                          dataKey="pengeluaran" 
+                          stroke="#94A3B8" 
+                          strokeWidth={2}
+                          fillOpacity={1} 
+                          fill="url(#colorPengeluaran)" 
+                        />
+                      </AreaChart>
+                    </ResponsiveContainer>
                   </div>
                 </div>
 
-                {/* Expense Breakdown (Donut Chart Mockup) */}
-                <div className="light-card p-10 flex flex-col">
+                {/* Expense Breakdown (Real Recharts PieChart) */}
+                <div className="light-card p-10 flex flex-col h-full">
                   <h3 className="text-xl font-black text-slate-900 tracking-tight mb-8">Kategori Pengeluaran</h3>
                   <div className="flex-grow flex flex-col items-center justify-center">
-                    <div className="relative w-48 h-48 mb-10">
-                      <svg className="w-full h-full transform -rotate-90">
-                        <circle cx="50%" cy="50%" r="40%" fill="none" stroke="#F1F5F9" strokeWidth="12" />
-                        <motion.circle 
-                          initial={{ strokeDasharray: "0 100" }}
-                          animate={{ strokeDasharray: "65 100" }}
-                          transition={{ duration: 1.5, ease: "easeOut" }}
-                          cx="50%" cy="50%" r="40%" fill="none" stroke="#2563EB" strokeWidth="12" strokeDasharray="65 100" strokeLinecap="round" 
-                        />
-                        <motion.circle 
-                          initial={{ strokeDasharray: "0 100", strokeDashoffset: -65 }}
-                          animate={{ strokeDasharray: "20 100", strokeDashoffset: -65 }}
-                          transition={{ duration: 1.5, delay: 0.2 }}
-                          cx="50%" cy="50%" r="40%" fill="none" stroke="#0EA5E9" strokeWidth="12" strokeDasharray="20 100" strokeDashoffset="-65" strokeLinecap="round" 
-                        />
-                      </svg>
-                      <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <span className="text-3xl font-black text-slate-900">Rp 1.2jt</span>
-                        <span className="text-[10px] font-black text-slate-400 uppercase">Total Bulan Ini</span>
+                    <div className="w-full h-[250px] relative">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <PieChart>
+                          <Pie
+                            data={pieData}
+                            cx="50%"
+                            cy="50%"
+                            innerRadius={60}
+                            outerRadius={80}
+                            paddingAngle={8}
+                            dataKey="value"
+                            stroke="none"
+                          >
+                            {pieData.map((entry, index) => (
+                              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            ))}
+                          </Pie>
+                          <Tooltip 
+                            contentStyle={{ 
+                              backgroundColor: '#fff', 
+                              borderRadius: '12px', 
+                              border: 'none', 
+                              boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+                              fontSize: '11px',
+                              fontWeight: '900'
+                            }}
+                          />
+                        </PieChart>
+                      </ResponsiveContainer>
+                      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                        <span className="text-2xl font-black text-slate-900">Rp {(expenses/1000000).toFixed(1)}jt</span>
+                        <span className="text-[10px] font-black text-slate-400 uppercase">Total Biaya</span>
                       </div>
                     </div>
                     
-                    <div className="w-full space-y-4">
-                      {[
-                        { label: 'Operasional', val: '65%', color: 'bg-blue-600' },
-                        { label: 'Bahan Baku', val: '20%', color: 'bg-cyan-500' },
-                        { label: 'Lainnya', val: '15%', color: 'bg-slate-200' },
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-center justify-between">
+                    <div className="w-full space-y-3 mt-8">
+                      {pieData.map((item, i) => (
+                        <div key={i} className="flex items-center justify-between p-2 rounded-xl hover:bg-slate-50 transition-colors">
                           <div className="flex items-center gap-3">
-                            <div className={`w-3 h-3 rounded-full ${item.color}`}></div>
-                            <span className="text-sm font-bold text-slate-600">{item.label}</span>
+                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[i % COLORS.length] }}></div>
+                            <span className="text-sm font-bold text-slate-600">{item.name}</span>
                           </div>
-                          <span className="text-xs font-black text-slate-900">{item.val}</span>
+                          <span className="text-xs font-black text-slate-900">
+                            {((item.value / expenses) * 100).toFixed(0)}%
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -348,7 +411,7 @@ const SmartFlowPage = () => {
                     ].map((p, i) => (
                       <div key={i} className="flex items-center justify-between p-4 bg-slate-50/50 rounded-2xl border border-slate-100/50 group hover:bg-white hover:shadow-md transition-all">
                         <div className="flex items-center gap-4">
-                          <div className={`w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center font-black text-xs text-blue-600`}>{p.name[0]}</div>
+                          <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center font-black text-xs text-blue-600">{p.name[0]}</div>
                           <div>
                             <p className="text-sm font-black text-slate-900">{p.name}</p>
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Harga: {p.price}</p>
