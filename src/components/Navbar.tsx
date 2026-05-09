@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full z-[1000] transition-all duration-500 ${
-      scrolled ? 'py-4 bg-[var(--app-surface)]/80 backdrop-blur-xl border-b border-[var(--app-border)] shadow-sm' : 'py-6 bg-transparent'
+      scrolled ? 'py-2 bg-[var(--app-surface)]/80 backdrop-blur-xl border-b border-[var(--app-border)] shadow-sm' : 'py-4 bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
