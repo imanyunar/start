@@ -92,7 +92,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="md:hidden flex items-center gap-1">
             <button onClick={toggleTheme} className="p-2 text-[var(--app-muted)]">
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
