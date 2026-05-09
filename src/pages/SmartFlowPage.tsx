@@ -1,15 +1,13 @@
 import { useState, useMemo, useEffect } from 'react';
 import {
-  LayoutDashboard, Wallet, ShoppingBag, Settings,
-  Plus, Send, TrendingUp, TrendingDown, ArrowUpRight,
-  ArrowDownRight, ChevronRight, Brain, Check, X,
-  BarChart2, Package, Sliders, Home, Moon, Sun, Search, Bell, Menu as MenuIcon,
-  ArrowLeft, Trash2
+  Wallet, Plus, Send, TrendingUp, TrendingDown, ArrowUpRight,
+  ArrowDownRight, ChevronRight, Brain, Check, Package, Sliders, 
+  Home, Moon, Sun, Search, Bell, ArrowLeft, Trash2
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
-  AreaChart, Area, XAxis, YAxis, ResponsiveContainer,
-  Tooltip, PieChart, Pie, Cell, CartesianGrid
+  AreaChart, Area, XAxis, ResponsiveContainer,
+  Tooltip, PieChart, Pie, Cell
 } from 'recharts';
 
 /* ─── Helpers ────────────────────────────────────────────────── */
