@@ -1,7 +1,8 @@
-﻿{
+{
   "nav": {
     "home": "Home",
     "laboratory": "Laboratory",
+    "about": "About Us",
     "capabilities": "Capabilities",
     "ai_systems": "Business Solutions",
     "roadmap": "Roadmap",

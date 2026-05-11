@@ -30,7 +30,7 @@ const Navbar = () => {
   const navLinks = [
     { name: t('nav.home'), path: '/' },
     { name: t('nav.laboratory'), path: '/laboratory' },
-    { name: 'Tentang Kami', path: '/about' },
+    { name: t('nav.about'), path: '/about' },
     { name: t('nav.capabilities'), path: '/services' },
     { name: 'Paket', path: '/packages' },
     { name: t('nav.contact'), path: '/contact' },
@@ -52,12 +52,12 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-xl text-sm font-black transition-all ${
+                className={`px-4 py-2.5 rounded-xl text-sm font-black transition-all ${
                   location.pathname === link.path 
                     ? 'bg-blue-light text-blue-primary' 
                     : 'text-[var(--app-muted)] hover:text-[var(--app-text)] hover:bg-[var(--app-bg)]'
@@ -67,23 +67,23 @@ const Navbar = () => {
               </Link>
             ))}
             
-            <div className="w-px h-4 bg-app-border mx-2"></div>
+            <div className="w-px h-5 bg-[var(--app-border)] mx-3"></div>
             
             <button 
               onClick={toggleTheme}
-              className="p-2 rounded-xl text-[var(--app-muted)] hover:text-blue-primary hover:bg-blue-light transition-all flex items-center justify-center"
+              className="p-2.5 rounded-xl text-[var(--app-muted)] hover:text-blue-primary hover:bg-blue-light transition-all flex items-center justify-center"
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <button 
               onClick={toggleLanguage}
-              className="p-2 rounded-xl text-[var(--app-muted)] hover:text-blue-primary hover:bg-blue-light transition-all flex items-center gap-2 text-xs font-black uppercase tracking-widest"
+              className="p-2.5 rounded-xl text-[var(--app-muted)] hover:text-blue-primary hover:bg-blue-light transition-all flex items-center gap-2 text-xs font-black uppercase tracking-widest"
             >
               <Globe size={16} />
               {i18n.language === 'en' ? 'ID' : 'EN'}
             </button>
 
-            <Link to="/contact" className="ml-4 px-6 py-2.5 bg-blue-primary text-white rounded-xl text-sm font-black hover:bg-blue-dark transition-all shadow-lg shadow-blue-primary/10">
+            <Link to="/contact" className="ml-6 px-6 py-2.5 bg-blue-primary text-white rounded-xl text-sm font-black hover:bg-blue-dark transition-all shadow-lg shadow-blue-primary/10">
               {t('nav.contact')}
             </Link>
           </div>
