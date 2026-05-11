@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+﻿import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -9,6 +9,7 @@ import InnovationPage from './pages/InnovationPage';
 import ContactPage from './pages/ContactPage';
 import LabPage from './pages/LabPage';
 import SmartFlowPage from './pages/SmartFlowPage';
+import PackagesPage from './pages/PackagesPage';
 import ScrollToTop from './components/ScrollToTop';
 
 function AppContent() {
@@ -27,7 +28,7 @@ function AppContent() {
           <Route path="/innovation" element={<InnovationPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/laboratory" element={<LabPage />} />
-          <Route path="/smartflow" element={<SmartFlowPage />} />
+          <Route path="/smartflow" element={<SmartFlowPage />} />`n          <Route path="/packages" element={<PackagesPage />} />
         </Routes>
       </main>
       {!isAppRoute && <Footer />}
@@ -45,3 +46,4 @@ function App() {
 }
 
 export default App;
+

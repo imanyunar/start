@@ -19,7 +19,7 @@ const Footer = () => {
             <h4 className="mb-4 text-xs font-black uppercase tracking-widest text-[var(--app-text)]">Menu</h4>
             <div className="space-y-2 text-sm font-bold">
               <Link to="/about" className="block text-[var(--app-muted)] hover:text-blue-primary">Tentang Kami</Link>
-              <Link to="/services" className="block text-[var(--app-muted)] hover:text-blue-primary">Layanan</Link>
+              <Link to="/services" className="block text-[var(--app-muted)] hover:text-blue-primary">Layanan</Link>`n              <Link to="/packages" className="block text-[var(--app-muted)] hover:text-blue-primary">Paket Layanan</Link>
               <Link to="/contact" className="block text-[var(--app-muted)] hover:text-blue-primary">Kontak</Link>
             </div>
           </div>
@@ -43,3 +43,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

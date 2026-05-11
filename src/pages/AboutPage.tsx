@@ -1,6 +1,7 @@
 ﻿import { motion } from 'framer-motion';
 import { CheckCircle2, HeartHandshake, ShieldCheck } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import founderPhoto from '../assets/Iman Yunar Noviadhi.jpeg';
 
 const AboutPage = () => {
   const { t } = useTranslation();
@@ -36,6 +37,20 @@ const AboutPage = () => {
           <div className="mt-8 rounded-2xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6">
             <h2 className="mb-2 text-xl font-black text-[var(--app-text)]">{t('about.vision.title')}</h2>
             <p className="text-sm font-bold leading-relaxed text-[var(--app-muted)]">{t('about.vision.desc')}</p>
+          </div>
+
+          <div className="mt-8 rounded-2xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6 md:p-8">
+            <h2 className="mb-5 text-xl font-black text-[var(--app-text)]">Siapa yang di belakang ini</h2>
+            <div className="grid gap-5 md:grid-cols-[180px_1fr] md:items-center">
+              <img src={founderPhoto} alt="Founder Iman Yunar Noviadhi" className="h-44 w-44 rounded-2xl object-cover" />
+              <div>
+                <p className="text-xs font-black uppercase tracking-widest text-blue-primary">Founder</p>
+                <h3 className="mt-1 text-2xl font-black text-[var(--app-text)]">Iman Yunar Noviadhi</h3>
+                <p className="mt-2 text-sm font-bold text-[var(--app-muted)]">
+                  Informatics Engineering, Universitas Negeri Semarang
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
