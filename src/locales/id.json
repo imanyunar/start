@@ -1,4 +1,4 @@
-{
+﻿{
   "nav": {
     "home": "Beranda",
     "laboratory": "Laboratorium",
@@ -12,10 +12,10 @@
   "hero": {
     "title": "Mewujudkan",
     "subtitle": "Bisnis Masa Depan",
-    "description": "Tingkatkan efisiensi bisnis Anda dengan teknologi kecerdasan buatan (AI) yang cerdas, otomatis, dan mudah digunakan.",
-    "cta_primary": "Mulai Perjalanan Anda",
-    "cta_secondary": "Lihat Solusi Kami",
-    "badge": "Inovasi AI Generasi Terbaru",
+    "description": "Bantu operasional bisnis Anda jadi lebih rapi, hemat waktu, dan mudah dipantau setiap hari.",
+    "cta_primary": "Konsultasi Gratis",
+    "cta_secondary": "Lihat Layanan",
+    "badge": "Solusi Bisnis yang Mudah Dipakai",
     "floating_status": "Sistem Aktif",
     "floating_desc": "Otomatisasi Terjamin"
   },
@@ -140,11 +140,11 @@
     }
   },
   "footer": {
-    "tagline": "Kami hadir untuk mendobrak batas dan menghadirkan solusi otomasi tercanggih. Vermont Automated Digital adalah laboratorium AI yang berfokus pada kemajuan bisnis yang nyata.",
+    "tagline": "Kami membantu UMKM dan bisnis online bekerja lebih rapi dengan sistem yang sederhana dan mudah dipahami.",
     "exploration": "Jelajahi",
     "contact_heading": "Hubungi Kami",
     "innovation_hub": "Pusat Inovasi Kami",
-    "rights": "© 2026 Vermont Automated Digital. Hak cipta dilindungi undang-undang."
+    "rights": "Â© 2026 Vermont Automated Digital. Hak cipta dilindungi undang-undang."
   },
   "contact": {
     "badge": "Mulai Koneksi",
@@ -207,4 +207,11 @@
       "declining": "Produk Kurang Laku"
     }
   }
+  ,"home_simple": {
+    "p1": "Pencatatan bisnis jadi lebih cepat tanpa ribet.",
+    "p2": "Laporan harian mudah dibaca, bahkan untuk pemula.",
+    "p3": "Cocok untuk UMKM, toko online, cafe, dan retail."
+  }
 }
+
+

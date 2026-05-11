@@ -1,62 +1,41 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import Logo from './Logo';
-import { Mail, GitBranch, X, ExternalLink } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-[var(--app-surface)] border-t border-[var(--app-border)] pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-2">
-            <Logo />
-            <p className="mt-6 text-[var(--app-muted)] font-bold text-sm max-w-sm leading-relaxed">
-              {t('footer.tagline')}
-            </p>
-            <div className="flex gap-8 text-xs font-black text-[var(--app-faint)] mt-8">
-              <a href="#" className="hover:text-blue-primary transition-colors">{t('nav.privacy') || 'Privacy'}</a>
-              <a href="#" className="hover:text-blue-primary transition-colors">{t('nav.terms') || 'Terms'}</a>
-            </div>
-            <div className="flex items-center gap-5 mt-8">
-              <a href="#" className="text-[var(--app-muted)] hover:text-blue-primary transition-colors"><X size={20} /></a>
-              <a href="#" className="text-[var(--app-muted)] hover:text-blue-primary transition-colors"><ExternalLink size={20} /></a>
-              <a href="#" className="text-[var(--app-muted)] hover:text-blue-primary transition-colors"><GitBranch size={20} /></a>
-            </div>
-          </div>
-          
+    <footer className="border-t border-[var(--app-border)] bg-[var(--app-surface)] py-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 md:grid-cols-3 md:items-start">
           <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--app-text)] mb-6">{t('footer.exploration')}</h4>
-            <ul className="space-y-4">
-              <li><Link to="/about" className="text-[var(--app-muted)] font-bold hover:text-blue-primary text-sm transition-colors">{t('nav.laboratory')}</Link></li>
-              <li><Link to="/services" className="text-[var(--app-muted)] font-bold hover:text-blue-primary text-sm transition-colors">{t('nav.capabilities')}</Link></li>
-              <li><Link to="/solutions" className="text-[var(--app-muted)] font-bold hover:text-blue-primary text-sm transition-colors">{t('nav.ai_systems')}</Link></li>
-              <li><Link to="/innovation" className="text-[var(--app-muted)] font-bold hover:text-blue-primary text-sm transition-colors">{t('nav.roadmap')}</Link></li>
-            </ul>
+            <Logo />
+            <p className="mt-4 max-w-sm text-sm font-bold leading-relaxed text-[var(--app-muted)]">{t('footer.tagline')}</p>
           </div>
 
           <div>
-            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--app-text)] mb-6">{t('footer.contact_heading')}</h4>
-            <div className="flex items-center gap-3 text-[var(--app-muted)] mb-4 font-bold">
-              <Mail size={16} className="text-blue-primary" />
-              <span className="text-sm">imanyunar@gmail.com</span>
+            <h4 className="mb-4 text-xs font-black uppercase tracking-widest text-[var(--app-text)]">Menu</h4>
+            <div className="space-y-2 text-sm font-bold">
+              <Link to="/about" className="block text-[var(--app-muted)] hover:text-blue-primary">Tentang Kami</Link>
+              <Link to="/services" className="block text-[var(--app-muted)] hover:text-blue-primary">Layanan</Link>
+              <Link to="/contact" className="block text-[var(--app-muted)] hover:text-blue-primary">Kontak</Link>
             </div>
-            <p className="text-xs text-[var(--app-muted)] font-bold leading-relaxed">
-              Semarang, Indonesia<br />
-              {t('footer.innovation_hub')}
-            </p>
+          </div>
+
+          <div>
+            <h4 className="mb-4 text-xs font-black uppercase tracking-widest text-[var(--app-text)]">Kontak</h4>
+            <div className="flex items-center gap-3 text-sm font-bold text-[var(--app-muted)]">
+              <Mail size={16} className="text-blue-primary" />
+              <span>imanyunar@gmail.com</span>
+            </div>
+            <p className="mt-3 text-xs font-bold text-[var(--app-muted)]">Semarang, Indonesia</p>
           </div>
         </div>
-        
-        <div className="pt-8 border-t border-[var(--app-border)] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[10px] font-black text-[var(--app-faint)] uppercase tracking-widest">
-            {t('footer.rights')}
-          </p>
-          <div className="flex gap-8">
-            <a href="#" className="text-[10px] font-black text-[var(--app-faint)] uppercase tracking-widest hover:text-blue-primary transition-colors">Privacy</a>
-            <a href="#" className="text-[10px] font-black text-[var(--app-faint)] uppercase tracking-widest hover:text-blue-primary transition-colors">Terms</a>
-          </div>
+
+        <div className="mt-8 border-t border-[var(--app-border)] pt-6 text-center text-xs font-black tracking-wide text-[var(--app-faint)]">
+          {t('footer.rights')}
         </div>
       </div>
     </footer>
