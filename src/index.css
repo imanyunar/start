@@ -13,24 +13,24 @@
 }
 
 :root {
-  --app-bg: #F4F6FB;
+  --app-bg: #F8FAFC; /* Softer white-blue */
   --app-surface: #FFFFFF;
-  --app-border: #E4E9F2;
-  --app-text: #111827;
-  --app-muted: #6B7280;
-  --app-faint: #9CA3AF;
-  --app-shadow: rgba(0, 0, 0, 0.05);
+  --app-border: #E2E8F0;
+  --app-text: #1E293B; /* Navy-gray instead of black */
+  --app-muted: #64748B;
+  --app-faint: #94A3B8;
+  --app-shadow: rgba(15, 23, 42, 0.04);
 }
 
 .dark {
-  --app-bg: #070B14;
-  --app-surface: #0F172A;
-  --app-border: #1E293B;
-  --app-text: #F8FAFC;
+  --app-bg: #0B1120; /* Deep navy, not pure black */
+  --app-surface: #111827; /* Dark gray-navy */
+  --app-border: #1F2937;
+  --app-text: #E2E8F0; /* Soft gray-white instead of pure white */
   --app-muted: #94A3B8;
   --app-faint: #475569;
-  --app-shadow: rgba(0, 0, 0, 0.3);
-  --color-blue-light: rgba(29, 111, 232, 0.1);
+  --app-shadow: rgba(0, 0, 0, 0.2);
+  --color-blue-light: rgba(29, 111, 232, 0.08);
 }
 
 @layer base {
