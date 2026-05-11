@@ -98,26 +98,26 @@ export default function PackagesPage() {
 
                 <div className={`mb-8 rounded-3xl bg-gradient-to-br p-6 ${pkg.accent}`}>
                   <div className="flex items-center justify-between mb-4">
-                    <p className="text-sm font-black tracking-[0.2em] text-[var(--app-text)] uppercase">{pkg.name}</p>
+                    <p className="text-sm font-black tracking-[0.2em] text-slate-800 dark:text-white uppercase">{pkg.name}</p>
                   </div>
                   
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-[var(--app-muted)] mb-1">Biaya Setup</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-400 mb-1">Biaya Setup</p>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-2xl font-black text-[var(--app-text)]">{pkg.setupNewPrice}</span>
-                      <span className="text-xs font-bold text-[var(--app-faint)] line-through">{pkg.setupOldPrice}</span>
+                      <span className="text-2xl font-black text-slate-900 dark:text-white">{pkg.setupNewPrice}</span>
+                      <span className="text-xs font-bold text-slate-500 line-through">{pkg.setupOldPrice}</span>
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-6 border-t border-[var(--app-text)]/5">
-                    <p className="text-3xl font-black text-[var(--app-text)]">{pkg.hosting}</p>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-[var(--app-muted)] mt-1">Biaya Maintenance & Hosting</p>
+                  <div className="mt-6 pt-6 border-t border-slate-900/10 dark:border-white/10">
+                    <p className="text-3xl font-black text-slate-900 dark:text-white">{pkg.hosting}</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-400 mt-1">Biaya Maintenance & Hosting</p>
                   </div>
                 </div>
 
                 <div className="mb-8">
                   <h3 className="text-xl font-black text-[var(--app-text)] mb-3">{pkg.headline}</h3>
-                  <p className="text-sm font-bold text-blue-primary bg-blue-primary/5 dark:bg-blue-primary/10 w-fit px-3 py-1 rounded-lg">{pkg.highlight}</p>
+                  <p className="text-sm font-bold text-blue-primary bg-blue-primary/[0.08] dark:bg-blue-primary/10 w-fit px-3 py-1 rounded-lg">{pkg.highlight}</p>
                 </div>
 
                 <ul className="space-y-4 mb-10 flex-grow">

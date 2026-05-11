@@ -15,12 +15,12 @@
 }
 
 :root {
-  --app-bg: #F8FAFC; /* Softer white-blue */
+  --app-bg: #F8FAFC;
   --app-surface: #FFFFFF;
   --app-border: #E2E8F0;
-  --app-text: #1E293B; /* Navy-gray instead of black */
-  --app-muted: #64748B;
-  --app-faint: #94A3B8;
+  --app-text: #0F172A; /* Deeper navy */
+  --app-muted: #475569; /* Much darker gray for readability */
+  --app-faint: #64748B;
   --app-shadow: rgba(15, 23, 42, 0.04);
 }
 
