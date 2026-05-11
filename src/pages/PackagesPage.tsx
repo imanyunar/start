@@ -160,6 +160,9 @@ export default function PackagesPage() {
                         </span>
                         <span className="text-sm font-bold text-white/70">/bln</span>
                       </div>
+                      <p className="mt-1.5 text-[10px] font-black uppercase tracking-widest text-white/50">
+                        Biaya Maintenance & Hosting
+                      </p>
                     </div>
                   </div>
 

@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe, Sun, Moon } from 'lucide-react';
@@ -30,6 +30,7 @@ const Navbar = () => {
   const navLinks = [
     { name: t('nav.home'), path: '/' },
     { name: t('nav.laboratory'), path: '/laboratory' },
+    { name: 'Tentang Kami', path: '/about' },
     { name: t('nav.capabilities'), path: '/services' },
     { name: 'Paket', path: '/packages' },
     { name: t('nav.contact'), path: '/contact' },
