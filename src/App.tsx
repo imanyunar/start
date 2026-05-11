@@ -1,4 +1,4 @@
-﻿import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -28,7 +28,8 @@ function AppContent() {
           <Route path="/innovation" element={<InnovationPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/laboratory" element={<LabPage />} />
-          <Route path="/smartflow" element={<SmartFlowPage />} />`n          <Route path="/packages" element={<PackagesPage />} />
+          <Route path="/smartflow" element={<SmartFlowPage />} />
+          <Route path="/packages" element={<PackagesPage />} />
         </Routes>
       </main>
       {!isAppRoute && <Footer />}
