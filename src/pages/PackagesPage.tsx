@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Check, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -57,58 +58,74 @@ const packages = [
 
 export default function PackagesPage() {
   return (
-    <div className="min-h-screen bg-[var(--app-bg)] pt-24">
+    <div className="min-h-screen bg-[var(--app-bg)] pt-24 transition-colors duration-300">
       <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto mb-10 max-w-3xl text-center">
-            <div className="badge-light mx-auto mb-4 w-fit">Paket Layanan</div>
-            <h1 className="text-4xl font-black tracking-tight text-[var(--app-text)] md:text-5xl">
-              Pilih Paket Sesuai Kebutuhan Bisnis Anda
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="badge-light mx-auto mb-4 w-fit"
+            >
+              Paket Layanan
+            </motion.div>
+            <h1 className="text-4xl font-black tracking-tight text-[var(--app-text)] md:text-6xl mb-6">
+              Pilih Paket Sesuai <span className="text-gradient">Kebutuhan Bisnis</span> Anda
             </h1>
-            <p className="mt-4 text-base font-bold leading-relaxed text-[var(--app-muted)]">
+            <p className="mt-4 text-lg font-bold leading-relaxed text-[var(--app-muted)]">
               Fokus kami sederhana: mempermudah dan mempercepat kegiatan bisnis harian Anda.
             </p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-3">
-            {packages.map((pkg) => (
-              <div
+          <div className="grid gap-8 md:grid-cols-3">
+            {packages.map((pkg, idx) => (
+              <motion.div
                 key={pkg.name}
-                className={`rounded-3xl border p-6 shadow-sm ${
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                className={`flex flex-col rounded-[2.5rem] border p-8 shadow-sm transition-all duration-500 hover:shadow-2xl ${
                   pkg.featured
-                    ? 'border-blue-primary bg-[var(--app-surface)] dark:bg-slate-900 shadow-lg shadow-blue-primary/10'
-                    : 'border-[var(--app-border)] bg-[var(--app-surface)] dark:bg-slate-900'
+                    ? 'border-blue-primary bg-[var(--app-surface)] shadow-blue-primary/10 relative scale-105 z-10'
+                    : 'border-[var(--app-border)] bg-[var(--app-surface)]'
                 }`}
               >
-                <div className={`mb-5 rounded-2xl bg-gradient-to-br p-4 ${pkg.accent}`}>
-                  <div className="flex items-center justify-between">
-                    <p className="text-sm font-black tracking-wider text-slate-900 dark:text-white">{pkg.name}</p>
-                    {pkg.featured && (
-                      <span className="rounded-full bg-blue-primary px-2 py-1 text-[10px] font-black uppercase tracking-wider text-white">
-                        Rekomendasi
-                      </span>
-                    )}
+                {pkg.featured && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-blue-primary px-4 py-1 text-[10px] font-black uppercase tracking-widest text-white shadow-lg">
+                    Rekomendasi Utama
                   </div>
-                  <div className="mt-3">
-                    <p className="text-xs font-bold text-slate-600 dark:text-slate-400">Biaya setup</p>
-                    <div className="mt-1 flex items-center gap-2">
-                      <span className="text-sm font-black text-slate-500 line-through dark:text-slate-500">{pkg.setupOldPrice}</span>
+                )}
+
+                <div className={`mb-8 rounded-3xl bg-gradient-to-br p-6 ${pkg.accent}`}>
+                  <div className="flex items-center justify-between mb-4">
+                    <p className="text-sm font-black tracking-[0.2em] text-slate-900 dark:text-white uppercase">{pkg.name}</p>
+                  </div>
+                  
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-1">Biaya Setup</p>
+                    <div className="flex items-baseline gap-2">
                       <span className="text-2xl font-black text-slate-900 dark:text-white">{pkg.setupNewPrice}</span>
+                      <span className="text-xs font-bold text-slate-400 line-through">{pkg.setupOldPrice}</span>
                     </div>
                   </div>
-                  <div className="mt-3">
-                    <p className="text-2xl font-black text-slate-900 dark:text-white">{pkg.hosting}</p>
-                    <p className="mt-1 text-xs font-bold text-slate-600 dark:text-slate-400">Biaya hosting</p>
+
+                  <div className="mt-6 pt-6 border-t border-slate-900/5 dark:border-white/5">
+                    <p className="text-3xl font-black text-slate-900 dark:text-white">{pkg.hosting}</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 mt-1">Biaya Maintenance & Hosting</p>
                   </div>
                 </div>
 
-                <h3 className="text-lg font-black text-[var(--app-text)]">{pkg.headline}</h3>
-                <p className="mt-2 text-sm font-bold text-blue-primary">{pkg.highlight}</p>
+                <div className="mb-8">
+                  <h3 className="text-xl font-black text-[var(--app-text)] mb-3">{pkg.headline}</h3>
+                  <p className="text-sm font-bold text-blue-primary bg-blue-primary/5 dark:bg-blue-primary/10 w-fit px-3 py-1 rounded-lg">{pkg.highlight}</p>
+                </div>
 
-                <ul className="mt-5 space-y-3">
+                <ul className="space-y-4 mb-10 flex-grow">
                   {pkg.features.map((feature) => (
-                    <li key={feature} className="flex gap-2 text-sm font-bold text-[var(--app-muted)]">
-                      <Check size={16} className="mt-0.5 text-blue-primary" />
+                    <li key={feature} className="flex gap-3 text-sm font-bold text-[var(--app-muted)] leading-relaxed">
+                      <div className="mt-1 flex-shrink-0 h-5 w-5 rounded-full bg-blue-primary/10 flex items-center justify-center">
+                        <Check size={12} className="text-blue-primary" />
+                      </div>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -116,16 +133,23 @@ export default function PackagesPage() {
 
                 <Link
                   to="/contact"
-                  className={`mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-black transition ${
+                  className={`flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-4 text-sm font-black transition-all active:scale-95 ${
                     pkg.featured
-                      ? 'bg-blue-primary text-white hover:bg-blue-dark'
-                      : 'bg-[var(--app-bg)] text-[var(--app-text)] hover:bg-blue-light hover:text-blue-primary'
+                      ? 'bg-blue-primary text-white hover:bg-blue-dark shadow-xl shadow-blue-primary/20'
+                      : 'bg-[var(--app-bg)] text-[var(--app-text)] hover:bg-blue-primary hover:text-white'
                   }`}
                 >
-                  <Sparkles size={14} /> {pkg.button}
+                  <Sparkles size={16} /> {pkg.button}
                 </Link>
-              </div>
+              </motion.div>
             ))}
+          </div>
+
+          <div className="mt-20 rounded-[3rem] bg-[var(--app-surface)] border border-[var(--app-border)] p-8 md:p-12 text-center overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-primary/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+            <h2 className="text-3xl font-black text-[var(--app-text)] mb-4">Butuh Solusi Kustom?</h2>
+            <p className="text-[var(--app-muted)] font-bold max-w-2xl mx-auto mb-8">Jika bisnis Anda membutuhkan fitur khusus yang tidak ada di paket atas, tim lab kami siap membangun sistem yang sesuai dengan spesifikasi Anda.</p>
+            <Link to="/contact" className="btn-secondary inline-flex">Konsultasi Gratis Sekarang</Link>
           </div>
         </div>
       </section>
