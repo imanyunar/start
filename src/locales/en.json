@@ -1,9 +1,9 @@
-{
+﻿{
   "nav": {
     "home": "Home",
     "laboratory": "Laboratory",
     "capabilities": "Capabilities",
-    "ai_systems": "AI Systems",
+    "ai_systems": "Business Solutions",
     "roadmap": "Roadmap",
     "contact": "Contact",
     "privacy": "Privacy",
@@ -12,7 +12,7 @@
   "hero": {
     "title": "Empowering",
     "subtitle": "Tomorrow",
-    "description": "AI-powered automation and intelligent digital systems for modern businesses seeking exponential growth.",
+    "description": "Practical business systems that help teams work faster, simpler, and more consistently every day.",
     "cta_primary": "Initialize Project",
     "cta_secondary": "Explore Solutions",
     "badge": "Next-Gen Autonomous Systems",
@@ -34,7 +34,7 @@
     "section_title": "Built for the Intelligence Age",
     "section_desc": "Our core infrastructure leverages advanced neural architectures to process complex business workflows in real-time.",
     "f1_title": "Autonomous Core",
-    "f1_desc": "Self-optimizing AI agents that handle decision-making cycles.",
+    "f1_desc": "Simple workflow support that helps daily decisions become faster and clearer.",
     "f2_title": "Data Intelligence",
     "f2_desc": "Predictive analytics engine that transforms raw noise into signal.",
     "f3_title": "Global Mesh",
@@ -61,11 +61,11 @@
     },
     "mission": {
       "title": "Our Mission",
-      "desc": "To provide affordable and easy-to-use smart assistant technology for everyone, so businesses can grow without the technical headaches."
+      "desc": "To provide affordable and easy-to-use business tools so teams can grow without operational headaches."
     },
     "vision": {
       "title": "Our Vision",
-      "desc": "A future where technology isn't a burden, but a smart partner that helps us all progress—easy, automatic, and always reliable."
+      "desc": "A future where technology isn't a burden, but a smart partner that helps us all progressâ€”easy, automatic, and always reliable."
     }
   },
   "services": {
@@ -74,7 +74,7 @@
     "subtitle": "Your Business Needs",
     "description": "We design digital assistant systems that help manage your daily tasks automatically without needing much human intervention.",
     "s1_title": "Work Automation",
-    "s1_desc": "Replace boring manual tasks with smart assistants that can learn and adapt to your needs.",
+    "s1_desc": "Reduce repetitive manual tasks so your team can focus on customers and sales.",
     "s2_title": "Secure Storage",
     "s2_desc": "Super-fast data storage systems that grow as your business develops.",
     "s3_title": "High-Level Security",
@@ -83,7 +83,7 @@
     "s4_desc": "See the future of your business based on past data to help you make the right decisions.",
     "cta": "Start Now",
     "footer_title": "Ready to Make Business Easier?",
-    "footer_desc": "Join other smart entrepreneurs who are already using smart assistants to advance their businesses.",
+    "footer_desc": "Join other entrepreneurs who have made daily operations faster and more organized.",
     "footer_button": "Free Consultation"
   },
   "solutions": {
@@ -91,7 +91,7 @@
     "title": "Smart Choices for the",
     "subtitle": "Future Era",
     "core_title": "Smart System Core",
-    "core_desc": "Our technology allows systems to think and make quick decisions to help you. It's not just a regular tool; it's a smart assistant for your business.",
+    "core_desc": "Our system helps you organize daily operations in one simple place and take action faster.",
     "accuracy": "Accuracy",
     "response": "Response",
     "list": {
@@ -102,7 +102,7 @@
       "s3_title": "Future Planning",
       "s3_desc": "Preparing all your business needs before problems actually arise.",
       "s4_title": "Unified Intelligence",
-      "s4_desc": "All our smart assistants work together compactly wherever you are."
+      "s4_desc": "All features work together in one place, so your team can manage business activities more easily."
     },
     "extra": {
       "e1_title": "Smart Coordination",
@@ -124,7 +124,7 @@
       "p1_desc": "Launching business assistants that can organize daily tasks on their own without needing to be told repeatedly.",
       "p2_phase": "Phase 02",
       "p2_title": "Global Fast Network",
-      "p2_desc": "Building a super-fast connection network so our smart assistants can be accessed from anywhere without lag.",
+      "p2_desc": "Building a reliable network so your business system stays fast and easy to access from anywhere.",
       "p3_phase": "Phase 03",
       "p3_title": "Advanced Thinking Systems",
       "p3_desc": "Combining the latest technology so our assistants can help with more complex business strategies.",
@@ -140,11 +140,11 @@
     }
   },
   "footer": {
-    "tagline": "Advancing human potential through intelligent automation and autonomous systems. Vermont Automated Digital is an early-stage AI laboratory focused on high-impact digital transformation.",
+    "tagline": "Helping businesses run daily operations faster and more efficiently through practical digital systems.",
     "exploration": "Exploration",
     "contact_heading": "Contact",
     "innovation_hub": "Innovation Hub",
-    "rights": "© 2026 Vermont Automated Digital. All rights reserved."
+    "rights": "Â© 2026 Vermont Automated Digital. All rights reserved."
   },
   "contact": {
     "badge": "Initialize Connection",
@@ -165,7 +165,7 @@
       "placeholder_name": "Alan Turing",
       "placeholder_message": "Describe your vision...",
       "options": {
-        "ai": "AI Automation Consulting",
+        "ai": "Business Operations Consulting",
         "arch": "System Architecture",
         "partnership": "Partnership Inquiry",
         "other": "Other"
@@ -178,7 +178,7 @@
     "input_placeholder": "Type transaction... (e.g., sell chicken noodle 75k)",
     "send": "Record",
     "recent": "Recent Transactions",
-    "insights_title": "SmartFlow AI Insights",
+    "insights_title": "SmartFlow Business Insights",
     "weekly_summary": "Weekly Summary",
     "stats": {
       "revenue": "Revenue",
@@ -198,13 +198,14 @@
       "debt": "Debt"
     },
     "analytics": {
-      "trends": "AI Trend Analysis",
+      "trends": "Business Trend Analysis",
       "peak_hours": "Peak Hours",
       "best_selling": "Best Selling",
       "health_score": "Business Health Score",
       "health_desc": "Your business is in very healthy condition.",
-      "prediction": "Next Week AI Prediction",
+      "prediction": "Next Week Sales Prediction",
       "declining": "Declining Products"
     }
   }
 }
+

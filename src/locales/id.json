@@ -3,7 +3,7 @@
     "home": "Beranda",
     "laboratory": "Laboratorium",
     "capabilities": "Layanan Kami",
-    "ai_systems": "Sistem AI",
+    "ai_systems": "Solusi Bisnis",
     "roadmap": "Peta Jalan",
     "contact": "Hubungi Kami",
     "privacy": "Privasi",
@@ -20,7 +20,7 @@
     "floating_desc": "Otomatisasi Terjamin"
   },
   "cta": {
-    "title": "Siap Mengotomatiskan Bisnis Anda?",
+    "title": "Siap Mempermudah Kegiatan Bisnis Anda?",
     "desc": "Bergabunglah dengan ribuan pengusaha yang telah menghemat waktu dan meningkatkan profit dengan Vermont.",
     "btn_primary": "Mulai Sekarang",
     "btn_secondary": "Hubungi Kami"
@@ -32,13 +32,13 @@
   },
   "features": {
     "section_title": "Hadir untuk Era Digital",
-    "section_desc": "Sistem kami dirancang khusus untuk mempermudah pekerjaan rumit Anda menjadi lebih cepat, akurat, dan otomatis.",
-    "f1_title": "Sistem Pintar & Mandiri",
-    "f1_desc": "Asisten AI yang terus belajar untuk membantu Anda mengambil keputusan bisnis dengan lebih tepat.",
-    "f2_title": "Analisis Data Cerdas",
-    "f2_desc": "Mengolah data mentah menjadi informasi berharga yang mudah dipahami untuk memajukan bisnis Anda.",
-    "f3_title": "Akses Cepat Tanpa Batas",
-    "f3_desc": "Infrastruktur andal yang memastikan aplikasi Anda selalu berjalan cepat kapan pun dan di mana pun."
+    "section_desc": "Layanan kami membantu pekerjaan harian bisnis jadi lebih mudah, cepat, dan rapi.",
+    "f1_title": "Pekerjaan Lebih Ringan",
+    "f1_desc": "Proses kerja harian jadi lebih sederhana sehingga Anda bisa fokus ke penjualan.",
+    "f2_title": "Laporan Mudah Dipahami",
+    "f2_desc": "Data penjualan dirapikan menjadi laporan yang jelas dan mudah dibaca.",
+    "f3_title": "Akses Cepat Kapan Saja",
+    "f3_desc": "Pantau kegiatan bisnis Anda dengan cepat dari mana saja."
   },
   "dashboard": {
     "title": "Kendalikan Masa Depan Pekerjaan",
@@ -50,59 +50,59 @@
   "about": {
     "badge": "Tentang Kami",
     "title": "Membuat Bisnis Anda Bertumbuh Lewat",
-    "subtitle": "Teknologi Cerdas",
-    "description": "Vermont Automated Digital percaya bahwa teknologi secanggih apa pun harus mudah digunakan. Kami merancang asisten digital agar Anda bisa fokus membesarkan bisnis, sementara kami mengurus sistem operasionalnya.",
+    "subtitle": "Sistem yang Sederhana",
+    "description": "Vermont Automated Digital membantu UMKM dan bisnis online bekerja lebih rapi. Kami membuat sistem yang mudah dipakai agar pekerjaan harian lebih ringan.",
     "philosophy": {
       "title": "Prinsip Kami",
       "p1_title": "Bermimpi Lebih Besar",
-      "p1_desc": "Kami bukan sekadar pembuat aplikasi. Kami merancang 'rekan kerja' digital yang siap mempermudah keseharian Anda dan mendorong bisnis Anda maju.",
+      "p1_desc": "Kami membantu pemilik bisnis bekerja lebih tenang dengan proses yang sederhana dan jelas.",
       "p2_title": "Keamanan & Transparansi",
       "p2_desc": "Data Anda adalah aset berharga. Kami memastikan setiap sistem yang kami buat selalu aman, jujur, dan bisa Anda andalkan kapan saja."
     },
     "mission": {
       "title": "Misi Kami",
-      "desc": "Menghadirkan teknologi kecerdasan buatan yang praktis dan terjangkau, agar siapa saja bisa memajukan bisnis tanpa harus pusing memikirkan hal teknis."
+      "desc": "Membantu pelaku usaha menjalankan bisnis dengan cara yang lebih mudah, cepat, dan teratur."
     },
     "vision": {
       "title": "Visi Kami",
-      "desc": "Menciptakan masa depan di mana teknologi benar-benar hadir sebagai asisten pribadi yang ramah, serba otomatis, dan selalu mengerti kebutuhan Anda."
+      "desc": "Menjadi partner pertumbuhan bisnis yang praktis, mudah dipahami, dan bermanfaat untuk kegiatan sehari-hari."
     }
   },
   "services": {
     "badge": "Kemampuan Kami",
     "title": "Solusi Praktis untuk",
     "subtitle": "Kebutuhan Bisnis Anda",
-    "description": "Kami merancang berbagai fitur canggih yang bekerja di belakang layar untuk memastikan bisnis Anda berjalan lancar tanpa hambatan.",
-    "s1_title": "Otomatisasi Tugas Rutin",
-    "s1_desc": "Tinggalkan pekerjaan manual yang berulang. Biarkan sistem kami yang menyelesaikannya dengan cepat dan tanpa kesalahan.",
-    "s2_title": "Penyimpanan Skala Besar",
-    "s2_desc": "Simpan sebanyak apa pun data pelanggan dan transaksi Anda tanpa khawatir kehabisan kapasitas atau server melambat.",
-    "s3_title": "Keamanan Terjamin",
-    "s3_desc": "Kami menggunakan perlindungan berlapis untuk memastikan sistem Anda selalu aman dari ancaman siber.",
-    "s4_title": "Prediksi & Analisis Pasar",
-    "s4_desc": "Manfaatkan data Anda untuk melihat peluang baru dan mengetahui tren pasar sebelum pesaing Anda menyadarinya.",
+    "description": "Kami menyiapkan layanan yang membantu kegiatan bisnis harian menjadi lebih cepat dan tidak ribet.",
+    "s1_title": "Pencatatan Lebih Cepat",
+    "s1_desc": "Pekerjaan berulang jadi lebih ringan, sehingga waktu Anda bisa dipakai untuk hal yang lebih penting.",
+    "s2_title": "Data Bisnis Lebih Rapi",
+    "s2_desc": "Data pelanggan dan transaksi tersusun rapi agar mudah dicari saat dibutuhkan.",
+    "s3_title": "Keamanan Data",
+    "s3_desc": "Informasi bisnis Anda dijaga agar tetap aman dan nyaman digunakan setiap hari.",
+    "s4_title": "Ringkasan Performa Bisnis",
+    "s4_desc": "Lihat perkembangan pemasukan, pengeluaran, dan penjualan dalam tampilan yang mudah dimengerti.",
     "cta": "Mari Berdiskusi",
     "footer_title": "Siap Mengubah Cara Anda Berbisnis?",
     "footer_desc": "Bergabunglah bersama para pengusaha modern lainnya yang telah menghemat waktu dan biaya dengan bantuan teknologi Vermont.",
     "footer_button": "Jadwalkan Konsultasi Gratis"
   },
   "solutions": {
-    "badge": "Ekosistem AI",
-    "title": "Teknologi Cerdas untuk Bisnis",
+    "badge": "Solusi Bisnis",
+    "title": "Solusi Praktis untuk Bisnis",
     "subtitle": "Masa Depan",
-    "core_title": "Pusat Kendali Otomatis",
-    "core_desc": "Teknologi inti kami dirancang untuk membaca situasi, berpikir logis, dan bertindak cepat layaknya asisten manajerial di bisnis Anda.",
+    "core_title": "Pusat Kendali Bisnis",
+    "core_desc": "Semua kebutuhan bisnis harian bisa Anda pantau dalam satu tempat dengan cara yang sederhana.",
     "accuracy": "Tingkat Akurasi",
     "response": "Waktu Respon",
     "list": {
-      "s1_title": "Ekosistem yang Mandiri",
-      "s1_desc": "Sistem pintar yang mampu mengatur dan menyesuaikan dirinya sendiri dengan kondisi pasar yang terus berubah.",
-      "s2_title": "Pengambil Keputusan Handal",
-      "s2_desc": "Sistem kami menganalisis berbagai faktor untuk memberikan rekomendasi bisnis yang akurat dan minim risiko.",
-      "s3_title": "Langkah Antisipasi",
-      "s3_desc": "Mendeteksi kemungkinan adanya masalah sejak dini sehingga Anda bisa mengatasinya sebelum membesar.",
-      "s4_title": "Integrasi Menyeluruh",
-      "s4_desc": "Seluruh fitur dan layanan kami terhubung dengan mulus, memastikan Anda dapat mengelolanya dari satu tempat."
+      "s1_title": "Alur Kerja Lebih Rapi",
+      "s1_desc": "Pekerjaan harian tersusun lebih teratur agar tim lebih fokus dan efisien.",
+      "s2_title": "Bantu Ambil Keputusan",
+      "s2_desc": "Data bisnis diringkas agar Anda lebih cepat mengambil langkah yang tepat.",
+      "s3_title": "Kontrol Lebih Awal",
+      "s3_desc": "Masalah operasional bisa terlihat lebih awal sebelum berdampak ke penjualan.",
+      "s4_title": "Semua dalam Satu Tempat",
+      "s4_desc": "Kelola kebutuhan bisnis dari satu dashboard yang mudah digunakan."
     },
     "extra": {
       "e1_title": "Manajemen Tugas Terpusat",
@@ -116,17 +116,17 @@
   "innovation": {
     "badge": "Peta Jalan",
     "title": "Visi &",
-    "subtitle": "Inovasi Kami",
-    "description": "Kami terus bergerak maju. Berikut adalah rencana besar kami dalam menghadirkan teknologi yang lebih revolusioner untuk Anda.",
+    "subtitle": "Pengembangan Kami",
+    "description": "Kami terus bergerak maju. Berikut adalah rencana besar kami dalam menghadirkan layanan yang lebih bermanfaat untuk Anda.",
     "roadmap": {
       "p1_phase": "Fase 01",
-      "p1_title": "Asisten Pribadi Otomatis",
+      "p1_title": "Asisten Operasional Harian",
       "p1_desc": "Meluncurkan generasi pertama asisten digital yang mampu mengurus laporan dan pembukuan secara mandiri.",
       "p2_phase": "Fase 02",
       "p2_title": "Jaringan Terhubung Secara Global",
       "p2_desc": "Membangun pusat data canggih agar akses aplikasi Anda menjadi secepat kilat dari berbagai belahan dunia.",
       "p3_phase": "Fase 03",
-      "p3_title": "Pemikir Strategis AI",
+      "p3_title": "Perencanaan Bisnis Lanjutan",
       "p3_desc": "Sistem yang mampu memberikan strategi pemasaran, penjualan, hingga manajemen keuangan untuk level perusahaan besar.",
       "status_active": "Sedang Berjalan",
       "status_pending": "Segera Hadir",
@@ -143,8 +143,8 @@
     "tagline": "Kami membantu UMKM dan bisnis online bekerja lebih rapi dengan sistem yang sederhana dan mudah dipahami.",
     "exploration": "Jelajahi",
     "contact_heading": "Hubungi Kami",
-    "innovation_hub": "Pusat Inovasi Kami",
-    "rights": "Â© 2026 Vermont Automated Digital. Hak cipta dilindungi undang-undang."
+    "innovation_hub": "Pusat Layanan Kami",
+    "rights": "© 2026 Vermont Automated Digital. Hak cipta dilindungi undang-undang."
   },
   "contact": {
     "badge": "Mulai Koneksi",
@@ -165,7 +165,7 @@
       "placeholder_name": "Contoh: Budi Santoso",
       "placeholder_message": "Ceritakan secara singkat apa yang Anda butuhkan...",
       "options": {
-        "ai": "Konsultasi Sistem AI",
+        "ai": "Konsultasi Operasional Bisnis",
         "arch": "Pembuatan Aplikasi/Sistem Baru",
         "partnership": "Peluang Kerja Sama",
         "other": "Hal Lainnya"
@@ -174,7 +174,7 @@
   },
   "smartflow": {
     "title": "Vermont SmartFlow",
-    "subtitle": "Asisten Pencatat Keuangan & Bisnis Tercerdas Anda",
+    "subtitle": "Asisten Pencatat Keuangan & Bisnis Anda",
     "input_placeholder": "Contoh: Jual mie ayam 2 porsi 30 ribu...",
     "send": "Catat",
     "recent": "Transaksi Terakhir",
@@ -198,12 +198,12 @@
       "debt": "Hutang"
     },
     "analytics": {
-      "trends": "Analisis Tren AI",
+      "trends": "Analisis Tren Bisnis",
       "peak_hours": "Jam Paling Ramai",
       "best_selling": "Produk Terlaris",
       "health_score": "Skor Kesehatan Bisnis",
       "health_desc": "Kondisi keuangan bisnis Anda saat ini sangat sehat dan stabil.",
-      "prediction": "Prediksi Penjualan AI",
+      "prediction": "Prediksi Penjualan",
       "declining": "Produk Kurang Laku"
     }
   }
@@ -213,5 +213,7 @@
     "p3": "Cocok untuk UMKM, toko online, cafe, dan retail."
   }
 }
+
+
 
 

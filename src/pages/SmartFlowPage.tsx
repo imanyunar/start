@@ -224,7 +224,7 @@ function SmartFlowPage() {
       <aside className="fixed left-0 top-0 hidden h-screen w-72 flex-col border-r border-[var(--app-border)] bg-[var(--app-surface)] p-7 lg:flex">
         <div className="mb-10">
           <Logo />
-          <p className="mt-4 text-xs font-bold text-[var(--app-muted)]">AI Business Operating System for UMKM Indonesia</p>
+          <p className="mt-4 text-xs font-bold text-[var(--app-muted)]">Sistem Operasional Bisnis untuk UMKM Indonesia</p>
         </div>
         <nav className="space-y-1">
           {navItems.map((item) => (
@@ -259,7 +259,7 @@ function SmartFlowPage() {
         <header className="sticky top-0 z-40 border-b border-[var(--app-border)] bg-[var(--app-surface)]/85 backdrop-blur-xl">
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-10">
             <div>
-              <p className="text-[11px] font-black uppercase tracking-[0.2em] text-blue-primary">Vermont SmartFlow AI</p>
+              <p className="text-[11px] font-black uppercase tracking-[0.2em] text-blue-primary">Vermont SmartFlow</p>
               <h1 className="text-xl font-black tracking-tight">{navItems.find((x) => x.key === activeView)?.label}</h1>
             </div>
             <div className="flex items-center gap-3">
@@ -267,7 +267,7 @@ function SmartFlowPage() {
                 <Bell size={17} />
               </button>
               <div className="flex items-center gap-2 rounded-2xl border border-[var(--app-border)] bg-[var(--app-bg)] px-3 py-2">
-                <div className="h-8 w-8 rounded-xl bg-blue-primary text-center text-xs font-black leading-8 text-white">AI</div>
+                <div className="h-8 w-8 rounded-xl bg-blue-primary text-center text-xs font-black leading-8 text-white">VT</div>
                 <div className="text-[11px] font-black">
                   <div>Owner Mode</div>
                   <div className="text-[var(--app-muted)]">Startup Grade</div>
@@ -281,7 +281,7 @@ function SmartFlowPage() {
           <section className="rounded-3xl border border-blue-primary/15 bg-gradient-to-br from-blue-primary to-blue-dark p-6 text-white shadow-[0_20px_60px_rgba(29,111,232,0.35)] md:p-8">
             <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.2em] opacity-75">Natural Language AI Input</p>
+                <p className="text-xs font-black uppercase tracking-[0.2em] opacity-75">Input Bahasa Sehari-hari</p>
                 <h2 className="mt-2 text-3xl font-black tracking-tight md:text-4xl">Catat Bisnis Pakai Bahasa Sehari-hari</h2>
               </div>
               <div className="rounded-2xl bg-white/15 px-4 py-2 text-xs font-black">UMKM | TikTok Shop | Shopee | Cafe | Retail</div>
@@ -299,11 +299,11 @@ function SmartFlowPage() {
                 className="rounded-2xl bg-white px-5 py-3 text-sm font-black text-blue-primary hover:scale-[1.02]"
               >
                 <span className="flex items-center gap-2">
-                  <Send size={16} /> Jalankan AI
+                  <Send size={16} /> Proses Catatan
                 </span>
               </button>
             </div>
-            <p className="mt-3 text-xs font-bold text-blue-100">AI otomatis deteksi intent, kategori transaksi, update cash flow, dan analitik operasional.</p>
+            <p className="mt-3 text-xs font-bold text-blue-100">Sistem otomatis membaca catatan, mengelompokkan transaksi, dan memperbarui laporan bisnis Anda.</p>
           </section>
 
           {activeView === 'dashboard' && (
@@ -339,7 +339,7 @@ function SmartFlowPage() {
                 <div className="rounded-3xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6">
                   <div className="mb-5 flex items-center gap-2">
                     <Bot size={18} className="text-blue-primary" />
-                    <h3 className="text-lg font-black">AI Business Insights</h3>
+                    <h3 className="text-lg font-black">Ringkasan Bisnis</h3>
                   </div>
                   <div className="space-y-3">
                     {insights.map((insight) => (
@@ -377,7 +377,7 @@ function SmartFlowPage() {
                   </div>
                 </div>
                 <div className="rounded-3xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6">
-                  <h3 className="mb-4 text-lg font-black">AI Analysis</h3>
+                  <h3 className="mb-4 text-lg font-black">Analisis Bisnis</h3>
                   <div className="space-y-3 text-sm font-bold text-[var(--app-muted)]">
                     <p className="rounded-2xl bg-[var(--app-bg)] p-3">Margin profit bulan ini naik karena biaya logistik lebih efisien.</p>
                     <p className="rounded-2xl bg-[var(--app-bg)] p-3">Pengeluaran tertinggi ada pada bahan baku. Pertimbangkan pembelian grosir mingguan.</p>
@@ -488,7 +488,7 @@ function SmartFlowPage() {
                         </span>
                       </div>
                       <p className="text-sm font-bold">Stok: {item.stock} unit</p>
-                      <p className="text-xs font-bold text-[var(--app-muted)]">AI: stok diperkirakan habis dalam {Math.max(1, Math.ceil(item.stock / item.dailyUsage))} hari.</p>
+                      <p className="text-xs font-bold text-[var(--app-muted)]">Perkiraan: stok diperkirakan habis dalam {Math.max(1, Math.ceil(item.stock / item.dailyUsage))} hari.</p>
                     </div>
                   ))}
                 </div>
@@ -557,7 +557,7 @@ function SmartFlowPage() {
                 <div className="space-y-3 text-sm font-bold text-[var(--app-muted)]">
                   <p className="rounded-2xl bg-[var(--app-bg)] p-3">Payment gateway integration untuk verifikasi otomatis.</p>
                   <p className="rounded-2xl bg-[var(--app-bg)] p-3">Automatic QRIS generator untuk setiap invoice.</p>
-                  <p className="rounded-2xl bg-[var(--app-bg)] p-3">AI transaction verification untuk deteksi mismatch pembayaran.</p>
+                  <p className="rounded-2xl bg-[var(--app-bg)] p-3">Verifikasi transaksi otomatis untuk deteksi mismatch pembayaran.</p>
                 </div>
               </div>
             </section>
@@ -613,4 +613,6 @@ function SmartFlowPage() {
 }
 
 export default SmartFlowPage;
+
+
 
