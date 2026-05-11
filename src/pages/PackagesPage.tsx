@@ -16,8 +16,9 @@ const packages = [
       'Dashboard ringkas yang mudah dipahami orang awam',
       'Dukungan update konten ringan',
     ],
-    accent: 'from-slate-100 to-blue-50 dark:from-slate-800/50 dark:to-blue-900/20',
+    accent: 'from-blue-50 to-blue-100/50 dark:from-blue-950/40 dark:to-blue-900/20',
     button: 'Mulai Paket Basic',
+    color: 'text-blue-600',
   },
   {
     name: 'PRO',
@@ -33,8 +34,9 @@ const packages = [
       'Manajemen stok produk dasar (stok masuk, stok keluar, stok menipis)',
       'Form order/kontak yang terhubung ke WhatsApp bisnis',
     ],
-    accent: 'from-blue-100 to-indigo-50 dark:from-blue-900/40 dark:to-indigo-900/20',
+    accent: 'from-indigo-50 to-indigo-100/50 dark:from-indigo-950/40 dark:to-indigo-900/20',
     button: 'Pilih Paket Pro',
+    color: 'text-indigo-600',
   },
   {
     name: 'PLATINUM',
@@ -50,9 +52,10 @@ const packages = [
       'Pencatatan hutang/piutang dan status pembayaran',
       'Prioritas support dan pendampingan pengembangan fitur',
     ],
-    accent: 'from-amber-100 to-orange-50 dark:from-amber-900/40 dark:to-orange-900/20',
+    accent: 'from-amber-50 to-amber-100 dark:from-amber-950/40 dark:to-amber-900/20',
     button: 'Ambil Paket Platinum',
     featured: true,
+    color: 'text-amber-600',
   },
 ];
 
@@ -77,69 +80,74 @@ export default function PackagesPage() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-10 md:grid-cols-3 md:items-stretch">
             {packages.map((pkg, idx) => (
               <motion.div
                 key={pkg.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.1 }}
-                className={`flex flex-col rounded-[2.5rem] border p-8 shadow-sm transition-all duration-500 hover:shadow-2xl ${
+                transition={{ delay: idx * 0.15, duration: 0.6 }}
+                className={`flex flex-col rounded-[3rem] border p-8 transition-all duration-500 hover:shadow-2xl ${
                   pkg.featured
-                    ? 'border-blue-primary bg-[var(--app-surface)] shadow-blue-primary/10 relative scale-105 z-10'
-                    : 'border-[var(--app-border)] bg-[var(--app-surface)]'
+                    ? 'border-blue-primary/30 bg-[var(--app-surface)] shadow-2xl shadow-blue-primary/10 relative scale-105 z-10'
+                    : 'border-[var(--app-border)] bg-[var(--app-surface)] shadow-xl shadow-slate-200/20 dark:shadow-none'
                 }`}
               >
                 {pkg.featured && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-blue-primary px-4 py-1 text-[10px] font-black uppercase tracking-widest text-white shadow-lg">
-                    Rekomendasi Utama
+                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 rounded-full bg-blue-primary px-5 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-white shadow-xl">
+                    ⭐ Spotlight Choice
                   </div>
                 )}
 
-                <div className={`mb-8 rounded-3xl bg-gradient-to-br p-6 ${pkg.accent}`}>
-                  <div className="flex items-center justify-between mb-4">
-                    <p className="text-sm font-black tracking-[0.2em] text-slate-800 dark:text-white uppercase">{pkg.name}</p>
+                <div className={`mb-10 rounded-[2rem] bg-gradient-to-br p-7 shadow-inner ${pkg.accent}`}>
+                  <div className="flex items-center justify-between mb-6">
+                    <p className={`text-[11px] font-black tracking-[0.25em] uppercase ${pkg.color} dark:text-white`}>{pkg.name}</p>
                   </div>
                   
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-400 mb-1">Biaya Setup</p>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-2xl font-black text-slate-900 dark:text-white">{pkg.setupNewPrice}</span>
-                      <span className="text-xs font-bold text-slate-500 line-through">{pkg.setupOldPrice}</span>
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 mb-2">Investment</p>
+                    <div className="flex flex-col">
+                      <div className="flex items-center gap-3">
+                        <span className="text-3xl font-black text-slate-900 dark:text-white">{pkg.setupNewPrice}</span>
+                        <span className="text-xs font-bold text-slate-400 line-through decoration-rose-500/30">{pkg.setupOldPrice}</span>
+                      </div>
+                      <div className="mt-4 flex items-baseline gap-1.5">
+                        <span className="text-4xl font-black text-slate-900 dark:text-white">{pkg.hosting.split('/')[0]}</span>
+                        <span className="text-xs font-bold text-slate-500 dark:text-slate-400">/{pkg.hosting.split('/')[1]}</span>
+                      </div>
+                      <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500 mt-2">Cloud Hosting & Maintenance</p>
                     </div>
                   </div>
-
-                  <div className="mt-6 pt-6 border-t border-slate-900/10 dark:border-white/10">
-                    <p className="text-3xl font-black text-slate-900 dark:text-white">{pkg.hosting}</p>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-400 mt-1">Biaya Maintenance & Hosting</p>
-                  </div>
                 </div>
 
-                <div className="mb-8">
-                  <h3 className="text-xl font-black text-[var(--app-text)] mb-3">{pkg.headline}</h3>
-                  <p className="text-sm font-bold text-blue-primary bg-blue-primary/[0.08] dark:bg-blue-primary/10 w-fit px-3 py-1 rounded-lg">{pkg.highlight}</p>
+                <div className="mb-8 px-2">
+                  <h3 className="text-xl font-black text-[var(--app-text)] mb-3 leading-tight">{pkg.headline}</h3>
+                  <div className="h-1 w-12 bg-blue-primary/20 rounded-full mb-4"></div>
+                  <p className={`text-xs font-black uppercase tracking-wider ${pkg.color} bg-current/5 w-fit px-3 py-1.5 rounded-full`}>
+                    {pkg.highlight}
+                  </p>
                 </div>
 
-                <ul className="space-y-4 mb-10 flex-grow">
+                <ul className="space-y-5 mb-12 flex-grow px-2">
                   {pkg.features.map((feature) => (
-                    <li key={feature} className="flex gap-3 text-sm font-bold text-[var(--app-muted)] leading-relaxed">
-                      <div className="mt-1 flex-shrink-0 h-5 w-5 rounded-full bg-blue-primary/10 flex items-center justify-center">
-                        <Check size={12} className="text-blue-primary" />
+                    <li key={feature} className="flex gap-4 text-sm font-bold text-[var(--app-muted)] leading-relaxed group">
+                      <div className={`mt-0.5 flex-shrink-0 h-6 w-6 rounded-xl bg-blue-primary/10 flex items-center justify-center transition-colors group-hover:bg-blue-primary/20`}>
+                        <Check size={14} className="text-blue-primary" />
                       </div>
-                      <span>{feature}</span>
+                      <span className="transition-colors group-hover:text-[var(--app-text)]">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 <Link
                   to="/contact"
-                  className={`flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-4 text-sm font-black transition-all active:scale-95 ${
+                  className={`flex w-full items-center justify-center gap-3 rounded-[1.5rem] px-8 py-5 text-sm font-black transition-all active:scale-95 ${
                     pkg.featured
-                      ? 'bg-blue-primary text-white hover:bg-blue-dark shadow-xl shadow-blue-primary/20'
-                      : 'bg-[var(--app-bg)] text-[var(--app-text)] hover:bg-blue-primary hover:text-white'
+                      ? 'bg-blue-primary text-white hover:bg-blue-dark shadow-xl shadow-blue-primary/25 hover:-translate-y-1'
+                      : 'bg-[var(--app-bg)] text-[var(--app-text)] hover:bg-blue-primary hover:text-white border border-[var(--app-border)]'
                   }`}
                 >
-                  <Sparkles size={16} /> {pkg.button}
+                  <Sparkles size={18} /> {pkg.button}
                 </Link>
               </motion.div>
             ))}
