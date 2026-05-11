@@ -1,4 +1,4 @@
-﻿import { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   Bell,
   Bot,
@@ -90,11 +90,11 @@ function SummaryCard({
   tone: 'blue' | 'green' | 'rose' | 'amber' | 'violet';
 }) {
   const toneMap = {
-    blue: 'from-blue-500/20 to-cyan-500/10 text-blue-700',
-    green: 'from-emerald-500/20 to-lime-500/10 text-emerald-700',
-    rose: 'from-rose-500/20 to-orange-500/10 text-rose-700',
-    amber: 'from-amber-500/20 to-yellow-500/10 text-amber-700',
-    violet: 'from-violet-500/20 to-fuchsia-500/10 text-violet-700',
+    blue: 'from-blue-500/20 to-cyan-500/10 text-blue-700 dark:text-blue-300',
+    green: 'from-emerald-500/20 to-lime-500/10 text-emerald-700 dark:text-emerald-300',
+    rose: 'from-rose-500/20 to-orange-500/10 text-rose-700 dark:text-rose-300',
+    amber: 'from-amber-500/20 to-yellow-500/10 text-amber-700 dark:text-amber-300',
+    violet: 'from-violet-500/20 to-fuchsia-500/10 text-violet-700 dark:text-violet-300',
   };
 
   return (

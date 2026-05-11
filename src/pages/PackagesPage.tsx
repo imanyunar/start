@@ -1,4 +1,4 @@
-﻿import { Check, Sparkles } from 'lucide-react';
+import { Check, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const packages = [
@@ -15,7 +15,7 @@ const packages = [
       'Dashboard ringkas yang mudah dipahami orang awam',
       'Dukungan update konten ringan',
     ],
-    accent: 'from-slate-100 to-blue-50',
+    accent: 'from-slate-100 to-blue-50 dark:from-slate-800/50 dark:to-blue-900/20',
     button: 'Mulai Paket Basic',
   },
   {
@@ -32,7 +32,7 @@ const packages = [
       'Manajemen stok produk dasar (stok masuk, stok keluar, stok menipis)',
       'Form order/kontak yang terhubung ke WhatsApp bisnis',
     ],
-    accent: 'from-blue-100 to-indigo-50',
+    accent: 'from-blue-100 to-indigo-50 dark:from-blue-900/40 dark:to-indigo-900/20',
     button: 'Pilih Paket Pro',
   },
   {
@@ -49,7 +49,7 @@ const packages = [
       'Pencatatan hutang/piutang dan status pembayaran',
       'Prioritas support dan pendampingan pengembangan fitur',
     ],
-    accent: 'from-amber-100 to-orange-50',
+    accent: 'from-amber-100 to-orange-50 dark:from-amber-900/40 dark:to-orange-900/20',
     button: 'Ambil Paket Platinum',
     featured: true,
   },
@@ -76,13 +76,13 @@ export default function PackagesPage() {
                 key={pkg.name}
                 className={`rounded-3xl border p-6 shadow-sm ${
                   pkg.featured
-                    ? 'border-blue-primary bg-[var(--app-surface)] shadow-lg shadow-blue-primary/10'
-                    : 'border-[var(--app-border)] bg-[var(--app-surface)]'
+                    ? 'border-blue-primary bg-[var(--app-surface)] dark:bg-slate-900 shadow-lg shadow-blue-primary/10'
+                    : 'border-[var(--app-border)] bg-[var(--app-surface)] dark:bg-slate-900'
                 }`}
               >
                 <div className={`mb-5 rounded-2xl bg-gradient-to-br p-4 ${pkg.accent}`}>
                   <div className="flex items-center justify-between">
-                    <p className="text-sm font-black tracking-wider text-[var(--app-text)]">{pkg.name}</p>
+                    <p className="text-sm font-black tracking-wider text-slate-900 dark:text-white">{pkg.name}</p>
                     {pkg.featured && (
                       <span className="rounded-full bg-blue-primary px-2 py-1 text-[10px] font-black uppercase tracking-wider text-white">
                         Rekomendasi
@@ -90,15 +90,15 @@ export default function PackagesPage() {
                     )}
                   </div>
                   <div className="mt-3">
-                    <p className="text-xs font-bold text-[var(--app-muted)]">Biaya setup</p>
+                    <p className="text-xs font-bold text-slate-600 dark:text-slate-400">Biaya setup</p>
                     <div className="mt-1 flex items-center gap-2">
-                      <span className="text-sm font-black text-[var(--app-muted)] line-through">{pkg.setupOldPrice}</span>
-                      <span className="text-2xl font-black text-[var(--app-text)]">{pkg.setupNewPrice}</span>
+                      <span className="text-sm font-black text-slate-500 line-through dark:text-slate-500">{pkg.setupOldPrice}</span>
+                      <span className="text-2xl font-black text-slate-900 dark:text-white">{pkg.setupNewPrice}</span>
                     </div>
                   </div>
                   <div className="mt-3">
-                    <p className="text-2xl font-black text-[var(--app-text)]">{pkg.hosting}</p>
-                    <p className="mt-1 text-xs font-bold text-[var(--app-muted)]">Biaya hosting</p>
+                    <p className="text-2xl font-black text-slate-900 dark:text-white">{pkg.hosting}</p>
+                    <p className="mt-1 text-xs font-bold text-slate-600 dark:text-slate-400">Biaya hosting</p>
                   </div>
                 </div>
 
