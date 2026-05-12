@@ -1,4 +1,4 @@
-﻿import type { Customer, InventoryItem, PackagePlan, Transaction } from './types';
+import type { Customer, InventoryItem, PackagePlan, Transaction } from './types';
 
 const now = Date.now();
 
@@ -155,22 +155,22 @@ export const packagePlans: PackagePlan[] = [
     id: 'basic',
     name: 'BASIC',
     setupPrice: 999000,
-    monthlyPrice: 49000,
-    features: ['Pencatatan AI dasar', 'Dashboard ringkas', 'Laporan kas standar'],
+    monthlyPrice: 79000,
+    features: ['Website & Cashflow Sederhana', 'Domain .my.id', '1 Akun Admin'],
   },
   {
     id: 'pro',
     name: 'PRO',
-    setupPrice: 1250000,
-    monthlyPrice: 99000,
-    features: ['Integrasi marketplace', 'Analitik lanjutan', 'Notifikasi otomatis'],
+    setupPrice: 1499000,
+    monthlyPrice: 139000,
+    features: ['Manajemen Stok & Pelanggan', 'Domain .com', 'Export PDF & Excel'],
   },
   {
     id: 'platinum',
     name: 'PLATINUM',
-    setupPrice: 1500000,
-    monthlyPrice: 149000,
-    features: ['Payment gateway', 'QRIS otomatis', 'Verifikasi transaksi AI'],
+    setupPrice: 1999999,
+    monthlyPrice: 189000,
+    features: ['Analisis Bisnis Premium', 'Integrasi Payment Gateway', 'Hutang & Piutang'],
   },
 ];
 
