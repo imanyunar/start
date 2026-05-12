@@ -184,10 +184,6 @@ export default function PackagesPage() {
                       <Tag size={12} strokeWidth={3} />
                       DISKON {pct}%
                     </span>
-                    {/* Hemat highlight */}
-                    <span className="rounded-full bg-emerald-500/15 border border-emerald-500/20 px-3 py-1 text-[11px] font-black text-emerald-600 dark:text-emerald-400 dark:bg-emerald-400/10 dark:border-emerald-400/20 shadow-sm">
-                      Hemat {formatRp(saved)}!
-                    </span>
                   </div>
 
                   {/* ── Card body ── */}

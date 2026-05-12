@@ -89,7 +89,7 @@ const LabPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-app-surface/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                   <span className="text-[10px] font-black uppercase tracking-widest text-blue-primary bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
-                    Neural Draft v0.1
+                    Prototype Active
                   </span>
                 </div>
               </div>
@@ -105,12 +105,11 @@ const LabPage = () => {
               </p>
               
               <div className="mt-auto pt-6 flex items-center justify-between border-t border-app-border">
-                <Link to="/business-profile" className="btn-secondary group/btn py-3 px-6 text-xs border-emerald-500/20 hover:bg-emerald-500/5 text-emerald-600">
+                <Link to="/business-profile" className="btn-primary group/btn py-3 px-6 text-xs">
                   Lihat Demo <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                 </Link>
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full border-2 border-app-surface bg-blue-primary/10 flex items-center justify-center text-[10px] font-black text-blue-primary">AI</div>
-                  <div className="w-8 h-8 rounded-full border-2 border-app-surface bg-emerald-500/10 flex items-center justify-center text-[10px] font-black text-emerald-600">UI</div>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-[9px] font-black text-emerald-600 uppercase tracking-widest">
+                  <Zap size={10} className="text-emerald-500" /> Active
                 </div>
               </div>
             </motion.div>
