@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
-import { BrainCircuit, FlaskConical, ArrowRight, Zap, Shield, Microscope } from 'lucide-react';
+import { BrainCircuit, FlaskConical, ArrowRight, Zap, Microscope } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import mockupImg from '../assets/business_profile_mockup.png';
+import businessMockup from '../assets/business_profile_mockup.png';
+import smartflowMockup from '../assets/smartflow_mockup.png';
 
 const LabPage = () => {
   const { t } = useTranslation();
@@ -34,12 +35,25 @@ const LabPage = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="card-premium group relative overflow-hidden"
+              className="card-premium group relative overflow-hidden flex flex-col"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-primary/5 blur-3xl rounded-full translate-x-16 -translate-y-16"></div>
               
-              <div className="p-4 bg-blue-light rounded-2xl text-blue-primary w-fit mb-8 group-hover:scale-110 transition-transform">
-                <BrainCircuit size={32} />
+              <div className="relative aspect-video mb-8 overflow-hidden rounded-2xl bg-app-bg border border-app-border group-hover:border-blue-primary/30 transition-colors">
+                <img 
+                  src={smartflowMockup} 
+                  alt="SmartFlow Mockup" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-app-surface/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-blue-primary bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                    Live System v1.2
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-3 bg-blue-light rounded-2xl text-blue-primary w-fit mb-6">
+                <BrainCircuit size={28} />
               </div>
               
               <h2 className="text-3xl font-black text-app-text mb-4 tracking-tighter">Vermont SmartFlow</h2>
@@ -48,18 +62,14 @@ const LabPage = () => {
                 Catat transaksi bisnis Anda semudah mengirim pesan teks.
               </p>
               
-              <div className="flex flex-wrap gap-4 mb-10">
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-blue-light text-[10px] font-black text-blue-primary uppercase tracking-widest">
-                  <Zap size={12} className="text-amber-primary" /> NLP Powered
-                </div>
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-blue-light text-[10px] font-black text-blue-primary uppercase tracking-widest">
-                  <Shield size={12} className="text-blue-primary" /> Secure
+              <div className="mt-auto pt-6 flex items-center justify-between border-t border-app-border">
+                <Link to="/smartflow" className="btn-primary group/btn py-3 px-6 text-xs">
+                  Masuki SmartFlow <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                </Link>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-blue-light text-[9px] font-black text-blue-primary uppercase tracking-widest">
+                  <Zap size={10} className="text-amber-primary" /> Active
                 </div>
               </div>
-              
-              <Link to="/smartflow" className="btn-primary group/btn w-fit">
-                Masuki SmartFlow <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
-              </Link>
             </motion.div>
 
             {/* Business Profile Mockup Card */}
@@ -73,7 +83,7 @@ const LabPage = () => {
               
               <div className="relative aspect-video mb-8 overflow-hidden rounded-2xl bg-app-bg border border-app-border group-hover:border-blue-primary/30 transition-colors">
                 <img 
-                  src={mockupImg} 
+                  src={businessMockup} 
                   alt="Business Profile Mockup" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                 />
@@ -94,8 +104,10 @@ const LabPage = () => {
                 yang memikat pelanggan hanya dalam hitungan detik.
               </p>
               
-              <div className="mt-auto pt-4 flex items-center justify-between border-t border-app-border">
-                <span className="text-xs font-black text-app-faint uppercase tracking-tighter">Coming Soon to Lab</span>
+              <div className="mt-auto pt-6 flex items-center justify-between border-t border-app-border">
+                <Link to="/business-profile" className="btn-secondary group/btn py-3 px-6 text-xs border-emerald-500/20 hover:bg-emerald-500/5 text-emerald-600">
+                  Lihat Demo <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                </Link>
                 <div className="flex -space-x-2">
                   <div className="w-8 h-8 rounded-full border-2 border-app-surface bg-blue-primary/10 flex items-center justify-center text-[10px] font-black text-blue-primary">AI</div>
                   <div className="w-8 h-8 rounded-full border-2 border-app-surface bg-emerald-500/10 flex items-center justify-center text-[10px] font-black text-emerald-600">UI</div>

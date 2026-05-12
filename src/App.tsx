@@ -10,6 +10,7 @@ import ContactPage from './pages/ContactPage';
 import LabPage from './pages/LabPage';
 import SmartFlowPage from './pages/SmartFlowPage';
 import PackagesPage from './pages/PackagesPage';
+import BusinessProfilePage from './pages/BusinessProfilePage';
 import ScrollToTop from './components/ScrollToTop';
 
 function AppContent() {
@@ -29,6 +30,7 @@ function AppContent() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/laboratory" element={<LabPage />} />
           <Route path="/smartflow" element={<SmartFlowPage />} />
+          <Route path="/business-profile" element={<BusinessProfilePage />} />
           <Route path="/packages" element={<PackagesPage />} />
         </Routes>
       </main>
