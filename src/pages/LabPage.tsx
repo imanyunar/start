@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { BrainCircuit, FlaskConical, ArrowRight, Zap, Shield, Microscope } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import mockupImg from '../assets/business_profile_mockup.png';
 
 const LabPage = () => {
   const { t } = useTranslation();
@@ -61,18 +62,45 @@ const LabPage = () => {
               </Link>
             </motion.div>
 
-            {/* Placeholder for Next Prototype */}
+            {/* Business Profile Mockup Card */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="card-premium border-dashed bg-transparent flex flex-col items-center justify-center text-center p-12 hover:border-blue-primary/30"
+              className="card-premium group relative overflow-hidden flex flex-col"
             >
-              <div className="p-4 bg-app-bg border border-app-border rounded-full text-app-muted mb-6">
-                <Microscope size={32} />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-3xl rounded-full translate-x-16 -translate-y-16"></div>
+              
+              <div className="relative aspect-video mb-8 overflow-hidden rounded-2xl bg-app-bg border border-app-border group-hover:border-blue-primary/30 transition-colors">
+                <img 
+                  src={mockupImg} 
+                  alt="Business Profile Mockup" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-app-surface/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-blue-primary bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                    Neural Draft v0.1
+                  </span>
+                </div>
               </div>
-              <h3 className="text-xl font-black text-app-text mb-2">Proyek Selanjutnya</h3>
-              <p className="text-app-faint text-sm font-bold italic">Sedang dalam pengembangan neural...</p>
+              
+              <div className="p-3 bg-emerald-500/10 rounded-2xl text-emerald-600 w-fit mb-6">
+                <Microscope size={28} />
+              </div>
+              
+              <h2 className="text-3xl font-black text-app-text mb-4 tracking-tighter">Business Profile AI</h2>
+              <p className="text-app-muted font-bold mb-8 leading-relaxed">
+                Sistem pembuatan profil bisnis otomatis. Bangun identitas digital profesional 
+                yang memikat pelanggan hanya dalam hitungan detik.
+              </p>
+              
+              <div className="mt-auto pt-4 flex items-center justify-between border-t border-app-border">
+                <span className="text-xs font-black text-app-faint uppercase tracking-tighter">Coming Soon to Lab</span>
+                <div className="flex -space-x-2">
+                  <div className="w-8 h-8 rounded-full border-2 border-app-surface bg-blue-primary/10 flex items-center justify-center text-[10px] font-black text-blue-primary">AI</div>
+                  <div className="w-8 h-8 rounded-full border-2 border-app-surface bg-emerald-500/10 flex items-center justify-center text-[10px] font-black text-emerald-600">UI</div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
