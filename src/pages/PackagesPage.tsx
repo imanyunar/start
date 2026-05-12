@@ -155,17 +155,23 @@ export default function PackagesPage() {
                       </p>
                       <div className="flex items-center gap-3">
                         <p className="text-3xl font-black text-white">{formatRp(pkg.setupNewPrice)}</p>
-                        <span className="text-sm font-bold text-white/40 line-through">
+                        <span className="text-sm font-bold text-white/70 line-through">
                           {formatRp(pkg.setupOldPrice)}
                         </span>
                       </div>
-                      <div className="mt-4 flex items-baseline gap-1.5">
-                        <span className="text-4xl font-black leading-none text-white">
-                          {formatRp(pkg.hostingPrice).replace('Rp ', '')}
-                        </span>
-                        <span className="text-sm font-bold text-white/70">/bln</span>
+                      <div className="mt-5 flex flex-col gap-1.5">
+                        <div className="flex items-baseline gap-1.5">
+                          <span className="text-4xl font-black leading-none text-white">
+                            {formatRp(pkg.hostingPrice).replace('Rp ', '')}
+                          </span>
+                          <span className="text-sm font-bold text-white/70">/bln</span>
+                        </div>
+                        <p className="flex items-center gap-1 text-[11px] font-black uppercase tracking-wider text-white">
+                          <span className="rounded bg-white px-1.5 py-0.5 text-[9px] text-blue-600">FREE</span>
+                          Bulan Pertama GRATIS
+                        </p>
                       </div>
-                      <p className="mt-1.5 text-[10px] font-black uppercase tracking-widest text-white/50">
+                      <p className="mt-2 text-[10px] font-black uppercase tracking-widest text-white/50">
                         Biaya Maintenance & Hosting
                       </p>
                     </div>
