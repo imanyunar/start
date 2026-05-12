@@ -25,7 +25,10 @@ import {
   Upload,
   ArrowLeft,
   CircleDollarSign,
+  Menu,
+  X,
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   Bar,
@@ -214,13 +217,18 @@ function SmartFlowPage() {
     setInputText('');
   };
 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   if (isDark) document.documentElement.classList.add('dark');
   else document.documentElement.classList.remove('dark');
+
+  const mainNavItems = navItems.slice(0, 4); // Dashboard, Cashflow, Transactions, Analytics
 
   return (
     <div className="min-h-screen bg-[var(--app-bg)] text-[var(--app-text)]">
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(29,111,232,0.18),transparent_40%),radial-gradient(circle_at_bottom_left,rgba(25,190,126,0.12),transparent_35%)]" />
 
+      {/* Desktop Sidebar */}
       <aside className="fixed left-0 top-0 hidden h-screen w-72 flex-col border-r border-[var(--app-border)] bg-[var(--app-surface)] p-7 lg:flex">
         <div className="mb-10">
           <Logo />
@@ -254,6 +262,64 @@ function SmartFlowPage() {
           </button>
         </div>
       </aside>
+
+      {/* Mobile Menu Drawer */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm lg:hidden" onClick={() => setIsMobileMenuOpen(false)}>
+          <motion.div 
+            initial={{ x: '-100%' }}
+            animate={{ x: 0 }}
+            className="h-full w-4/5 max-w-sm bg-[var(--app-surface)] p-6 shadow-2xl"
+            onClick={(e: React.MouseEvent) => e.stopPropagation()}
+          >
+            <div className="mb-8 flex items-center justify-between">
+              <Logo />
+              <button onClick={() => setIsMobileMenuOpen(false)} className="rounded-xl bg-[var(--app-bg)] p-2">
+                <X size={20} />
+              </button>
+            </div>
+            <nav className="space-y-2">
+              {navItems.map((item) => (
+                <button
+                  key={item.key}
+                  onClick={() => { setActiveView(item.key); setIsMobileMenuOpen(false); }}
+                  className={`flex w-full items-center gap-3 rounded-2xl px-4 py-4 text-sm font-black transition ${
+                    activeView === item.key
+                      ? 'bg-blue-primary text-white shadow-xl shadow-blue-primary/25'
+                      : 'text-[var(--app-muted)] hover:bg-[var(--app-bg)]'
+                  }`}
+                >
+                  <item.icon size={20} />
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Mobile Bottom Navigation */}
+      <nav className="fixed bottom-0 left-0 z-50 flex w-full items-center justify-around border-t border-[var(--app-border)] bg-[var(--app-surface)]/80 p-2 backdrop-blur-xl lg:hidden">
+        {mainNavItems.map((item) => (
+          <button
+            key={item.key}
+            onClick={() => setActiveView(item.key)}
+            className={`flex flex-col items-center gap-1 rounded-xl px-3 py-2 transition ${
+              activeView === item.key ? 'text-blue-primary' : 'text-[var(--app-muted)]'
+            }`}
+          >
+            <item.icon size={20} />
+            <span className="text-[9px] font-black uppercase tracking-tighter">{item.label.split(' ')[0]}</span>
+          </button>
+        ))}
+        <button
+          onClick={() => setIsMobileMenuOpen(true)}
+          className="flex flex-col items-center gap-1 rounded-xl px-3 py-2 text-[var(--app-muted)]"
+        >
+          <Menu size={20} />
+          <span className="text-[9px] font-black uppercase tracking-tighter">Menu</span>
+        </button>
+      </nav>
 
       <main className="pb-20 lg:ml-72">
         <header className="sticky top-0 z-40 border-b border-[var(--app-border)] bg-[var(--app-surface)]/85 backdrop-blur-xl">
@@ -308,7 +374,7 @@ function SmartFlowPage() {
 
           {activeView === 'dashboard' && (
             <>
-              <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              <section className="grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
                 <SummaryCard label="Today Revenue" value={formatMoney(todayRevenue)} hint="Omset hari ini dari semua channel" icon={TrendingUp} tone="green" />
                 <SummaryCard label="Today Transactions" value={`${todayTransactions.length} order`} hint="Total transaksi tercatat hari ini" icon={ReceiptText} tone="blue" />
                 <SummaryCard label="Monthly Profit" value={formatMoney(monthProfit)} hint="Profit bersih berjalan bulan ini" icon={CircleDollarSign} tone="violet" />
@@ -355,7 +421,7 @@ function SmartFlowPage() {
 
           {activeView === 'cashflow' && (
             <section className="space-y-5">
-              <div className="grid gap-4 md:grid-cols-4">
+              <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                 <SummaryCard label="Money In" value={formatMoney(transactions.filter((t) => t.type === 'income').reduce((a, c) => a + c.amount, 0))} hint="Total pemasukan" icon={TrendingUp} tone="green" />
                 <SummaryCard label="Money Out" value={formatMoney(transactions.filter((t) => t.type === 'expense').reduce((a, c) => a + c.amount, 0))} hint="Total pengeluaran" icon={TrendingDown} tone="rose" />
                 <SummaryCard label="Operational Cost" value={formatMoney(transactions.filter((t) => t.category.toLowerCase().includes('operasional')).reduce((a, c) => a + c.amount, 0))} hint="Biaya operasional aktif" icon={Wallet} tone="amber" />

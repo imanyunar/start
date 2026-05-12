@@ -132,7 +132,7 @@ export default function PackagesPage() {
           </div>
 
           {/* Cards */}
-          <div className="grid gap-6 sm:gap-8 md:grid-cols-3 md:items-start">
+          <div className="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:items-start">
             {packages.map((pkg, idx) => {
               const Icon = pkg.icon;
               const pct = discountPct(pkg.setupOldPrice, pkg.setupNewPrice);
