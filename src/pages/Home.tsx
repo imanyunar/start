@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -51,7 +51,7 @@ const Home = () => {
             className="relative"
           >
             <div className="overflow-hidden rounded-[2rem] border-8 border-[var(--app-surface)] bg-[var(--app-surface)] shadow-2xl shadow-blue-primary/10">
-              <img src="/hero.png" alt="Ilustrasi bisnis" className="aspect-[4/5] w-full object-cover" />
+              <img src="/hero.png" alt="Dashboard Sistem Kasir Vermont untuk UMKM Indonesia" className="aspect-[4/5] w-full object-cover" />
             </div>
           </motion.div>
         </div>
