@@ -153,7 +153,12 @@ export default function PackagesPage() {
                       <p className="mb-1 text-[10px] font-black uppercase tracking-[0.2em] text-white/60">
                         Biaya Setup
                       </p>
-                      <p className="text-3xl font-black text-white">{formatRp(pkg.setupNewPrice)}</p>
+                      <div className="flex items-center gap-3">
+                        <p className="text-3xl font-black text-white">{formatRp(pkg.setupNewPrice)}</p>
+                        <span className="text-sm font-bold text-white/40 line-through">
+                          {formatRp(pkg.setupOldPrice)}
+                        </span>
+                      </div>
                       <div className="mt-4 flex items-baseline gap-1.5">
                         <span className="text-4xl font-black leading-none text-white">
                           {formatRp(pkg.hostingPrice).replace('Rp ', '')}
@@ -172,10 +177,6 @@ export default function PackagesPage() {
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-500 px-3.5 py-2 text-xs font-black text-white shadow-xl shadow-rose-500/40">
                       <Tag size={12} strokeWidth={3} />
                       DISKON {pct}%
-                    </span>
-                    {/* Coret harga lama */}
-                    <span className="text-sm font-bold text-[var(--app-muted)] line-through">
-                      {formatRp(pkg.setupOldPrice)}
                     </span>
                     {/* Hemat highlight */}
                     <span className="rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-black text-emerald-500 dark:bg-emerald-400/15 dark:text-emerald-400">
