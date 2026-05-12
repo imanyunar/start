@@ -48,7 +48,7 @@ const packages = [
     cardBorder: 'border-violet-200/80 dark:border-violet-800/60',
     button: 'Pilih Paket Pro',
     btnClass: 'bg-gradient-to-r from-violet-600 to-purple-700 hover:from-violet-700 hover:to-purple-800 text-white shadow-lg shadow-violet-500/30',
-    featured: false,
+    featured: true,
   },
   {
     name: 'Platinum',
@@ -72,14 +72,13 @@ const packages = [
     cardBorder: 'border-amber-300/80 dark:border-amber-700/60',
     button: 'Ambil Paket Platinum',
     btnClass: 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-lg shadow-amber-500/30',
-    featured: true,
+    featured: false,
   },
 ] as const;
 
 const formatRp = (n: number) =>
   'Rp ' + n.toLocaleString('id-ID');
 
-const savedAmount = (old: number, now: number) => old - now;
 const discountPct = (old: number, now: number) =>
   Math.round(((old - now) / old) * 100);
 
@@ -112,7 +111,6 @@ export default function PackagesPage() {
             {packages.map((pkg, idx) => {
               const Icon = pkg.icon;
               const pct = discountPct(pkg.setupOldPrice, pkg.setupNewPrice);
-              const saved = savedAmount(pkg.setupOldPrice, pkg.setupNewPrice);
 
               return (
                 <motion.div
