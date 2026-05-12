@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { BrainCircuit, FlaskConical, ArrowRight, Zap, Microscope } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import businessMockup from '../assets/business_profile_mockup.png';
-import smartflowMockup from '../assets/smartflow_mockup.png';
+const businessMockup = '/business_profile_laptop_mockup.png';
+const smartflowMockup = '/smartflow_mobile_mockup.png';
 
 const LabPage = () => {
   const { t } = useTranslation();
@@ -42,7 +42,7 @@ const LabPage = () => {
               <div className="relative aspect-video mb-8 overflow-hidden rounded-2xl bg-app-bg border border-app-border group-hover:border-blue-primary/30 transition-colors">
                 <img 
                   src={smartflowMockup} 
-                  alt="SmartFlow Mockup" 
+                  alt="SmartFlow Mobile Mockup" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-app-surface/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
@@ -84,7 +84,7 @@ const LabPage = () => {
               <div className="relative aspect-video mb-8 overflow-hidden rounded-2xl bg-app-bg border border-app-border group-hover:border-blue-primary/30 transition-colors">
                 <img 
                   src={businessMockup} 
-                  alt="Business Profile Mockup" 
+                  alt="Business Profile Laptop Mockup" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-app-surface/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">

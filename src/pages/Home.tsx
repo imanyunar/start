@@ -51,7 +51,7 @@ const Home = () => {
             className="relative"
           >
             <div className="overflow-hidden rounded-[2rem] border-8 border-[var(--app-surface)] bg-[var(--app-surface)] shadow-2xl shadow-blue-primary/10">
-              <img src="/hero.png" alt="Dashboard Sistem Kasir Vermont untuk UMKM Indonesia" className="aspect-[4/5] w-full object-cover" />
+              <img src="/hero_devices_mockup.png" alt="Dashboard Sistem Kasir Vermont untuk UMKM Indonesia" className="aspect-[4/5] w-full object-cover" />
             </div>
           </motion.div>
         </div>
