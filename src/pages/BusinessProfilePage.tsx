@@ -70,12 +70,13 @@ const BusinessProfilePage = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="w-full md:w-[50%] mt-16 md:mt-0 flex justify-center relative"
+          className="w-full md:w-[45%] mt-16 md:mt-0 relative"
         >
+          <div className="absolute inset-0 bg-amber-100/50 rounded-[3rem] transform translate-x-4 translate-y-4 -z-10"></div>
           <img 
             src="/fnb_mockup.png" 
-            alt="Aura Cafe Website Mockup" 
-            className="w-full h-auto max-w-[800px] object-contain drop-shadow-2xl"
+            alt="Aura Cafe Interior and Coffee" 
+            className="w-full h-auto max-h-[600px] object-cover rounded-[3rem] shadow-2xl border border-white"
           />
         </motion.div>
       </section>
