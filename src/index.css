@@ -56,12 +56,11 @@
   }
   
   .btn-primary {
-    @apply bg-blue-primary hover:bg-blue-dark text-white px-8 py-3 rounded-2xl font-extrabold text-sm transition-all duration-300 shadow-xl active:scale-95 flex items-center justify-center gap-2;
-    box-shadow: 0 10px 25px rgba(29, 111, 232, 0.3);
+    @apply bg-blue-primary hover:opacity-90 text-white px-10 py-4 rounded-2xl font-bold text-base transition-opacity duration-200 shadow-md active:scale-[0.98] flex items-center justify-center gap-3;
   }
 
   .btn-secondary {
-    @apply bg-[var(--app-surface)] hover:bg-blue-light text-blue-primary px-8 py-3 rounded-2xl font-extrabold text-sm transition-all duration-300 border-2 border-[var(--app-border)] flex items-center justify-center gap-2;
+    @apply bg-[var(--app-surface)] hover:bg-[var(--app-bg)] text-blue-primary px-10 py-4 rounded-2xl font-bold text-base transition-colors duration-200 border-2 border-[var(--app-border)] hover:border-blue-primary/30 flex items-center justify-center gap-3;
   }
   
   .section-padding {

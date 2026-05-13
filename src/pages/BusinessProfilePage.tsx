@@ -1,160 +1,145 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, Globe, Laptop, MessageSquare, Rocket, ShieldCheck, Star, Users } from 'lucide-react';
+import { ArrowRight, Coffee, Utensils, Cake, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const BusinessProfilePage = () => {
   return (
-    <div className="min-h-screen bg-[#0B1120] text-slate-200 selection:bg-blue-500/30">
+    <div className="min-h-screen bg-[#FAFAF9] text-[#1C1917] selection:bg-amber-500/30 font-poppins">
       {/* Navigation */}
-      <nav className="fixed top-0 z-50 w-full border-b border-white/5 bg-[#0B1120]/80 backdrop-blur-xl">
+      <nav className="fixed top-0 z-50 w-full bg-white/90 backdrop-blur-md shadow-sm border-b border-[#F5F5F4]">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center font-black text-white">N</div>
-            <span className="text-xl font-black tracking-tighter text-white">NEURAL<span className="text-blue-500">BIZ</span></span>
+            <div className="h-10 w-10 rounded-full bg-amber-600 flex items-center justify-center font-black text-white shadow-md">A</div>
+            <span className="text-xl font-bold tracking-tight text-[#292524]">Aura <span className="text-amber-600 font-black">Cafe</span></span>
           </div>
-          <div className="hidden gap-8 text-sm font-bold md:flex">
-            <a href="#about" className="hover:text-blue-400 transition-colors">About</a>
-            <a href="#services" className="hover:text-blue-400 transition-colors">Services</a>
-            <a href="#portfolio" className="hover:text-blue-400 transition-colors">Portfolio</a>
-            <a href="#contact" className="hover:text-blue-400 transition-colors">Contact</a>
+          <div className="hidden gap-8 text-sm font-semibold text-[#44403C] md:flex">
+            <a href="#menu" className="hover:text-amber-600 transition-colors">Menu Spesial</a>
+            <a href="#location" className="hover:text-amber-600 transition-colors">Lokasi</a>
           </div>
-          <Link to="/laboratory" className="rounded-full bg-white/5 px-5 py-2 text-xs font-black uppercase tracking-widest text-white border border-white/10 hover:bg-white/10 transition-all">
-            Exit Demo
+          <Link to="/" className="rounded-full bg-[#F5F5F4] px-5 py-2.5 text-xs font-bold text-[#44403C] border border-[#E7E5E4] hover:bg-[#E7E5E4] transition-all">
+            Kembali ke Beranda
           </Link>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-20 text-center">
-        <div className="absolute top-0 left-1/2 -z-10 h-[500px] w-[800px] -translate-x-1/2 bg-blue-600/10 blur-[120px] rounded-full" />
-        
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-6 rounded-full border border-blue-500/20 bg-blue-500/5 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.3em] text-blue-400"
-        >
-          Premium Business Identity
-        </motion.div>
-        
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="mb-8 max-w-4xl text-5xl font-black leading-[1.1] tracking-tight text-white md:text-8xl"
-        >
-          Elevate Your Brand with <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">AI-Driven</span> Identity
-        </motion.h1>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mb-12 max-w-2xl text-lg font-medium leading-relaxed text-slate-400 md:text-xl"
-        >
-          We architect digital ecosystems for modern enterprises. From automated workflows to stunning visual profiles, we ensure your business stays ahead of the neural curve.
-        </motion.p>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="flex flex-wrap items-center justify-center gap-4"
-        >
-          <button className="flex items-center gap-2 rounded-2xl bg-blue-600 px-8 py-4 text-sm font-black text-white shadow-2xl shadow-blue-600/30 hover:bg-blue-700 hover:-translate-y-1 transition-all">
-            Start Your Transformation <ArrowRight size={18} />
-          </button>
-          <button className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-4 text-sm font-black text-white hover:bg-white/10 transition-all">
-            View Case Studies
-          </button>
-        </motion.div>
-
-        {/* Floating Stats */}
-        <div className="mt-24 grid w-full max-w-5xl grid-cols-2 gap-6 md:grid-cols-4">
-          {[
-            { label: 'Active Clients', value: '250+', icon: Users },
-            { label: 'Success Rate', value: '99.9%', icon: ShieldCheck },
-            { label: 'Neural Load', value: '0.02ms', icon: Rocket },
-            { label: 'Global Hubs', value: '12', icon: Globe },
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + i * 0.1 }}
-              className="rounded-3xl border border-white/5 bg-white/5 p-6 backdrop-blur-sm"
-            >
-              <stat.icon size={20} className="mb-4 text-blue-500" />
-              <p className="text-2xl font-black text-white">{stat.value}</p>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500">{stat.label}</p>
-            </motion.div>
-          ))}
+      <section className="relative flex min-h-screen flex-col items-center justify-center pt-24 pb-12 px-6 md:flex-row md:justify-between md:px-12 xl:px-24 max-w-[1400px] mx-auto overflow-hidden">
+        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-6 rounded-full border border-amber-200 bg-amber-50 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-amber-700"
+          >
+            Artisanal Coffee & Pastry
+          </motion.div>
+          
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mb-6 text-5xl font-black leading-[1.1] tracking-tight text-[#1C1917] md:text-7xl lg:text-8xl"
+          >
+            Rasa Hangat di Setiap <span className="text-amber-600">Seduhan.</span>
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mb-10 max-w-lg text-lg font-medium leading-relaxed text-[#57534E] md:text-xl"
+          >
+            Nikmati kopi pilihan terbaik dan pastry buatan tangan kami dalam suasana cafe yang nyaman dan estetik. Tempat yang sempurna untuk bersantai.
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-col sm:flex-row w-full sm:w-auto items-center gap-4"
+          >
+            <button className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-2xl bg-amber-600 px-10 py-4 text-base font-bold text-white shadow-lg shadow-amber-600/30 hover:opacity-90 active:scale-[0.98] transition-all">
+              Lihat Menu Kami <ArrowRight size={20} />
+            </button>
+            <button className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-2xl border-2 border-[#E7E5E4] bg-white px-10 py-4 text-base font-bold text-[#44403C] hover:border-amber-300 hover:bg-amber-50 transition-all">
+              Reservasi Meja
+            </button>
+          </motion.div>
         </div>
+
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          className="w-full md:w-[45%] mt-16 md:mt-0 relative"
+        >
+          <div className="absolute inset-0 bg-amber-100/50 rounded-[3rem] transform translate-x-4 translate-y-4 -z-10"></div>
+          <img 
+            src="/fnb_mockup.png" 
+            alt="Aura Cafe Interior and Coffee" 
+            className="w-full h-auto max-h-[600px] object-cover rounded-[3rem] shadow-2xl border border-white"
+          />
+        </motion.div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-32 px-6">
+      {/* Menu / Services Section */}
+      <section id="menu" className="py-24 px-6 bg-white">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-20 text-center">
-            <h2 className="mb-4 text-3xl font-black tracking-tight text-white md:text-5xl">Our Core Capabilities</h2>
-            <p className="mx-auto max-w-2xl font-medium text-slate-400">Integrated solutions designed to scale with your business intelligence.</p>
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-3xl font-black tracking-tight text-[#1C1917] md:text-5xl">Menu Favorit Kami</h2>
+            <p className="mx-auto max-w-2xl font-medium text-[#57534E] text-lg">Dibuat dengan bahan premium dan penuh cinta setiap harinya.</p>
           </div>
           
           <div className="grid gap-8 md:grid-cols-3">
             {[
               {
-                title: 'Identity Architecture',
-                desc: 'Strategic brand positioning and visual identity systems that resonate with digital-first audiences.',
-                icon: Laptop,
-                color: 'blue'
+                title: 'Artisanal Coffee',
+                desc: 'Biji kopi pilihan dari petani lokal, di-roast dengan sempurna untuk menghasilkan rasa yang kaya.',
+                icon: Coffee,
+                color: 'bg-amber-100 text-amber-700'
               },
               {
-                title: 'Neural Automation',
-                desc: 'Workflow optimization using proprietary AI models to reduce operational friction by up to 80%.',
-                icon: Rocket,
-                color: 'cyan'
+                title: 'Fresh Pastries',
+                desc: 'Croissant, muffin, dan cake yang dipanggang segar setiap pagi oleh baker ahli kami.',
+                icon: Cake,
+                color: 'bg-orange-100 text-orange-700'
               },
               {
-                title: 'Data Intelligence',
-                desc: 'Advanced analytics dashboards that transform raw business noise into actionable growth signals.',
-                icon: Star,
-                color: 'violet'
+                title: 'Main Course',
+                desc: 'Pilihan makanan berat yang lezat untuk melengkapi waktu santai atau makan siang Anda.',
+                icon: Utensils,
+                color: 'bg-red-100 text-red-700'
               }
             ].map((service, i) => (
               <motion.div
                 key={i}
-                whileHover={{ y: -10 }}
-                className="rounded-[2.5rem] border border-white/5 bg-gradient-to-br from-white/5 to-transparent p-10 hover:border-blue-500/30 transition-all"
+                whileHover={{ y: -5 }}
+                className="rounded-[2rem] border border-[#F5F5F4] bg-[#FAFAF9] p-8 hover:shadow-xl hover:shadow-amber-900/5 transition-all cursor-default"
               >
-                <div className={`mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500`}>
-                  <service.icon size={28} />
+                <div className={`mb-6 flex h-16 w-16 items-center justify-center rounded-2xl ${service.color}`}>
+                  <service.icon size={32} />
                 </div>
-                <h3 className="mb-4 text-2xl font-black text-white">{service.title}</h3>
-                <p className="mb-8 text-sm font-medium leading-relaxed text-slate-400">{service.desc}</p>
-                <ul className="space-y-3">
-                  {['Scalable Infrastructure', '24/7 Monitoring', 'Security First'].map(item => (
-                    <li key={item} className="flex items-center gap-2 text-xs font-bold text-slate-300">
-                      <CheckCircle2 size={14} className="text-blue-500" /> {item}
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="mb-3 text-2xl font-bold text-[#1C1917]">{service.title}</h3>
+                <p className="text-base font-medium leading-relaxed text-[#57534E]">{service.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="contact" className="py-32 px-6">
-        <div className="mx-auto max-w-5xl rounded-[3rem] bg-gradient-to-br from-blue-600 to-blue-800 p-12 text-center shadow-2xl shadow-blue-900/40 md:p-20 overflow-hidden relative">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 blur-3xl rounded-full translate-x-16 -translate-y-16"></div>
-          <div className="relative z-10">
-            <h2 className="mb-6 text-4xl font-black tracking-tight text-white md:text-6xl">Ready to Evolve?</h2>
-            <p className="mx-auto mb-12 max-w-xl text-lg font-medium text-blue-100">
-              Join the elite circle of businesses leveraging neural architecture for global dominance.
+      {/* CTA / Location Section */}
+      <section id="location" className="py-24 px-6">
+        <div className="mx-auto max-w-5xl rounded-[3rem] bg-amber-600 p-10 text-center shadow-2xl shadow-amber-900/20 md:p-16 relative overflow-hidden">
+          <div className="relative z-10 flex flex-col items-center">
+            <h2 className="mb-6 text-3xl font-black tracking-tight text-white md:text-5xl">Kunjungi Aura Cafe</h2>
+            <p className="mx-auto mb-10 max-w-xl text-lg font-medium text-amber-100">
+              Buka setiap hari mulai pukul 07.00 - 22.00. Kami siap menyambut Anda dengan senyuman dan aroma kopi terbaik.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <button className="flex items-center gap-2 rounded-2xl bg-white px-8 py-4 text-sm font-black text-blue-700 hover:scale-[1.02] transition-all">
-                Initialize Consultation <MessageSquare size={18} />
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <button className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-amber-700 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md">
+                <MapPin size={20} /> Lihat di Maps
+              </button>
+              <button className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl border border-amber-400 bg-amber-700 px-8 py-4 text-base font-bold text-white hover:bg-amber-800 active:scale-[0.98] transition-all">
+                <Phone size={20} /> Hubungi Kami
               </button>
             </div>
           </div>
@@ -162,12 +147,13 @@ const BusinessProfilePage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/5 py-12 px-6 text-center">
-        <div className="flex justify-center items-center gap-2 mb-6">
-          <div className="h-6 w-6 rounded bg-slate-700 flex items-center justify-center font-black text-white text-[10px]">N</div>
-          <span className="text-sm font-black tracking-tighter text-white">NEURALBIZ</span>
+      <footer className="border-t border-[#E7E5E4] py-12 px-6 bg-white text-center">
+        <div className="flex justify-center items-center gap-3 mb-6">
+          <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-[#F5F5F4] flex items-center justify-center text-[#57534E] hover:bg-amber-100 hover:text-amber-600 transition-colors font-bold text-sm">
+            IG
+          </a>
         </div>
-        <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">© 2026 NeuralBiz Identity. Built with Vermont AI.</p>
+        <p className="text-sm font-semibold text-[#78716C]">© 2026 Aura Cafe. Template F&B Business Profile.</p>
       </footer>
     </div>
   );
