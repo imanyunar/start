@@ -1,12 +1,23 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, Coffee, Utensils, Cake, MapPin, Phone } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Coffee, Utensils, Cake, MapPin, Phone, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const BusinessProfilePage = () => {
+  const [activeMockup, setActiveMockup] = useState<string | null>(null);
+
+  const openMockup = (imageSrc: string) => {
+    setActiveMockup(imageSrc);
+  };
+
+  const closeMockup = () => {
+    setActiveMockup(null);
+  };
+
   return (
-    <div className="min-h-screen bg-[#FAFAF9] text-[#1C1917] selection:bg-amber-500/30 font-poppins">
+    <div className="min-h-screen bg-[#FAFAF9] text-[#1C1917] selection:bg-amber-500/30 font-poppins relative">
       {/* Navigation */}
-      <nav className="fixed top-0 z-50 w-full bg-white/90 backdrop-blur-md shadow-sm border-b border-[#F5F5F4]">
+      <nav className="fixed top-0 z-40 w-full bg-white/90 backdrop-blur-md shadow-sm border-b border-[#F5F5F4]">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
             <div className="h-10 w-10 rounded-full bg-amber-600 flex items-center justify-center font-black text-white shadow-md">A</div>
@@ -57,10 +68,10 @@ const BusinessProfilePage = () => {
             transition={{ delay: 0.3 }}
             className="flex flex-col sm:flex-row w-full sm:w-auto items-center gap-4"
           >
-            <button className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-2xl bg-amber-600 px-10 py-4 text-base font-bold text-white shadow-lg shadow-amber-600/30 hover:opacity-90 active:scale-[0.98] transition-all">
+            <button onClick={() => openMockup('/menu_mockup.png')} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-2xl bg-amber-600 px-10 py-4 text-base font-bold text-white shadow-lg shadow-amber-600/30 hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer">
               Lihat Menu Kami <ArrowRight size={20} />
             </button>
-            <button className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-2xl border-2 border-[#E7E5E4] bg-white px-10 py-4 text-base font-bold text-[#44403C] hover:border-amber-300 hover:bg-amber-50 transition-all">
+            <button onClick={() => openMockup('/fnb_mockup.png')} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-2xl border-2 border-[#E7E5E4] bg-white px-10 py-4 text-base font-bold text-[#44403C] hover:border-amber-300 hover:bg-amber-50 transition-all cursor-pointer">
               Reservasi Meja
             </button>
           </motion.div>
@@ -113,7 +124,8 @@ const BusinessProfilePage = () => {
               <motion.div
                 key={i}
                 whileHover={{ y: -5 }}
-                className="rounded-[2rem] border border-[#F5F5F4] bg-[#FAFAF9] p-8 hover:shadow-xl hover:shadow-amber-900/5 transition-all cursor-default"
+                onClick={() => openMockup('/menu_mockup.png')}
+                className="rounded-[2rem] border border-[#F5F5F4] bg-[#FAFAF9] p-8 hover:shadow-xl hover:shadow-amber-900/5 transition-all cursor-pointer"
               >
                 <div className={`mb-6 flex h-16 w-16 items-center justify-center rounded-2xl ${service.color}`}>
                   <service.icon size={32} />
@@ -135,10 +147,10 @@ const BusinessProfilePage = () => {
               Buka setiap hari mulai pukul 07.00 - 22.00. Kami siap menyambut Anda dengan senyuman dan aroma kopi terbaik.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <button className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-amber-700 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md">
+              <button onClick={() => openMockup('/fnb_mockup.png')} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-amber-700 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md cursor-pointer">
                 <MapPin size={20} /> Lihat di Maps
               </button>
-              <button className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl border border-amber-400 bg-amber-700 px-8 py-4 text-base font-bold text-white hover:bg-amber-800 active:scale-[0.98] transition-all">
+              <button onClick={() => openMockup('/fnb_mockup.png')} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl border border-amber-400 bg-amber-700 px-8 py-4 text-base font-bold text-white hover:bg-amber-800 active:scale-[0.98] transition-all cursor-pointer">
                 <Phone size={20} /> Hubungi Kami
               </button>
             </div>
@@ -155,6 +167,35 @@ const BusinessProfilePage = () => {
         </div>
         <p className="text-sm font-semibold text-[#78716C]">© 2026 Aura Cafe. Template F&B Business Profile.</p>
       </footer>
+
+      {/* Image Modal Overlay */}
+      <AnimatePresence>
+        {activeMockup && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeMockup}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6 backdrop-blur-sm"
+          >
+            <button 
+              onClick={closeMockup}
+              className="absolute top-6 right-6 text-white hover:text-amber-400 transition-colors bg-black/50 p-2 rounded-full"
+            >
+              <X size={32} />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              src={activeMockup}
+              alt="Mockup Preview"
+              className="max-h-[90vh] max-w-full rounded-2xl shadow-2xl object-contain border-4 border-white/10"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
