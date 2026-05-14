@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import viteImagemin from 'vite-plugin-imagemin'
+import Sitemap from 'vite-plugin-sitemap'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -12,6 +13,20 @@ export default defineConfig({
         speed: 4,
       },
       optipng: { optimizationLevel: 5 },
+    }),
+    Sitemap({ 
+      hostname: 'https://vermont-automated-digital.vercel.app/',
+      dynamicRoutes: [
+        '/about',
+        '/services',
+        '/solutions',
+        '/innovation',
+        '/contact',
+        '/laboratory',
+        '/smartflow',
+        '/business-profile',
+        '/packages'
+      ]
     }),
   ],
   build: {
