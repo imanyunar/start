@@ -95,38 +95,58 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Side Drawer */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="fixed inset-0 top-0 h-screen w-full bg-[var(--app-bg)] z-[2000] md:hidden flex flex-col"
-          >
-            <div className="p-6 border-b border-[var(--app-border)] flex justify-between items-center">
-              <Logo />
-              <button onClick={() => setIsOpen(false)} className="text-[var(--app-text)] p-2">
-                <X size={24} />
-              </button>
-            </div>
-            <div className="flex flex-col p-8 gap-8 overflow-y-auto">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-2xl font-semibold tracking-tight ${
-                    location.pathname === link.path 
-                      ? 'text-blue-primary' 
-                      : 'text-[var(--app-text)]'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[1999] md:hidden"
+            />
+            
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed right-0 top-0 h-screen w-[280px] bg-[var(--app-bg)] z-[2000] md:hidden flex flex-col shadow-2xl"
+            >
+              <div className="p-6 border-b border-[var(--app-border)] flex justify-between items-center">
+                <Logo />
+                <button onClick={() => setIsOpen(false)} className="text-[var(--app-text)] p-2">
+                  <X size={20} />
+                </button>
+              </div>
+              
+              <div className="flex flex-col p-8 gap-6 overflow-y-auto">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`text-lg font-bold tracking-tight transition-colors ${
+                      location.pathname === link.path 
+                        ? 'text-blue-primary' 
+                        : 'text-[var(--app-text)]'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+              
+              <div className="mt-auto p-8 border-t border-[var(--app-border)] space-y-4">
+                 <button onClick={toggleLanguage} className="w-full py-3 bg-blue-primary text-white rounded-xl text-[10px] font-black uppercase tracking-widest">
+                   {i18n.language === 'en' ? 'Bahasa Indonesia' : 'English'}
+                 </button>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
