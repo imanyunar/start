@@ -49,8 +49,8 @@
 
 @layer components {
   .glass {
-    @apply bg-opacity-70 backdrop-blur-md border-b border-[var(--app-border)];
-    background-color: var(--app-bg);
+    @apply backdrop-blur-md border-b border-[var(--app-border)];
+    background-color: color-mix(in srgb, var(--app-bg), transparent 30%);
   }
   
   .btn-primary {
