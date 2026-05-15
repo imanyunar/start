@@ -42,62 +42,54 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-[1000] transition-all duration-500 ${
-      scrolled ? 'py-2 bg-[var(--app-surface)]/80 backdrop-blur-xl border-b border-[var(--app-border)] shadow-sm' : 'py-4 bg-transparent'
+    <nav className={`fixed w-full z-[1000] transition-all duration-300 ${
+      scrolled ? 'py-3 bg-[var(--app-bg)]/70 backdrop-blur-md border-b border-[var(--app-border)]' : 'py-5 bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center opacity-90 hover:opacity-100 transition-opacity">
             <Logo />
           </Link>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2.5 rounded-xl text-sm font-black transition-all ${
+                className={`text-[12px] font-medium transition-colors ${
                   location.pathname === link.path 
-                    ? 'bg-blue-light text-blue-primary' 
-                    : 'text-[var(--app-muted)] hover:text-[var(--app-text)] hover:bg-[var(--app-bg)]'
+                    ? 'text-blue-primary' 
+                    : 'text-[var(--app-text)] opacity-60 hover:opacity-100'
                 }`}
               >
                 {link.name}
               </Link>
             ))}
             
-            <div className="w-px h-5 bg-[var(--app-border)] mx-3"></div>
-            
-            <button 
-              onClick={toggleTheme}
-              className="p-2.5 rounded-xl text-[var(--app-muted)] hover:text-blue-primary hover:bg-blue-light transition-all flex items-center justify-center"
-            >
-              {isDark ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-            <button 
-              onClick={toggleLanguage}
-              className="p-2.5 rounded-xl text-[var(--app-muted)] hover:text-blue-primary hover:bg-blue-light transition-all flex items-center gap-2 text-xs font-black uppercase tracking-widest"
-            >
-              <Globe size={16} />
-              {i18n.language === 'en' ? 'ID' : 'EN'}
-            </button>
-
-            <Link to="/contact" className="ml-6 px-6 py-2.5 bg-blue-primary text-white rounded-xl text-sm font-black hover:bg-blue-dark transition-all shadow-lg shadow-blue-primary/10">
-              {t('nav.contact')}
-            </Link>
+            <div className="flex items-center gap-4 ml-4">
+              <button 
+                onClick={toggleTheme}
+                className="text-[var(--app-text)] opacity-60 hover:opacity-100 transition-opacity"
+              >
+                {isDark ? <Sun size={14} /> : <Moon size={14} />}
+              </button>
+              <button 
+                onClick={toggleLanguage}
+                className="text-[10px] font-bold uppercase tracking-wider text-[var(--app-text)] opacity-60 hover:opacity-100 transition-opacity"
+              >
+                {i18n.language === 'en' ? 'ID' : 'EN'}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-1">
-            <button onClick={toggleTheme} className="p-2 text-[var(--app-muted)]">
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+          <div className="md:hidden flex items-center gap-4">
+            <button onClick={toggleTheme} className="text-[var(--app-text)] opacity-60">
+              {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-            <button onClick={toggleLanguage} className="p-2 text-[var(--app-muted)] font-black text-xs">
-              {i18n.language.toUpperCase()}
-            </button>
-            <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-[var(--app-text)]">
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            <button onClick={() => setIsOpen(!isOpen)} className="text-[var(--app-text)]">
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
@@ -107,29 +99,26 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-[var(--app-surface)] border-b border-[var(--app-border)] p-6 shadow-2xl md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 top-[60px] w-full bg-[var(--app-bg)] z-[999] md:hidden"
           >
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col p-8 gap-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`p-4 rounded-2xl text-base font-black transition-all ${
+                  className={`text-2xl font-semibold tracking-tight ${
                     location.pathname === link.path 
-                      ? 'bg-blue-light text-blue-primary' 
-                      : 'text-[var(--app-muted)] hover:bg-[var(--app-bg)]'
+                      ? 'text-blue-primary' 
+                      : 'text-[var(--app-text)]'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <Link to="/contact" className="w-full p-4 bg-blue-primary text-white rounded-2xl text-center font-black">
-                {t('nav.contact')}
-              </Link>
             </div>
           </motion.div>
         )}

@@ -3,36 +3,35 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-blue-primary: #1D6FE8;
-  --color-blue-light: #EBF3FF;
-  --color-blue-dark: #1250B0;
+  --color-blue-primary: #0071e3; /* Apple Blue */
+  --color-blue-light: #f5f5f7; /* Apple Background Gray */
+  --color-blue-dark: #000000; 
   --color-green-primary: #12A860;
   --color-red-primary: #E8403A;
   --color-amber-primary: #F59E0B;
   
-  --font-poppins: "Poppins", sans-serif;
-  --spacing-container: 1200px;
+  --font-inter: "Inter", sans-serif;
+  --spacing-container: 1440px;
 }
 
 :root {
-  --app-bg: #F8FAFC;
-  --app-surface: #FFFFFF;
-  --app-border: #E2E8F0;
-  --app-text: #0F172A; /* Deeper navy */
-  --app-muted: #475569; /* Much darker gray for readability */
-  --app-faint: #64748B;
-  --app-shadow: rgba(15, 23, 42, 0.04);
+  --app-bg: #ffffff;
+  --app-surface: #f5f5f7;
+  --app-border: #d2d2d7;
+  --app-text: #1d1d1f;
+  --app-muted: #86868b;
+  --app-faint: #d2d2d7;
+  --app-shadow: rgba(0, 0, 0, 0.05);
 }
 
 .dark {
-  --app-bg: #0B1120; /* Deep navy, not pure black */
-  --app-surface: #111827; /* Dark gray-navy */
-  --app-border: #1F2937;
-  --app-text: #E2E8F0; /* Soft gray-white instead of pure white */
-  --app-muted: #94A3B8;
-  --app-faint: #475569;
-  --app-shadow: rgba(0, 0, 0, 0.2);
-  --color-blue-light: rgba(29, 111, 232, 0.08);
+  --app-bg: #000000;
+  --app-surface: #1d1d1f;
+  --app-border: #424245;
+  --app-text: #f5f5f7;
+  --app-muted: #86868b;
+  --app-faint: #424245;
+  --app-shadow: rgba(0, 0, 0, 0.4);
 }
 
 @layer base {
@@ -40,46 +39,45 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-[var(--app-bg)] text-[var(--app-text)] font-poppins antialiased selection:bg-blue-primary selection:text-white overflow-x-hidden transition-colors duration-300;
+    @apply bg-[var(--app-bg)] text-[var(--app-text)] font-inter antialiased selection:bg-blue-primary selection:text-white overflow-x-hidden transition-colors duration-300;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tight font-black;
+    @apply tracking-[-0.015em] font-semibold;
   }
 }
 
 @layer components {
   .glass {
-    background: color-mix(in srgb, var(--app-surface), transparent 30%);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--app-border);
+    @apply bg-opacity-70 backdrop-blur-md border-b border-[var(--app-border)];
+    background-color: var(--app-bg);
   }
   
   .btn-primary {
-    @apply bg-blue-primary hover:opacity-90 text-white px-10 py-4 rounded-2xl font-bold text-base transition-opacity duration-200 shadow-md active:scale-[0.98] flex items-center justify-center gap-3;
+    @apply bg-blue-primary hover:bg-opacity-90 text-white px-8 py-3 rounded-full font-medium text-sm transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2;
   }
 
   .btn-secondary {
-    @apply bg-[var(--app-surface)] hover:bg-[var(--app-bg)] text-blue-primary px-10 py-4 rounded-2xl font-bold text-base transition-colors duration-200 border-2 border-[var(--app-border)] hover:border-blue-primary/30 flex items-center justify-center gap-3;
+    @apply text-blue-primary hover:underline px-8 py-3 font-medium text-sm transition-all duration-200 flex items-center justify-center gap-2;
   }
   
   .section-padding {
-    @apply py-20 md:py-32;
+    @apply py-24 md:py-40;
   }
   
   .card-premium {
-    @apply bg-[var(--app-surface)] border-2 border-[var(--app-border)] rounded-3xl p-8 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-blue-900/5 hover:-translate-y-2 hover:border-blue-primary/10;
+    @apply bg-[var(--app-surface)] rounded-3xl p-10 transition-all duration-500 hover:scale-[1.02];
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-blue-primary to-blue-dark bg-clip-text text-transparent;
+    @apply text-[var(--app-text)];
   }
 
   .badge-light {
-    @apply px-4 py-1 rounded-full bg-blue-light border border-blue-primary/10 text-blue-primary text-[10px] font-black uppercase tracking-widest;
+    @apply px-4 py-1 rounded-full bg-blue-light text-app-muted text-[12px] font-medium tracking-tight;
   }
 
   .input-premium {
-    @apply w-full bg-[var(--app-bg)] border-2 border-[var(--app-border)] rounded-2xl px-6 py-4 text-[var(--app-text)] font-bold outline-none focus:border-blue-primary/20 focus:bg-[var(--app-surface)] transition-all;
+    @apply w-full bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-6 py-4 text-[var(--app-text)] font-medium outline-none focus:border-blue-primary transition-all;
   }
 }

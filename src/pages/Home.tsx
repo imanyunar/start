@@ -7,65 +7,82 @@ const Home = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="relative bg-app-bg">
-      <div className="absolute top-[-10%] right-[-10%] h-[360px] w-[360px] rounded-full bg-blue-primary/8 blur-[100px] pointer-events-none" />
+    <div className="relative bg-[var(--app-bg)]">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 overflow-hidden min-h-[90vh] flex flex-col items-center justify-center text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="container mx-auto px-6 max-w-4xl z-10"
+        >
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-[var(--app-text)]">
+            {t('hero.title')} <br />
+            <span className="opacity-60">{t('hero.subtitle')}</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-[var(--app-muted)] font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
+            {t('hero.description')}
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Link to="/contact" className="btn-primary">
+              {t('hero.cta_primary')}
+            </Link>
+            <Link to="/services" className="btn-secondary group">
+              {t('hero.cta_secondary')}
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </motion.div>
 
-      <section className="relative flex min-h-[88vh] items-center pt-24">
-        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <div className="badge-light mb-6 w-fit flex items-center gap-2">
-              <Sparkles size={12} />
-              {t('hero.badge')}
-            </div>
-            <h1 className="mb-6 text-4xl font-black leading-tight tracking-tight text-app-text md:text-6xl">
-              {t('hero.title')} <span className="text-gradient">{t('hero.subtitle')}</span>
-            </h1>
-            <p className="mb-8 max-w-xl text-base font-bold leading-relaxed text-app-muted md:text-lg">
-              {t('hero.description')}
-            </p>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 1 }}
+          className="mt-16 w-full max-w-6xl px-6 mx-auto"
+        >
+          <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
+            <img 
+              src="/hero_devices_mockup.png" 
+              alt="Vermont Digital System" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </motion.div>
+      </section>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Link to="/contact" className="btn-primary group">
-                {t('hero.cta_primary')}
-                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link to="/services" className="btn-secondary">
-                {t('hero.cta_secondary')}
-              </Link>
+      {/* Feature Section (Cards) */}
+      <section className="py-32 bg-[var(--app-surface)]">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="card-premium flex flex-col justify-between">
+              <div>
+                <h3 className="text-3xl font-bold mb-4">{t('home_simple.p1')}</h3>
+                <p className="text-[var(--app-muted)] text-lg">Solusi cashflow terintegrasi untuk bisnis modern.</p>
+              </div>
+              <div className="mt-12 text-blue-primary font-semibold flex items-center gap-2 cursor-pointer hover:underline">
+                Pelajari lebih lanjut <ArrowRight size={16} />
+              </div>
             </div>
-
-            <div className="mt-10 space-y-3">
-              {[t('home_simple.p1'), t('home_simple.p2'), t('home_simple.p3')].map((item) => (
-                <div key={item} className="flex items-start gap-3 text-sm font-bold text-app-muted">
-                  <CheckCircle2 size={18} className="mt-0.5 text-blue-primary" />
-                  <span>{item}</span>
-                </div>
-              ))}
+            <div className="card-premium flex flex-col justify-between bg-[var(--app-bg)]">
+              <div>
+                <h3 className="text-3xl font-bold mb-4">{t('home_simple.p2')}</h3>
+                <p className="text-[var(--app-muted)] text-lg">Manajemen rantai pasok (Supply Chain) yang efisien.</p>
+              </div>
+              <div className="mt-12 text-blue-primary font-semibold flex items-center gap-2 cursor-pointer hover:underline">
+                Lihat fitur <ArrowRight size={16} />
+              </div>
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
-            className="relative"
-          >
-            <div className="overflow-hidden rounded-[2rem] border-8 border-[var(--app-surface)] bg-[var(--app-surface)] shadow-2xl shadow-blue-primary/10">
-              <img src="/hero_devices_mockup.png" alt="Dashboard Sistem Kasir Vermont untuk UMKM Indonesia" className="aspect-[4/5] w-full object-cover" />
-            </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      <section className="pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-[2rem] bg-blue-primary px-6 py-10 text-center text-white md:px-12 md:py-16">
-            <h2 className="mb-4 text-3xl font-black tracking-tight md:text-4xl">{t('cta.title')}</h2>
-            <p className="mx-auto mb-8 max-w-2xl text-sm font-bold opacity-90 md:text-base">{t('cta.desc')}</p>
-            <Link to="/contact" className="inline-flex rounded-2xl bg-white px-8 py-4 text-sm font-black text-blue-primary hover:scale-[1.02] transition-transform">
-              {t('cta.btn_secondary')}
-            </Link>
-          </div>
+      {/* Final CTA */}
+      <section className="py-40 text-center">
+        <div className="container mx-auto px-6 max-w-3xl">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8">{t('cta.title')}</h2>
+          <Link to="/contact" className="btn-primary mx-auto w-fit px-12 py-4 text-lg">
+            {t('cta.btn_secondary')}
+          </Link>
         </div>
       </section>
     </div>
