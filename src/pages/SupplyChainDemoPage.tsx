@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
-  ArrowLeft, CheckCircle2, Package, Truck, AlertTriangle, 
-  BarChart3, LayoutDashboard, Settings, Map, Layers, 
-  Search, Bell, User, Filter, Download, MoreVertical
+  ArrowLeft, Package, Truck, AlertTriangle, 
+  BarChart3, LayoutDashboard, Map, Layers, 
+  Search, Bell, Filter, Download
 } from 'lucide-react';
 
 const shipments = [
