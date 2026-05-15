@@ -25,6 +25,9 @@ const inventory = [
 const SupplyChainDemoPage = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
 
+  // Debug log to verify state changes in production console
+  console.log('SCM Active Tab:', activeTab);
+
   const renderContent = () => {
     switch (activeTab) {
       case 'inventory':
@@ -374,9 +377,9 @@ const SupplyChainDemoPage = () => {
         <header className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
           <div>
             <h1 className="text-2xl font-black tracking-tight text-slate-900 uppercase">
-              {activeTab} <span className="text-amber-600">Control Center</span>
+              {activeTab === 'dashboard' ? 'Overview' : activeTab} <span className="text-amber-600">Control Center</span>
             </h1>
-            <p className="text-slate-500 text-sm font-medium">Vermont SCM Cloud v1.2</p>
+            <p className="text-slate-500 text-sm font-medium italic">Vermont SCM Cloud v1.3.2 - Live State: {activeTab}</p>
           </div>
           <div className="flex items-center gap-3">
             <div className="relative">
@@ -425,7 +428,10 @@ const SupplyChainDemoPage = () => {
           </div>
         )}
 
-        {renderContent()}
+        {/* Dynamic Content Area with key to force remount on tab change */}
+        <div key={activeTab} className="mt-4">
+          {renderContent()}
+        </div>
       </main>
     </div>
   );

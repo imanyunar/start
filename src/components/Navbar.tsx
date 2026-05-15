@@ -43,7 +43,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed w-full z-[1000] transition-all duration-300 ${
-      scrolled ? 'py-3 bg-[var(--app-bg)]/70 backdrop-blur-md border-b border-[var(--app-border)]' : 'py-5 bg-transparent'
+      scrolled ? 'py-3 bg-[var(--app-bg)]/70 backdrop-blur-md border-b border-[var(--app-border)]' : 'py-5 bg-[var(--app-bg)]/50 backdrop-blur-md'
     }`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center">
