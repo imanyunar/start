@@ -23,6 +23,8 @@ const inventory = [
 ];
 
 const SupplyChainDemoPage = () => {
+  const [activeTab, setActiveTab] = useState('dashboard');
+
   const renderContent = () => {
     switch (activeTab) {
       case 'inventory':
