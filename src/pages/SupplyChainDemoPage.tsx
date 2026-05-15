@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { 
   AreaChart, Area, XAxis, YAxis, CartesianGrid, 
-  Tooltip, ResponsiveContainer, BarChart, Bar,
+  Tooltip, ResponsiveContainer,
   Cell, PieChart, Pie
 } from 'recharts';
 
