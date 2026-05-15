@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vermont-automated-digital.vercel.app/sitemap.xml
+Sitemap: https://vermontdigital.biz.id/sitemap.xml

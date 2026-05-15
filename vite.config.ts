@@ -15,7 +15,7 @@ export default defineConfig({
       optipng: { optimizationLevel: 5 },
     }),
     Sitemap({ 
-      hostname: 'https://vermont-automated-digital.vercel.app/',
+      hostname: 'https://vermontdigital.biz.id/',
       dynamicRoutes: [
         '/about',
         '/services',
