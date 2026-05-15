@@ -114,22 +114,39 @@ const LabPage = () => {
               </div>
             </motion.div>
 
-            <motion.div
+            <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               className="card-premium group relative overflow-hidden flex flex-col md:col-span-2"
             >
-              <div className="absolute top-0 right-0 w-80 h-80 bg-amber-400/10 blur-3xl rounded-full translate-x-24 -translate-y-20"></div>
+              <div className="absolute top-0 right-0 w-80 h-80 bg-amber-400/5 blur-3xl rounded-full translate-x-24 -translate-y-20"></div>
+              
+              <div className="relative aspect-[21/9] mb-8 overflow-hidden rounded-2xl bg-app-bg border border-app-border group-hover:border-amber-primary/30 transition-colors">
+                <img 
+                  src="/assets/scm/hero.jpg" 
+                  alt="Supply Chain Management Mockup" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-app-surface/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                  <span className="text-[10px] font-black uppercase tracking-widest text-amber-600 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                    Enterprise Prototype v0.8
+                  </span>
+                </div>
+              </div>
+
               <div className="p-3 bg-amber-100 rounded-2xl text-amber-700 w-fit mb-6">
                 <FlaskConical size={28} />
               </div>
-              <h2 className="text-3xl font-black text-app-text mb-4 tracking-tighter">Supply Chain Management Demo</h2>
-              <p className="text-app-muted font-bold mb-8 leading-relaxed">
-                Mockup dashboard operasional untuk melihat alur inventory, status pengiriman, dan early warning keterlambatan.
+              
+              <h2 className="text-3xl font-black text-app-text mb-4 tracking-tighter">Supply Chain Management AI</h2>
+              <p className="text-app-muted font-bold mb-8 leading-relaxed max-w-3xl">
+                Sistem optimasi rantai pasok otonom. Pantau inventori, prediksi keterlambatan pengiriman, 
+                dan mitigasi risiko operasional secara real-time dengan bantuan kecerdasan buatan.
               </p>
+              
               <div className="mt-auto pt-6 flex items-center justify-between border-t border-app-border">
-                <Link to="/supply-chain-demo" className="btn-primary group/btn py-3 px-6 text-xs">
+                <Link to="/supply-chain-demo" className="btn-primary group/btn py-3 px-6 text-xs bg-amber-600 border-amber-600 hover:bg-amber-700">
                   Buka Demo SCM <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                 </Link>
                 <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-[9px] font-black text-amber-700 uppercase tracking-widest">
