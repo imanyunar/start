@@ -16,7 +16,9 @@ import ScrollToTop from './components/ScrollToTop';
 
 function AppContent() {
   const location = useLocation();
-  const isAppRoute = location.pathname.startsWith('/smartflow') || location.pathname.startsWith('/business-profile');
+  const isAppRoute = location.pathname.startsWith('/smartflow') || 
+                     location.pathname.startsWith('/business-profile') || 
+                     location.pathname.startsWith('/supply-chain-demo');
 
   return (
     <div className="min-h-screen flex flex-col transition-colors duration-300 overflow-x-hidden w-full relative">
