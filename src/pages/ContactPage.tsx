@@ -56,9 +56,9 @@ const ContactPage = () => {
             </div>
 
             <div className="flex items-center gap-6">
-              <a href="#" className="text-[var(--app-muted)] hover:text-blue-primary transition-colors"><X size={24} /></a>
-              <a href="#" className="text-[var(--app-muted)] hover:text-blue-primary transition-colors"><ExternalLink size={24} /></a>
-              <a href="#" className="text-[var(--app-muted)] hover:text-blue-primary transition-colors"><GitBranch size={24} /></a>
+              <a href="https://x.com" target="_blank" rel="noreferrer" className="text-[var(--app-muted)] hover:text-blue-primary transition-colors" aria-label="X / Twitter"><X size={24} /></a>
+              <a href="https://vermontdigital.biz.id/" target="_blank" rel="noreferrer" className="text-[var(--app-muted)] hover:text-blue-primary transition-colors" aria-label="Website"><ExternalLink size={24} /></a>
+              <a href="https://github.com" target="_blank" rel="noreferrer" className="text-[var(--app-muted)] hover:text-blue-primary transition-colors" aria-label="GitHub"><GitBranch size={24} /></a>
             </div>
           </motion.div>
 

@@ -11,6 +11,7 @@ import LabPage from './pages/LabPage';
 import SmartFlowPage from './pages/SmartFlowPage';
 import PackagesPage from './pages/PackagesPage';
 import BusinessProfilePage from './pages/BusinessProfilePage';
+import SupplyChainDemoPage from './pages/SupplyChainDemoPage';
 import ScrollToTop from './components/ScrollToTop';
 
 function AppContent() {
@@ -32,6 +33,7 @@ function AppContent() {
           <Route path="/smartflow" element={<SmartFlowPage />} />
           <Route path="/business-profile" element={<BusinessProfilePage />} />
           <Route path="/packages" element={<PackagesPage />} />
+          <Route path="/supply-chain-demo" element={<SupplyChainDemoPage />} />
         </Routes>
       </main>
       {!isAppRoute && <Footer />}

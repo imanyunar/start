@@ -113,6 +113,30 @@ const LabPage = () => {
                 </div>
               </div>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="card-premium group relative overflow-hidden flex flex-col md:col-span-2"
+            >
+              <div className="absolute top-0 right-0 w-80 h-80 bg-amber-400/10 blur-3xl rounded-full translate-x-24 -translate-y-20"></div>
+              <div className="p-3 bg-amber-100 rounded-2xl text-amber-700 w-fit mb-6">
+                <FlaskConical size={28} />
+              </div>
+              <h2 className="text-3xl font-black text-app-text mb-4 tracking-tighter">Supply Chain Management Demo</h2>
+              <p className="text-app-muted font-bold mb-8 leading-relaxed">
+                Mockup dashboard operasional untuk melihat alur inventory, status pengiriman, dan early warning keterlambatan.
+              </p>
+              <div className="mt-auto pt-6 flex items-center justify-between border-t border-app-border">
+                <Link to="/supply-chain-demo" className="btn-primary group/btn py-3 px-6 text-xs">
+                  Buka Demo SCM <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                </Link>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-[9px] font-black text-amber-700 uppercase tracking-widest">
+                  <Zap size={10} className="text-amber-600" /> Prototype
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>

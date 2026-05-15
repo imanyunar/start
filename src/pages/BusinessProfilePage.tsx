@@ -147,12 +147,12 @@ const BusinessProfilePage = () => {
               Buka setiap hari mulai pukul 07.00 - 22.00. Kami siap menyambut Anda dengan senyuman dan aroma kopi terbaik.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <button onClick={() => openMockup('/fnb_mockup.png')} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-amber-700 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md cursor-pointer">
+              <a href="https://maps.google.com/?q=Semarang" target="_blank" rel="noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-bold text-amber-700 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md cursor-pointer">
                 <MapPin size={20} /> Lihat di Maps
-              </button>
-              <button onClick={() => openMockup('/fnb_mockup.png')} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl border border-amber-400 bg-amber-700 px-8 py-4 text-base font-bold text-white hover:bg-amber-800 active:scale-[0.98] transition-all cursor-pointer">
+              </a>
+              <a href="tel:+6285172247452" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl border border-amber-400 bg-amber-700 px-8 py-4 text-base font-bold text-white hover:bg-amber-800 active:scale-[0.98] transition-all cursor-pointer">
                 <Phone size={20} /> Hubungi Kami
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -161,7 +161,7 @@ const BusinessProfilePage = () => {
       {/* Footer */}
       <footer className="border-t border-[#E7E5E4] py-12 px-6 bg-white text-center">
         <div className="flex justify-center items-center gap-3 mb-6">
-          <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-[#F5F5F4] flex items-center justify-center text-[#57534E] hover:bg-amber-100 hover:text-amber-600 transition-colors font-bold text-sm">
+          <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full bg-[#F5F5F4] flex items-center justify-center text-[#57534E] hover:bg-amber-100 hover:text-amber-600 transition-colors font-bold text-sm">
             IG
           </a>
         </div>

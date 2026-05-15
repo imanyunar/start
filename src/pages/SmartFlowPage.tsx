@@ -175,6 +175,26 @@ function SmartFlowPage() {
     [transactions],
   );
 
+  const gatewayHealth = useMemo(
+    () => [
+      { name: 'Midtrans Core API', status: 'Operational', latency: '182ms', success: '99.92%' },
+      { name: 'Xendit E-Wallet', status: 'Operational', latency: '210ms', success: '99.71%' },
+      { name: 'QRIS Aggregator', status: 'Degraded', latency: '430ms', success: '97.84%' },
+      { name: 'Bank VA Callback', status: 'Operational', latency: '165ms', success: '99.88%' },
+    ],
+    [],
+  );
+
+  const settlementQueue = useMemo(
+    () => [
+      { invoice: 'INV-2026-0512', channel: 'QRIS', amount: 1850000, status: 'Settled T+0' },
+      { invoice: 'INV-2026-0513', channel: 'VA BCA', amount: 4200000, status: 'In Clearing' },
+      { invoice: 'INV-2026-0514', channel: 'E-Wallet', amount: 960000, status: 'Settled T+1' },
+      { invoice: 'INV-2026-0515', channel: 'Credit Card', amount: 3550000, status: 'Awaiting Callback' },
+    ],
+    [],
+  );
+
   const insights = useMemo(
     () =>
       generateInsights({
@@ -600,30 +620,83 @@ function SmartFlowPage() {
           )}
 
           {activeView === 'payments' && (
-            <section className="grid gap-5 lg:grid-cols-2">
-              <div className="rounded-3xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6">
-                <h3 className="mb-4 text-lg font-black">Upload Bukti Pembayaran</h3>
-                <div className="space-y-3">
-                  <label className="block rounded-2xl border border-dashed border-[var(--app-border)] bg-[var(--app-bg)] p-4 text-sm font-bold text-[var(--app-muted)]">
-                    <span className="mb-2 flex items-center gap-2 text-[var(--app-text)]"><Upload size={15} /> Bukti QRIS</span>
-                    <input type="file" className="w-full text-xs" />
-                  </label>
-                  <label className="block rounded-2xl border border-dashed border-[var(--app-border)] bg-[var(--app-bg)] p-4 text-sm font-bold text-[var(--app-muted)]">
-                    <span className="mb-2 flex items-center gap-2 text-[var(--app-text)]"><Upload size={15} /> Bukti Transfer</span>
-                    <input type="file" className="w-full text-xs" />
-                  </label>
-                  <label className="block rounded-2xl border border-dashed border-[var(--app-border)] bg-[var(--app-bg)] p-4 text-sm font-bold text-[var(--app-muted)]">
-                    <span className="mb-2 flex items-center gap-2 text-[var(--app-text)]"><Upload size={15} /> Lampiran Invoice</span>
-                    <input type="file" className="w-full text-xs" />
-                  </label>
+            <section className="space-y-5">
+              <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+                <SummaryCard label="Gateway Uptime" value="99.89%" hint="30 hari terakhir" icon={CreditCard} tone="blue" />
+                <SummaryCard label="Payment Success Rate" value="98.74%" hint="Semua channel pembayaran" icon={TrendingUp} tone="green" />
+                <SummaryCard label="Avg Callback Time" value="0.82s" hint="Webhook ke SmartFlow" icon={Bell} tone="amber" />
+                <SummaryCard label="Unreconciled Tx" value="7 transaksi" hint="Perlu verifikasi manual" icon={AlertTriangle} tone="rose" />
+              </div>
+
+              <div className="grid gap-5 xl:grid-cols-3">
+                <div className="rounded-3xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6 xl:col-span-2">
+                  <div className="mb-4 flex items-center justify-between">
+                    <h3 className="text-lg font-black">Payment Gateway Health Monitor</h3>
+                    <span className="rounded-full bg-blue-light px-3 py-1 text-[11px] font-black text-blue-primary">LIVE</span>
+                  </div>
+                  <div className="space-y-3">
+                    {gatewayHealth.map((g) => (
+                      <div key={g.name} className="grid grid-cols-2 gap-3 rounded-2xl border border-[var(--app-border)] bg-[var(--app-bg)] p-4 md:grid-cols-4">
+                        <p className="text-sm font-black">{g.name}</p>
+                        <p className={`text-xs font-black ${g.status === 'Degraded' ? 'text-amber-600' : 'text-emerald-600'}`}>{g.status}</p>
+                        <p className="text-xs font-bold text-[var(--app-muted)]">Latency: {g.latency}</p>
+                        <p className="text-xs font-bold text-[var(--app-muted)]">Success: {g.success}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-3xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6">
+                  <h3 className="mb-4 text-lg font-black">Gateway Actions</h3>
+                  <div className="space-y-3">
+                    <button className="w-full rounded-2xl border border-[var(--app-border)] bg-[var(--app-bg)] px-4 py-3 text-left text-sm font-black hover:border-blue-primary">
+                      Generate Payment Link
+                    </button>
+                    <button className="w-full rounded-2xl border border-[var(--app-border)] bg-[var(--app-bg)] px-4 py-3 text-left text-sm font-black hover:border-blue-primary">
+                      Create Dynamic QRIS
+                    </button>
+                    <button className="w-full rounded-2xl border border-[var(--app-border)] bg-[var(--app-bg)] px-4 py-3 text-left text-sm font-black hover:border-blue-primary">
+                      Sync Settlement Report
+                    </button>
+                    <button className="w-full rounded-2xl border border-[var(--app-border)] bg-[var(--app-bg)] px-4 py-3 text-left text-sm font-black hover:border-blue-primary">
+                      Replay Failed Webhook
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div className="rounded-3xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6">
-                <h3 className="mb-4 text-lg font-black">Premium Payment Features</h3>
-                <div className="space-y-3 text-sm font-bold text-[var(--app-muted)]">
-                  <p className="rounded-2xl bg-[var(--app-bg)] p-3">Payment gateway integration untuk verifikasi otomatis.</p>
-                  <p className="rounded-2xl bg-[var(--app-bg)] p-3">Automatic QRIS generator untuk setiap invoice.</p>
-                  <p className="rounded-2xl bg-[var(--app-bg)] p-3">Verifikasi transaksi otomatis untuk deteksi mismatch pembayaran.</p>
+
+              <div className="grid gap-5 lg:grid-cols-2">
+                <div className="rounded-3xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6">
+                  <h3 className="mb-4 text-lg font-black">Settlement & Reconciliation Queue</h3>
+                  <div className="space-y-3">
+                    {settlementQueue.map((row) => (
+                      <div key={row.invoice} className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-[var(--app-border)] bg-[var(--app-bg)] p-3">
+                        <div>
+                          <p className="text-sm font-black">{row.invoice}</p>
+                          <p className="text-xs font-bold text-[var(--app-muted)]">{row.channel}</p>
+                        </div>
+                        <p className="text-sm font-black">{formatMoneyFull(row.amount)}</p>
+                        <span className="rounded-full bg-blue-light px-3 py-1 text-[11px] font-black text-blue-primary">{row.status}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-3xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6">
+                  <h3 className="mb-4 text-lg font-black">Upload Evidence (Fallback)</h3>
+                  <p className="mb-3 text-xs font-bold text-[var(--app-muted)]">
+                    Mode ini dipakai hanya jika callback gateway gagal. Prioritas utama tetap auto-verification.
+                  </p>
+                  <div className="space-y-3">
+                    <label className="block rounded-2xl border border-dashed border-[var(--app-border)] bg-[var(--app-bg)] p-4 text-sm font-bold text-[var(--app-muted)]">
+                      <span className="mb-2 flex items-center gap-2 text-[var(--app-text)]"><Upload size={15} /> Bukti QRIS</span>
+                      <input type="file" className="w-full text-xs" />
+                    </label>
+                    <label className="block rounded-2xl border border-dashed border-[var(--app-border)] bg-[var(--app-bg)] p-4 text-sm font-bold text-[var(--app-muted)]">
+                      <span className="mb-2 flex items-center gap-2 text-[var(--app-text)]"><Upload size={15} /> Bukti Transfer</span>
+                      <input type="file" className="w-full text-xs" />
+                    </label>
+                  </div>
                 </div>
               </div>
             </section>

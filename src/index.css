@@ -9,6 +9,7 @@
   --color-green-primary: #12A860;
   --color-red-primary: #E8403A;
   --color-amber-primary: #F59E0B;
+  --color-app-muted: var(--app-muted);
   
   --font-inter: "Inter", sans-serif;
   --spacing-container: 1440px;

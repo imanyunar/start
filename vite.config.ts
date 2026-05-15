@@ -25,7 +25,8 @@ export default defineConfig({
         '/laboratory',
         '/smartflow',
         '/business-profile',
-        '/packages'
+        '/packages',
+        '/supply-chain-demo'
       ]
     }),
   ],
@@ -43,4 +44,3 @@ export default defineConfig({
     },
   },
 })
-

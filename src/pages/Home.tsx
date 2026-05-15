@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -42,8 +42,8 @@ const Home = () => {
         >
           <div className="relative aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl">
             <img 
-              src="/hero_devices_mockup.png" 
-              alt="Vermont Digital System" 
+              src="/assets/hero-home-real.jpg" 
+              alt="Business team reviewing analytics dashboard" 
               className="w-full h-full object-cover"
             />
           </div>
@@ -59,18 +59,18 @@ const Home = () => {
                 <h3 className="text-3xl font-bold mb-4">{t('home_simple.p1')}</h3>
                 <p className="text-[var(--app-muted)] text-lg">Solusi cashflow terintegrasi untuk bisnis modern.</p>
               </div>
-              <div className="mt-12 text-blue-primary font-semibold flex items-center gap-2 cursor-pointer hover:underline">
+              <Link to="/solutions" className="mt-12 text-blue-primary font-semibold flex items-center gap-2 hover:underline">
                 Pelajari lebih lanjut <ArrowRight size={16} />
-              </div>
+              </Link>
             </div>
             <div className="card-premium flex flex-col justify-between bg-[var(--app-bg)]">
               <div>
                 <h3 className="text-3xl font-bold mb-4">{t('home_simple.p2')}</h3>
                 <p className="text-[var(--app-muted)] text-lg">Manajemen rantai pasok (Supply Chain) yang efisien.</p>
               </div>
-              <div className="mt-12 text-blue-primary font-semibold flex items-center gap-2 cursor-pointer hover:underline">
+              <Link to="/supply-chain-demo" className="mt-12 text-blue-primary font-semibold flex items-center gap-2 hover:underline">
                 Lihat fitur <ArrowRight size={16} />
-              </div>
+              </Link>
             </div>
           </div>
         </div>
