@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { BrainCircuit, FlaskConical, ArrowRight, Zap, Microscope } from 'lucide-react';
+import { BrainCircuit, FlaskConical, ArrowRight, Zap, Microscope, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 const businessMockup = '/business_profile_laptop_mockup.png';
@@ -136,7 +136,7 @@ const LabPage = () => {
               </div>
 
               <div className="p-3 bg-amber-100 rounded-2xl text-amber-700 w-fit mb-6">
-                <FlaskConical size={28} />
+                <Package size={28} />
               </div>
               
               <h2 className="text-3xl font-black text-app-text mb-4 tracking-tighter">Supply Chain Management AI</h2>
