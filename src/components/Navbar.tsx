@@ -99,12 +99,18 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 top-[60px] w-full bg-[var(--app-bg)] z-[999] md:hidden"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed inset-0 top-0 h-screen w-full bg-[var(--app-bg)] z-[2000] md:hidden flex flex-col"
           >
-            <div className="flex flex-col p-8 gap-6">
+            <div className="p-6 border-b border-[var(--app-border)] flex justify-between items-center">
+              <Logo />
+              <button onClick={() => setIsOpen(false)} className="text-[var(--app-text)] p-2">
+                <X size={24} />
+              </button>
+            </div>
+            <div className="flex flex-col p-8 gap-8 overflow-y-auto">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}

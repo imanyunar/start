@@ -4,8 +4,14 @@ import { Link } from 'react-router-dom';
 import { 
   ArrowLeft, Package, Truck, AlertTriangle, 
   BarChart3, LayoutDashboard, Map, Layers, 
-  Search, Bell, Filter, Download
+  Search, Bell, Filter, Download, Activity,
+  Globe, Zap
 } from 'lucide-react';
+import { 
+  AreaChart, Area, XAxis, YAxis, CartesianGrid, 
+  Tooltip, ResponsiveContainer, BarChart, Bar,
+  Cell, PieChart, Pie
+} from 'recharts';
 
 const shipments = [
   { id: 'PO-2301', route: 'Semarang -> Jakarta', status: 'In Transit', eta: '6 jam', stock: 'Aman', priority: 'High' },
@@ -20,6 +26,23 @@ const inventory = [
   { name: 'Robusta Sidikalang', sku: 'COF-SID-002', stock: 840, unit: 'kg', health: 45 },
   { name: 'Palm Sugar Liquid', sku: 'SWT-PLM-010', stock: 210, unit: 'L', health: 88 },
   { name: 'Oat Milk Premium', sku: 'MLK-OAT-005', stock: 56, unit: 'ctn', health: 12 },
+];
+
+const efficiencyData = [
+  { day: 'Mon', efficiency: 65, risk: 20 },
+  { day: 'Tue', efficiency: 78, risk: 15 },
+  { day: 'Wed', efficiency: 72, risk: 25 },
+  { day: 'Thu', efficiency: 85, risk: 10 },
+  { day: 'Fri', efficiency: 82, risk: 12 },
+  { day: 'Sat', efficiency: 90, risk: 8 },
+  { day: 'Sun', efficiency: 94, risk: 5 },
+];
+
+const categoryData = [
+  { name: 'Raw Materials', value: 400, color: '#f59e0b' },
+  { name: 'Finished Goods', value: 300, color: '#fbbf24' },
+  { name: 'Packaging', value: 200, color: '#fcd34d' },
+  { name: 'Equipment', value: 100, color: '#fef3c7' },
 ];
 
 const SupplyChainDemoPage = () => {
@@ -124,64 +147,136 @@ const SupplyChainDemoPage = () => {
       case 'analytics':
         return (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="font-black text-slate-900 mb-6">Efficiency Trends</h3>
-                <div className="h-64 w-full flex items-end gap-2 px-2">
-                  {[40, 70, 45, 90, 65, 80, 95].map((h, i) => (
-                    <div key={i} className="flex-1 flex flex-col items-center gap-2">
-                      <motion.div 
-                        initial={{ height: 0 }} 
-                        animate={{ height: `${h}%` }} 
-                        className={`w-full rounded-t-lg ${i === 6 ? 'bg-amber-500 shadow-lg shadow-amber-500/20' : 'bg-slate-200'}`} 
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+                <div className="flex items-center justify-between mb-8">
+                  <div>
+                    <h3 className="font-black text-slate-900 text-lg">Supply Chain Efficiency</h3>
+                    <p className="text-slate-500 text-xs font-bold">Performance index over the last 7 days</p>
+                  </div>
+                  <div className="flex items-center gap-2 px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-black">
+                    <Activity size={12} /> +14.2% Growth
+                  </div>
+                </div>
+                <div className="h-72 w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart data={efficiencyData}>
+                      <defs>
+                        <linearGradient id="colorEff" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3}/>
+                          <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
+                        </linearGradient>
+                      </defs>
+                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                      <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{fontSize: 10, fontWeight: 700, fill: '#94a3b8'}} dy={10} />
+                      <YAxis hide />
+                      <Tooltip 
+                        contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', padding: '12px' }}
+                        itemStyle={{ fontSize: '12px', fontWeight: 800 }}
                       />
-                      <span className="text-[10px] font-bold text-slate-400">Day {i+1}</span>
-                    </div>
-                  ))}
+                      <Area type="monotone" dataKey="efficiency" stroke="#f59e0b" strokeWidth={4} fillOpacity={1} fill="url(#colorEff)" />
+                    </AreaChart>
+                  </ResponsiveContainer>
                 </div>
               </div>
               <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
-                <h3 className="font-black text-slate-900 mb-6">Distribution by Category</h3>
-                <div className="space-y-6">
-                  {[
-                    { label: 'Raw Materials', val: 65, color: 'bg-amber-500' },
-                    { label: 'Finished Goods', val: 25, color: 'bg-blue-500' },
-                    { label: 'Packaging', val: 10, color: 'bg-slate-400' },
-                  ].map((item, i) => (
-                    <div key={i}>
-                      <div className="flex justify-between text-xs font-bold mb-2">
-                        <span>{item.label}</span>
-                        <span>{item.val}%</span>
+                <h3 className="font-black text-slate-900 text-lg mb-2">Category Split</h3>
+                <p className="text-slate-500 text-xs font-bold mb-8">Inventory distribution by type</p>
+                <div className="h-64 w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={categoryData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={80}
+                        paddingAngle={5}
+                        dataKey="value"
+                      >
+                        {categoryData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <Tooltip />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+                <div className="space-y-3 mt-4">
+                  {categoryData.map((item, i) => (
+                    <div key={i} className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }} />
+                        <span className="text-[10px] font-bold text-slate-500">{item.name}</span>
                       </div>
-                      <div className="w-full h-2 bg-slate-100 rounded-full">
-                        <div className={`h-full rounded-full ${item.color}`} style={{ width: `${item.val}%` }} />
-                      </div>
+                      <span className="text-[10px] font-black text-slate-900">{Math.round(item.value / 10)}%</span>
                     </div>
                   ))}
                 </div>
               </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                { label: 'Lead Time', value: '2.4 Days', icon: Zap, color: 'text-amber-600', bg: 'bg-amber-50' },
+                { label: 'Error Rate', value: '0.08%', icon: AlertTriangle, color: 'text-rose-600', bg: 'bg-rose-50' },
+                { label: 'Coverage', value: '99.2%', icon: Globe, color: 'text-blue-600', bg: 'bg-blue-50' },
+              ].map((item, i) => (
+                <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 flex items-center gap-4">
+                  <div className={`p-3 rounded-xl ${item.bg} ${item.color}`}>
+                    <item.icon size={20} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{item.label}</p>
+                    <p className="text-xl font-black text-slate-900">{item.value}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </motion.div>
         );
       case 'map':
         return (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-[600px] bg-slate-900 rounded-3xl relative overflow-hidden flex items-center justify-center border border-slate-800">
-            <div className="absolute inset-0 opacity-30">
-               <img src="/assets/scm/hero.jpg" className="w-full h-full object-cover grayscale brightness-50" alt="Map background" />
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="bg-slate-900 rounded-[2.5rem] p-12 text-white relative overflow-hidden min-h-[500px]">
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#f59e0b22_0%,transparent_70%)]" />
+              <svg className="w-full h-full" viewBox="0 0 800 400">
+                <path d="M150 200 L300 150 L450 220 L600 180 L700 250" fill="none" stroke="#f59e0b" strokeWidth="2" strokeDasharray="5,5" />
+                {[
+                  {x: 150, y: 200, label: 'Medan'},
+                  {x: 300, y: 150, label: 'Jakarta'},
+                  {x: 450, y: 220, label: 'Semarang'},
+                  {x: 600, y: 180, label: 'Surabaya'},
+                  {x: 700, y: 250, label: 'Makassar'},
+                ].map((pt, i) => (
+                  <g key={i}>
+                    <circle cx={pt.x} cy={pt.y} r="4" fill="#f59e0b" />
+                    <circle cx={pt.x} cy={pt.y} r="12" stroke="#f59e0b" strokeWidth="1" fill="none" opacity="0.5">
+                      <animate attributeName="r" from="4" to="20" dur="2s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" from="0.5" to="0" dur="2s" repeatCount="indefinite" />
+                    </circle>
+                    <text x={pt.x} y={pt.y + 25} fill="white" fontSize="10" fontWeight="900" textAnchor="middle" className="uppercase tracking-widest">{pt.label}</text>
+                  </g>
+                ))}
+              </svg>
             </div>
-            <div className="relative z-10 text-center">
-              <div className="w-20 h-20 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-amber-500/50">
-                <Map size={40} className="text-amber-500 animate-pulse" />
+            <div className="relative z-10 max-w-lg">
+              <div className="w-12 h-12 bg-amber-500/20 rounded-2xl flex items-center justify-center text-amber-500 mb-6">
+                <Globe size={24} />
               </div>
-              <h3 className="text-2xl font-black text-white mb-2">Network Topology Active</h3>
-              <p className="text-slate-400 text-sm font-medium">Monitoring 12 hubs across Indonesia</p>
-              <div className="mt-8 flex gap-4 justify-center">
-                <span className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-xs font-bold text-emerald-400 flex items-center gap-2">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(52,211,153,0.8)]" /> Semarang Hub
-                </span>
-                <span className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-xs font-bold text-white flex items-center gap-2">
-                  <div className="w-2 h-2 bg-amber-400 rounded-full" /> Jakarta DC
-                </span>
+              <h2 className="text-4xl font-black mb-4 tracking-tighter">Live Network Topology</h2>
+              <p className="text-slate-400 font-bold mb-8 leading-relaxed">
+                Visualizing real-time data flows across our distributed hub network. Every node represents an autonomous processing unit monitoring local supply chains.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 p-4 rounded-2xl">
+                  <p className="text-[10px] font-black uppercase text-amber-500 mb-1">Active Nodes</p>
+                  <p className="text-2xl font-black">128</p>
+                </div>
+                <div className="bg-white/5 backdrop-blur-md border border-white/10 p-4 rounded-2xl">
+                  <p className="text-[10px] font-black uppercase text-emerald-500 mb-1">Network Health</p>
+                  <p className="text-2xl font-black">99.9%</p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -379,7 +474,7 @@ const SupplyChainDemoPage = () => {
             <h1 className="text-2xl font-black tracking-tight text-slate-900 uppercase">
               {activeTab === 'dashboard' ? 'Overview' : activeTab} <span className="text-amber-600">Control Center</span>
             </h1>
-            <p className="text-slate-500 text-sm font-medium italic">Vermont SCM Cloud v1.3.2 - Live State: {activeTab}</p>
+            <p className="text-slate-500 text-sm font-medium italic">Vermont SCM Cloud v1.4.0 - Live State: {activeTab}</p>
           </div>
           <div className="flex items-center gap-3">
             <div className="relative">
