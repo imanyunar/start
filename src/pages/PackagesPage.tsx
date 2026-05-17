@@ -157,7 +157,7 @@ const discountPct = (old: number, now: number) =>
   Math.round(((old - now) / old) * 100);
 
 export default function PackagesPage() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isEn = i18n.language === 'en';
   const packages = getPackages(isEn);
   
