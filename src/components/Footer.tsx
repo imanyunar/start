@@ -29,7 +29,7 @@ const Footer = () => {
             <h4 className="mb-4 text-xs font-black uppercase tracking-widest text-[var(--app-text)]">Kontak</h4>
             <div className="flex items-center gap-3 text-sm font-bold text-[var(--app-muted)]">
               <Mail size={16} className="text-blue-primary" />
-              <span>imanyunar@gmail.com</span>
+              <span>imanyunar15@gmail.com</span>
             </div>
             <p className="mt-3 text-xs font-bold text-[var(--app-muted)]">Global Headquarters</p>
           </div>

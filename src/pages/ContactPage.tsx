@@ -21,7 +21,7 @@ const ContactPage = () => {
     e.preventDefault();
     const mailSubject = formData.subject || t('contact.form.options.ai');
     const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    window.location.href = `mailto:imanyunar@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:imanyunar15@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -51,7 +51,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-[var(--app-muted)] mb-1">{t('contact.info.email_label')}</div>
-                  <div className="text-[var(--app-text)] font-black">imanyunar@gmail.com</div>
+                  <div className="text-[var(--app-text)] font-black">imanyunar15@gmail.com</div>
                 </div>
               </div>
               <div className="flex items-center gap-6 group">
