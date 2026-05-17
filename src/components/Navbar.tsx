@@ -52,20 +52,23 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-[14px] font-medium transition-colors ${
-                  location.pathname === link.path 
-                    ? 'text-blue-primary' 
-                    : 'text-[var(--app-text)] opacity-60 hover:opacity-100'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+          <div className="hidden md:flex items-center gap-2">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-[15px] font-semibold px-4 py-2.5 rounded-full transition-all duration-200 border ${
+                    isActive 
+                      ? 'bg-blue-primary/10 text-blue-primary border-blue-primary/20 shadow-sm shadow-blue-primary/5' 
+                      : 'text-[var(--app-text)] opacity-70 hover:opacity-100 hover:bg-[var(--app-text)]/5 border-transparent'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
             
             <div className="flex items-center gap-4 ml-4">
               <button 
@@ -124,20 +127,23 @@ const Navbar = () => {
               </div>
               
               <div className="flex flex-col p-8 gap-6 overflow-y-auto">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`text-lg font-bold tracking-tight transition-colors ${
-                      location.pathname === link.path 
-                        ? 'text-blue-primary' 
-                        : 'text-[var(--app-text)]'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+                {navLinks.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`text-[17px] font-bold tracking-tight px-5 py-3 rounded-2xl transition-all duration-200 border ${
+                        isActive 
+                          ? 'bg-blue-primary/10 text-blue-primary border-blue-primary/20' 
+                          : 'text-[var(--app-text)] hover:bg-[var(--app-text)]/5 border-transparent'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
               </div>
               
               <div className="mt-auto p-8 border-t border-[var(--app-border)] space-y-4">
