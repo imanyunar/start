@@ -52,12 +52,12 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-[12px] font-medium transition-colors ${
+                className={`text-[14px] font-medium transition-colors ${
                   location.pathname === link.path 
                     ? 'text-blue-primary' 
                     : 'text-[var(--app-text)] opacity-60 hover:opacity-100'
@@ -72,11 +72,11 @@ const Navbar = () => {
                 onClick={toggleTheme}
                 className="text-[var(--app-text)] opacity-60 hover:opacity-100 transition-opacity"
               >
-                {isDark ? <Sun size={14} /> : <Moon size={14} />}
+                {isDark ? <Sun size={15} /> : <Moon size={15} />}
               </button>
               <button 
                 onClick={toggleLanguage}
-                className="text-[10px] font-bold uppercase tracking-wider text-[var(--app-text)] opacity-60 hover:opacity-100 transition-opacity"
+                className="text-[12px] font-bold uppercase tracking-wider text-[var(--app-text)] opacity-60 hover:opacity-100 transition-opacity"
               >
                 {i18n.language === 'en' ? 'ID' : 'EN'}
               </button>
@@ -141,7 +141,7 @@ const Navbar = () => {
               </div>
               
               <div className="mt-auto p-8 border-t border-[var(--app-border)] space-y-4">
-                 <button onClick={toggleLanguage} className="w-full py-3 bg-blue-primary text-white rounded-xl text-[10px] font-black uppercase tracking-widest">
+                 <button onClick={toggleLanguage} className="w-full py-3 bg-blue-primary text-white rounded-xl text-[12px] font-black uppercase tracking-widest">
                    {i18n.language === 'en' ? 'Bahasa Indonesia' : 'English'}
                  </button>
               </div>
