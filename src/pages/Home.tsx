@@ -59,7 +59,7 @@ const Home = () => {
                 <h3 className="text-3xl font-bold mb-4">{t('home_simple.p1')}</h3>
                 <p className="text-[var(--app-muted)] text-lg">{t('home_simple.f1_desc')}</p>
               </div>
-              <Link to="/solutions" className="mt-12 text-blue-primary font-semibold flex items-center gap-2 hover:underline">
+              <Link to="/services" className="mt-12 text-blue-primary font-semibold flex items-center gap-2 hover:underline">
                 {t('home_simple.f1_link')} <ArrowRight size={16} />
               </Link>
             </div>
@@ -68,7 +68,7 @@ const Home = () => {
                 <h3 className="text-3xl font-bold mb-4">{t('home_simple.p2')}</h3>
                 <p className="text-[var(--app-muted)] text-lg">{t('home_simple.f2_desc')}</p>
               </div>
-              <Link to="/supply-chain-demo" className="mt-12 text-blue-primary font-semibold flex items-center gap-2 hover:underline">
+              <Link to="/contact" className="mt-12 text-blue-primary font-semibold flex items-center gap-2 hover:underline">
                 {t('home_simple.f2_link')} <ArrowRight size={16} />
               </Link>
             </div>
