@@ -65,10 +65,7 @@
       "title": "Our Mission",
       "desc": "To provide affordable and easy-to-use business tools so teams can grow without operational headaches."
     },
-    "vision": {
-      "title": "Our Vision",
-      "desc": "A future where technology isn't a burden, but a smart partner that helps us all progressâ€”easy, automatic, and always reliable."
-    }
+    "vision": { "title": "Our Vision", "desc": "A future where technology is not a burden, but a smart partner that helps us all progress." }, "founder_heading": "The Person Behind This"
   },
   "services": {
     "badge": "Our Services",

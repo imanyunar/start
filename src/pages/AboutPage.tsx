@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { CheckCircle2, HeartHandshake, ShieldCheck } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import founderPhoto from '../assets/Iman Yunar Noviadhi.jpeg';
@@ -40,7 +40,7 @@ const AboutPage = () => {
           </div>
 
           <div className="mt-8 rounded-2xl border border-[var(--app-border)] bg-[var(--app-surface)] p-6 md:p-8">
-            <h2 className="mb-5 text-xl font-black text-[var(--app-text)]">Siapa yang di belakang ini</h2>
+            <h2 className="mb-5 text-xl font-black text-[var(--app-text)]">{t('about.founder_heading')}</h2>
             <div className="grid gap-5 md:grid-cols-[180px_1fr] md:items-center">
               <img src={founderPhoto} alt="Founder Iman Yunar Noviadhi" className="h-44 w-44 rounded-2xl object-cover" />
               <div>

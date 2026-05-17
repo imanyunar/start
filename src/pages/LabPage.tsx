@@ -6,7 +6,8 @@ const businessMockup = '/business_profile_laptop_mockup.png';
 const smartflowMockup = '/smartflow_mobile_mockup.png';
 
 const LabPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language === 'en';
 
   return (
     <div className="pt-24 min-h-screen bg-app-bg">
@@ -24,8 +25,9 @@ const LabPage = () => {
               Vermont <span className="text-gradient">Neural Lab</span>
             </h1>
             <p className="text-app-muted text-lg font-bold max-w-2xl mx-auto leading-relaxed">
-              Tempat kami menguji coba teknologi AI masa depan sebelum dirilis ke publik. 
-              Jelajahi berbagai prototipe dan sistem otonom kami di sini.
+              {isEn
+                ? 'Where we test future AI technologies before they go public. Explore our various prototypes and autonomous systems.'
+                : 'Tempat kami menguji coba teknologi AI masa depan sebelum dirilis ke publik. Jelajahi berbagai prototipe dan sistem otonom kami di sini.'}
             </p>
           </motion.div>
 
@@ -58,13 +60,14 @@ const LabPage = () => {
               
               <h2 className="text-3xl font-black text-app-text mb-4 tracking-tighter">Vermont SmartFlow</h2>
               <p className="text-app-muted font-bold mb-8 leading-relaxed">
-                Asisten keuangan cerdas yang didukung oleh pemrosesan bahasa alami (NLP). 
-                Catat transaksi bisnis Anda semudah mengirim pesan teks.
+                {isEn
+                  ? 'A smart financial assistant powered by Natural Language Processing (NLP). Record your business transactions as easily as sending a text message.'
+                  : 'Asisten keuangan cerdas yang didukung oleh pemrosesan bahasa alami (NLP). Catat transaksi bisnis Anda semudah mengirim pesan teks.'}
               </p>
               
               <div className="mt-auto pt-6 flex items-center justify-between border-t border-app-border">
                 <Link to="/smartflow" className="btn-primary group/btn py-3 px-6 text-xs">
-                  Masuki SmartFlow <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                  {isEn ? 'Enter SmartFlow' : 'Masuki SmartFlow'} <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                 </Link>
                 <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-blue-light text-[9px] font-black text-blue-primary uppercase tracking-widest">
                   <Zap size={10} className="text-amber-primary" /> Active
@@ -100,13 +103,14 @@ const LabPage = () => {
               
               <h2 className="text-3xl font-black text-app-text mb-4 tracking-tighter">Business Profile AI</h2>
               <p className="text-app-muted font-bold mb-8 leading-relaxed">
-                Sistem pembuatan profil bisnis otomatis. Bangun identitas digital profesional 
-                yang memikat pelanggan hanya dalam hitungan detik.
+                {isEn
+                  ? 'An automated business profile creation system. Build a professional digital identity that attracts customers in just seconds.'
+                  : 'Sistem pembuatan profil bisnis otomatis. Bangun identitas digital profesional yang memikat pelanggan hanya dalam hitungan detik.'}
               </p>
               
               <div className="mt-auto pt-6 flex items-center justify-between border-t border-app-border">
                 <Link to="/business-profile" className="btn-primary group/btn py-3 px-6 text-xs">
-                  Lihat Demo <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                  {isEn ? 'View Demo' : 'Lihat Demo'} <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                 </Link>
                 <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-[9px] font-black text-emerald-600 uppercase tracking-widest">
                   <Zap size={10} className="text-emerald-500" /> Active
@@ -141,13 +145,14 @@ const LabPage = () => {
               
               <h2 className="text-3xl font-black text-app-text mb-4 tracking-tighter">Supply Chain Management AI</h2>
               <p className="text-app-muted font-bold mb-8 leading-relaxed max-w-3xl">
-                Sistem optimasi rantai pasok otonom. Pantau inventori, prediksi keterlambatan pengiriman, 
-                dan mitigasi risiko operasional secara real-time dengan bantuan kecerdasan buatan.
+                {isEn
+                  ? 'An autonomous supply chain optimization system. Monitor inventory, predict delivery delays, and mitigate operational risks in real-time with AI assistance.'
+                  : 'Sistem optimasi rantai pasok otonom. Pantau inventori, prediksi keterlambatan pengiriman, dan mitigasi risiko operasional secara real-time dengan bantuan kecerdasan buatan.'}
               </p>
               
               <div className="mt-auto pt-6 flex items-center justify-between border-t border-app-border">
                 <Link to="/supply-chain-demo" className="btn-primary group/btn py-3 px-6 text-xs bg-amber-600 border-amber-600 hover:bg-amber-700">
-                  Buka Demo SCM <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                  {isEn ? 'Open SCM Demo' : 'Buka Demo SCM'} <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                 </Link>
                 <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-[9px] font-black text-amber-700 uppercase tracking-widest">
                   <Zap size={10} className="text-amber-600" /> Prototype

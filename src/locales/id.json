@@ -65,10 +65,7 @@
       "title": "Misi Kami",
       "desc": "Membantu pelaku usaha menjalankan bisnis dengan cara yang lebih mudah, cepat, dan teratur."
     },
-    "vision": {
-      "title": "Visi Kami",
-      "desc": "Menjadi partner pertumbuhan bisnis yang praktis, mudah dipahami, dan bermanfaat untuk kegiatan sehari-hari."
-    }
+    "vision": { "title": "Visi Kami", "desc": "Menjadi partner pertumbuhan bisnis yang praktis, mudah dipahami, dan bermanfaat untuk kegiatan sehari-hari." }, "founder_heading": "Orang di Balik Ini"
   },
   "services": {
     "badge": "Kemampuan Kami",
