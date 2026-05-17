@@ -13,8 +13,8 @@
   },
   "hero": {
     "title": "Flexible Software Solutions for",
-    "subtitle": "Customers, Businesses & Government",
-    "description": "We are a premier software house building custom, scalable, and secure digital solutions tailored to the unique workflows of businesses, enterprises, and public sectors.",
+    "subtitle": "Businesses & Enterprises",
+    "description": "We are a premier software house building custom, scalable, and secure digital solutions tailored to the unique workflows of businesses and enterprises.",
     "cta_primary": "Initialize Project",
     "cta_secondary": "Explore Solutions",
     "badge": "Next-Gen Autonomous Systems",
@@ -23,7 +23,7 @@
   },
   "cta": {
     "title": "Ready to Build Your Custom Software?",
-    "desc": "Partner with our software house to digitalize and automate your organization's operations with maximum flexibility.",
+    "desc": "Partner with our software house to digitalize and automate your business operations with maximum flexibility.",
     "btn_primary": "Start Now",
     "btn_secondary": "Contact Us"
   },
@@ -53,36 +53,36 @@
     "badge": "Our Story",
     "title": "Empowering Your Organization with",
     "subtitle": "Custom Software Solutions",
-    "description": "Vermont Automated Digital is a software house born from a simple belief: every organization is unique. We build flexible, custom digital systems that adapt to your specific needs—whether you're a retail customer, an enterprise business, or a government agency.",
+    "description": "Vermont Automated Digital is a software house born from a simple belief: every business is unique. We build flexible, custom digital systems that adapt to your specific business workflows.",
     "philosophy": {
       "title": "Our Philosophy",
       "p1_title": "Ultimate Flexibility",
       "p1_desc": "We don't force you into rigid SaaS products. We engineer bespoke software solutions that fit your workflows perfectly.",
-      "p2_title": "Enterprise & Government Grade",
+      "p2_title": "Enterprise Grade",
       "p2_desc": "Security, compliance, and scalability are at our core. We build transparent and reliable systems that anyone can trust."
     },
     "mission": {
       "title": "Our Mission",
-      "desc": "To provide high-quality, custom software development services that help organizations scale without operational friction."
+      "desc": "To provide high-quality, custom software development services that help businesses scale without operational friction."
     },
-    "vision": { "title": "Our Vision", "desc": "A future where every organization has a digital infrastructure perfectly tailored to its unique mission." }, "founder_heading": "The Person Behind This"
+    "vision": { "title": "Our Vision", "desc": "A future where every business has a digital infrastructure perfectly tailored to its unique operations." }, "founder_heading": "The Person Behind This"
   },
   "services": {
     "badge": "Our Services",
     "title": "Custom Software Solutions for",
     "subtitle": "Your Unique Needs",
-    "description": "As a dedicated software house, we design and develop tailored software systems offering absolute flexibility for consumers, B2B, and B2G sectors.",
+    "description": "As a dedicated software house, we design and develop tailored software systems offering absolute flexibility for businesses and enterprises.",
     "s1_title": "Custom Application Development",
     "s1_desc": "End-to-end development of web and mobile applications engineered to solve your specific challenges.",
     "s2_title": "Enterprise System Integration",
     "s2_desc": "Seamlessly connecting diverse software systems to streamline your complex organizational workflows.",
-    "s3_title": "Government Digitalization",
-    "s3_desc": "Building secure, compliant, and highly available public service systems for government agencies.",
+    "s3_title": "Custom Enterprise Portals",
+    "s3_desc": "Building secure, compliant, and highly available internal software systems for corporate use.",
     "s4_title": "Data & AI Solutions",
     "s4_desc": "Custom predictive models and business intelligence dashboards tailored to your organizational data.",
     "cta": "Start Your Project",
     "footer_title": "Looking for a Custom Software Partner?",
-    "footer_desc": "Join organizations and government bodies who have entrusted their digital transformation to us.",
+    "footer_desc": "Join forward-thinking businesses who have entrusted their digital transformation to us.",
     "footer_button": "Free Consultation"
   },
   "solutions": {
@@ -139,7 +139,7 @@
     }
   },
   "footer": {
-    "tagline": "A premier software house building flexible digital solutions for customers, businesses, and governments.",
+    "tagline": "A premier software house building flexible digital solutions for businesses and enterprises.",
     "exploration": "Exploration",
     "contact_heading": "Contact",
     "innovation_hub": "Innovation Hub",
@@ -207,8 +207,8 @@
   },
   "home_simple": {
     "p1": "Tailored Software for Every Need",
-    "p2": "Enterprise & Public Sector Grade",
-    "p3": "Perfect for retail customers, private enterprises, and government agencies.",
+    "p2": "Enterprise & Corporate Grade",
+    "p3": "Perfect for small businesses, mid-size companies, and private enterprises.",
     "f1_desc": "Highly flexible custom applications designed to align perfectly with your operations.",
     "f1_link": "Explore Services",
     "f2_desc": "Secure, compliant, and highly scalable software systems built for large-scale operations.",

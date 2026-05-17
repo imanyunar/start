@@ -13,8 +13,8 @@
   },
   "hero": {
     "title": "Solusi Software Custom untuk",
-    "subtitle": "Kustomer, Bisnis & Pemerintahan",
-    "description": "Kami adalah software house yang membangun sistem digital yang fleksibel, aman, dan dapat disesuaikan sepenuhnya dengan kebutuhan unik organisasi, perusahaan, atau instansi publik Anda.",
+    "subtitle": "Bisnis & Perusahaan",
+    "description": "Kami adalah software house yang membangun sistem digital yang fleksibel, aman, dan dapat disesuaikan sepenuhnya dengan alur kerja unik bisnis dan perusahaan Anda.",
     "cta_primary": "Konsultasi Gratis",
     "cta_secondary": "Lihat Layanan",
     "badge": "Sistem Kasir & Keuangan Bisnis Terpercaya",
@@ -23,7 +23,7 @@
   },
   "cta": {
     "title": "Siap Membangun Software Custom Anda?",
-    "desc": "Bermitra dengan software house kami untuk mendigitalisasi dan mengotomatisasi operasional organisasi Anda dengan fleksibilitas maksimal.",
+    "desc": "Bermitra dengan software house kami untuk mendigitalisasi dan mengotomatisasi operasional bisnis Anda dengan fleksibilitas maksimal.",
     "btn_primary": "Mulai Sekarang",
     "btn_secondary": "Hubungi Kami"
   },
@@ -53,36 +53,36 @@
     "badge": "Tentang Kami",
     "title": "Memberdayakan Organisasi Anda Melalui",
     "subtitle": "Solusi Software Custom",
-    "description": "Vermont Automated Digital adalah software house yang lahir dari satu keyakinan: setiap organisasi itu unik. Kami membangun sistem digital fleksibel yang beradaptasi dengan kebutuhan spesifik Anda—baik Anda adalah kustomer retail, perusahaan besar, atau instansi pemerintahan.",
+    "description": "Vermont Automated Digital adalah software house yang lahir dari satu keyakinan: setiap bisnis itu unik. Kami membangun sistem digital fleksibel yang beradaptasi dengan alur kerja spesifik bisnis dan perusahaan Anda.",
     "philosophy": {
       "title": "Prinsip Kami",
       "p1_title": "Fleksibilitas Tanpa Batas",
       "p1_desc": "Kami tidak memaksa Anda menggunakan produk yang kaku. Kami merancang solusi software yang dibuat khusus agar pas dengan alur kerja Anda.",
-      "p2_title": "Standar Enterprise & Pemerintahan",
+      "p2_title": "Standar Enterprise",
       "p2_desc": "Keamanan, kepatuhan, dan skalabilitas adalah inti dari layanan kami. Kami membangun sistem yang transparan dan dapat diandalkan oleh siapa saja."
     },
     "mission": {
       "title": "Misi Kami",
-      "desc": "Menyediakan layanan pengembangan software custom berkualitas tinggi yang membantu berbagai organisasi tumbuh tanpa hambatan operasional."
+      "desc": "Menyediakan layanan pengembangan software custom berkualitas tinggi yang membantu bisnis tumbuh tanpa hambatan operasional."
     },
-    "vision": { "title": "Visi Kami", "desc": "Masa depan di mana setiap organisasi memiliki infrastruktur digital yang dirancang khusus untuk mencapai misinya." }, "founder_heading": "Orang di Balik Ini"
+    "vision": { "title": "Visi Kami", "desc": "Masa depan di mana setiap bisnis memiliki infrastruktur digital yang dirancang khusus untuk mendukung operasionalnya secara efisien." }, "founder_heading": "Orang di Balik Ini"
   },
   "services": {
     "badge": "Layanan Kami",
     "title": "Solusi Software Custom untuk",
     "subtitle": "Kebutuhan Unik Anda",
-    "description": "Sebagai software house yang berdedikasi, kami merancang dan mengembangkan sistem software yang disesuaikan untuk menawarkan fleksibilitas mutlak bagi sektor konsumen, B2B, dan pemerintahan.",
+    "description": "Sebagai software house yang berdedikasi, kami merancang dan mengembangkan sistem software yang disesuaikan untuk menawarkan fleksibilitas mutlak bagi sektor bisnis dan B2B.",
     "s1_title": "Pengembangan Aplikasi Custom",
     "s1_desc": "Pengembangan end-to-end aplikasi web dan mobile yang direkayasa untuk menyelesaikan tantangan spesifik Anda.",
     "s2_title": "Integrasi Sistem Perusahaan",
     "s2_desc": "Menghubungkan berbagai sistem software untuk menyederhanakan alur kerja organisasi Anda yang kompleks.",
-    "s3_title": "Digitalisasi Pemerintahan",
-    "s3_desc": "Membangun sistem pelayanan publik yang aman, patuh regulasi, dan selalu tersedia untuk instansi pemerintah.",
+    "s3_title": "Portal & ERP Kustom",
+    "s3_desc": "Membangun sistem portal internal dan ERP yang aman, cepat, dan terintegrasi untuk bisnis Anda.",
     "s4_title": "Solusi Data & AI",
     "s4_desc": "Model prediksi khusus dan dashboard intelijen bisnis yang disesuaikan dengan data organisasi Anda.",
     "cta": "Mulai Proyek Anda",
     "footer_title": "Mencari Partner Software Custom?",
-    "footer_desc": "Bergabunglah dengan berbagai perusahaan dan lembaga pemerintah yang telah mempercayakan transformasi digital mereka kepada kami.",
+    "footer_desc": "Bergabunglah dengan berbagai perusahaan dan bisnis modern yang telah mempercayakan transformasi digital mereka kepada kami.",
     "footer_button": "Konsultasi Gratis"
   },
   "solutions": {
@@ -139,7 +139,7 @@
     }
   },
   "footer": {
-    "tagline": "Software house terkemuka yang membangun solusi digital fleksibel untuk kustomer, bisnis, dan pemerintahan.",
+    "tagline": "Software house terkemuka yang membangun solusi digital fleksibel untuk bisnis dan perusahaan.",
     "exploration": "Jelajahi",
     "contact_heading": "Hubungi Kami",
     "innovation_hub": "Pusat Layanan Kami",
@@ -208,8 +208,8 @@
   },
   "home_simple": {
     "p1": "Software Kustom Sesuai Kebutuhan",
-    "p2": "Standar Enterprise & Instansi Publik",
-    "p3": "Cocok untuk kustomer ritel, perusahaan swasta, hingga instansi pemerintahan.",
+    "p2": "Standar Enterprise & Korporat",
+    "p3": "Cocok untuk UMKM, bisnis berkembang, hingga perusahaan skala besar.",
     "f1_desc": "Aplikasi kustom berfleksibilitas tinggi yang dirancang agar selaras sepenuhnya dengan operasional Anda.",
     "f1_link": "Lihat Layanan",
     "f2_desc": "Sistem software yang aman, patuh regulasi, dan berskala besar untuk operasional instansi Anda.",
