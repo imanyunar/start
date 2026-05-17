@@ -252,7 +252,7 @@ function SmartFlowPage() {
       <aside className="fixed left-0 top-0 hidden h-screen w-72 flex-col border-r border-[var(--app-border)] bg-[var(--app-surface)] p-7 lg:flex">
         <div className="mb-10">
           <Logo />
-          <p className="mt-4 text-xs font-bold text-[var(--app-muted)]">Sistem Operasional Bisnis untuk UMKM Indonesia</p>
+          <p className="mt-4 text-xs font-bold text-[var(--app-muted)]">Sistem Operasional Bisnis Global</p>
         </div>
         <nav className="space-y-1">
           {navItems.map((item) => (
@@ -370,7 +370,7 @@ function SmartFlowPage() {
                 <p className="text-xs font-black uppercase tracking-[0.2em] opacity-75">Input Bahasa Sehari-hari</p>
                 <h2 className="mt-2 text-3xl font-black tracking-tight md:text-4xl">Catat Bisnis Pakai Bahasa Sehari-hari</h2>
               </div>
-              <div className="rounded-2xl bg-white/15 px-4 py-2 text-xs font-black">UMKM | TikTok Shop | Shopee | Cafe | Retail</div>
+              <div className="rounded-2xl bg-white/15 px-4 py-2 text-xs font-black">Startup | E-Commerce | Retail | Agency | Cafe</div>
             </div>
             <div className="grid gap-3 md:grid-cols-[1fr_auto]">
               <textarea

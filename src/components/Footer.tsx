@@ -31,7 +31,7 @@ const Footer = () => {
               <Mail size={16} className="text-blue-primary" />
               <span>imanyunar@gmail.com</span>
             </div>
-            <p className="mt-3 text-xs font-bold text-[var(--app-muted)]">Semarang, Indonesia</p>
+            <p className="mt-3 text-xs font-bold text-[var(--app-muted)]">Global Headquarters</p>
           </div>
         </div>
 

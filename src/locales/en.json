@@ -12,8 +12,8 @@
   },
   "hero": {
     "title": "Cashflow & Company Profile Website for",
-    "subtitle": "Indonesian MSMEs",
-    "description": "Professional cashflow and company profile websites to help MSMEs manage their business more neatly, modernly, and professionally.",
+    "subtitle": "Startups & SMEs Worldwide",
+    "description": "Professional cashflow and company profile websites to help businesses manage their operations more neatly, modernly, and professionally.",
     "cta_primary": "Initialize Project",
     "cta_secondary": "Explore Solutions",
     "badge": "Next-Gen Autonomous Systems",
@@ -175,7 +175,7 @@
   },
   "smartflow": {
     "title": "Vermont SmartFlow",
-    "subtitle": "Intelligent Business Assistant for Indonesian MSMEs",
+    "subtitle": "Intelligent Business Assistant for Startups & SMEs Worldwide",
     "input_placeholder": "Type transaction... (e.g., sell chicken noodle 75k)",
     "send": "Record",
     "recent": "Recent Transactions",

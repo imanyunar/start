@@ -12,11 +12,11 @@
   },
   "hero": {
     "title": "Website Cashflow & Company Profile untuk",
-    "subtitle": "UMKM Indonesia",
-    "description": "Website cashflow dan company profile untuk membantu UMKM mengelola bisnis lebih rapi, modern, dan profesional.",
+    "subtitle": "Startup & Bisnis Global",
+    "description": "Website cashflow dan company profile untuk membantu pelaku bisnis mengelola usahanya lebih rapi, modern, dan profesional.",
     "cta_primary": "Konsultasi Gratis",
     "cta_secondary": "Lihat Layanan",
-    "badge": "Sistem Kasir & Keuangan UMKM Terpercaya",
+    "badge": "Sistem Kasir & Keuangan Bisnis Terpercaya",
     "floating_status": "Sistem Aktif",
     "floating_desc": "Otomatisasi Terjamin"
   },
@@ -50,9 +50,9 @@
   },
   "about": {
     "badge": "Tentang Kami",
-    "title": "Partner Digitalisasi UMKM Melalui",
+    "title": "Partner Digitalisasi Bisnis Global Melalui",
     "subtitle": "Sistem yang Sederhana",
-    "description": "Vermont membantu UMKM dan bisnis online di Indonesia bertransformasi digital. Kami menyediakan aplikasi kasir dan pencatatan keuangan yang mudah dipakai agar operasional harian Anda lebih ringan.",
+    "description": "Vermont membantu startup dan bisnis online secara global bertransformasi digital. Kami menyediakan aplikasi kasir dan pencatatan keuangan yang mudah dipakai agar operasional harian Anda lebih ringan.",
     "philosophy": {
       "title": "Prinsip Kami",
       "p1_title": "Bermimpi Lebih Besar",
@@ -141,7 +141,7 @@
     }
   },
   "footer": {
-    "tagline": "Kami membantu UMKM dan bisnis online bekerja lebih rapi dengan sistem yang sederhana dan mudah dipahami.",
+    "tagline": "Kami membantu berbagai startup dan bisnis online bekerja lebih rapi dengan sistem yang sederhana dan mudah dipahami.",
     "exploration": "Jelajahi",
     "contact_heading": "Hubungi Kami",
     "innovation_hub": "Pusat Layanan Kami",
@@ -211,7 +211,7 @@
   ,"home_simple": {
     "p1": "Pencatatan bisnis jadi lebih cepat tanpa ribet.",
     "p2": "Laporan harian mudah dibaca, bahkan untuk pemula.",
-    "p3": "Cocok untuk UMKM, toko online, cafe, dan retail."
+    "p3": "Cocok untuk startup, toko online, agency, dan retail global."
   }
 }
 

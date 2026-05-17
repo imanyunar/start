@@ -133,7 +133,7 @@ export const initialCustomers: Customer[] = [
   {
     id: 'c-2',
     name: 'Pak Budi',
-    segment: 'UMKM',
+    segment: 'Startup',
     notes: 'Sering ambil tempo 7 hari.',
     totalSpending: 1750000,
     repeatOrders: 7,

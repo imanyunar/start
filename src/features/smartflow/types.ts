@@ -1,4 +1,4 @@
-﻿export type TransactionType = 'income' | 'expense' | 'debt';
+export type TransactionType = 'income' | 'expense' | 'debt';
 export type PaymentMethod = 'cash' | 'qris' | 'transfer' | 'e-wallet';
 
 export interface Transaction {
@@ -34,7 +34,7 @@ export interface InventoryItem {
 export interface Customer {
   id: string;
   name: string;
-  segment: 'UMKM' | 'Retail' | 'Online Shop' | 'Cafe';
+  segment: 'Startup' | 'Retail' | 'Online Shop' | 'Cafe';
   notes: string;
   totalSpending: number;
   repeatOrders: number;
