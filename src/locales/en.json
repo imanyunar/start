@@ -11,9 +11,9 @@
     "terms": "Terms"
   },
   "hero": {
-    "title": "Cashflow & Company Profile Website for",
+    "title": "Cashflow, Supply Chain & Profile Website for",
     "subtitle": "Startups & SMEs Worldwide",
-    "description": "Professional cashflow and company profile websites to help businesses manage their operations more neatly, modernly, and professionally.",
+    "description": "Professional business operating systems, cashflow tools, and supply chain management dashboards to help businesses scale efficiently.",
     "cta_primary": "Initialize Project",
     "cta_secondary": "Explore Solutions",
     "badge": "Next-Gen Autonomous Systems",
@@ -34,8 +34,8 @@
   "features": {
     "section_title": "Built for the Intelligence Age",
     "section_desc": "Our core infrastructure leverages advanced neural architectures to process complex business workflows in real-time.",
-    "f1_title": "Autonomous Core",
-    "f1_desc": "Simple workflow support that helps daily decisions become faster and clearer.",
+    "f1_title": "Autonomous Supply Chain",
+    "f1_desc": "Real-time inventory and logistics monitoring to keep your supply chain moving without bottlenecks.",
     "f2_title": "Data Intelligence",
     "f2_desc": "Predictive analytics engine that transforms raw noise into signal.",
     "f3_title": "Global Mesh",
@@ -175,7 +175,7 @@
   },
   "smartflow": {
     "title": "Vermont SmartFlow",
-    "subtitle": "Intelligent Business Assistant for Startups & SMEs Worldwide",
+    "subtitle": "Intelligent Operations & Supply Chain Assistant",
     "input_placeholder": "Type transaction... (e.g., sell chicken noodle 75k)",
     "send": "Record",
     "recent": "Recent Transactions",

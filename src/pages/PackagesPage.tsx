@@ -10,18 +10,18 @@ const packages = [
     setupNewPrice: 999000,
     hostingPrice: 79000,
     headline: 'Start Digital',
-    highlight: 'Website Profile + Dashboard Cashflow',
+    highlight: 'Company Profile + Cashflow Dashboard',
     features: [
-      'Website company profile',
-      'Domain .my.id',
-      'Dashboard cashflow sederhana',
-      'Pencatatan pemasukan & pengeluaran',
-      'Riwayat transaksi',
-      'Ringkasan omzet harian',
-      'Upload bukti pembayaran',
-      '1 akun admin',
+      'Company profile website',
+      'Custom Domain',
+      'Simple cashflow dashboard',
+      'Income & expense tracking',
+      'Transaction history',
+      'Daily revenue summary',
+      'Payment receipt upload',
+      '1 admin account',
       'Maintenance & hosting',
-      'Support dasar',
+      'Basic support',
     ],
     headerGradient: 'from-[#1D6FE8] via-[#0EA5E9] to-[#38BDF8]',
     glowColor: 'shadow-blue-500/30',
@@ -39,22 +39,22 @@ const packages = [
     setupNewPrice: 1499000,
     hostingPrice: 139000,
     headline: 'Best Value 🔥',
-    highlight: 'Semua fitur Basic + Operasional Lengkap',
+    highlight: 'Basic + Complete Operations & Supply Chain',
     features: [
-      'Semua fitur Basic',
-      'Domain .com',
-      'Manajemen stok barang',
-      'Notifikasi stok menipis',
-      'Data pelanggan',
-      'Histori pembelian pelanggan',
-      'Export PDF & Excel',
-      'Produk paling laris otomatis',
-      'Laporan penjualan bulanan',
-      'Reminder transaksi & stok',
-      'Filter & pencarian transaksi',
-      '3 akun user/admin',
-      'Dashboard lebih lengkap',
-      'Prioritas support',
+      'All Basic features',
+      'Premium Domain',
+      'Inventory & Supply Chain Management',
+      'Low stock notifications',
+      'Customer database',
+      'Customer purchase history',
+      'PDF & Excel Export',
+      'Automated best sellers tracking',
+      'Monthly sales reports',
+      'Transaction & stock reminders',
+      'Filter & search transactions',
+      '3 user/admin accounts',
+      'Advanced dashboard',
+      'Priority support',
     ],
     headerGradient: 'from-[#7C3AED] via-[#8B5CF6] to-[#A78BFA]',
     glowColor: 'shadow-violet-500/30',
@@ -72,23 +72,23 @@ const packages = [
     setupNewPrice: 1999999,
     hostingPrice: 189000,
     headline: 'Business Insight',
-    highlight: 'Semua fitur Pro + Analisis & Integrasi',
+    highlight: 'Pro + Analytics & Ecosystem Integrations',
     features: [
-      'Semua fitur Pro',
-      'Pencatatan hutang & piutang',
-      'Reminder jatuh tempo pembayaran',
-      'Analisis performa bisnis',
-      'Analisis pengeluaran terbesar',
-      'Analisis jam penjualan tersibuk',
-      'Histori pelanggan langganan',
-      'Multi user lebih banyak',
-      'Dashboard insight bisnis premium',
-      'Integrasi payment gateway / QRIS',
-      'Integrasi marketplace',
-      'Integrasi resi & pengiriman',
-      'Prioritas maintenance',
-      'Request penyesuaian fitur ringan',
-      'Konsultasi pengembangan sistem',
+      'All Pro features',
+      'Debt & receivables tracking',
+      'Payment due reminders',
+      'Business performance analytics',
+      'Expense analysis',
+      'Peak hours analysis',
+      'Loyal customer tracking',
+      'Unlimited user accounts',
+      'Premium business insight dashboard',
+      'Payment gateway integrations',
+      'Marketplace integrations',
+      'Logistics & shipping integrations',
+      'Priority maintenance',
+      'Light feature customization requests',
+      'System development consultation',
     ],
     headerGradient: 'from-[#B45309] via-[#D97706] to-[#FBBF24]',
     glowColor: 'shadow-amber-500/30',
@@ -120,14 +120,14 @@ export default function PackagesPage() {
               animate={{ opacity: 1, y: 0 }}
               className="badge-light mx-auto mb-4 w-fit"
             >
-              Paket Layanan
+              Service Packages
             </motion.div>
             <h1 className="mb-5 text-4xl font-black tracking-tight text-[var(--app-text)] md:text-6xl">
-              Pilih Paket Sesuai{' '}
-              <span className="text-gradient">Kebutuhan Bisnis</span> Anda
+              Choose a Package For Your{' '}
+              <span className="text-gradient">Business Needs</span>
             </h1>
             <p className="text-lg font-bold leading-relaxed text-[var(--app-muted)]">
-              Fokus kami sederhana: mempermudah dan mempercepat kegiatan bisnis harian Anda.
+              Our focus is simple: making your daily business operations and supply chain management easier and faster.
             </p>
           </div>
 
@@ -163,7 +163,7 @@ export default function PackagesPage() {
 
                     <div className="relative z-10 flex items-start justify-between">
                       <div>
-                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60">Paket</p>
+                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60">Package</p>
                         <h2 className="mt-0.5 text-3xl font-black tracking-tight text-white">{pkg.name}</h2>
                       </div>
                       <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/25 text-white shadow-inner">
@@ -174,7 +174,7 @@ export default function PackagesPage() {
                     {/* Pricing */}
                     <div className="relative z-10 mt-5">
                       <p className="mb-1 text-[10px] font-black uppercase tracking-[0.2em] text-white/60">
-                        Biaya Setup
+                        Setup Fee
                       </p>
                       <div className="flex items-center gap-3">
                         <p className="text-3xl font-black text-white">{formatRp(pkg.setupNewPrice)}</p>
@@ -191,11 +191,11 @@ export default function PackagesPage() {
                         </div>
                         <p className="flex items-center gap-1 text-[11px] font-black uppercase tracking-wider text-white">
                           <span className="rounded bg-white px-1.5 py-0.5 text-[9px] text-blue-600">FREE</span>
-                          Bulan Pertama GRATIS
+                          First Month FREE
                         </p>
                       </div>
                       <p className="mt-2 text-[10px] font-black uppercase tracking-widest text-white/50">
-                        Biaya Maintenance & Hosting
+                        Maintenance & Hosting Fee
                       </p>
                     </div>
                   </div>
@@ -205,7 +205,7 @@ export default function PackagesPage() {
                     {/* Red DISKON pill */}
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-500 px-3.5 py-2 text-xs font-black text-white shadow-xl shadow-rose-500/40">
                       <Tag size={12} strokeWidth={3} />
-                      DISKON {pct}%
+                      {pct}% OFF
                     </span>
                   </div>
 
@@ -247,13 +247,12 @@ export default function PackagesPage() {
           {/* Bottom CTA */}
           <div className="relative mt-20 overflow-hidden rounded-[3rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-8 text-center md:p-12">
             <div className="absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-blue-primary/5 blur-3xl" />
-            <h2 className="mb-4 text-3xl font-black text-[var(--app-text)]">Butuh Solusi Kustom?</h2>
+            <h2 className="mb-4 text-3xl font-black text-[var(--app-text)]">Need a Custom Solution?</h2>
             <p className="mx-auto mb-8 max-w-2xl font-bold text-[var(--app-muted)]">
-              Jika bisnis Anda membutuhkan fitur khusus yang tidak ada di paket atas, tim lab kami siap
-              membangun sistem yang sesuai dengan spesifikasi Anda.
+              If your business requires specific features, advanced supply chain capabilities, or custom integrations, our laboratory team is ready to build a system tailored to your exact specifications.
             </p>
             <Link to="/contact" className="btn-secondary inline-flex">
-              Konsultasi Gratis Sekarang
+              Free Consultation Now
             </Link>
           </div>
         </div>

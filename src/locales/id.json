@@ -11,9 +11,9 @@
     "terms": "Syarat & Ketentuan"
   },
   "hero": {
-    "title": "Website Cashflow & Company Profile untuk",
+    "title": "Sistem Cashflow, Supply Chain & Website untuk",
     "subtitle": "Startup & Bisnis Global",
-    "description": "Website cashflow dan company profile untuk membantu pelaku bisnis mengelola usahanya lebih rapi, modern, dan profesional.",
+    "description": "Sistem operasi bisnis profesional dengan fitur manajemen rantai pasok (supply chain) dan cashflow terintegrasi.",
     "cta_primary": "Konsultasi Gratis",
     "cta_secondary": "Lihat Layanan",
     "badge": "Sistem Kasir & Keuangan Bisnis Terpercaya",
@@ -34,8 +34,8 @@
   "features": {
     "section_title": "Hadir untuk Era Digital",
     "section_desc": "Layanan kami membantu pekerjaan harian bisnis jadi lebih mudah, cepat, dan rapi.",
-    "f1_title": "Pekerjaan Lebih Ringan",
-    "f1_desc": "Proses kerja harian jadi lebih sederhana sehingga Anda bisa fokus ke penjualan.",
+    "f1_title": "Manajemen Supply Chain",
+    "f1_desc": "Pemantauan stok barang dan logistik secara real-time agar rantai pasok Anda berjalan tanpa hambatan.",
     "f2_title": "Laporan Mudah Dipahami",
     "f2_desc": "Data penjualan dirapikan menjadi laporan yang jelas dan mudah dibaca.",
     "f3_title": "Akses Cepat Kapan Saja",
@@ -175,7 +175,7 @@
   },
   "smartflow": {
     "title": "Vermont SmartFlow",
-    "subtitle": "Asisten Pencatat Keuangan & Bisnis Anda",
+    "subtitle": "Asisten Operasional & Supply Chain Bisnis Anda",
     "input_placeholder": "Contoh: Jual mie ayam 2 porsi 30 ribu...",
     "send": "Catat",
     "recent": "Transaksi Terakhir",

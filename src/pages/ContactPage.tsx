@@ -6,24 +6,6 @@ import { useTranslation } from 'react-i18next';
 const ContactPage = () => {
   const { t } = useTranslation();
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const mailSubject = formData.subject || t('contact.form.options.ai');
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    window.location.href = `mailto:imanyunar15@gmail.com?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(body)}`;
-  };
-
   return (
     <div className="pt-24 min-h-screen bg-[var(--app-bg)]">
       <section className="py-20 px-4 sm:px-6 lg:px-8">
@@ -90,15 +72,16 @@ const ContactPage = () => {
             <div className="bg-[var(--app-surface)] p-8 md:p-12 rounded-[2rem] border border-[var(--app-border)] shadow-xl relative">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-primary/5 blur-[80px] rounded-full"></div>
               
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              <form className="space-y-6" action="https://formsubmit.co/imanyunar15@gmail.com" method="POST">
+                <input type="hidden" name="_next" value="http://localhost:5173/" />
+                <input type="hidden" name="_subject" value="New message from Vermont Website!" />
+                <input type="hidden" name="_captcha" value="false" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-[10px] font-black uppercase tracking-widest text-[var(--app-muted)] ml-2">{t('contact.form.name')}</label>
                     <input 
                       type="text" 
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
                       required
                       className="w-full bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-5 py-4 text-[var(--app-text)] font-bold placeholder:text-[var(--app-faint)] focus:border-blue-primary/50 focus:bg-[var(--app-surface)] focus:outline-none transition-all"
                       placeholder={t('contact.form.placeholder_name')}
@@ -109,8 +92,6 @@ const ContactPage = () => {
                     <input 
                       type="email" 
                       name="email"
-                      value={formData.email}
-                      onChange={handleChange}
                       required
                       className="w-full bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-5 py-4 text-[var(--app-text)] font-bold placeholder:text-[var(--app-faint)] focus:border-blue-primary/50 focus:bg-[var(--app-surface)] focus:outline-none transition-all"
                       placeholder="alan@turing.io"
@@ -121,8 +102,6 @@ const ContactPage = () => {
                   <label className="text-[10px] font-black uppercase tracking-widest text-[var(--app-muted)] ml-2">{t('contact.form.subject')}</label>
                   <select 
                     name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
                     className="w-full bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-5 py-4 text-[var(--app-text)] font-bold focus:border-blue-primary/50 focus:bg-[var(--app-surface)] focus:outline-none transition-all appearance-none"
                   >
                     <option value={t('contact.form.options.ai')} className="bg-[var(--app-surface)]">{t('contact.form.options.ai')}</option>
@@ -135,8 +114,6 @@ const ContactPage = () => {
                   <label className="text-[10px] font-black uppercase tracking-widest text-[var(--app-muted)] ml-2">{t('contact.form.message')}</label>
                   <textarea 
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
                     required
                     rows={4}
                     className="w-full bg-[var(--app-bg)] border border-[var(--app-border)] rounded-xl px-5 py-4 text-[var(--app-text)] font-bold placeholder:text-[var(--app-faint)] focus:border-blue-primary/50 focus:bg-[var(--app-surface)] focus:outline-none transition-all resize-none"
