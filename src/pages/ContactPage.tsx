@@ -18,7 +18,7 @@ const ContactPage = () => {
     });
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/imanyunar15@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/imanyunar@gmail.com", {
         method: "POST",
         headers: { 
           'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <div className="text-[10px] font-black uppercase tracking-widest text-[var(--app-muted)] mb-1">{t('contact.info.email_label')}</div>
-                  <div className="text-[var(--app-text)] font-black">imanyunar15@gmail.com</div>
+                  <div className="text-[var(--app-text)] font-black">imanyunar@gmail.com</div>
                 </div>
               </div>
               <div className="flex items-center gap-6 group">

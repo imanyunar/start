@@ -166,7 +166,7 @@
       "success_title": "Pesan Berhasil Terkirim!",
       "success_desc": "Terima kasih telah menghubungi kami. Tim kami akan segera menghubungi Anda.",
       "error_title": "Pengiriman Gagal",
-      "error_desc": "Server FormSubmit sedang offline. Silakan coba lagi nanti atau hubungi kami langsung di imanyunar15@gmail.com.",
+      "error_desc": "Server FormSubmit sedang offline. Silakan coba lagi nanti atau hubungi kami langsung di imanyunar@gmail.com.",
       "options": {
         "ai": "Konsultasi Operasional Bisnis",
         "arch": "Pembuatan Aplikasi/Sistem Baru",
