@@ -73,7 +73,7 @@ const ContactPage = () => {
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-primary/5 blur-[80px] rounded-full"></div>
               
               <form className="space-y-6" action="https://formsubmit.co/imanyunar15@gmail.com" method="POST">
-                <input type="hidden" name="_next" value="http://localhost:5173/" />
+                <input type="hidden" name="_next" value="https://vermontdigital.biz.id/contact" />
                 <input type="hidden" name="_subject" value="New message from Vermont Website!" />
                 <input type="hidden" name="_captcha" value="false" />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
