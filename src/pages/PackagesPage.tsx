@@ -243,8 +243,9 @@ export default function PackagesPage() {
                       </div>
                       <div className="mt-5 flex flex-col gap-1.5">
                         <div className="flex items-baseline gap-1.5">
+                          {isEn && <span className="text-2xl font-black leading-none text-white">$</span>}
                           <span className="text-4xl font-black leading-none text-white">
-                            {isEn ? formatPrice(hPrice).replace('$', '') : formatPrice(hPrice).replace('Rp ', '')}
+                            {isEn ? hPrice.toLocaleString('en-US') : formatPrice(hPrice).replace('Rp ', '')}
                           </span>
                           <span className="text-sm font-bold text-white/70">{isEn ? '/mo' : '/bln'}</span>
                         </div>

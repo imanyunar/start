@@ -32,7 +32,7 @@ const Navbar = () => {
     { name: t('nav.laboratory'), path: '/laboratory' },
     { name: t('nav.about'), path: '/about' },
     { name: t('nav.capabilities'), path: '/services' },
-    { name: 'Paket', path: '/packages' },
+    { name: t('nav.packages'), path: '/packages' },
     { name: t('nav.contact'), path: '/contact' },
   ];
 
