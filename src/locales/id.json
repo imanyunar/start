@@ -207,11 +207,15 @@
       "prediction": "Prediksi Penjualan",
       "declining": "Produk Kurang Laku"
     }
-  }
-  ,"home_simple": {
+  },
+  "home_simple": {
     "p1": "Pencatatan bisnis jadi lebih cepat tanpa ribet.",
     "p2": "Laporan harian mudah dibaca, bahkan untuk pemula.",
-    "p3": "Cocok untuk startup, toko online, agency, dan retail global."
+    "p3": "Cocok untuk startup, toko online, agency, dan retail global.",
+    "f1_desc": "Solusi cashflow terintegrasi untuk bisnis modern.",
+    "f1_link": "Pelajari lebih lanjut",
+    "f2_desc": "Manajemen rantai pasok (Supply Chain) yang efisien.",
+    "f2_link": "Lihat fitur"
   }
 }
 

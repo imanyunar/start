@@ -204,9 +204,17 @@
       "best_selling": "Best Selling",
       "health_score": "Business Health Score",
       "health_desc": "Your business is in very healthy condition.",
-      "prediction": "Next Week Sales Prediction",
-      "declining": "Declining Products"
+      "prediction": "Next Week Sales Prediction"
     }
+  },
+  "home_simple": {
+    "p1": "Faster business tracking without the hassle.",
+    "p2": "Easy-to-read daily reports, even for beginners.",
+    "p3": "Perfect for startups, online stores, agencies, and global retail.",
+    "f1_desc": "Integrated cashflow solutions for modern businesses.",
+    "f1_link": "Learn more",
+    "f2_desc": "Efficient Supply Chain management.",
+    "f2_link": "View features"
   }
 }
 

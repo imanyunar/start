@@ -57,19 +57,19 @@ const Home = () => {
             <div className="card-premium flex flex-col justify-between">
               <div>
                 <h3 className="text-3xl font-bold mb-4">{t('home_simple.p1')}</h3>
-                <p className="text-[var(--app-muted)] text-lg">Solusi cashflow terintegrasi untuk bisnis modern.</p>
+                <p className="text-[var(--app-muted)] text-lg">{t('home_simple.f1_desc')}</p>
               </div>
               <Link to="/solutions" className="mt-12 text-blue-primary font-semibold flex items-center gap-2 hover:underline">
-                Pelajari lebih lanjut <ArrowRight size={16} />
+                {t('home_simple.f1_link')} <ArrowRight size={16} />
               </Link>
             </div>
             <div className="card-premium flex flex-col justify-between bg-[var(--app-bg)]">
               <div>
                 <h3 className="text-3xl font-bold mb-4">{t('home_simple.p2')}</h3>
-                <p className="text-[var(--app-muted)] text-lg">Manajemen rantai pasok (Supply Chain) yang efisien.</p>
+                <p className="text-[var(--app-muted)] text-lg">{t('home_simple.f2_desc')}</p>
               </div>
               <Link to="/supply-chain-demo" className="mt-12 text-blue-primary font-semibold flex items-center gap-2 hover:underline">
-                Lihat fitur <ArrowRight size={16} />
+                {t('home_simple.f2_link')} <ArrowRight size={16} />
               </Link>
             </div>
           </div>
