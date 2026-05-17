@@ -12,9 +12,9 @@
     "terms": "Syarat & Ketentuan"
   },
   "hero": {
-    "title": "Sistem Cashflow, Supply Chain & Website untuk",
-    "subtitle": "Startup & Bisnis Global",
-    "description": "Sistem operasi bisnis profesional dengan fitur manajemen rantai pasok (supply chain) dan cashflow terintegrasi.",
+    "title": "Solusi Software Custom untuk",
+    "subtitle": "Kustomer, Bisnis & Pemerintahan",
+    "description": "Kami adalah software house yang membangun sistem digital yang fleksibel, aman, dan dapat disesuaikan sepenuhnya dengan kebutuhan unik organisasi, perusahaan, atau instansi publik Anda.",
     "cta_primary": "Konsultasi Gratis",
     "cta_secondary": "Lihat Layanan",
     "badge": "Sistem Kasir & Keuangan Bisnis Terpercaya",
@@ -22,8 +22,8 @@
     "floating_desc": "Otomatisasi Terjamin"
   },
   "cta": {
-    "title": "Siap Mempermudah Kegiatan Bisnis Anda?",
-    "desc": "Bergabunglah dengan ribuan pengusaha yang telah menghemat waktu dan meningkatkan profit dengan Vermont.",
+    "title": "Siap Membangun Software Custom Anda?",
+    "desc": "Bermitra dengan software house kami untuk mendigitalisasi dan mengotomatisasi operasional organisasi Anda dengan fleksibilitas maksimal.",
     "btn_primary": "Mulai Sekarang",
     "btn_secondary": "Hubungi Kami"
   },
@@ -51,39 +51,39 @@
   },
   "about": {
     "badge": "Tentang Kami",
-    "title": "Partner Digitalisasi Bisnis Global Melalui",
-    "subtitle": "Sistem yang Sederhana",
-    "description": "Vermont membantu startup dan bisnis online secara global bertransformasi digital. Kami menyediakan aplikasi kasir dan pencatatan keuangan yang mudah dipakai agar operasional harian Anda lebih ringan.",
+    "title": "Memberdayakan Organisasi Anda Melalui",
+    "subtitle": "Solusi Software Custom",
+    "description": "Vermont Automated Digital adalah software house yang lahir dari satu keyakinan: setiap organisasi itu unik. Kami membangun sistem digital fleksibel yang beradaptasi dengan kebutuhan spesifik Anda—baik Anda adalah kustomer retail, perusahaan besar, atau instansi pemerintahan.",
     "philosophy": {
       "title": "Prinsip Kami",
-      "p1_title": "Bermimpi Lebih Besar",
-      "p1_desc": "Kami membantu pemilik bisnis bekerja lebih tenang dengan proses yang sederhana dan jelas.",
-      "p2_title": "Keamanan & Transparansi",
-      "p2_desc": "Data Anda adalah aset berharga. Kami memastikan setiap sistem yang kami buat selalu aman, jujur, dan bisa Anda andalkan kapan saja."
+      "p1_title": "Fleksibilitas Tanpa Batas",
+      "p1_desc": "Kami tidak memaksa Anda menggunakan produk yang kaku. Kami merancang solusi software yang dibuat khusus agar pas dengan alur kerja Anda.",
+      "p2_title": "Standar Enterprise & Pemerintahan",
+      "p2_desc": "Keamanan, kepatuhan, dan skalabilitas adalah inti dari layanan kami. Kami membangun sistem yang transparan dan dapat diandalkan oleh siapa saja."
     },
     "mission": {
       "title": "Misi Kami",
-      "desc": "Membantu pelaku usaha menjalankan bisnis dengan cara yang lebih mudah, cepat, dan teratur."
+      "desc": "Menyediakan layanan pengembangan software custom berkualitas tinggi yang membantu berbagai organisasi tumbuh tanpa hambatan operasional."
     },
-    "vision": { "title": "Visi Kami", "desc": "Menjadi partner pertumbuhan bisnis yang praktis, mudah dipahami, dan bermanfaat untuk kegiatan sehari-hari." }, "founder_heading": "Orang di Balik Ini"
+    "vision": { "title": "Visi Kami", "desc": "Masa depan di mana setiap organisasi memiliki infrastruktur digital yang dirancang khusus untuk mencapai misinya." }, "founder_heading": "Orang di Balik Ini"
   },
   "services": {
-    "badge": "Kemampuan Kami",
-    "title": "Solusi Praktis untuk",
-    "subtitle": "Kebutuhan Bisnis Anda",
-    "description": "Kami menyiapkan layanan yang membantu kegiatan bisnis harian menjadi lebih cepat dan tidak ribet.",
-    "s1_title": "Pencatatan Lebih Cepat",
-    "s1_desc": "Pekerjaan berulang jadi lebih ringan, sehingga waktu Anda bisa dipakai untuk hal yang lebih penting.",
-    "s2_title": "Data Bisnis Lebih Rapi",
-    "s2_desc": "Data pelanggan dan transaksi tersusun rapi agar mudah dicari saat dibutuhkan.",
-    "s3_title": "Keamanan Data",
-    "s3_desc": "Informasi bisnis Anda dijaga agar tetap aman dan nyaman digunakan setiap hari.",
-    "s4_title": "Ringkasan Performa Bisnis",
-    "s4_desc": "Lihat perkembangan pemasukan, pengeluaran, dan penjualan dalam tampilan yang mudah dimengerti.",
-    "cta": "Mari Berdiskusi",
-    "footer_title": "Siap Mengubah Cara Anda Berbisnis?",
-    "footer_desc": "Bergabunglah bersama para pengusaha modern lainnya yang telah menghemat waktu dan biaya dengan bantuan teknologi Vermont.",
-    "footer_button": "Jadwalkan Konsultasi Gratis"
+    "badge": "Layanan Kami",
+    "title": "Solusi Software Custom untuk",
+    "subtitle": "Kebutuhan Unik Anda",
+    "description": "Sebagai software house yang berdedikasi, kami merancang dan mengembangkan sistem software yang disesuaikan untuk menawarkan fleksibilitas mutlak bagi sektor konsumen, B2B, dan pemerintahan.",
+    "s1_title": "Pengembangan Aplikasi Custom",
+    "s1_desc": "Pengembangan end-to-end aplikasi web dan mobile yang direkayasa untuk menyelesaikan tantangan spesifik Anda.",
+    "s2_title": "Integrasi Sistem Perusahaan",
+    "s2_desc": "Menghubungkan berbagai sistem software untuk menyederhanakan alur kerja organisasi Anda yang kompleks.",
+    "s3_title": "Digitalisasi Pemerintahan",
+    "s3_desc": "Membangun sistem pelayanan publik yang aman, patuh regulasi, dan selalu tersedia untuk instansi pemerintah.",
+    "s4_title": "Solusi Data & AI",
+    "s4_desc": "Model prediksi khusus dan dashboard intelijen bisnis yang disesuaikan dengan data organisasi Anda.",
+    "cta": "Mulai Proyek Anda",
+    "footer_title": "Mencari Partner Software Custom?",
+    "footer_desc": "Bergabunglah dengan berbagai perusahaan dan lembaga pemerintah yang telah mempercayakan transformasi digital mereka kepada kami.",
+    "footer_button": "Konsultasi Gratis"
   },
   "solutions": {
     "badge": "Solusi Bisnis",
@@ -139,7 +139,7 @@
     }
   },
   "footer": {
-    "tagline": "Kami membantu berbagai startup dan bisnis online bekerja lebih rapi dengan sistem yang sederhana dan mudah dipahami.",
+    "tagline": "Software house terkemuka yang membangun solusi digital fleksibel untuk kustomer, bisnis, dan pemerintahan.",
     "exploration": "Jelajahi",
     "contact_heading": "Hubungi Kami",
     "innovation_hub": "Pusat Layanan Kami",

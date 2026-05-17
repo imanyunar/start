@@ -12,9 +12,9 @@
     "terms": "Terms"
   },
   "hero": {
-    "title": "Cashflow, Supply Chain & Profile Website for",
-    "subtitle": "Startups & SMEs Worldwide",
-    "description": "Professional business operating systems, cashflow tools, and supply chain management dashboards to help businesses scale efficiently.",
+    "title": "Flexible Software Solutions for",
+    "subtitle": "Customers, Businesses & Government",
+    "description": "We are a premier software house building custom, scalable, and secure digital solutions tailored to the unique workflows of businesses, enterprises, and public sectors.",
     "cta_primary": "Initialize Project",
     "cta_secondary": "Explore Solutions",
     "badge": "Next-Gen Autonomous Systems",
@@ -22,8 +22,8 @@
     "floating_desc": "Automation Secured"
   },
   "cta": {
-    "title": "Ready to Automate Your Business?",
-    "desc": "Join thousands of entrepreneurs who have saved time and increased profits with Vermont.",
+    "title": "Ready to Build Your Custom Software?",
+    "desc": "Partner with our software house to digitalize and automate your organization's operations with maximum flexibility.",
     "btn_primary": "Start Now",
     "btn_secondary": "Contact Us"
   },
@@ -51,38 +51,38 @@
   },
   "about": {
     "badge": "Our Story",
-    "title": "Empowering Your Business Growth with",
-    "subtitle": "Smart Technology",
-    "description": "Vermont Automated Digital was born from a simple belief: advanced technology shouldn't be difficult. We build digital assistants that help business owners focus on what they love, while we handle the complexity of operations.",
+    "title": "Empowering Your Organization with",
+    "subtitle": "Custom Software Solutions",
+    "description": "Vermont Automated Digital is a software house born from a simple belief: every organization is unique. We build flexible, custom digital systems that adapt to your specific needs—whether you're a retail customer, an enterprise business, or a government agency.",
     "philosophy": {
       "title": "Our Philosophy",
-      "p1_title": "Dream Big",
-      "p1_desc": "We don't just build software, we create assistants that help you thrive. Everything we make is rooted in curiosity and a desire to make your life easier.",
-      "p2_title": "Honest Tech",
-      "p2_desc": "Your data security is our top priority. We build transparent, safe, and reliable systems that anyone can trust."
+      "p1_title": "Ultimate Flexibility",
+      "p1_desc": "We don't force you into rigid SaaS products. We engineer bespoke software solutions that fit your workflows perfectly.",
+      "p2_title": "Enterprise & Government Grade",
+      "p2_desc": "Security, compliance, and scalability are at our core. We build transparent and reliable systems that anyone can trust."
     },
     "mission": {
       "title": "Our Mission",
-      "desc": "To provide affordable and easy-to-use business tools so teams can grow without operational headaches."
+      "desc": "To provide high-quality, custom software development services that help organizations scale without operational friction."
     },
-    "vision": { "title": "Our Vision", "desc": "A future where technology is not a burden, but a smart partner that helps us all progress." }, "founder_heading": "The Person Behind This"
+    "vision": { "title": "Our Vision", "desc": "A future where every organization has a digital infrastructure perfectly tailored to its unique mission." }, "founder_heading": "The Person Behind This"
   },
   "services": {
     "badge": "Our Services",
-    "title": "Smart Solutions for",
-    "subtitle": "Your Business Needs",
-    "description": "We design digital assistant systems that help manage your daily tasks automatically without needing much human intervention.",
-    "s1_title": "Work Automation",
-    "s1_desc": "Reduce repetitive manual tasks so your team can focus on customers and sales.",
-    "s2_title": "Secure Storage",
-    "s2_desc": "Super-fast data storage systems that grow as your business develops.",
-    "s3_title": "High-Level Security",
-    "s3_desc": "Protecting your data using the latest technology to ensure it's always safe from interference.",
-    "s4_title": "Business Forecasting",
-    "s4_desc": "See the future of your business based on past data to help you make the right decisions.",
-    "cta": "Start Now",
-    "footer_title": "Ready to Make Business Easier?",
-    "footer_desc": "Join other entrepreneurs who have made daily operations faster and more organized.",
+    "title": "Custom Software Solutions for",
+    "subtitle": "Your Unique Needs",
+    "description": "As a dedicated software house, we design and develop tailored software systems offering absolute flexibility for consumers, B2B, and B2G sectors.",
+    "s1_title": "Custom Application Development",
+    "s1_desc": "End-to-end development of web and mobile applications engineered to solve your specific challenges.",
+    "s2_title": "Enterprise System Integration",
+    "s2_desc": "Seamlessly connecting diverse software systems to streamline your complex organizational workflows.",
+    "s3_title": "Government Digitalization",
+    "s3_desc": "Building secure, compliant, and highly available public service systems for government agencies.",
+    "s4_title": "Data & AI Solutions",
+    "s4_desc": "Custom predictive models and business intelligence dashboards tailored to your organizational data.",
+    "cta": "Start Your Project",
+    "footer_title": "Looking for a Custom Software Partner?",
+    "footer_desc": "Join organizations and government bodies who have entrusted their digital transformation to us.",
     "footer_button": "Free Consultation"
   },
   "solutions": {
@@ -139,7 +139,7 @@
     }
   },
   "footer": {
-    "tagline": "Helping businesses run daily operations faster and more efficiently through practical digital systems.",
+    "tagline": "A premier software house building flexible digital solutions for customers, businesses, and governments.",
     "exploration": "Exploration",
     "contact_heading": "Contact",
     "innovation_hub": "Innovation Hub",
