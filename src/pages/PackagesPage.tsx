@@ -1,17 +1,21 @@
 import { motion } from 'framer-motion';
 import { Check, Crown, Rocket, Sparkles, Tag, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-const packages = [
+const getPackages = (isEn: boolean) => [
   {
     name: 'Basic',
     icon: Rocket,
     setupOldPrice: 1500000,
     setupNewPrice: 999000,
     hostingPrice: 79000,
+    setupOldPriceUSD: 199,
+    setupNewPriceUSD: 129,
+    hostingPriceUSD: 15,
     headline: 'Start Digital',
-    highlight: 'Company Profile + Cashflow Dashboard',
-    features: [
+    highlight: isEn ? 'Company Profile + Cashflow Dashboard' : 'Website Profile + Dashboard Cashflow',
+    features: isEn ? [
       'Company profile website',
       'Custom Domain',
       'Simple cashflow dashboard',
@@ -22,13 +26,24 @@ const packages = [
       '1 admin account',
       'Maintenance & hosting',
       'Basic support',
+    ] : [
+      'Website company profile',
+      'Domain .my.id',
+      'Dashboard cashflow sederhana',
+      'Pencatatan pemasukan & pengeluaran',
+      'Riwayat transaksi',
+      'Ringkasan omzet harian',
+      'Upload bukti pembayaran',
+      '1 akun admin',
+      'Maintenance & hosting',
+      'Support dasar',
     ],
     headerGradient: 'from-[#1D6FE8] via-[#0EA5E9] to-[#38BDF8]',
     glowColor: 'shadow-blue-500/30',
     checkColor: 'text-sky-500',
     checkBg: 'bg-sky-500/10 dark:bg-sky-400/20',
     cardBorder: 'border-sky-200/80 dark:border-sky-800/60',
-    button: 'Mulai Paket Basic',
+    button: isEn ? 'Start Basic Package' : 'Mulai Paket Basic',
     btnClass: 'bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white shadow-lg shadow-sky-500/30',
     featured: false,
   },
@@ -38,9 +53,12 @@ const packages = [
     setupOldPrice: 2500000,
     setupNewPrice: 1499000,
     hostingPrice: 139000,
+    setupOldPriceUSD: 399,
+    setupNewPriceUSD: 249,
+    hostingPriceUSD: 29,
     headline: 'Best Value 🔥',
-    highlight: 'Basic + Complete Operations & Supply Chain',
-    features: [
+    highlight: isEn ? 'Basic + Complete Operations & Supply Chain' : 'Semua fitur Basic + Operasional Lengkap',
+    features: isEn ? [
       'All Basic features',
       'Premium Domain',
       'Inventory & Supply Chain Management',
@@ -55,13 +73,28 @@ const packages = [
       '3 user/admin accounts',
       'Advanced dashboard',
       'Priority support',
+    ] : [
+      'Semua fitur Basic',
+      'Domain .com',
+      'Manajemen stok barang',
+      'Notifikasi stok menipis',
+      'Data pelanggan',
+      'Histori pembelian pelanggan',
+      'Export PDF & Excel',
+      'Produk paling laris otomatis',
+      'Laporan penjualan bulanan',
+      'Reminder transaksi & stok',
+      'Filter & pencarian transaksi',
+      '3 akun user/admin',
+      'Dashboard lebih lengkap',
+      'Prioritas support',
     ],
     headerGradient: 'from-[#7C3AED] via-[#8B5CF6] to-[#A78BFA]',
     glowColor: 'shadow-violet-500/30',
     checkColor: 'text-violet-400',
     checkBg: 'bg-violet-500/10 dark:bg-violet-400/20',
     cardBorder: 'border-violet-200/80 dark:border-violet-800/60',
-    button: 'Pilih Paket Pro',
+    button: isEn ? 'Choose Pro Package' : 'Pilih Paket Pro',
     btnClass: 'bg-gradient-to-r from-violet-600 to-purple-700 hover:from-violet-700 hover:to-purple-800 text-white shadow-lg shadow-violet-500/30',
     featured: true,
   },
@@ -71,9 +104,12 @@ const packages = [
     setupOldPrice: 3500000,
     setupNewPrice: 1999999,
     hostingPrice: 189000,
+    setupOldPriceUSD: 599,
+    setupNewPriceUSD: 399,
+    hostingPriceUSD: 49,
     headline: 'Business Insight',
-    highlight: 'Pro + Analytics & Ecosystem Integrations',
-    features: [
+    highlight: isEn ? 'Pro + Analytics & Ecosystem Integrations' : 'Semua fitur Pro + Analisis & Integrasi',
+    features: isEn ? [
       'All Pro features',
       'Debt & receivables tracking',
       'Payment due reminders',
@@ -89,25 +125,43 @@ const packages = [
       'Priority maintenance',
       'Light feature customization requests',
       'System development consultation',
+    ] : [
+      'Semua fitur Pro',
+      'Pencatatan hutang & piutang',
+      'Reminder jatuh tempo pembayaran',
+      'Analisis performa bisnis',
+      'Analisis pengeluaran terbesar',
+      'Analisis jam penjualan tersibuk',
+      'Histori pelanggan langganan',
+      'Multi user lebih banyak',
+      'Dashboard insight bisnis premium',
+      'Integrasi payment gateway / QRIS',
+      'Integrasi marketplace',
+      'Integrasi resi & pengiriman',
+      'Prioritas maintenance',
+      'Request penyesuaian fitur ringan',
+      'Konsultasi pengembangan sistem',
     ],
     headerGradient: 'from-[#B45309] via-[#D97706] to-[#FBBF24]',
     glowColor: 'shadow-amber-500/30',
     checkColor: 'text-amber-400',
     checkBg: 'bg-amber-500/10 dark:bg-amber-400/20',
     cardBorder: 'border-amber-300/80 dark:border-amber-700/60',
-    button: 'Ambil Paket Platinum',
+    button: isEn ? 'Get Platinum Package' : 'Ambil Paket Platinum',
     btnClass: 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white shadow-lg shadow-amber-500/30',
     featured: false,
   },
 ] as const;
 
-const formatRp = (n: number) =>
-  'Rp ' + n.toLocaleString('id-ID');
-
 const discountPct = (old: number, now: number) =>
   Math.round(((old - now) / old) * 100);
 
 export default function PackagesPage() {
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language === 'en';
+  const packages = getPackages(isEn);
+  
+  const formatPrice = (n: number) => isEn ? '$' + n.toLocaleString('en-US') : 'Rp ' + n.toLocaleString('id-ID');
   return (
     <div className="min-h-screen bg-[var(--app-bg)] pt-24 transition-colors duration-300">
       <section className="px-4 py-16 sm:px-6 lg:px-8">
@@ -120,14 +174,16 @@ export default function PackagesPage() {
               animate={{ opacity: 1, y: 0 }}
               className="badge-light mx-auto mb-4 w-fit"
             >
-              Service Packages
+              {isEn ? 'Service Packages' : 'Paket Layanan'}
             </motion.div>
             <h1 className="mb-5 text-4xl font-black tracking-tight text-[var(--app-text)] md:text-6xl">
-              Choose a Package For Your{' '}
-              <span className="text-gradient">Business Needs</span>
+              {isEn ? 'Choose a Package For Your ' : 'Pilih Paket Sesuai '}
+              <span className="text-gradient">{isEn ? 'Business Needs' : 'Kebutuhan Bisnis Anda'}</span>
             </h1>
             <p className="text-lg font-bold leading-relaxed text-[var(--app-muted)]">
-              Our focus is simple: making your daily business operations and supply chain management easier and faster.
+              {isEn 
+                ? 'Our focus is simple: making your daily business operations and supply chain management easier and faster.'
+                : 'Fokus kami sederhana: mempermudah dan mempercepat kegiatan bisnis harian Anda.'}
             </p>
           </div>
 
@@ -135,7 +191,10 @@ export default function PackagesPage() {
           <div className="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:items-start">
             {packages.map((pkg, idx) => {
               const Icon = pkg.icon;
-              const pct = discountPct(pkg.setupOldPrice, pkg.setupNewPrice);
+              const oldPrice = isEn ? pkg.setupOldPriceUSD : pkg.setupOldPrice;
+              const newPrice = isEn ? pkg.setupNewPriceUSD : pkg.setupNewPrice;
+              const hPrice = isEn ? pkg.hostingPriceUSD : pkg.hostingPrice;
+              const pct = discountPct(oldPrice, newPrice);
 
               return (
                 <motion.div
@@ -163,7 +222,7 @@ export default function PackagesPage() {
 
                     <div className="relative z-10 flex items-start justify-between">
                       <div>
-                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60">Package</p>
+                        <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/60">{isEn ? 'Package' : 'Paket'}</p>
                         <h2 className="mt-0.5 text-3xl font-black tracking-tight text-white">{pkg.name}</h2>
                       </div>
                       <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/25 text-white shadow-inner">
@@ -174,28 +233,28 @@ export default function PackagesPage() {
                     {/* Pricing */}
                     <div className="relative z-10 mt-5">
                       <p className="mb-1 text-[10px] font-black uppercase tracking-[0.2em] text-white/60">
-                        Setup Fee
+                        {isEn ? 'Setup Fee' : 'Biaya Setup'}
                       </p>
                       <div className="flex items-center gap-3">
-                        <p className="text-3xl font-black text-white">{formatRp(pkg.setupNewPrice)}</p>
+                        <p className="text-3xl font-black text-white">{formatPrice(newPrice)}</p>
                         <span className="text-sm font-bold text-white/70 line-through">
-                          {formatRp(pkg.setupOldPrice)}
+                          {formatPrice(oldPrice)}
                         </span>
                       </div>
                       <div className="mt-5 flex flex-col gap-1.5">
                         <div className="flex items-baseline gap-1.5">
                           <span className="text-4xl font-black leading-none text-white">
-                            {formatRp(pkg.hostingPrice).replace('Rp ', '')}
+                            {isEn ? formatPrice(hPrice).replace('$', '') : formatPrice(hPrice).replace('Rp ', '')}
                           </span>
-                          <span className="text-sm font-bold text-white/70">/bln</span>
+                          <span className="text-sm font-bold text-white/70">{isEn ? '/mo' : '/bln'}</span>
                         </div>
                         <p className="flex items-center gap-1 text-[11px] font-black uppercase tracking-wider text-white">
                           <span className="rounded bg-white px-1.5 py-0.5 text-[9px] text-blue-600">FREE</span>
-                          First Month FREE
+                          {isEn ? 'First Month FREE' : 'Bulan Pertama GRATIS'}
                         </p>
                       </div>
                       <p className="mt-2 text-[10px] font-black uppercase tracking-widest text-white/50">
-                        Maintenance & Hosting Fee
+                        {isEn ? 'Maintenance & Hosting Fee' : 'Biaya Maintenance & Hosting'}
                       </p>
                     </div>
                   </div>
@@ -205,7 +264,7 @@ export default function PackagesPage() {
                     {/* Red DISKON pill */}
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-rose-500 px-3.5 py-2 text-xs font-black text-white shadow-xl shadow-rose-500/40">
                       <Tag size={12} strokeWidth={3} />
-                      {pct}% OFF
+                      {isEn ? `${pct}% OFF` : `DISKON ${pct}%`}
                     </span>
                   </div>
 
@@ -247,12 +306,14 @@ export default function PackagesPage() {
           {/* Bottom CTA */}
           <div className="relative mt-20 overflow-hidden rounded-[3rem] border border-[var(--app-border)] bg-[var(--app-surface)] p-8 text-center md:p-12">
             <div className="absolute right-0 top-0 h-64 w-64 -translate-y-1/2 translate-x-1/2 rounded-full bg-blue-primary/5 blur-3xl" />
-            <h2 className="mb-4 text-3xl font-black text-[var(--app-text)]">Need a Custom Solution?</h2>
+            <h2 className="mb-4 text-3xl font-black text-[var(--app-text)]">{isEn ? 'Need a Custom Solution?' : 'Butuh Solusi Kustom?'}</h2>
             <p className="mx-auto mb-8 max-w-2xl font-bold text-[var(--app-muted)]">
-              If your business requires specific features, advanced supply chain capabilities, or custom integrations, our laboratory team is ready to build a system tailored to your exact specifications.
+              {isEn 
+                ? 'If your business requires specific features, advanced supply chain capabilities, or custom integrations, our laboratory team is ready to build a system tailored to your exact specifications.'
+                : 'Jika bisnis Anda membutuhkan fitur khusus yang tidak ada di paket atas, tim lab kami siap membangun sistem yang sesuai dengan spesifikasi Anda.'}
             </p>
             <Link to="/contact" className="btn-secondary inline-flex">
-              Free Consultation Now
+              {isEn ? 'Free Consultation Now' : 'Konsultasi Gratis Sekarang'}
             </Link>
           </div>
         </div>
